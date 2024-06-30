@@ -12,7 +12,7 @@
 
 .cube {
     position: relative;
-    top: 5rem;
+    top: -1rem;
     transform-style: preserve-3d;
     position: relative;
     width: 35vw;
