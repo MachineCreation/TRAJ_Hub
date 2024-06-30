@@ -1,0 +1,104 @@
+#avi-t {
+    position: absolute;
+    bottom: 18vh;
+    left: 1vh;
+    height: 40vh;
+    width: 25vh;
+    background-image: url(../images/T.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: avi0 2s ease-in-out;
+}
+
+#avi-r {
+    position: absolute;
+    bottom: 22vh;
+    right: 3vh;
+    height: 35vh;
+    width: 20vh;
+    background-image: url(../images/R.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: avi0 2s ease-in-out;
+}
+
+#avi-a {
+    position: absolute;
+    bottom:0;
+    left: 11vh;
+    height: 35vh;
+    width: 20vh;
+    background-image: url(../images/A.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: avi0 2.75s ease-in-out;
+}
+
+#avi-j {
+    position: absolute;
+    bottom: 0;
+    right: 11vh;
+    height: 35vh;
+    width: 20vh;
+    background-image: url(../images/J.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .9;
+    animation: avi0 2.75s ease-in-out;
+}
+
+@media screen and (max-width: 550px) {
+    #avi-t {
+        animation: avi01 2s ease-in-out;
+        left: -3vh;
+    }
+
+    #avi-r {
+        animation: avi11 2s ease-in-out;
+        right: -2vh;
+    }
+
+    #avi-a {
+        left: 0;
+        animation: avi01 2.75s ease-in-out;
+    }
+
+    #avi-j {
+        right: -1vh;
+        animation: avi11 2.75s ease-in-out;
+    }
+}
+
+@keyframes avi0 {
+    0% { transform: translateY(20vh);
+        opacity: 0;}
+    50% { transform: translateY(20vh);
+         opacity: 0;}
+    100% { transform: translateY(0rem);
+            opacity: .9;}
+}
+
+@keyframes avi01 {
+    0% { transform: translateX(-25vh);
+        opacity: 0;}
+    50% { transform: translateX(-25vh);
+        opacity: 0;}
+    75% {transform: translateX(-12.5vw);
+        opacity: 0;}
+    100% { transform: translateX(0rem);
+        opacity: 0.9;}
+}
+
+@keyframes avi11 {
+    0% { transform: translateX(25vh);
+        opacity: 0;}
+    50% { transform: translateX(25vh);
+        opacity: 0;}
+    75% {transform: translateX(12.5vw);
+        opacity: 0;}
+    100% { transform: translateX(0rem);
+        opacity: .9;}
+}

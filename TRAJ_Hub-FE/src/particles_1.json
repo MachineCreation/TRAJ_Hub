@@ -1,0 +1,103 @@
+{
+    "autoPlay": true,
+    "background": {
+      "color": {
+        "value": "#000"
+      },
+      "opacity": 1
+    },
+    "fullScreen": {
+      "enable": true,
+      "zIndex": -1
+    },
+    "detectRetina": true,
+    "fpsLimit": 120,
+    "interactivity": {
+      "detectsOn": "window",
+      "resize": {
+        "delay": 0.5,
+        "enable": true
+      }
+    },
+    "particles": {
+      "color": {
+        "value": "#00AAD4",
+        "animation": {
+          "enable": false
+        }
+      },
+      "links": {
+        "color": {
+          "value": "#ADD8E6"
+        },
+        "distance": 100,
+        "enable": false,
+        "opacity": 1,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 3,
+        "path": {
+          "clamp": false,
+          "enable": true,
+          "generator": "polygonPathGenerator",
+          "options": {
+            "sides": 5,
+            "turnSteps": 60,
+            "angle": 30
+          }
+        },
+        "outModes": {
+          "default": "destroy"
+        },
+        "trail": {
+          "enable": true,
+          "length": 20,
+          "fill": {
+            "color": {
+              "value": "rgba(0, 0, 0, 0.01)"
+            }
+          }
+        }
+      },
+      "number": {
+        "density": {
+          "enable": true,
+          "width": 1920,
+          "height": 1080
+        },
+        "value": 0
+      },
+      "opacity": {
+        "value": 1,
+        "animation": {
+          "enable": true,
+          "speed": 10,
+          "minimumValue": 0,
+          "sync": false
+        }
+      },
+      "shape": {
+        "type": "circle"
+      },
+      "size": {
+        "value": 1,
+        "animation": {
+          "enable": false
+        }
+      }
+    },
+    "emitters": {
+      "rate": {
+        "quantity": 1,
+        "delay": 0.015
+      },
+      "shape": "square",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+  
