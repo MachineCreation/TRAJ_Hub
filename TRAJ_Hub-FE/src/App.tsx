@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // components
@@ -10,7 +10,6 @@ import routes from "./config/routes"
 
 function App() {
 
-  const [test, setTest] = useState(true)
 
   return (
       
