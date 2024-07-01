@@ -11,7 +11,8 @@ function Home() {
 
   return (
     <section className="flex flex-col xl:h-screen w-full m-auto justify-items-center relative">
-    <Header />
+    <Header
+      name={'Home'} />
     <NavCube />
     <QuadSquad />
     <TeamStats />

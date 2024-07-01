@@ -5,13 +5,13 @@ import MemberPage from "../components/member-page";
 
 // css
 
-function TopSloth() {
+function RedPrimeOrigin() {
 
   
   return (
     <MemberPage 
-      name={'Topsloth'}/>
+      name={'RedPrimeOrigin'}/>
   )
 }
 
-export default TopSloth;
+export default RedPrimeOrigin;

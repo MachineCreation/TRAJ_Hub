@@ -25,17 +25,17 @@ function NavCube() {
                     </div>
                 </div>
                 <div className="back side flex justify-items-center">
-                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer">
+                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/RedPrimeOrigin")}>
                         <p className="flex m-auto ">RedPrimeOrigin</p>
                     </div>
                 </div>
                 <div className="right side flex justify-items-center">
-                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer">
+                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/Araspberryberet")}>
                     <p className="flex m-auto ">Araspberryberret</p>
                     </div>
                 </div>
                 <div className="left side flex justify-items-center">
-                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer">
+                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/JesusTts")}>
                         <p className="flex m-auto ">JesusTts</p>
                     </div>
                 </div>

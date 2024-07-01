@@ -5,13 +5,13 @@ import MemberPage from "../components/member-page";
 
 // css
 
-function TopSloth() {
+function JesusTts() {
 
   
   return (
     <MemberPage 
-      name={'Topsloth'}/>
+      name={'JesusTts'}/>
   )
 }
 
-export default TopSloth;
+export default JesusTts;
