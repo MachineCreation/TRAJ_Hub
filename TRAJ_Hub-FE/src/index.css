@@ -8,3 +8,11 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+/* * {
+    border: 1px solid white;
+} */
+
+img {
+    border-radius: 1rem;
+}

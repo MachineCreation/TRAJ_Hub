@@ -2,6 +2,7 @@
 
 //components
 import Header from "./header";
+import Profile from "./member-profile";
 
 //css
 
@@ -12,9 +13,11 @@ interface MemberProps {
 const MemberPage = (props: MemberProps) => {
 
     return (
-        <section className="w-full h-fit min-h screen text-cyan-50">
+        <section className="flex flex-col justify-items-center w-full h-fit min-h-custom-main text-cyan-50 z-10">
             <Header 
                 name={props.name}/>
+            <Profile
+                name={props.name} />
         </section>
     );
 };

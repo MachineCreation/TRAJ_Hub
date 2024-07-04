@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      height: {
+        'custom-main': 'calc(100svh - 10rem)', 
+      },
       boxShadow: {
         'orange-inner': '0 0 .5rem .5rem rgba(114 38 0 / .5) inset'
       },
