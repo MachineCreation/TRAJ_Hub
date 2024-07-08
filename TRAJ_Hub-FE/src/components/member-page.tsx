@@ -17,7 +17,7 @@ const MemberPage = (props: MemberProps) => {
             <Header 
                 name={props.name}/>
             <Profile
-                name={props.name} />
+                />
         </section>
     );
 };

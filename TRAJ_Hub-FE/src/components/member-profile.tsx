@@ -13,11 +13,11 @@ import P3 from '../images/profile/Tempered_s_3.png'
 import P4 from '../images/profile/combat_scou_p_4.png'
 
 // css
-interface ProfileProps {
-    name: string
-}
+// interface ProfileProps {
+//     name: string
+// }
 
-const Profile = (props: ProfileProps) => {
+const Profile = () => {
     return (
         <>
         <article className="relative flex flex-col md:flex-row justify-items-center  w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5 ">
@@ -53,8 +53,8 @@ const Profile = (props: ProfileProps) => {
                 </section>
             </article>
         </article>
-        <article>
-            
+        <article className="relative flex flex-col md:flex-row justify-items-center  w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5 ">
+            <p>5 most recent YouTube videos from member</p>
         </article>
         </>
     );
