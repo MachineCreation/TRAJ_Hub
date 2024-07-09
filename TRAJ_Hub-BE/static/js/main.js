@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (loginForm) {
         loginForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            const uname = e.target.uname.value;
-            const psw = e.target.psw.value;
+            const uname = e.target.username.value;
+            const psw = e.target.password.value;
 
             const response = await fetch('/login', {
                 method: 'POST',
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (result.status === 'update_password') {
                 loginForm.style.display = 'none';
-                updatePasswordForm.style.display = 'block';
+                updatePasswordForm.style.display = 'flex';
                 localStorage.setItem('username', uname);  // Store username for password update
             } else if (result.status === 'success') {
                 window.location.href = '/main';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updatePasswordForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             const uname = localStorage.getItem('username');
-            const new_psw = e.target.new_psw.value;
+            const new_psw = e.target.newPassword.value;
 
             const response = await fetch('/update_password', {
                 method: 'POST',

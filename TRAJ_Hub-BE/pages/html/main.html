@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
     <title>Main Page</title>
 </head>
 <body>
     <main>
-        <h1>Welcome, {{ user_data.name }}</h1>
         <form id="user-data-form">
-            <label for="email"><b>Email:</b></label>
-            <input type="email" name="email" value="{{ user_data.email }}" required>
+            <h1>Welcome, {{ user_data.name }}</h1>
+            <article>
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value="{{ user_data.email }}" required> 
+                </section>
+            
+                <section>
+                    <label for="name"><b>Name:</b></label>
+                    <input type="text" name="name" value="{{ user_data.name }}" required>
+                </section>
 
-            <label for="name"><b>Name:</b></label>
-            <input type="text" name="name" value="{{ user_data.name }}" required>
-
-            <button type="submit">Update Info</button>
+            
+            </article>
+            
+                <button type="submit">Update Loadout</button>
         </form>
     </main>
 </body>
-<script src="../js/main.js"></script>
+<script src="../../static/js/main.js"></script>
 </html>

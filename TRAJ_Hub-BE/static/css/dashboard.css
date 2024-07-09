@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(31, 31, 31);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main form article {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main form article section {
+    display: flex;
+    flex-grow: 1;
+    min-width: fit-content;
+    margin: .5rem;
+    padding: .5rem;
+    justify-content: space-between;
+    background-color: darkgrey;
+    border-radius: .5rem;
+}
+
+button{
+    max-width: fit-content;
+    margin: auto;
+    padding: .4rem;
+    background-color: aquamarine;
+    border-radius: .5rem;
+}
+
+label {
+    display: flex;
+    padding: .2rem;
+    margin: auto;
+}
+
+input {
+    display: flex;
+    padding: .2rem;
+    margin: auto;
+    border-radius: .5rem;
+}
