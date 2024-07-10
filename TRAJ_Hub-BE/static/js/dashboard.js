@@ -1,50 +1,7 @@
 // static/js/dashboard.js
-document.addEventListener('DOMContentLoaded', function () {
-    const data = {
-        "guns": {
-            "assault rifle": ["muzzle", "barrel", "underbarrel", "laser", "sights", "magazine", "Rear-grip", "Stock", "Conversion"],
-            "LMG": ["muzzle", "barrel", "underbarrel", "laser", "sights", "magazine", "Rear-grip", "Stock", "Conversion"],
-            "marksman rifle": ["muzzle", "barrel", "laser", "sights", "magazine", "sling", "Rear-grip", "Stock", "Conversion"],
-            "pistol": ["muzzle", "barrel", "underbarrel", "laser", "sights", "magazine", "Rear-grip", "Conversion"]
-        },
-        "muzzle": {
-            "supressor": "description",
-            "flash-hider": "description"
-        },
-        "barrel": {
-            "long": "description",
-            "short": "description"
-        },
-        "underbarrel": {
-            "Bruen heavy support grip": "description",
-            "Crowin grip": "description"
-        },
-        "laser": {
-            "3mw": "description",
-            "7mw": "description"
-        },
-        "sights": {
-            "Reflex": "description",
-            "Scope": "description"
-        },
-        "magazine": {
-            "Extended": "description",
-            "Drum": "description"
-        },
-        "Rear-grip": {
-            "Rubberized": "description",
-            "Granulated": "description"
-        },
-        "Stock": {
-            "Adjustable": "description",
-            "Fixed": "description"
-        },
-        "Conversion": {
-            "9mm": "description",
-            "45ACP": "description"
-        }
-    };
+import { data } from './api_base.js';
 
+document.addEventListener('DOMContentLoaded', function () {
     const primaryGunTypeInput = document.getElementById('primary-gun-type');
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
     const primaryPartsContainer = document.getElementById('primary-parts-container');
