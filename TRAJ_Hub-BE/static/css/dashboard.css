@@ -1,3 +1,4 @@
+/* static/css/dashboard.css */
 body {
     background-color: rgb(31, 31, 31);
     font-family: Arial, Helvetica, sans-serif;
@@ -12,20 +13,27 @@ main form {
 main form article {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 main form article section {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     min-width: fit-content;
     margin: .5rem;
     padding: .5rem;
-    justify-content: space-between;
     background-color: darkgrey;
     border-radius: .5rem;
 }
 
-button{
+main form article section div {
+    justify-content: space-between;
+    display: flex;
+    padding: .5rem;
+}
+
+button {
     max-width: fit-content;
     margin: auto;
     padding: .4rem;
@@ -36,12 +44,15 @@ button{
 label {
     display: flex;
     padding: .2rem;
-    margin: auto;
 }
 
 input {
     display: flex;
     padding: .2rem;
-    margin: auto;
     border-radius: .5rem;
+}
+
+#primary-parts-container, #secondary-parts-container {
+    display: flex;
+    flex-direction: column;
 }

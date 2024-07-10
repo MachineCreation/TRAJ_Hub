@@ -12,21 +12,37 @@
             <h1>Welcome, {{ user_data.name }}</h1>
             <article>
                 <section>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" value="{{ user_data.email }}" required> 
+                    <div>
+                        <label for="primary"><b>Primary weapon</b>:</label>
+                        <input type="file" name="primary" accept="image/*" required>
+                    </div>
+                    <div>
+                        <label for="primary-gun-type">Primary Gun Type</label>
+                        <input type="text" id="primary-gun-type" name="primary-gun-type" list="primary-gun-type-sug" autocomplete="on">
+                        <datalist id="primary-gun-type-sug"></datalist>
+                    </div>
+                    <div id="primary-parts-container">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
                 </section>
-            
                 <section>
-                    <label for="name"><b>Name:</b></label>
-                    <input type="text" name="name" value="{{ user_data.name }}" required>
+                    <div>
+                        <label for="secondary"><b>Secondary weapon</b></label>
+                        <input type="file" name="secondary" accept="image/*" required>
+                    </div>
+                    <div>
+                        <label for="secondary-gun-type">Secondary Gun Type</label>
+                        <input type="text" id="secondary-gun-type" name="secondary-gun-type" list="secondary-gun-type-sug" autocomplete="on">
+                        <datalist id="secondary-gun-type-sug"></datalist>
+                    </div>
+                    <div id="secondary-parts-container">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
                 </section>
-
-            
             </article>
-            
-                <button type="submit">Update Loadout</button>
+            <button type="submit">Update Loadout</button>
         </form>
     </main>
+    <script src="../../static/js/dashboard.js"></script>
 </body>
-<script src="../../static/js/main.js"></script>
 </html>
