@@ -1,0 +1,9 @@
+muzzle MZ051
+Barrel B004
+underbarrel U041
+Ammo A007
+Laser L014
+optics OP063
+mag M002
+stock S008
+conversion C001
