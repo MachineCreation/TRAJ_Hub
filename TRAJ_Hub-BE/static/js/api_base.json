@@ -1,0 +1,1971 @@
+
+"weapons": {
+            "description": "Retrieve a list of all available weapons in Warzone 3.",
+            "method": "GET",
+            "url": "/api/weapons",
+            "response": {
+                "weapons": [
+                    {
+                        "name": "AMR 9",
+                        "type": "SMG",
+                        "stats": {
+                            "RPM": 833.3,
+                            "Mag Size": 30,
+                            "Reload Time": "2.5s",
+                            "ADS Time": "240ms",
+                            "Bullet Velocity": "625m/s",
+                            "Movement Speed": "4.9m/s",
+                            "Sprint to Fire": "136ms",
+                            "Tac Sprint to Fire": "0ms",
+                            "ADS Move Speed": "3.1m/s",
+                            "Zoom": "0.88x",
+                            "Sprint": "5.6m/s",
+                            "Tac Sprint": "7m/s",
+                            "Crouch Speed": "1.9m/s",
+                            "Swap Speed": "1360ms",
+                            "Min Hipfire": "2°",
+                            "Max Hipfire": "6.1°",
+                            "Tac Spread": "3.3°",
+                            "Target Flinch": "0.7N",
+                            "Flinch Resist": "0N",
+                            "Hitscan Range": "31.3m"
+                        }
+                    },
+                    {"name": "Weapon 2", "type": "SMG"}
+                ]
+            }
+        },
+
+
+{
+    "Muzzle": [
+        {
+            "id": "MZ000",
+            "name": "HMRES Mod Suppressor S",
+            "stats": {
+                "Bullet Velocity": "+10%",
+                "Horizontal Recoil": "+8%",
+                "Vertical Recoil": "+8%"
+            }
+        },
+        {
+            "id": "MZ001",
+            "name": "Monolithic Suppressor S",
+            "stats": {
+                "Horizontal Recoil": "-5%",
+                "Vertical Recoil": "-5%",
+                "ADS Move": "-4%",
+                "ADS Time": "+18.8%"
+            }
+        },
+        {
+            "id": "MZ002",
+            "name": "Sonic Suppressor S",
+            "stats": {
+                "Range": "+5%",
+                "Bullet Velocity": "+12.9%",
+                "Horizontal Recoil": "-4%",
+                "Vertical Recoil": "-4%",
+                "Sprint to Fire": "+2.1%"
+            }
+        },
+        {
+            "id": "MZ003",
+            "name": "Colossus Suppressor S",
+            "stats": {
+                "Range": "-4%",
+                "Horizontal Recoil": "-5%",
+                "Vertical Recoil": "-5%",
+                "ADS Time": "+18.8%"
+            }
+        },
+        {
+            "id": "MZ004",
+            "name": "Colossus Suppressor",
+            "stats": {
+                "Horizontal Recoil": "-2.4%",
+                "Vertical Recoil": "-2.4%",
+                "ADS Time": "+7.5%"
+            }
+        },
+        {
+            "id": "MZ005",
+            "name": "XTEN RR-40",
+            "stats": {
+                "Range": "-3.2%",
+                "Bullet Velocity": "+18%",
+                "ADS Time": "+28.3%"
+            }
+        },
+        {
+            "id": "MZ006",
+            "name": "Forge DX90-F",
+            "stats": {
+                "Range": "-12%"
+            }
+        },
+        {
+            "id": "MZ007",
+            "name": "SA Schalldampfer 99",
+            "stats": {
+                "Range": "-5.2%",
+                "Bullet Velocity": "+11.9%",
+                "Gun Kick": "-4.5%",
+                "Horizontal Recoil": "-4.5%",
+                "Vertical Recoil": "-4.5%",
+                "ADS Move": "-4.9%",
+                "ADS Time": "+37.9%"
+            }
+        },
+        {
+            "id": "MZ008",
+            "name": "Singuard MKV",
+            "stats": {
+                "Range": "-3.2%",
+                "Bullet Velocity": "+18%",
+                "Gun Kick": "-3.5%",
+                "Horizontal Recoil": "-3.5%",
+                "Vertical Recoil": "-3.5%",
+                "ADS Move": "-7.2%",
+                "ADS Time": "+42.9%"
+            }
+        },
+        {
+            "id": "MZ009",
+            "name": "EXF Huntress-90",
+            "stats": {
+                "Range": "-5.2%",
+                "Bullet Velocity": "+11.9%",
+                "Gun Kick": "-2.3%",
+                "Horizontal Recoil": "-2.3%",
+                "Vertical Recoil": "-2.3%",
+                "ADS Move": "-4.8%",
+                "ADS Time": "+27.9%"
+            }
+        },
+        {
+            "id": "MZ010",
+            "name": "XTEN Black Kite",
+            "stats": {
+                "Range": "-7.6%",
+                "Bullet Velocity": "+9%",
+                "Gun Kick": "-7%",
+                "Horizontal Recoil": "-7%",
+                "Vertical Recoil": "-7%",
+                "ADS Move": "-14.1%",
+                "ADS Time": "+43.3%"
+            }
+        },
+        {
+            "id": "MZ011",
+            "name": "FSS Covert IV",
+            "stats": {
+                "Range": "-12%",
+                "Gun Kick": "-7%",
+                "Horizontal Recoil": "-7%",
+                "Vertical Recoil": "-7%",
+                "ADS Move": "-14.1%",
+                "ADS Time": "+29.2%"
+            }
+        },
+        {
+            "id": "MZ012",
+            "name": "Ster45 Skyfury Compensator L",
+            "stats": {
+                "Horizontal Recoil": "-14.4%",
+                "Vertical Recoil": "-7.2%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "MZ013",
+            "name": "ELR Blackfire Compensator S",
+            "stats": {
+                "Range": "-19%",
+                "Bullet Velocity": "-15.4%",
+                "Horizontal Recoil": "-14.4%",
+                "Vertical Recoil": "-7.2%"
+            }
+        },
+        {
+            "id": "MZ014",
+            "name": "Wrathguard Compensator S",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-8%",
+                "Horizontal Recoil": "-22.5%",
+                "Vertical Recoil": "-18%"
+            }
+        },
+        {
+            "id": "MZ015",
+            "name": "T4LR Saber Compensator S",
+            "stats": {
+                "Range": "-5%",
+                "Bullet Velocity": "-4%",
+                "Horizontal Recoil": "-20.2%",
+                "ADS Time": "+6.3%"
+            }
+        },
+        {
+            "id": "MZ016",
+            "name": "T51R Billeted Brake S",
+            "stats": {
+                "Range": "-5%",
+                "Bullet Velocity": "-4%",
+                "Horizontal Recoil": "-22.5%",
+                "Vertical Recoil": "-31.8%"
+            }
+        },
+        {
+            "id": "MZ017",
+            "name": "Purifier Muzzle Brake S",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-8%",
+                "Horizontal Recoil": "-14.4%"
+            }
+        },
+        {
+            "id": "MZ018",
+            "name": "VP27 Mini Brake S",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-8%",
+                "Horizontal Recoil": "-22.5%",
+                "Vertical Recoil": "+5%"
+            }
+        },
+        {
+            "id": "MZ019",
+            "name": "Bruen Pendulum",
+            "stats": {
+                "Gun Kick": "-22.4%",
+                "Horizontal Recoil": "-13%",
+                "Vertical Recoil": "-22.7%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ020",
+            "name": "AVR-T90 Comp",
+            "stats": {
+                "Gun Kick": "-9.2%",
+                "Horizontal Recoil": "-25.1%",
+                "Vertical Recoil": "-8.8%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ021",
+            "name": "Lacerta Compensator",
+            "stats": {
+                "Gun Kick": "-7.5%",
+                "Horizontal Recoil": "-7%",
+                "Vertical Recoil": "-7%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ022",
+            "name": "FTAC Castle Comp",
+            "stats": {
+                "Gun Kick": "-13.7%",
+                "Horizontal Recoil": "-20.4%",
+                "Vertical Recoil": "-13.5%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ023",
+            "name": "XTEN Razor Comp",
+            "stats": {
+                "Gun Kick": "-11%",
+                "Horizontal Recoil": "-23.2%",
+                "Vertical Recoil": "-10.7%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ024",
+            "name": "XRK Sandstorm",
+            "stats": {
+                "Gun Kick": "-26.5%",
+                "Horizontal Recoil": "-10%",
+                "Vertical Recoil": "-13.6%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ025",
+            "name": "Lockshot KT85",
+            "stats": {
+                "Gun Kick": "-19.4%",
+                "Horizontal Recoil": "-15.3%",
+                "Vertical Recoil": "-19.3%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ026",
+            "name": "Bruen Cubic Comp",
+            "stats": {
+                "Gun Kick": "-15.6%",
+                "Horizontal Recoil": "-18.7%",
+                "Vertical Recoil": "-15.5%",
+                "ADS Time": "+16.7%"
+            }
+        },
+        {
+            "id": "MZ027",
+            "name": "S-37C DL Breacher Device S",
+            "stats": {
+                "Min Hipfire Area": "-5%",
+                "Max Hipfire Area": "-5%",
+                "Tac Spread": "-5.4%",
+                "ADS Time": "+10.4%"
+            }
+        },
+        {
+            "id": "MZ028",
+            "name": "XRK Knockout Breach",
+            "stats": {
+                "Move Speed": "+2.1%",
+                "ADS Time": "+4.2%"
+            }
+        },
+        {
+            "id": "MZ029",
+            "name": "TA HUL-Breach",
+            "stats": {
+                "Move Speed": "-4.1%",
+                "ADS Time": "+14.6%"
+            }
+        },
+        {
+            "id": "MZ030",
+            "name": "L4R Flash Hider",
+            "stats": {
+                "Gun Kick": "-13%",
+                "Horizontal Recoil": "-13%",
+                "Vertical Recoil": "-13%",
+                "ADS Time": "+8.3%"
+            }
+        },
+        {
+            "id": "MZ031",
+            "name": "Spiral V3.5 Flash Hider",
+            "stats": {
+                "Gun Kick": "-13%",
+                "Horizontal Recoil": "-13%",
+                "Vertical Recoil": "-13%",
+                "ADS Time": "+8.3%"
+            }
+        },
+        {
+            "id": "MZ032",
+            "name": "Fox-202 Flash Hider",
+            "stats": {
+                "ADS Time": "+4.2%"
+            }
+        },
+        {
+            "id": "MZ033",
+            "name": "Echoline GS-X",
+            "stats": {
+                "Range": "-12%"
+            }
+        },
+        {
+            "id": "MZ034",
+            "name": "STER45 Skyfury Compensator",
+            "stats": {
+                "Horizontal Recoil": "-18%",
+                "Vertical Recoil": "-18%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "MZ035",
+            "name": "ELR Blackfire Compensator",
+            "stats": {
+                "Range": "-19%",
+                "Bullet Velocity": "-15.4%",
+                "Horizontal Recoil": "-14.4%",
+                "Vertical Recoil": "-7.2%"
+            }
+        },
+        {
+            "id": "MZ036",
+            "name": "Wrathguard Compensator",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-8%",
+                "Horizontal Recoil": "-22.5%",
+                "Vertical Recoil": "-18%"
+            }
+        },
+        {
+            "id": "MZ037",
+            "name": "VP27 Mini Brake",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-8%",
+                "Horizontal Recoil": "-28.2%",
+                "Vertical Recoil": "+5%"
+            }
+        },
+        {
+            "id": "MZ038",
+            "name": "Endless 30 Compensator",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-12%",
+                "Horizontal Recoil": "-12%",
+                "Vertical Recoil": "-5.4%",
+                "ADS Time": "+5.4%"
+            }
+        },
+        {
+            "id": "MZ039",
+            "name": "Jak BFB",
+            "stats": {
+                "Bullet Velocity": "-18%",
+                "Gun Kick": "-56%",
+                "Horizontal Recoil": "-20%",
+                "Vertical Recoil": "-35%",
+                "ADS Move": "-17%",
+                "ADS Time": "+15%",
+                "Sprint to Fire": "+14%"
+            }
+        },
+        {
+            "id": "MZ040",
+            "name": "ZEHMN35 Compensated Flash Hider",
+            "stats": {
+                "Range": "-5%",
+                "Horizontal Recoil": "-5%",
+                "Vertical Recoil": "-15%",
+                "ADS Time": "+5.4%"
+            }
+        },
+        {
+            "id": "MZ041",
+            "name": "S-37C DL Breacher Device",
+            "stats": {
+                "Min Hipfire Area": "-5%",
+                "Max Hipfire Area": "-6%",
+                "Tac Spread": "-5.4%",
+                "ADS Time": "+10.4%"
+            }
+        },
+        {
+            "id": "MZ042",
+            "name": "ECS Requieter Suppressor",
+            "stats": {
+                "Laser visible in ADS": "-",
+                "ADS Time": "+4%"
+            }
+        }
+    ],
+    "Barrels": [
+        {
+            "id": "B000",
+            "name": "AMR9 Commando Pro Barrel",
+            "stats": {
+                "Horizontal Recoil": "+5.3%",
+                "Vertical Recoil": "+4.9%",
+                "Move Speed": "+3.1%",
+                "Crouch Speed": "+4.8%",
+                "Sprint Speed": "+1.5%",
+                "Tac Sprint Speed": "+1.2%",
+                "ADS Time": "-9.2%",
+                "Sprint to Fire": "-4.2%"
+            }
+        },
+        {
+            "id": "B001",
+            "name": "AMR9 Enforcer Long Barrel",
+            "stats": {
+                "Range": "+24%",
+                "Bullet Velocity": "+12.6%",
+                "Gun Kick": "-4.8%",
+                "Horizontal Recoil": "-9%",
+                "Vertical Recoil": "-9%",
+                "ADS Time": "+15%",
+                "Sprint to Fire": "+5.8%"
+            }
+        },
+        {
+            "id": "B002",
+            "name": "Tectonic Herald Light Barrel",
+            "stats": {
+                "Min Hipfire Area": "+25.5%",
+                "Max Hipfire Area": "+25.5%",
+                "Tac Spread": "+20.3%",
+                "Move Speed": "+3.5%",
+                "ADS Move": "+5.5%"
+            }
+        },
+        {
+            "id": "B003",
+            "name": "Nimbus-6 Integrated Suppressor",
+            "stats": {
+                "Range": "+20%",
+                "Bullet Velocity": "+30%",
+                "ADS Time": "+7.5%",
+                "Sprint to Fire": "+6.9%"
+            }
+        },
+        {
+            "id": "B004",
+            "name": "Tectonic Micro Integral Suppressor",
+            "stats": {
+                "Range": "-10%",
+                "Bullet Velocity": "-10%",
+                "Move Speed": "+2.1%",
+                "Crouch Speed": "+3.3%",
+                "ADS Move": "+3.2%",
+                "ADS Time": "-4.6%",
+                "Sprint to Fire": "-5.3%"
+            }
+        }
+    ],
+    "Underbarrel": [
+        {
+            "id": "U000",
+            "name": "XRK Edge BW-4 Handstop",
+            "stats": {
+                "Min Hipfire Area": "+7%",
+                "Tac Spread": "+14.9%",
+                "Move Speed": "+6.9%",
+                "Crouch Speed": "+13.2%",
+                "ADS Time": "-5.4%",
+                "Sprint to Fire": "-5.8%"
+            }
+        },
+        {
+            "id": "U001",
+            "name": "FTAC MSP-98 Handstop",
+            "stats": {
+                "Gun Kick": "-5.8%",
+                "Horizontal Recoil": "-2.4%",
+                "Vertical Recoil": "-1.2%",
+                "Move Speed": "+6.9%",
+                "Crouch Speed": "+13.2%",
+                "ADS Move": "+10.5%"
+            }
+        },
+        {
+            "id": "U002",
+            "name": "DR-6 Handstop",
+            "stats": {
+                "Min Hipfire Area": "+10%",
+                "Tac Spread": "+20.3%",
+                "Move Speed": "+4.7%",
+                "Crouch Speed": "+9.2%",
+                "ADS Move": "+7.4%",
+                "ADS Time": "-8.4%",
+                "Sprint to Fire": "-8.5%"
+            }
+        },
+        {
+            "id": "U003",
+            "name": "XTEN Phantom-5 Handstop",
+            "stats": {
+                "Gun Kick": "-3.9%",
+                "Horizontal Recoil": "-1.6%",
+                "Vertical Recoil": "-4.8%",
+                "Min Hipfire Area": "-2%",
+                "Tac Spread": "+20.3%",
+                "ADS Time": "-8.3%",
+                "Sprint to Fire": "-8.5%"
+            }
+        },
+        {
+            "id": "U004",
+            "name": "XTEN TX-12 Handstop",
+            "stats": {
+                "Min Hipfire Area": "-7.7%",
+                "Tac Spread": "-18.9%",
+                "ADS Time": "-5.4%",
+                "Sprint to Fire": "-5.8%"
+            }
+        },
+        {
+            "id": "U005",
+            "name": "FTAC SP-10 Angled Grip",
+            "stats": {
+                "Gun Kick": "-0.3%",
+                "Horizontal Recoil": "-12%",
+                "Vertical Recoil": "+4%"
+            }
+        },
+        {
+            "id": "U006",
+            "name": "FTAC RS-9 Stealth Angled Grip",
+            "stats": {
+                "Gun Kick": "-0.2%",
+                "Horizontal Recoil": "-8.4%",
+                "Vertical Recoil": "+2.8%",
+                "Tac Spread": "-2.8%"
+            }
+        },
+        {
+            "id": "U007",
+            "name": "Bruen Boston Angled Grip",
+            "stats": {
+                "Gun Kick": "-10%",
+                "Horizontal Recoil": "-2%",
+                "Vertical Recoil": "-6%",
+                "Min Hipfire Area": "-20%",
+                "Max Hipfire Area": "-20%",
+                "Tac Spread": "-25%",
+                "ADS Time": "+10.4%"
+            }
+        },
+        {
+            "id": "U008",
+            "name": "Chewk Angled Grip",
+            "stats": {
+                "Gun Kick": "-0.1%",
+                "Horizontal Recoil": "+6%",
+                "Vertical Recoil": "-6.8%",
+                "Move Speed": "+13.2%",
+                "Crouch Speed": "+6.8%",
+                "ADS Move": "-6.8%",
+                "ADS Time": "+6.8%"
+            }
+        },
+        {
+            "id": "U009",
+            "name": "Commando Foregrip",
+            "stats": {
+                "Gun Kick": "-2.5%",
+                "Horizontal Recoil": "-2.6%",
+                "Vertical Recoil": "-2.5%",
+                "ADS Time": "+7.5%"
+            }
+        },
+        {
+            "id": "U010",
+            "name": "EDGE-47 Grip",
+            "stats": {
+                "Gun Kick": "-6%",
+                "Horizontal Recoil": "-4%",
+                "Vertical Recoil": "-6%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U011",
+            "name": "Demo Firm Grip",
+            "stats": {
+                "Gun Kick": "-4%",
+                "Horizontal Recoil": "-4%",
+                "Vertical Recoil": "-4%",
+                "Min Hipfire Area": "-15%",
+                "Tac Spread": "0%",
+                "Move Speed": "+5%",
+                "Crouch Speed": "-5.1%",
+                "ADS Move": "-2.1%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U012",
+            "name": "XTEN Gravedigger",
+            "stats": {
+                "Gun Kick": "-2.6%",
+                "Horizontal Recoil": "-2.6%",
+                "Vertical Recoil": "-2.6%",
+                "Min Hipfire Area": "-19.9%",
+                "Move Speed": "-6.6%",
+                "Crouch Speed": "-6.7%",
+                "ADS Move": "-2.7%",
+                "ADS Time": "+7.9%"
+            }
+        },
+        {
+            "id": "U013",
+            "name": "FTAC Ripper 56",
+            "stats": {
+                "Gun Kick": "-4%",
+                "Horizontal Recoil": "-4%",
+                "Vertical Recoil": "-4%",
+                "Min Hipfire Area": "-9%",
+                "Move Speed": "-9%",
+                "Crouch Speed": "-4.1%",
+                "ADS Move": "-4.1%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U014",
+            "name": "Demo Cleanshot 40",
+            "stats": {
+                "Gun Kick": "-1.3%",
+                "Horizontal Recoil": "-1.3%",
+                "Vertical Recoil": "-1.3%",
+                "Min Hipfire Area": "-9.9%",
+                "Move Speed": "-9.4%",
+                "Crouch Speed": "-3.4%",
+                "ADS Time": "+3.4%"
+            }
+        },
+        {
+            "id": "U015",
+            "name": "Demo IMP-44 Grip",
+            "stats": {
+                "Gun Kick": "-2.6%",
+                "Horizontal Recoil": "-2.6%",
+                "Vertical Recoil": "-2.6%",
+                "Min Hipfire Area": "-9.9%",
+                "Move Speed": "-4.3%",
+                "Crouch Speed": "-4.4%",
+                "ADS Move": "-1.4%",
+                "ADS Time": "+7.9%"
+            }
+        },
+        {
+            "id": "U016",
+            "name": "FTAC Tiger Grip",
+            "stats": {
+                "Gun Kick": "-1.3%",
+                "Horizontal Recoil": "-1.3%",
+                "Vertical Recoil": "-1.3%",
+                "Min Hipfire Area": "-19.9%",
+                "Move Speed": "-6.6%",
+                "Crouch Speed": "-6.7%",
+                "ADS Move": "-2.7%",
+                "ADS Time": "+4.3%"
+            }
+        },
+        {
+            "id": "U017",
+            "name": "FSS Sharkfin 90",
+            "stats": {}
+        },
+        {
+            "id": "U018",
+            "name": "Agent Grip",
+            "stats": {
+                "Min Hipfire Area": "-9%",
+                "Move Speed": "-9.9%",
+                "Crouch Speed": "-10%",
+                "ADS Move": "-4.1%"
+            }
+        },
+        {
+            "id": "U019",
+            "name": "Bruen Sync Shot Grip",
+            "stats": {
+                "Min Hipfire Area": "-19.9%",
+                "Move Speed": "-6.5%",
+                "Crouch Speed": "-6.7%",
+                "ADS Move": "-2.7%"
+            }
+        },
+        {
+            "id": "U020",
+            "name": "XTEN Drop Grip",
+            "stats": {
+                "Min Hipfire Area": "-9.9%",
+                "Move Speed": "-9.4%",
+                "Crouch Speed": "-6.3%",
+                "ADS Move": "-6.7%"
+            }
+        },
+        {
+            "id": "U021",
+            "name": "XTEN Nexus Grip",
+            "stats": {
+                "Gun Kick": "-1.3%",
+                "Horizontal Recoil": "-1.3%",
+                "Vertical Recoil": "-1.3%",
+                "ADS Time": "+4.3%"
+            }
+        },
+        {
+            "id": "U022",
+            "name": "PHASE-3 Grip",
+            "stats": {
+                "Gun Kick": "-2%",
+                "Horizontal Recoil": "-2%",
+                "Vertical Recoil": "-2%",
+                "Min Hipfire Area": "-30%",
+                "Move Speed": "-9.9%",
+                "Crouch Speed": "-10%",
+                "ADS Move": "-4.1%",
+                "ADS Time": "+6.3%"
+            }
+        },
+        {
+            "id": "U023",
+            "name": "Bruen Heavy Support Grip",
+            "stats": {
+                "Gun Kick": "-10.2%",
+                "Horizontal Recoil": "-8%",
+                "Vertical Recoil": "-4%",
+                "ADS Time": "+10.4%"
+            }
+        },
+        {
+            "id": "U024",
+            "name": "Kimura RYN-03 Vertical Grip",
+            "stats": {
+                "Gun Kick": "-14.2%",
+                "Horizontal Recoil": "-4%",
+                "Vertical Recoil": "-12%",
+                "ADS Time": "+4%",
+                "Sprint to Fire": "+1.5%"
+            }
+        },
+        {
+            "id": "U025",
+            "name": "Kimura Seraphic Vertical Grip",
+            "stats": {
+                "Gun Kick": "-6.8%",
+                "Horizontal Recoil": "+2%",
+                "Vertical Recoil": "-8.4%",
+                "Move Speed": "+3.9%",
+                "Crouch Speed": "+10.3%",
+                "ADS Move": "+12.5%",
+                "ADS Time": "+3.6%",
+                "Sprint to Fire": "+1.6%"
+            }
+        },
+        {
+            "id": "U026",
+            "name": "SL Skeletal Vertical Grip",
+            "stats": {
+                "Gun Kick": "-6.8%",
+                "Horizontal Recoil": "-2.8%",
+                "Vertical Recoil": "-8.4%",
+                "Min Hipfire Area": "-6.8%",
+                "Tac Spread": "-6.8%",
+                "ADS Time": "+4.8%",
+                "Sprint to Fire": "+4.8%"
+            }
+        },
+        {
+            "id": "U027",
+            "name": "Holger Vertical Grip",
+            "stats": {
+                "Gun Kick": "-10%",
+                "Horizontal Recoil": "-2%",
+                "Vertical Recoil": "-6%",
+                "ADS Time": "+10.4%",
+                "Sprint to Fire": "+1.6%"
+            }
+        },
+        {
+            "id": "U028",
+            "name": "Bruen Tactical Vertical Grip",
+            "stats": {
+                "Gun Kick": "-10%",
+                "Horizontal Recoil": "-6%",
+                "Vertical Recoil": "-2%",
+                "Max Hipfire Area": "-12%",
+                "Tac Spread": "+10.4%",
+                "ADS Time": "+10.4%",
+                "Sprint to Fire": "+2.5%"
+            }
+        },
+        {
+            "id": "U029",
+            "name": "Bruen Pivot Vertical Grip",
+            "stats": {
+                "Gun Kick": "-16%",
+                "Horizontal Recoil": "+2%",
+                "Vertical Recoil": "-17%",
+                "ADS Time": "+12%",
+                "Sprint to Fire": "+1.6%"
+            }
+        },
+        {
+            "id": "U030",
+            "name": "Merc Foregrip",
+            "stats": {
+                "Gun Kick": "-9%",
+                "Horizontal Recoil": "-9%",
+                "Vertical Recoil": "-9%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-7.9%",
+                "Move Speed": "-8.6%",
+                "Crouch Speed": "-9.3%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U031",
+            "name": "Lockgrip PRECISION-40",
+            "stats": {
+                "Gun Kick": "-9%",
+                "Horizontal Recoil": "-9%",
+                "Vertical Recoil": "-9%",
+                "Min Hipfire Area": "-12%",
+                "Tac Spread": "0%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U032",
+            "name": "HEX-40 Grip",
+            "stats": {
+                "Gun Kick": "-9%",
+                "Horizontal Recoil": "-9%",
+                "Vertical Recoil": "-9%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-7.9%",
+                "Move Speed": "-4.7%",
+                "Crouch Speed": "-4.7%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U033",
+            "name": "Schlager Tango",
+            "stats": {
+                "Gun Kick": "-4.5%",
+                "Horizontal Recoil": "-4.5%",
+                "Vertical Recoil": "-4.5%",
+                "Tac Spread": "0%",
+                "ADS Time": "+6.3%"
+            }
+        },
+        {
+            "id": "U034",
+            "name": "VX Pineapple",
+            "stats": {
+                "Gun Kick": "-9%",
+                "Horizontal Recoil": "-9%",
+                "Vertical Recoil": "-9%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-7.9%",
+                "Move Speed": "-8.6%",
+                "Crouch Speed": "-9.3%",
+                "ADS Time": "+12.5%"
+            }
+        },
+        {
+            "id": "U035",
+            "name": "OP-X9 Foregrip",
+            "stats": {
+                "Gun Kick": "-4.5%",
+                "Horizontal Recoil": "-4.5%",
+                "Vertical Recoil": "-4.5%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-7.9%",
+                "Move Speed": "-4.7%",
+                "Crouch Speed": "-4.7%",
+                "ADS Time": "+6.3%"
+            }
+        },
+        {
+            "id": "U036",
+            "name": "Operator Foregrip",
+            "stats": {
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-4%",
+                "Tac Spread": "-4%",
+                "Move Speed": "-4.7%",
+                "Crouch Speed": "-4.7%"
+            }
+        },
+        {
+            "id": "U037",
+            "name": "TV Wrecker Grip",
+            "stats": {
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "0%",
+                "Tac Spread": "-4%"
+            }
+        },
+        {
+            "id": "U038",
+            "name": "Bruen Tilt Grip",
+            "stats": {
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-7.9%",
+                "Move Speed": "-8.6%",
+                "Crouch Speed": "-9.3%"
+            }
+        },
+        {
+            "id": "U039",
+            "name": "Cronen Grooveshot Grip",
+            "stats": {
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-12%",
+                "Tac Spread": "-10.6%",
+                "Move Speed": "-10.8%",
+                "Crouch Speed": "-13.9%"
+            }
+        },
+        {
+            "id": "U040",
+            "name": "EXF Backdraft Grip",
+            "stats": {
+                "Gun Kick": "-4.5%",
+                "Horizontal Recoil": "-4.5%",
+                "Vertical Recoil": "-4.5%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-7.9%",
+                "Tac Spread": "-8.6%",
+                "Move Speed": "-9.3%",
+                "Crouch Speed": "-9.3%",
+                "ADS Time": "+6.3%"
+            }
+        },
+        {
+            "id": "U041",
+            "name": "Bruen Warrior Grip",
+            "stats": {
+                "Gun Kick": "-4.5%",
+                "Horizontal Recoil": "-4.5%",
+                "Vertical Recoil": "-4.5%",
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-12%",
+                "Tac Spread": "-10.6%",
+                "Move Speed": "-10.8%",
+                "Crouch Speed": "-13.9%",
+                "ADS Time": "+6.3%"
+            }
+        }
+    ],
+    "Bolt": {
+
+    },
+    "Lasers": [
+        {
+            "id": "L000",
+            "name": "Kimura RYL33 Laser Light",
+            "stats": {
+                "Tac Spread": "-19%",
+                "ADS Time": "-10%",
+                "Sprint to Fire": "-15.3%"
+            }
+        },
+        {
+            "id": "L001",
+            "name": "CS15 Scarlet Cylindrical Laser",
+            "stats": {
+                "Min Hipfire Area": "-90%",
+                "Max Hipfire Area": "+30%",
+                "Tac Spread": "+48.7%",
+                "Sprint to Fire": "-12.2%"
+            }
+        },
+        {
+            "id": "L002",
+            "name": "Pro Sapphire Cylindrical Laser",
+            "stats": {
+                "Sprint to Fire": "-12.2%"
+            }
+        },
+        {
+            "id": "L003",
+            "name": "Verdant Hook Cylindrical Laser",
+            "stats": {
+                "Min Hipfire Area": "-10%",
+                "Max Hipfire Area": "-10%",
+                "Tac Spread": "-11.1%",
+                "Sprint to Fire": "-8.5%"
+            }
+        },
+        {
+            "id": "L004",
+            "name": "1mW Artemis Laser",
+            "stats": {}
+        },
+        {
+            "id": "L005",
+            "name": "1mW Quick Fire Laser",
+            "stats": {
+                "ADS Time": "-3.7%"
+            }
+        },
+        {
+            "id": "L006",
+            "name": "Accu-Shot 5mW Laser",
+            "stats": {
+                "ADS Time": "-7.5%"
+            }
+        },
+        {
+            "id": "L007",
+            "name": "VLK LZR 7mW",
+            "stats": {
+                "ADS Time": "-5.4%",
+                "Sprint to Fire": "-5.3%"
+            }
+        },
+        {
+            "id": "L008",
+            "name": "7mW Canted Laser",
+            "stats": {
+                "ADS Time": "-2.5%",
+                "Sprint to Fire": "-6.3%"
+            }
+        },
+        {
+            "id": "L009",
+            "name": "Schlager ULO-66 Laser",
+            "stats": {
+                "Min Hipfire Area": "-20%",
+                "Max Hipfire Area": "-10%",
+                "Tac Spread": "-11.1%"
+            }
+        },
+        {
+            "id": "L010",
+            "name": "STOVL Tac Laser",
+            "stats": {
+                "Min Hipfire Area": "-5%",
+                "Max Hipfire Area": "-5%",
+                "Tac Spread": "-5.3%"
+            }
+        },
+        {
+            "id": "L011",
+            "name": "Hipshot L20",
+            "stats": {
+                "Min Hipfire Area": "-12%",
+                "Max Hipfire Area": "-12%",
+                "Tac Spread": "-13.6%"
+            }
+        },
+        {
+            "id": "L012",
+            "name": "Point-G3P 04",
+            "stats": {
+                "Min Hipfire Area": "-8%",
+                "Max Hipfire Area": "-8%",
+                "Tac Spread": "-8.7%",
+                "Sprint to Fire": "-5.3%"
+            }
+        },
+        {
+            "id": "L013",
+            "name": "FJX Ultrabeam XR",
+            "stats": {
+                "Sprint to Fire": "-8.5%"
+            }
+        },
+        {
+            "id": "L014",
+            "name": "EXF Solarflare",
+            "stats": {
+                "Sprint to Fire": "-13.2%"
+            }
+        }
+    ],
+    "Optics": [
+        {
+            "id": "OP000",
+            "name": "Cronen Intlas MSP-12",
+            "stats": {
+                "Min Hipfire Area": "-10%",
+                "Max Hipfire Area": "-10%",
+                "Tac Spread": "-23.5%",
+                "ADS Time": "-2.1%",
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP001",
+            "name": "Intlas CAS-14",
+            "stats": {
+                "Min Hipfire Area": "-10%",
+                "Max Hipfire Area": "-10%",
+                "Tac Spread": "-23.5%",
+                "Default Zoom": "1.18x"
+            }
+        },
+        {
+            "id": "OP002",
+            "name": "Slate Reflector",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP003",
+            "name": "XTEN ERX-10 mini",
+            "stats": {
+                "ADS Move": "-4.2%",
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP004",
+            "name": "Slimline Pro",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP005",
+            "name": "SZ Mini",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP006",
+            "name": "Cronen Mini Dot",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP007",
+            "name": "Cronen Mini Pro",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP008",
+            "name": "SZ Sigma-IV Optic",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP009",
+            "name": "SZ Minitac-40",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP010",
+            "name": "KR Minitac-40 Riser",
+            "stats": {
+                "Gun Kick": "+10%",
+                "Horizontal Recoil": "+2%",
+                "Vertical Recoil": "+6%",
+                "ADS Time": "-4.2%",
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP011",
+            "name": "FSS Spectre Microtherm",
+            "stats": {
+                "ADS Time": "+8.3%",
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP012",
+            "name": "KR V4 1X Riser",
+            "stats": {
+                "Gun Kick": "+10%",
+                "Horizontal Recoil": "+2%",
+                "Vertical Recoil": "+6%",
+                "ADS Time": "-4.2%",
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP013",
+            "name": "Caucasus Reflex Sight",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP014",
+            "name": "Nydar Model 2023",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP015",
+            "name": "Mk. 3 Reflector",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP016",
+            "name": "XRK On-Point Optic",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP017",
+            "name": "Aim OP-V4",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP018",
+            "name": "DF105 Reflex Sight",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP019",
+            "name": "Monocle CT90",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP020",
+            "name": "Corvus Sol-76",
+            "stats": {
+                "Default Zoom": "1.11x"
+            }
+        },
+        {
+            "id": "OP021",
+            "name": "SZ Recharge-DX",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP022",
+            "name": "SZ Sro-7",
+            "stats": {
+                "Default Zoom": "1.14x"
+            }
+        },
+        {
+            "id": "OP023",
+            "name": "Corio RE-X Pro",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP024",
+            "name": "Chrios Holo",
+            "stats": {
+                "Default Zoom": "1.52x"
+            }
+        },
+        {
+            "id": "OP025",
+            "name": "Corio Enforcer Optic",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP026",
+            "name": "SZ Lonewolf Optic",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP027",
+            "name": "Kazan-Holo",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP028",
+            "name": "SZ Battle Optic",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP029",
+            "name": "Corvus Downrange-00",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP030",
+            "name": "XTEN Angel-40",
+            "stats": {
+                "Default Zoom": "1.34x"
+            }
+        },
+        {
+            "id": "OP031",
+            "name": "SZ Holotherm",
+            "stats": {
+                "Default Zoom": "2.14x"
+            }
+        },
+        {
+            "id": "OP032",
+            "name": "Corio ELT-10 2.5",
+            "stats": {
+                "ADS Move": "-4.2%",
+                "ADS Time": "+5.3%",
+                "Default Zoom": "1.14x"
+            }
+        },
+        {
+            "id": "OP033",
+            "name": "KR Mortis Precision 2.5X",
+            "stats": {
+                "ADS Move": "-4.2%",
+                "ADS Time": "+6.3%",
+                "Default Zoom": "1.75x"
+            }
+        },
+        {
+            "id": "OP034",
+            "name": "Corio Eagleseye 2.5X",
+            "stats": {
+                "ADS Move": "-4.2%",
+                "ADS Time": "+6.3%",
+                "Default Zoom": "1.61x"
+            }
+        },
+        {
+            "id": "OP035",
+            "name": "SL Truesight 2.5X",
+            "stats": {
+                "ADS Move": "-4.2%",
+                "ADS Time": "+6.3%",
+                "Default Zoom": "1.77x"
+            }
+        },
+        {
+            "id": "OP036",
+            "name": "KR Marauder 9 Riser",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.55x"
+            }
+        },
+        {
+            "id": "OP037",
+            "name": "TOS Nightfall 2.5X Thermal Optic",
+            "stats": {
+                "ADS Time": "+6.3%",
+                "Default Zoom": "2.14x"
+            }
+        },
+        {
+            "id": "OP038",
+            "name": "AOK 4.0X RQ-9 Recon",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "2.05x"
+            }
+        },
+        {
+            "id": "OP039",
+            "name": "TX4 Havoc",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "2.05x"
+            }
+        },
+        {
+            "id": "OP040",
+            "name": "VLK 4.0 Optic",
+            "stats": {
+                "ADS Move": "-10.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "1.91x"
+            }
+        },
+        {
+            "id": "OP041",
+            "name": "Schlager 3.4X",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "1.91x"
+            }
+        },
+        {
+            "id": "OP042",
+            "name": "Forge Tac Delta 4",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.77x"
+            }
+        },
+        {
+            "id": "OP043",
+            "name": "Cronen Zero-P Optic",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.61x"
+            }
+        },
+        {
+            "id": "OP044",
+            "name": "SZ Bullseye Optic",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.93x"
+            }
+        },
+        {
+            "id": "OP045",
+            "name": "SZ Aggressor-IR Optic",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "4.09x"
+            }
+        },
+        {
+            "id": "OP046",
+            "name": "Schlager Night View",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.93x"
+            }
+        },
+        {
+            "id": "OP047",
+            "name": "VX350 Thermal Optic",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.93x"
+            }
+        },
+        {
+            "id": "OP048",
+            "name": "Teplo-OP3 Scope",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.57x"
+            }
+        },
+        {
+            "id": "OP049",
+            "name": "Corvus Ghostview",
+            "stats": {
+                "ADS Move": "-5.2%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "2.27x"
+            }
+        },
+        {
+            "id": "OP050",
+            "name": "DR582 Hybrid Sight",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.45x"
+            }
+        },
+        {
+            "id": "OP051",
+            "name": "Hybrid Firepoint",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.36x"
+            }
+        },
+        {
+            "id": "OP052",
+            "name": "SZ Vortex-90",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.57x"
+            }
+        },
+        {
+            "id": "OP053",
+            "name": "BPZ40 Hybrid",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.68x"
+            }
+        },
+        {
+            "id": "OP054",
+            "name": "SZ Oscar-9",
+            "stats": {
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.43x"
+            }
+        },
+        {
+            "id": "OP055",
+            "name": "Thermo-Optic X9",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.77x"
+            }
+        },
+        {
+            "id": "OP056",
+            "name": "Teplo Clear Shot",
+            "stats": {
+                "ADS Move": "-10.4%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "3.57x"
+            }
+        },
+        {
+            "id": "OP057",
+            "name": "KR Intlas LSJ-3",
+            "stats": {
+                "Min Hipfire Area": "-10%",
+                "Max Hipfire Area": "-10%",
+                "ADS Move": "-7.3%",
+                "ADS Time": "+8.3%",
+                "Default Zoom": "1.14x"
+            }
+        },
+        {
+            "id": "OP058",
+            "name": "Jak Bullseye",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP059",
+            "name": "QTG Reflex Sight",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP060",
+            "name": "Dragon's Eye Optic",
+            "stats": {
+                "Default Zoom": "1x"
+            }
+        },
+        {
+            "id": "OP061",
+            "name": "Rhino Reflex",
+            "stats": {
+                "Default Zoom": "0.98x"
+            }
+        },
+        {
+            "id": "OP062",
+            "name": "TPS Incendio Reflex",
+            "stats": {
+                "Default Zoom": "0.98x"
+            }
+        },
+        {
+            "id": "OP063",
+            "name": "Jak Glassless Optic",
+            "stats": {
+                "ADS Time": "+2%",
+                "Default Zoom": "0.98x"
+            }
+        }
+    ],
+    "Magazine": [
+        {
+            "id": "M000",
+            "name": "20 Round Mag", 
+            "stats": {
+                "Move Speed": "+2.1%",
+                "Crouch Speed": "+2.4%",
+                "Sprint Speed": "+1.8%",
+                "Tac Sprint Speed": "+1.4%",
+                "ADS Move": "+6.9%",
+                "ADS Time": "-7.9%",
+                "Sprint to Fire": "-15.3%"
+                }
+        },
+        {
+            "id": "M001",
+            "name":"50 Round Mag",
+            "stats": {
+                "Move Speed": "-9.9%",
+                "Crouch Speed": "-10%",
+                "Sprint Speed": "-4.2%",
+                "Tac Sprint Speed": "-4.4%",
+                "ADS Move": "-10.2%",
+                "ADS Time": "+18.9%",
+                "Reload Time": "+60%",
+                "Sprint to Fire": "+2.6%"
+                }
+        },
+        {
+            "id": "M002",
+            "name":"100 Round Drum",
+            "stats": {
+                "Move Speed": "-18.9%",
+                "Crouch Speed": "-20.8%",
+                "Sprint Speed": "-10.1%",
+                "Tac Sprint Speed": "-8.8%",
+                "ADS Move": "-23.8%",
+                "ADS Time": "+31.4%",
+                "Reload Time": "+64%",
+                "Sprint to Fire": "+7.8%"
+                }
+        }
+    ],
+   "Ammunition": [
+        {
+            "id": "A000",
+            "name": "9mm High Grain Rounds",
+            "stats": {
+                "Range": "+15%",
+                "Bullet Velocity": "+15%",
+                "Gun Kick": "+15%",
+                "Horizontal Recoil": "+8%",
+                "Vertical Recoil": "+8%"
+            }
+        },
+        {
+            "id": "A001",
+            "name": "9mm Low Grain Rounds",
+            "stats": {
+                "Range": "-15%",
+                "Bullet Velocity": "-15%",
+                "Gun Kick": "-5%",
+                "Horizontal Recoil": "-8%",
+                "Vertical Recoil": "-8%"
+            }
+        },
+        {
+            "id": "A002",
+            "name": "9mm Hardened Rounds",
+            "stats": {
+                "Range": "-27.3%",
+                "Bullet Velocity": "-15%",
+                "Gun Kick": "+25%",
+                "Horizontal Recoil": "+4%",
+                "Vertical Recoil": "+4%"
+            }
+        },
+        {
+            "id": "A003",
+            "name": "9mm Frangible",
+            "stats": {
+                "Range": "-5%"
+            }
+        },
+        {
+            "id": "A004",
+            "name": "9mm Hollowpoint",
+            "stats": {}
+        },
+        {
+            "id": "A005",
+            "name": "9mm Armor Piercing",
+            "stats": {}
+        },
+        {
+            "id": "A006",
+            "name": "9mm Overpressured +P",
+            "stats": {}
+        },
+        {
+            "id": "A007",
+            "name": "9mm High Velocity",
+            "stats": {
+                "Bullet Velocity": "+30%",
+                "Horizontal Recoil": "+4%",
+                "Vertical Recoil": "+4%"
+            }
+        }
+    ],
+    "Carry handle": {
+
+    },
+   "Rear-grip": [
+        {
+            "id": "RG000",
+            "name": "Rubberized",
+            "description": "description"
+        },
+        {
+            "id": "RG001",
+            "name": "Granulated",
+            "description": "description"
+        }
+    ],
+    "Stock": [
+        {
+            "id": "S000",
+            "name": "Pipeline Pro LTS",
+            "stats": {
+                "Gun Kick": "+14.3%",
+                "Horizontal Recoil": "+2.9%",
+                "Vertical Recoil": "+8.5%",
+                "Move Speed": "+3.9%",
+                "Sprint Speed": "+2.7%",
+                "Tac Sprint Speed": "+2.2%"
+            }
+        },
+        {
+            "id": "S001",
+            "name": "Hellhound Carbine Stock",
+            "stats": {
+                "Gun Kick": "-8.3%",
+                "Horizontal Recoil": "-12%",
+                "Vertical Recoil": "-12%",
+                "ADS Time": "+3.8%"
+            }
+        },
+        {
+            "id": "S002",
+            "name": "Oort-6 Precision Stock",
+            "stats": {
+                "Move Speed": "-2.5%",
+                "Crouch Speed": "-10%",
+                "ADS Move": "-5.5%"
+            }
+        },
+        {
+            "id": "S003",
+            "name": "TA Venom Stock",
+            "stats": {
+                "Gun Kick": "+4.7%",
+                "Horizontal Recoil": "-5.4%",
+                "Vertical Recoil": "-6.4%",
+                "Move Speed": "+2.6%",
+                "Sprint Speed": "+1.8%",
+                "Tac Sprint Speed": "+1.4%",
+                "ADS Time": "+2.1%"
+            }
+        },
+        {
+            "id": "S004",
+            "name": "DAV15 Light Tactical Stock",
+            "stats": {
+                "Move Speed": "+5%",
+                "Crouch Speed": "+10.6%",
+                "ADS Move": "+10.3%"
+            }
+        },
+        {
+            "id": "S005",
+            "name": "Demo LTS Stock",
+            "stats": {
+                "Horizontal Recoil": "+7.2%",
+                "Vertical Recoil": "+7.2%",
+                "ADS Time": "-9.6%"
+            }
+        },
+        {
+            "id": "S006",
+            "name": "Seraph-14 Heavy Carbine Stock",
+            "stats": {
+                "Gun Kick": "-12%",
+                "Horizontal Recoil": "-6.4%",
+                "Vertical Recoil": "-6.4%",
+                "Max Hipfire Area": "-8%",
+                "Tac Spread": "-2.1%",
+                "ADS Time": "+2.1%",
+                "Sprint to Fire": "+1.5%"
+            }
+        },
+        {
+            "id": "S007",
+            "name": "Demo Q50 Buffer Tube",
+            "stats": {
+                "Gun Kick": "+40%",
+                "Horizontal Recoil": "+35%",
+                "Vertical Recoil": "+35%",
+                "Max Hipfire Area": "-5%",
+                "Flinch": "+30%",
+                "Tac Spread": "-5.4%",
+                "Move Speed": "+7.3%",
+                "Crouch Speed": "+18.5%",
+                "Sprint Speed": "+3.6%",
+                "Tac Sprint Speed": "+3.6%",
+                "ADS Move": "+11.3%",
+                "ADS Time": "-14.6%",
+                "Sprint to Fire": "-15.3%"
+            }
+        },
+        {
+            "id": "S008",
+            "name": "Jak Cutthroat",
+            "stats": {
+                "Gun Kick": "+10%",
+                "Horizontal Recoil": "+10%",
+                "Vertical Recoil": "+10%",
+                "Tac Spread": "-7.4%",
+                "Move Speed": "+6%",
+                "Crouch Speed": "+8%",
+                "ADS Move": "+21%"
+            }
+        }
+    ],
+    "Conversion": [
+        {
+            "id": "C000",
+            "name": "Jak Ettin Double Barrel Kit",
+            "effect": "Fires 2 bullets at once, damage reduced",
+            "stats": {
+                "Fire Rate": "-31.4%",
+                "Horizontal Recoil": "+68.8%",
+                "Vertical Recoil": "+41.9%"
+            }
+        },
+        {
+            "id": "C001",
+            "name": "Jak Atlas Kit",
+            "effect": "Fires 5 Bullets At Once, damage profile altered",
+            "stats": {
+                "Bullet Velocity": "+30%",
+                "Fire Rate": "-11%",
+                "Gun Kick": "-19%",
+                "Vertical Recoil": "-20%"
+            }
+        }
+    ]
+};
+
+
+"weapon_attachments": {
+            "description": "Retrieve a list of attachments available for a specific weapon.",
+            "method": "GET",
+            "url": "/api/weapons/{weapon_id}/attachments",
+            "response": {
+                "weapon_attachments": {
+                    "AMR 9": {
+                        "Muzzle": ["Monolithic Suppressor", "Tactical Suppressor"],
+                        "Barrel": ["Barrel 1"],
+                        "Laser": ["Laser 1", "Laser 2"],
+                        "Magazine": ["20 Round Mag", "50 Round Mag"],
+                        "Stock": ["S000", "S001", "S002","S003","S004","S005","S006","S007","S008"],
+                        "Conversion": ["C000","C001"]
+                    },
+                    "Weapon 2": {
+                        "Muzzle": ["Monolithic Suppressor"],
+                        "Barrel": ["Barrel 2"],
+                        "Laser": ["Laser 1"],
+                        "Magazine": ["50 Round Mag"]
+                    }
+                }
+            }
+        }
