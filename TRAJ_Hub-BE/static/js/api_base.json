@@ -6460,7 +6460,2295 @@
                                             "name": "5.7x28mm Overpressured +P",
                                             "stats": {}
                                         }
+                                    ],
+                                    "Laser":[
+                                        {
+                                            "id": "L045",
+                                            "name": "SL Razorhawk Loser Light",
+                                            "stats": {
+                                                "Tac Spread": "-19%",
+                                                "ADS Time": "-10%",
+                                                "Sprint to Fire": "-15.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L046",
+                                            "name": "CS15 Scarlet Box Loser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-90%",
+                                                "Max Hipfire Area": "+30%",
+                                                "Tac Spread": "+48.7%",
+                                                "Sprint to Fire": "-12.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L047",
+                                            "name": "Pro Sapphire Box Loser",
+                                            "stats": {
+                                                "Sprint to Fire": "-12.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L048",
+                                            "name": "Verdant Hook Box Loser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-11.1%",
+                                                "Sprint to Fire": "-8.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L049",
+                                            "name": "SZ 1mW PEQ",
+                                            "stats": {
+                                                "ADS Time": "-3.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L050",
+                                            "name": "Schlager Peq Box IV",
+                                            "stats": {
+                                                "ADS Time": "-3.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L051",
+                                            "name": "Corio LAZ-44 V3",
+                                            "stats": {
+                                                "ADS Time": "-7.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L052",
+                                            "name": "FSS OLE-V Loser",
+                                            "stats": {
+                                                "ADS Time": "-5.4%",
+                                                "Sprint to Fire": "-5.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L053",
+                                            "name": "Canted Vibro-Dot 7",
+                                            "stats": {
+                                                "ADS Time": "-2.5%",
+                                                "Sprint to Fire": "-5.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L054",
+                                            "name": "1mW Loser Box",
+                                            "stats": {
+                                                "Sprint to Fire": "-8%",
+                                                "Tac Spread": "-5.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L055",
+                                            "name": "Stovl DR Loser Box",
+                                            "stats": {
+                                                "Min Hipfire Area": "-5%",
+                                                "Max Hipfire Area": "-5%",
+                                                "Tac Spread": "-5.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L056",
+                                            "name": "Corvus Peq BEAM-5",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-13.6%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L057",
+                                            "name": "FTAC Grimline Loser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-8%",
+                                                "Max Hipfire Area": "-8%",
+                                                "Tac Spread": "-8.7%",
+                                                "Sprint to Fire": "-5.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L058",
+                                            "name": "Luminate-44",
+                                            "stats": {
+                                                "Sprint to Fire": "-8.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L059",
+                                            "name": "DXS Flash 90",
+                                            "stats": {
+                                                "Sprint to Fire": "-13.6%"
+                                            }
+                                        }
+                                    ],
+                                    "Optics":[
+                                        {
+                                            "id": "OP195",
+                                            "name": "Cronen Intlos MSP-12",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-20.5%",
+                                                "ADS Time": "-2.1%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP196",
+                                            "name": "Slate Reflector",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP197",
+                                            "name": "XTEN ERX-10 mini",
+                                            "stats": {
+                                                "ADS Move": "-4.2%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP198",
+                                            "name": "Slimline Pro",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP199",
+                                            "name": "SZ Mini",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP200",
+                                            "name": "Cronen Mini Dot",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP201",
+                                            "name": "Cronen Mini Pro",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP202",
+                                            "name": "SZ Sigma-IV Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP203",
+                                            "name": "SZ Minitac-40",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP204",
+                                            "name": "FSS Spectre Microtherm",
+                                            "stats": {
+                                                "ADS Time": "+8.3%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP205",
+                                            "name": "KR V4 1X Riser",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP206",
+                                            "name": "Caucasus Reflex Sight",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP207",
+                                            "name": "Nydar Model 2023",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP208",
+                                            "name": "Mk. 3 Reflector",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP209",
+                                            "name": "XRK On-Point Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP210",
+                                            "name": "Aim OP-V4",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP211",
+                                            "name": "Corvus Sol-76",
+                                            "stats": {
+                                                "Default Zoom": "1.1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP212",
+                                            "name": "SZ Recharge-DX",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP213",
+                                            "name": "Corio Enforcer Optic",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP214",
+                                            "name": "Corvus Downrange-00",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP215",
+                                            "name": "Jak Bullseye",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP216",
+                                            "name": "OTG Reflex Sight",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP217",
+                                            "name": "Dragon's Eye Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP218",
+                                            "name": "Jak Glossless Optic",
+                                            "stats": {
+                                                "ADS Time": "+2%",
+                                                "Default Zoom": "0.98x"
+                                            }
+                                        }
+                                    ],
+                                    "Magazine":[
+
+                                    ],
+                                    "Rear-grip":[
+                                        {
+                                            "id": "RG008",
+                                            "name": "D15 Grip",
+                                            "stats": {
+                                                "Flinch": "-50%",
+                                                "ADS Move": "-5.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "RG009",
+                                            "name": "Sakin ZX Grip",
+                                            "stats": {
+                                                "Gun Kick": "-7%",
+                                                "Horiz. Recoil": "-7%",
+                                                "Vert. Recoil": "-7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "RG010",
+                                            "name": "XTEN Grip",
+                                            "stats": {
+                                                "Gun Kick": "+6%",
+                                                "Horiz. Recoil": "+6%",
+                                                "Vert. Recoil": "+6%",
+                                                "ADS Time": "-2.9%",
+                                                "Sprint to Fire": "-15.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "RG011",
+                                            "name": "Phantom Grip",
+                                            "stats": {
+                                                "Gun Kick": "+10%",
+                                                "Horiz. Recoil": "+10%",
+                                                "Vert. Recoil": "+10%",
+                                                "Flinch": "-20%",
+                                                "ADS Time": "-9.2%",
+                                                "Sprint to Fire": "-20%"
+                                            }
+                                        }
+                                    ],
+                                    "Stock":[
+                                        {
+                                            "id": "S016",
+                                            "name": "Assault-60 Stock Factory",
+                                            "stats": {
+                                                "Gun Kick": "-2.5%",
+                                                "Horiz. Recoil": "-2.5%",
+                                                "Vert. Recoil": "-2.5%",
+                                                "Max Hipfire Area": "-2%",
+                                                "Tac Spread": "-2%",
+                                                "Crouch Speed": "-11%",
+                                                "Sprint Speed": "-9.2%",
+                                                "Tac Sprint Speed": "-3%",
+                                                "ADS Move": "-2.1%",
+                                                "ADS Time": "+2.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S017",
+                                            "name": "Ravage-8",
+                                            "stats": {
+                                                "Sprint Speed": "-4.4%",
+                                                "Tac Sprint Speed": "-4.2%",
+                                                "ADS Move": "-12.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S018",
+                                            "name": "Demo Quicksilver Stock",
+                                            "stats": {
+                                                "Gun Kick": "+4.4%",
+                                                "Horiz. Recoil": "+4.2%",
+                                                "Vert. Recoil": "+4.4%",
+                                                "Max Hipfire Area": "+4.4%",
+                                                "Tac Spread": "+4%",
+                                                "Crouch Speed": "+11.9%",
+                                                "Sprint Speed": "+2.2%",
+                                                "Tac Sprint Speed": "+1.1%",
+                                                "ADS Move": "+7.3%",
+                                                "ADS Time": "+3.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S019",
+                                            "name": "Demo Fade Pro Stock",
+                                            "stats": {
+                                                "Gun Kick": "-3.5%",
+                                                "Horiz. Recoil": "-3.5%",
+                                                "Vert. Recoil": "-3.5%",
+                                                "Max Hipfire Area": "-2.2%",
+                                                "Tac Spread": "-2.2%",
+                                                "Crouch Speed": "-15.2%",
+                                                "ADS Time": "+2.9%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S020",
+                                            "name": "Demo Quicksilver Collapsed",
+                                            "stats": {
+                                                "Gun Kick": "+106.4%",
+                                                "Horiz. Recoil": "+35%",
+                                                "Vert. Recoil": "+35%",
+                                                "Max Hipfire Area": "+6%",
+                                                "Flinch": "+30%",
+                                                "Tac Spread": "+8%",
+                                                "Move Speed": "+7.3%",
+                                                "Crouch Speed": "+18.5%",
+                                                "Sprint Speed": "+2.3%",
+                                                "Tac Sprint Speed": "+1.3%",
+                                                "ADS Move": "+11.4%",
+                                                "ADS Time": "-14.6%",
+                                                "Sprint to Fire": "-15.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S021",
+                                            "name": "Torrent Span-9",
+                                            "stats": {
+                                                "Gun Kick": "-4%",
+                                                "Horiz. Recoil": "-3%",
+                                                "Vert. Recoil": "-2%",
+                                                "Max Hipfire Area": "-3.2%",
+                                                "Tac Spread": "-3%",
+                                                "Crouch Speed": "-17.2%",
+                                                "Sprint Speed": "-4.4%",
+                                                "Tac Sprint Speed": "-12.7%",
+                                                "ADS Move": "-4.2%",
+                                                "ADS Time": "+3.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S022",
+                                            "name": "Jak Cutthroat",
+                                            "stats": {
+                                                "Gun Kick": "-10%",
+                                                "Horiz. Recoil": "-10%",
+                                                "Vert. Recoil": "-10%",
+                                                "Tac Spread": "-7.4%",
+                                                "Move Speed": "+8%",
+                                                "Crouch Speed": "+6%",
+                                                "ADS Move": "+21%"
+                                            }
+                                        }
+                                    ],
+                                    "Conversion":[
+
                                     ]
+                                }
+                            },
+                            "Fennec 45": {
+                                "type": "SMG",
+                                "stats": {
+                                    "RPM": 1091,
+                                    "Mag Size": 30,
+                                    "Reload Time": "3s",
+                                    "ADS Time": "190ms",
+                                    "Bullet Velocity": "300m/s",
+                                    "Movement Speed": "5m/s",
+                                    "Sprint to Fire": "99ms",
+                                    "Tac Sprint to Fire": "0ms",
+                                    "ADS Move Speed": "3.3m/s",
+                                    "Zoom": "0.88x",
+                                    "Sprint": "6.2m/s",
+                                    "Tac Sprint": "7.2m/s",
+                                    "Crouch Speed": "2m/s",
+                                    "Swap Speed": "1300ms",
+                                    "Min Hipfire": "2°",
+                                    "Max Hipfire": "5.6°",
+                                    "Tac Spread": "2.2°",
+                                    "Target Flinch": "0.8N",
+                                    "Flinch Resist": "0N",
+                                    "Hitscan Range": "15m"
+                                },
+                                "attachments":{
+                                    "Muzzle":[
+                                        {
+                                            "id": "MZ144",
+                                            "name": "HMRES Mod Suppressor S",
+                                            "stats": {
+                                                "Bullet Velocity": "+10%",
+                                                "Horiz. Recoil": "+8%",
+                                                "Vert. Recoil": "+8%",
+                                                "ADS Move": "-6%",
+                                                "ADS Time": "+22.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ145",
+                                            "name": "Monolithic Suppressor S",
+                                            "stats": {
+                                                "Horiz. Recoil": "-5%",
+                                                "Vert. Recoil": "-6%",
+                                                "ADS Move": "-3.8%",
+                                                "ADS Time": "+24.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ146",
+                                            "name": "Sonic Suppressor S",
+                                            "stats": {
+                                                "Range": "+5%",
+                                                "Bullet Velocity": "+12.9%",
+                                                "Horiz. Recoil": "+4%",
+                                                "Vert. Recoil": "+4%",
+                                                "Sprint to Fire": "-2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ147",
+                                            "name": "Colossus Suppressor S",
+                                            "stats": {
+                                                "Range": "-4%",
+                                                "Horiz. Recoil": "-6%",
+                                                "Vert. Recoil": "-6%",
+                                                "ADS Time": "+28.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ148",
+                                            "name": "XTEN RR-40",
+                                            "stats": {
+                                                "Range": "-3.2%",
+                                                "Bullet Velocity": "+18%",
+                                                "ADS Time": "+35.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ149",
+                                            "name": "Forge DX90-F",
+                                            "stats": {
+                                                "Range": "-12%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ150",
+                                            "name": "SA Schalldampfer 99",
+                                            "stats": {
+                                                "Range": "-5.2%",
+                                                "Bullet Velocity": "+11.9%",
+                                                "Gun Kick": "-2.9%",
+                                                "Horiz. Recoil": "-4.6%",
+                                                "Vert. Recoil": "-4.6%",
+                                                "ADS Move": "-8.9%",
+                                                "ADS Time": "+25.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ151",
+                                            "name": "Singuard MKV",
+                                            "stats": {
+                                                "Range": "-3.2%",
+                                                "Bullet Velocity": "+18%",
+                                                "Gun Kick": "-3.5%",
+                                                "Horiz. Recoil": "-3.5%",
+                                                "Vert. Recoil": "-3.5%",
+                                                "ADS Time": "+54.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ152",
+                                            "name": "EXF Huntress-90",
+                                            "stats": {
+                                                "Range": "-5.2%",
+                                                "Bullet Velocity": "+11.9%",
+                                                "Gun Kick": "-2.9%",
+                                                "Horiz. Recoil": "-6.2%",
+                                                "Vert. Recoil": "-6.2%",
+                                                "ADS Move": "-4.5%",
+                                                "ADS Time": "+35.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ153",
+                                            "name": "XTEN Black Kite",
+                                            "stats": {
+                                                "Range": "-7.5%",
+                                                "Bullet Velocity": "+9%",
+                                                "Gun Kick": "-7%",
+                                                "Horiz. Recoil": "-7%",
+                                                "Vert. Recoil": "-7%",
+                                                "ADS Move": "-13.7%",
+                                                "ADS Time": "+54.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ154",
+                                            "name": "FSS Covert IV",
+                                            "stats": {
+                                                "Range": "-12%",
+                                                "Gun Kick": "-7%",
+                                                "Horiz. Recoil": "-7%",
+                                                "Vert. Recoil": "-7%",
+                                                "ADS Time": "+36.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ155",
+                                            "name": "Ster45 Skyfury Compensator L",
+                                            "stats": {
+                                                "Horiz. Recoil": "-15.2%",
+                                                "Vert. Recoil": "-18%",
+                                                "ADS Time": "+15.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ156",
+                                            "name": "ELR Blackfire Compensator S",
+                                            "stats": {
+                                                "Range": "-19%",
+                                                "Bullet Velocity": "-15.4%",
+                                                "Horiz. Recoil": "-15.2%",
+                                                "Vert. Recoil": "-8.6%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ157",
+                                            "name": "Wrathguard Compensator S",
+                                            "stats": {
+                                                "Range": "-10%",
+                                                "Bullet Velocity": "-8%",
+                                                "Horiz. Recoil": "-23.8%",
+                                                "Vert. Recoil": "-4.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ158",
+                                            "name": "T4LR Saber Compensator S",
+                                            "stats": {
+                                                "Range": "-5%",
+                                                "Bullet Velocity": "-4%",
+                                                "Horiz. Recoil": "-25.4%",
+                                                "Vert. Recoil": "-7.5%",
+                                                "ADS Time": "+7.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ159",
+                                            "name": "T51R Billeted Brake S",
+                                            "stats": {
+                                                "Range": "-5%",
+                                                "Bullet Velocity": "-10%",
+                                                "Horiz. Recoil": "-10%",
+                                                "Vert. Recoil": "-31.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ160",
+                                            "name": "Purifier Muzzle Brake S",
+                                            "stats": {
+                                                "Range": "-10%",
+                                                "Bullet Velocity": "-8%",
+                                                "Horiz. Recoil": "-15.2%",
+                                                "Vert. Recoil": "-8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ161",
+                                            "name": "VP27 Mini Brake S",
+                                            "stats": {
+                                                "Range": "-10%",
+                                                "Bullet Velocity": "-8%",
+                                                "Horiz. Recoil": "-28.9%",
+                                                "Vert. Recoil": "-4.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ162",
+                                            "name": "Bruen Pendulum",
+                                            "stats": {
+                                                "Gun Kick": "-22.7%",
+                                                "Horiz. Recoil": "-22.7%",
+                                                "Vert. Recoil": "-21.1%",
+                                                "ADS Time": "+18%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ163",
+                                            "name": "AVR-T90 Comp",
+                                            "stats": {
+                                                "Gun Kick": "-9.3%",
+                                                "Horiz. Recoil": "-25.1%",
+                                                "Vert. Recoil": "-8.6%",
+                                                "ADS Time": "+21.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ164",
+                                            "name": "Lacerta Compensator",
+                                            "stats": {
+                                                "Gun Kick": "-7.6%",
+                                                "Horiz. Recoil": "-27%",
+                                                "Vert. Recoil": "-7%",
+                                                "ADS Time": "+21.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ165",
+                                            "name": "FTAC Castle Comp",
+                                            "stats": {
+                                                "Gun Kick": "-13.8%",
+                                                "Horiz. Recoil": "-20.4%",
+                                                "Vert. Recoil": "-16.6%",
+                                                "ADS Time": "+21.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ166",
+                                            "name": "XTEN Razor Comp",
+                                            "stats": {
+                                                "Gun Kick": "-11%",
+                                                "Horiz. Recoil": "-23.2%",
+                                                "Vert. Recoil": "-10.7%",
+                                                "ADS Time": "+21.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ167",
+                                            "name": "XRK Sandstorm",
+                                            "stats": {
+                                                "Gun Kick": "-26.4%",
+                                                "Horiz. Recoil": "-10%",
+                                                "Vert. Recoil": "-27%",
+                                                "ADS Time": "+21.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ168",
+                                            "name": "Lockshot KT85",
+                                            "stats": {
+                                                "Gun Kick": "-19.4%",
+                                                "Horiz. Recoil": "-15.3%",
+                                                "Vert. Recoil": "-16.6%",
+                                                "ADS Time": "+18%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ169",
+                                            "name": "Bruen Cubic Comp",
+                                            "stats": {
+                                                "Gun Kick": "-15.6%",
+                                                "Horiz. Recoil": "-15.3%",
+                                                "Vert. Recoil": "-16.6%",
+                                                "ADS Time": "+15.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ170",
+                                            "name": "S-37C DL Breacher Device S",
+                                            "stats": {
+                                                "Min Hipfire Area": "-6%",
+                                                "Max Hipfire Area": "-6%",
+                                                "Tac Spread": "-6%",
+                                                "ADS Time": "+12.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ171",
+                                            "name": "XRK Knockout Breach",
+                                            "stats": {
+                                                "Move Speed": "+2%",
+                                                "ADS Time": "+5.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ172",
+                                            "name": "TA HUL-Breach",
+                                            "stats": {
+                                                "Move Speed": "-4%",
+                                                "ADS Time": "+18.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ173",
+                                            "name": "L4R Flash Hider",
+                                            "stats": {
+                                                "Gun Kick": "-13%",
+                                                "Horiz. Recoil": "-13%",
+                                                "Vert. Recoil": "-10.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ174",
+                                            "name": "Spiral V3.5 Flash Hider",
+                                            "stats": {
+                                                "Gun Kick": "-13%",
+                                                "Horiz. Recoil": "-13%",
+                                                "Vert. Recoil": "-10.5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ175",
+                                            "name": "Fox-202 Flash Hider",
+                                            "stats": {
+                                                "ADS Time": "+5.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ176",
+                                            "name": "Shikra Silencer",
+                                            "stats": {
+                                                "Range": "-3.2%",
+                                                "Bullet Velocity": "-18%",
+                                                "Gun Kick": "-7%",
+                                                "Horiz. Recoil": "-7%",
+                                                "Vert. Recoil": "-7%",
+                                                "ADS Move": "-10.4%",
+                                                "ADS Time": "+27.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ177",
+                                            "name": "Jak BFB",
+                                            "stats": {
+                                                "Bullet Velocity": "-18%",
+                                                "Gun Kick": "-55%",
+                                                "Horiz. Recoil": "-20%",
+                                                "Vert. Recoil": "-33%",
+                                                "ADS Move": "-17%",
+                                                "ADS Time": "+18%",
+                                                "Sprint to Fire": "+14%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ178",
+                                            "name": "ZEHMN35 Compensated Flash Hider",
+                                            "stats": {
+                                                "Bullet Velocity": "-5%",
+                                                "Horiz. Recoil": "-5%",
+                                                "Vert. Recoil": "-15%",
+                                                "ADS Time": "+5.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ179",
+                                            "name": "S-37C DL Breacher Device",
+                                            "stats": {
+                                                "Min Hipfire Area": "-6%",
+                                                "Max Hipfire Area": "-6%",
+                                                "Tac Spread": "-6.4%",
+                                                "ADS Time": "+13.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "MZ180",
+                                            "name": "ECS Requieter Suppressor",
+                                            "stats": {
+                                                "Laser visible in ADS": "-4%",
+                                                "ADS Time": "-4%"
+                                            }
+                                        }
+                                    ],
+                                    "Barrel":[
+                                        {
+                                            "id": "B014",
+                                            "name": "5.5\" Fennec MiniTac",
+                                            "stats": {
+                                                "Range": "-6.4%",
+                                                "Bullet Velocity": "-7.1%",
+                                                "Gun Kick": "+4.8%",
+                                                "Horiz. Recoil": "+4.8%",
+                                                "Vert. Recoil": "+6%",
+                                                "Min Hipfire Area": "-4.6%",
+                                                "Max Hipfire Area": "-6.4%",
+                                                "Tac Spread": "-5.8%",
+                                                "Move Speed": "+1.1%",
+                                                "Crouch Speed": "+2.5%",
+                                                "Sprint Speed": "+0.6%",
+                                                "Tac Sprint Speed": "+1.1%",
+                                                "ADS Move": "+1.6%",
+                                                "ADS Time": "-7.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "B015",
+                                            "name": "FTAC 8.5\" Recon",
+                                            "stats": {
+                                                "Bullet Velocity": "-2.8%",
+                                                "Gun Kick": "-4.4%",
+                                                "Horiz. Recoil": "+4.8%",
+                                                "Vert. Recoil": "+1.6%",
+                                                "Move Speed": "+1.1%",
+                                                "Crouch Speed": "+2.5%",
+                                                "Sprint Speed": "+0.7%",
+                                                "Tac Sprint Speed": "+1.1%",
+                                                "ADS Move": "+2.5%",
+                                                "ADS Time": "-2.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "B016",
+                                            "name": "Forge Tac Ninja",
+                                            "stats": {
+                                                "Range": "+19%",
+                                                "Bullet Velocity": "+32.9%",
+                                                "Gun Kick": "-14.4%",
+                                                "Horiz. Recoil": "-14.4%",
+                                                "Vert. Recoil": "-14.4%",
+                                                "Min Hipfire Area": "-6.1%",
+                                                "Max Hipfire Area": "-25%",
+                                                "Tac Spread": "-9.3%",
+                                                "Move Speed": "-1.7%",
+                                                "Crouch Speed": "-5.6%",
+                                                "Sprint Speed": "-6.4%",
+                                                "Tac Sprint Speed": "-6.2%",
+                                                "ADS Move": "-15.2%",
+                                                "ADS Time": "+27.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "B017",
+                                            "name": "Fennec Covert Force",
+                                            "stats": {
+                                                "Range": "+19%",
+                                                "Bullet Velocity": "+17%",
+                                                "Min Hipfire Area": "-15%",
+                                                "Max Hipfire Area": "+25%",
+                                                "Tac Spread": "-20%",
+                                                "ADS Time": "+57.9%"
+                                            }
+                                        },
+                                        {
+                                            "id": "B018",
+                                            "name": "ZLR 16.5\" Ignition Barrel",
+                                            "stats": {
+                                                "Range": "+40%",
+                                                "Bullet Velocity": "+26.9%",
+                                                "Gun Kick": "-9%",
+                                                "Horiz. Recoil": "-16%",
+                                                "Vert. Recoil": "-15%",
+                                                "Min Hipfire Area": "-8%",
+                                                "Max Hipfire Area": "-2%",
+                                                "Tac Spread": "-3%",
+                                                "Move Speed": "-6.5%",
+                                                "Crouch Speed": "-6.5%",
+                                                "Sprint Speed": "-4.1%",
+                                                "Tac Sprint Speed": "-4.1%",
+                                                "ADS Move": "-16%",
+                                                "ADS Time": "+7.6%"
+                                            }
+                                        }
+                                    ],
+                                    "Underbarrel":[
+                                        {
+                                            "id": "U164",
+                                            "name": "XRK Edge BW-4 Handstop",
+                                            "stats": {
+                                                "Min Hipfire Area": "-7%",
+                                                "Tac Spread": "+14.9%",
+                                                "Move Speed": "+6.6%",
+                                                "Crouch Speed": "+12%",
+                                                "ADS Move": "+9.9%",
+                                                "ADS Time": "+8.6%",
+                                                "Sprint to Fire": "-6.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U165",
+                                            "name": "FTAC MSP-98 Handstop",
+                                            "stats": {
+                                                "Gun Kick": "-5.8%",
+                                                "Horiz. Recoil": "-24%",
+                                                "Vert. Recoil": "-7.2%",
+                                                "Move Speed": "+6.6%",
+                                                "Crouch Speed": "+12%",
+                                                "ADS Move": "+9.9%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U166",
+                                            "name": "DR-6 Handstop",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Tac Spread": "+20.3%",
+                                                "Move Speed": "+4.6%",
+                                                "Crouch Speed": "+8.8%",
+                                                "ADS Move": "+7%",
+                                                "ADS Time": "-10.5%",
+                                                "Sprint to Fire": "-8.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U167",
+                                            "name": "XTEN Phantom-5 Handstop",
+                                            "stats": {
+                                                "Gun Kick": "-9.9%",
+                                                "Horiz. Recoil": "-16%",
+                                                "Vert. Recoil": "-8.4%",
+                                                "Min Hipfire Area": "-10%",
+                                                "Tac Spread": "+20.3%",
+                                                "ADS Time": "-8%",
+                                                "Sprint to Fire": "-8.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U168",
+                                            "name": "XTEN TX-12 Handstop",
+                                            "stats": {
+                                                "Min Hipfire Area": "-7.9%",
+                                                "Tac Spread": "-6.4%",
+                                                "ADS Time": "-5.6%",
+                                                "Sprint to Fire": "-2.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U169",
+                                            "name": "FTAC SP-10 Angled Grip",
+                                            "stats": {
+                                                "Gun Kick": "-0.3%",
+                                                "Horiz. Recoil": "-12%",
+                                                "Vert. Recoil": "-4%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U170",
+                                            "name": "FTAC RS-9 Stealth Angled Grip",
+                                            "stats": {
+                                                "Gun Kick": "-0.2%",
+                                                "Horiz. Recoil": "-8.4%",
+                                                "Vert. Recoil": "-12.8%",
+                                                "Tac Spread": "-16.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U171",
+                                            "name": "Bruen Bastion Angled Grip",
+                                            "stats": {
+                                                "Gun Kick": "-10%",
+                                                "Horiz. Recoil": "-16.4%",
+                                                "Vert. Recoil": "-25%",
+                                                "Min Hipfire Area": "-20%",
+                                                "Max Hipfire Area": "-15%",
+                                                "Tac Spread": "-8%",
+                                                "ADS Time": "+13.2%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U172",
+                                            "name": "Chewk Angled Grip",
+                                            "stats": {
+                                                "Gun Kick": "-0.2%",
+                                                "Horiz. Recoil": "-6%",
+                                                "Vert. Recoil": "-12%",
+                                                "Move Speed": "+6.6%",
+                                                "Crouch Speed": "+6.6%",
+                                                "ADS Move": "+4.9%",
+                                                "ADS Time": "-6.7%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U173",
+                                            "name": "FTAC Tiger Grip",
+                                            "stats": {
+                                                "Gun Kick": "-1.3%",
+                                                "Horiz. Recoil": "-1.3%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-18.9%",
+                                                "Max Hipfire Area": "-12.4%",
+                                                "Move Speed": "-6.7%",
+                                                "Crouch Speed": "-6.7%",
+                                                "ADS Move": "-4.7%",
+                                                "ADS Time": "+4.7%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U174",
+                                            "name": "FSS Sharkfin 90",
+                                            "stats": {
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U175",
+                                            "name": "Agent Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-30%",
+                                                "Move Speed": "-9.7%",
+                                                "Crouch Speed": "-9.7%",
+                                                "ADS Move": "-4.9%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U176",
+                                            "name": "Bruen Sync Shot Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-19.9%",
+                                                "Move Speed": "-6.5%",
+                                                "Crouch Speed": "-6.5%",
+                                                "ADS Move": "-2.6%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U177",
+                                            "name": "XTEN Drop Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-9.9%",
+                                                "Move Speed": "-3.4%",
+                                                "Crouch Speed": "-3.2%",
+                                                "ADS Move": "-1.4%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U178",
+                                            "name": "XTEN Nexus Grip",
+                                            "stats": {
+                                                "Gun Kick": "-1.3%",
+                                                "Horiz. Recoil": "-1.3%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-12.4%",
+                                                "Move Speed": "-9.3%",
+                                                "Crouch Speed": "-4.7%",
+                                                "ADS Time": "+4.7%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U179",
+                                            "name": "PHASE-3 Grip",
+                                            "stats": {
+                                                "Gun Kick": "-2%",
+                                                "Horiz. Recoil": "-2%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-30%",
+                                                "Move Speed": "-9.7%",
+                                                "Crouch Speed": "-9.7%",
+                                                "ADS Move": "-4.9%",
+                                                "ADS Time": "+4.7%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U180",
+                                            "name": "Bruen Heavy Support Grip",
+                                            "stats": {
+                                                "Gun Kick": "-10.3%",
+                                                "Horiz. Recoil": "-8%",
+                                                "Vert. Recoil": "-4%",
+                                                "ADS Time": "+13.2%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U181",
+                                            "name": "Kimura RYN-03 Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-14.2%",
+                                                "Horiz. Recoil": "-4%",
+                                                "Vert. Recoil": "-12%",
+                                                "ADS Time": "-6.3%",
+                                                "Sprint to Fire": "+1%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U182",
+                                            "name": "Kimura Seraphic Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-5.8%",
+                                                "Horiz. Recoil": "-8.4%",
+                                                "Vert. Recoil": "-8.4%",
+                                                "Move Speed": "+6.6%",
+                                                "Crouch Speed": "+9.9%",
+                                                "ADS Move": "+9.9%",
+                                                "ADS Time": "-7.5%",
+                                                "Sprint to Fire": "-1%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U183",
+                                            "name": "SL Skeletal Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-5.8%",
+                                                "Horiz. Recoil": "-2.8%",
+                                                "Vert. Recoil": "-8.4%",
+                                                "Min Hipfire Area": "+9%",
+                                                "ADS Time": "-8.4%",
+                                                "Tac Spread": "-6.7%",
+                                                "Sprint to Fire": "-1%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U184",
+                                            "name": "Holger Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-10%",
+                                                "Horiz. Recoil": "-16%",
+                                                "Vert. Recoil": "-5.2%",
+                                                "ADS Time": "-12.3%",
+                                                "Sprint to Fire": "+1%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U185",
+                                            "name": "Bruen Tactical Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-10%",
+                                                "Horiz. Recoil": "-16%",
+                                                "Vert. Recoil": "-5.2%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-6%",
+                                                "ADS Time": "-13.2%",
+                                                "Sprint to Fire": "+2%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U186",
+                                            "name": "Bruen Pivot Vertical Grip",
+                                            "stats": {
+                                                "Gun Kick": "-10%",
+                                                "Horiz. Recoil": "-4%",
+                                                "Vert. Recoil": "-12%",
+                                                "ADS Time": "+4%",
+                                                "Sprint to Fire": "+2%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U187",
+                                            "name": "Merc Foregrip",
+                                            "stats": {
+                                                "Gun Kick": "-9%",
+                                                "Horiz. Recoil": "-9%",
+                                                "Vert. Recoil": "-9%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-8.4%",
+                                                "Tac Spread": "-7.9%",
+                                                "Move Speed": "-6.6%",
+                                                "Crouch Speed": "-8.8%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U188",
+                                            "name": "Lockgrip PRECISION-40",
+                                            "stats": {
+                                                "Gun Kick": "-9%",
+                                                "Horiz. Recoil": "-9%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-12%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U189",
+                                            "name": "HEX-40 Grip",
+                                            "stats": {
+                                                "Gun Kick": "-9%",
+                                                "Horiz. Recoil": "-9%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-4.2%",
+                                                "Tac Spread": "-7.9%",
+                                                "Move Speed": "-4.5%",
+                                                "Crouch Speed": "-4.5%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U190",
+                                            "name": "Schlager Tango",
+                                            "stats": {
+                                                "Gun Kick": "-4.5%",
+                                                "Horiz. Recoil": "-12%",
+                                                "Vert. Recoil": "-12%",
+                                                "Min Hipfire Area": "-4.2%",
+                                                "Max Hipfire Area": "-7.9%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U191",
+                                            "name": "VX Pineapple",
+                                            "stats": {
+                                                "Gun Kick": "-9%",
+                                                "Horiz. Recoil": "-9%",
+                                                "Vert. Recoil": "-9%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-8.4%",
+                                                "Tac Spread": "-7.9%",
+                                                "Move Speed": "-6.6%",
+                                                "Crouch Speed": "-9.3%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U192",
+                                            "name": "OP-X9 Foregrip",
+                                            "stats": {
+                                                "Gun Kick": "-4.5%",
+                                                "Horiz. Recoil": "-4.5%",
+                                                "Vert. Recoil": "-4.5%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-4.2%",
+                                                "Move Speed": "-4.5%",
+                                                "Crouch Speed": "-4.5%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U193",
+                                            "name": "Operator Foregrip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-4.2%",
+                                                "Tac Spread": "-6%",
+                                                "Move Speed": "-4.5%",
+                                                "Crouch Speed": "-4.5%",
+                                                "ADS Time": "+15.8%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U194",
+                                            "name": "TV Wrecker Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U195",
+                                            "name": "Bruen Tilt Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-7.9%",
+                                                "Tac Spread": "-6%",
+                                                "Move Speed": "-9%",
+                                                "Crouch Speed": "-8.3%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U196",
+                                            "name": "Cronen Grooveshot Grip",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-6%",
+                                                "Move Speed": "-14.9%",
+                                                "Crouch Speed": "-13.2%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U197",
+                                            "name": "EXF Backdraft Grip",
+                                            "stats": {
+                                                "Gun Kick": "-4.5%",
+                                                "Horiz. Recoil": "-4.5%",
+                                                "Vert. Recoil": "-4.5%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-7.9%",
+                                                "Tac Spread": "-6%",
+                                                "Move Speed": "-9%",
+                                                "Crouch Speed": "-8.3%",
+                                                "ADS Time": "+17.9%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "U198",
+                                            "name": "Bruen Warrior Grip",
+                                            "stats": {
+                                                "Gun Kick": "-4.5%",
+                                                "Horiz. Recoil": "-4.5%",
+                                                "Vert. Recoil": "-4.5%",
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-6%",
+                                                "Move Speed": "-9%",
+                                                "Crouch Speed": "-12%",
+                                                "ADS Time": "+17.9%",
+                                                "Swap Speed": "-12.8%"
+                                            }
+                                        }
+                                    ],
+                                    "Ammunition":[
+                                        {
+                                            "id": "A029",
+                                            "name": ".45 Auto High Grain Rounds",
+                                            "stats": {
+                                                "Range": "+15%",
+                                                "Bullet Velocity": "+15%",
+                                                "Gun Kick": "+5%",
+                                                "Horiz. Recoil": "+8%",
+                                                "Vert. Recoil": "+8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "A030",
+                                            "name": ".45 Auto Low Grain Rounds",
+                                            "stats": {
+                                                "Range": "-15%",
+                                                "Bullet Velocity": "-15%",
+                                                "Gun Kick": "-8%",
+                                                "Horiz. Recoil": "-8%",
+                                                "Vert. Recoil": "-8%"
+                                            }
+                                        },
+                                        {
+                                            "id": "A031",
+                                            "name": ".45 Auto Hardened Rounds",
+                                            "stats": {
+                                                "Range": "-23.5%",
+                                                "Bullet Velocity": "-15%",
+                                                "Gun Kick": "+2.5%",
+                                                "Horiz. Recoil": "+4%",
+                                                "Vert. Recoil": "+4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "A032",
+                                            "name": ".45 Auto Frangible",
+                                            "stats": {
+                                                "Range": "-5%"
+                                            }
+                                        },
+                                        {
+                                            "id": "A033",
+                                            "name": ".45 Auto Hollowpoint",
+                                            "stats": {}
+                                        },
+                                        {
+                                            "id": "A034",
+                                            "name": ".45 Auto Armor Piercing",
+                                            "stats": {}
+                                        },
+                                        {
+                                            "id": "A035",
+                                            "name": ".45 Auto Overpressured +P",
+                                            "stats": {}
+                                        }
+                                    ],
+                                    "Laser":[
+                                        {
+                                            "id": "L060",
+                                            "name": "Kimura RYL33 Laser Light",
+                                            "stats": {
+                                                "Tac Spread": "-19%",
+                                                "ADS Time": "-10%",
+                                                "Sprint to Fire": "-15.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L061",
+                                            "name": "CS15 Scarlet Cylindrical Laser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-9%",
+                                                "Max Hipfire Area": "+30%",
+                                                "Tac Spread": "+48.7%",
+                                                "Sprint to Fire": "-12.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L062",
+                                            "name": "Pro Sapphire Cylindrical Laser",
+                                            "stats": {
+                                                "Sprint to Fire": "-12.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L063",
+                                            "name": "Verdant Hook Cylindrical Laser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-11.7%",
+                                                "Sprint to Fire": "-8.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L064",
+                                            "name": "1mW Artemis Laser",
+                                            "stats": {
+                                                "ADS Time": "-3.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L065",
+                                            "name": "1mW Quick Fire Laser",
+                                            "stats": {
+                                                "ADS Time": "-3.7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L066",
+                                            "name": "Accu-Shot 5mW Laser",
+                                            "stats": {
+                                                "ADS Time": "-7.4%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L067",
+                                            "name": "VLK LZR 7mW",
+                                            "stats": {
+                                                "ADS Time": "-5.3%",
+                                                "Sprint to Fire": "-6.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L068",
+                                            "name": "7mW Cantod Laser",
+                                            "stats": {
+                                                "ADS Time": "-2.6%",
+                                                "Sprint to Fire": "-6.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L069",
+                                            "name": "Schlager ULO-66 Laser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-20%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-11.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L070",
+                                            "name": "STOVL Tac Laser",
+                                            "stats": {
+                                                "Min Hipfire Area": "-5%",
+                                                "Max Hipfire Area": "-5%",
+                                                "Tac Spread": "-5.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L071",
+                                            "name": "Hipshot L20",
+                                            "stats": {
+                                                "Min Hipfire Area": "-12%",
+                                                "Max Hipfire Area": "-12%",
+                                                "Tac Spread": "-10.6%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L072",
+                                            "name": "Point-G3P 04",
+                                            "stats": {
+                                                "Min Hipfire Area": "-8%",
+                                                "Max Hipfire Area": "-8%",
+                                                "Tac Spread": "-8.7%",
+                                                "Sprint to Fire": "-5.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L073",
+                                            "name": "FJX Ultrabeam XR",
+                                            "stats": {
+                                                "Sprint to Fire": "-8.1%"
+                                            }
+                                        },
+                                        {
+                                            "id": "L074",
+                                            "name": "EXF Solarflare",
+                                            "stats": {
+                                                "Sprint to Fire": "-13.1%"
+                                            }
+                                        }
+                                    ],
+                                    "Optics":[
+                                        {
+                                            "id": "OP219",
+                                            "name": "Cronen Intlos MSP-12",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-23.5%",
+                                                "ADS Time": "-2.6%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP220",
+                                            "name": "Intlos CAS-14",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "Tac Spread": "-23.5%",
+                                                "Default Zoom": "1.18x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP221",
+                                            "name": "Slate Reflector",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP222",
+                                            "name": "XTEN ERX-10 mini",
+                                            "stats": {
+                                                "ADS Move": "-3.9%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP223",
+                                            "name": "Slimline Pro",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP224",
+                                            "name": "SZ Mini",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP225",
+                                            "name": "Cronen Mini Dot",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP226",
+                                            "name": "Cronen Mini Pro",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP227",
+                                            "name": "SZ Sigma-IV Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP228",
+                                            "name": "SZ Minitac-40",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP229",
+                                            "name": "KR Minitac-40 Riser",
+                                            "stats": {
+                                                "Gun Kick": "+10%",
+                                                "Horiz. Recoil": "+16%",
+                                                "Vert. Recoil": "+5.2%",
+                                                "ADS Time": "-5.3%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP230",
+                                            "name": "FSS Spectre Microtherm",
+                                            "stats": {
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP231",
+                                            "name": "KR V4 1X Riser",
+                                            "stats": {
+                                                "Gun Kick": "+10%",
+                                                "Horiz. Recoil": "+16%",
+                                                "Vert. Recoil": "+5.2%",
+                                                "ADS Time": "-5.3%",
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP232",
+                                            "name": "Coucusus Reflex Sight",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP233",
+                                            "name": "Nydor Model 2023",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP234",
+                                            "name": "Mk. 3 Reflector",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP235",
+                                            "name": "XRK On-Point Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP236",
+                                            "name": "Aim OP-V4",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP237",
+                                            "name": "DF106 Reflex Sight",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP238",
+                                            "name": "Monocle CT90",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP239",
+                                            "name": "Corvus Sol-76",
+                                            "stats": {
+                                                "Default Zoom": "1.11x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP240",
+                                            "name": "SZ Recharge-DX",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP241",
+                                            "name": "SZ Sro-7",
+                                            "stats": {
+                                                "Default Zoom": "1.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP242",
+                                            "name": "Corio RE-X Pro",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP243",
+                                            "name": "Chrios Holo",
+                                            "stats": {
+                                                "Default Zoom": "1.52x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP244",
+                                            "name": "Corio Enforcer Optic",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP245",
+                                            "name": "SZ Lonewolf Optic",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP246",
+                                            "name": "Kozan-Holo",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP247",
+                                            "name": "SZ Battle Optic",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP248",
+                                            "name": "Corvus Downrange-00",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP249",
+                                            "name": "XTEN Angel-40",
+                                            "stats": {
+                                                "Default Zoom": "1.34x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP250",
+                                            "name": "SZ Holotherm",
+                                            "stats": {
+                                                "Default Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP251",
+                                            "name": "Corio ELT-10 2.5",
+                                            "stats": {
+                                                "ADS Move": "-3.9%",
+                                                "ADS Time": "+7.9%",
+                                                "Default Zoom": "1.41x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP252",
+                                            "name": "KR Mortis Precision 2.5",
+                                            "stats": {
+                                                "ADS Move": "-3.9%",
+                                                "ADS Time": "+7.9%",
+                                                "Default Zoom": "1.75x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP253",
+                                            "name": "Corio Eagleseye 2.5X",
+                                            "stats": {
+                                                "ADS Move": "-3.9%",
+                                                "ADS Time": "+7.9%",
+                                                "Default Zoom": "1.61x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP254",
+                                            "name": "SL Truesight 2.5X",
+                                            "stats": {
+                                                "ADS Move": "-3.9%",
+                                                "ADS Time": "+7.9%",
+                                                "Default Zoom": "1.7x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP255",
+                                            "name": "KR Marauder 9 Riser",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.55x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP256",
+                                            "name": "TOS Nightfall 2.5X Thermal Optic",
+                                            "stats": {
+                                                "ADS Time": "+7.9%",
+                                                "Default Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP257",
+                                            "name": "AOK 4.0X RQ-9 Recon",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "2.65x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP258",
+                                            "name": "TX4 Havoc",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "2.05x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP259",
+                                            "name": "VLK 4.0 Optic",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "1.91x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP260",
+                                            "name": "Schlager 3.4X",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "1.91x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP261",
+                                            "name": "Forge Tac Delta 4",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.77x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP262",
+                                            "name": "Cronen Zero-P Optic",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.66x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP263",
+                                            "name": "SZ Bullseye Optic",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.93x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP264",
+                                            "name": "SZ Aggressor-IR Optic",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "4.09x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP265",
+                                            "name": "Schlager Night View",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.93x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP266",
+                                            "name": "VX350 Thermal Optic",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.7x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP267",
+                                            "name": "Teplo-OP3 Scope",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.57x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP268",
+                                            "name": "Corvus Ghostview",
+                                            "stats": {
+                                                "ADS Move": "-4.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "2.27x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP269",
+                                            "name": "DR582 Hybrid Sight",
+                                            "stats": {
+                                                "ADS Move": "-4.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Swap Speed": "-12.8%",
+                                                "Default Zoom": "2.64x",
+                                                "Secondary Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP270",
+                                            "name": "Hybrid Firepoint",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.36x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP271",
+                                            "name": "SZ Vortex-90",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Swap Speed": "-12.8%",
+                                                "Default Zoom": "3.57x",
+                                                "Secondary Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP272",
+                                            "name": "BPZ40 Hybrid",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "1.68x",
+                                                "Secondary Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP273",
+                                            "name": "SZ Oscar-9",
+                                            "stats": {
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "1.65x",
+                                                "Secondary Zoom": "2.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP274",
+                                            "name": "Thermo-Optic X9",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Swap Speed": "-12.8%",
+                                                "Default Zoom": "3.77x",
+                                                "Secondary Zoom": "1.3x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP275",
+                                            "name": "Teplo Clear Shot",
+                                            "stats": {
+                                                "ADS Move": "-9.9%",
+                                                "ADS Time": "+10.5%",
+                                                "Default Zoom": "3.57x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP276",
+                                            "name": "KR Intlos LSJ-3",
+                                            "stats": {
+                                                "Min Hipfire Area": "-10%",
+                                                "Max Hipfire Area": "-10%",
+                                                "ADS Move": "-6.9%",
+                                                "ADS Time": "-5.3%",
+                                                "Default Zoom": "1.14x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP277",
+                                            "name": "Jak Bullseye",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP278",
+                                            "name": "QTG Reflex Sight",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP279",
+                                            "name": "Dragon's Eye Optic",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP280",
+                                            "name": "Rhino Reflex",
+                                            "stats": {
+                                                "Default Zoom": "1x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP281",
+                                            "name": "TPS Incendio Reflex",
+                                            "stats": {
+                                                "Default Zoom": "0.98x"
+                                            }
+                                        },
+                                        {
+                                            "id": "OP282",
+                                            "name": "Jak Glossless Optic",
+                                            "stats": {
+                                                "ADS Time": "+2%",
+                                                "Default Zoom": "0.98x"
+                                            }
+                                        }
+                                    ],
+                                    "Magazine":[
+                                        {
+                                            "id": "M007",
+                                            "name": "Fennec Double Tap Mod",
+                                            "stats": {
+                                                "Target Flinch": "+25.9%",
+                                                "Range": "+10%",
+                                                "Fire Rate": "-5%",
+                                                "Gun Kick": "+5.5%",
+                                                "Horiz. Recoil": "+200%",
+                                                "Vert. Recoil": "+200%",
+                                                "Move Speed": "+2%",
+                                                "Crouch Speed": "+3.6%",
+                                                "Sprint Speed": "+2.5%",
+                                                "Tac Sprint Speed": "+0.9%",
+                                                "ADS Move": "+11.4%",
+                                                "ADS Time": "-13.2%",
+                                                "Reload Time": "-15.4%",
+                                                "Sprint to Fire": "-27.3%"
+                                            }
+                                        },
+                                        {
+                                            "id": "M008",
+                                            "name": "Fennec Mag 45",
+                                            "stats": {
+                                                "Move Speed": "-6.7%",
+                                                "Crouch Speed": "-7.4%",
+                                                "Sprint Speed": "-4.1%",
+                                                "Tac Sprint Speed": "-3.9%",
+                                                "ADS Move": "-8.9%",
+                                                "ADS Time": "+11.7%",
+                                                "Reload Time": "+8.8%",
+                                                "Sprint to Fire": "+1%"
+                                            }
+                                        }
+                                        
+                                    ],
+                                    "Rear-grip":[
+                                        {
+                                            "id": "RG012",
+                                            "name": "Fennec Stippled Grip",
+                                            "stats": {
+                                                "Gun Kick": "-7%",
+                                                "Horiz. Recoil": "-7%",
+                                                "Vert. Recoil": "-7%"
+                                            }
+                                        },
+                                        {
+                                            "id": "RG013",
+                                            "name": "Fennec Textured Grip",
+                                            "stats": {
+                                                "Flinch": "-50%",
+                                                "ADS Move": "-4.9%"
+                                            }
+                                        },
+                                        {
+                                            "id": "RG014",
+                                            "name": "Fennec Rubber Grip",
+                                            "stats": {
+                                                "Gun Kick": "+6%",
+                                                "Horiz. Recoil": "+6%",
+                                                "Vert. Recoil": "+6%",
+                                                "ADS Time": "-3.2%",
+                                                "Sprint to Fire": "-15.2%"
+                                            }
+                                        }
+                                    ],
+                                    "Stock":[
+                                        {
+                                            "id": "S016",
+                                            "name": "Fennec Bullfighter",
+                                            "stats": {
+                                                "Sprint Speed": "-6.5%",
+                                                "Tac Sprint Speed": "-5.9%",
+                                                "ADS Move": "-17%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S017",
+                                            "name": "FTAC XCommand Stock",
+                                            "stats": {
+                                                "Gun Kick": "-4%",
+                                                "Horiz. Recoil": "-4%",
+                                                "Vert. Recoil": "-4%",
+                                                "Max Hipfire Area": "-3.2%",
+                                                "Tac Spread": "-3.7%",
+                                                "Crouch Speed": "-16.4%",
+                                                "ADS Time": "+24.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S018",
+                                            "name": "FTAC Locktight Stock",
+                                            "stats": {
+                                                "Gun Kick": "+4.9%",
+                                                "Horiz. Recoil": "+4.9%",
+                                                "Vert. Recoil": "+4.9%",
+                                                "Max Hipfire Area": "-4%",
+                                                "Tac Spread": "-4.7%",
+                                                "Crouch Speed": "+12.7%",
+                                                "Sprint Speed": "+0.6%",
+                                                "Tac Sprint Speed": "+1.7%",
+                                                "ADS Time": "-4.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S019",
+                                            "name": "Agile Assault-7 Stock",
+                                            "stats": {
+                                                "Gun Kick": "+2.8%",
+                                                "Horiz. Recoil": "+2.8%",
+                                                "Vert. Recoil": "+2.8%",
+                                                "Max Hipfire Area": "-2%",
+                                                "Tac Spread": "-3.7%",
+                                                "Crouch Speed": "+7.5%",
+                                                "Sprint Speed": "+2.1%",
+                                                "Tac Sprint Speed": "+9.2%",
+                                                "ADS Move": "+9.2%",
+                                                "ADS Time": "-4.2%"
+                                            }
+                                        },
+                                        {
+                                            "id": "S020",
+                                            "name": "FTAC Stock Cop",
+                                            "stats": {
+                                                "Gun Kick": "+106.4%",
+                                                "Horiz. Recoil": "+35%",
+                                                "Vert. Recoil": "+35%",
+                                                "Max Hipfire Area": "-6%",
+                                                "Flinch": "+30%",
+                                                "Tac Spread": "-6.4%",
+                                                "Move Speed": "+7.1%",
+                                                "Crouch Speed": "+17.6%",
+                                                "Sprint Speed": "+2.1%",
+                                                "Tac Sprint Speed": "+3.5%",
+                                                "ADS Move": "+10.7%",
+                                                "ADS Time": "-14.7%",
+                                                "Sprint to Fire": "-15.2%"
+                                            }
+                                        }
+                                    ],
+                                    "Conversion":[
+
+                                    ]
+                                }
+                            },
+                            "HRM-9": {
+                                "type": "SMG",
+                                "stats": {
+                                    "RPM": 882,
+                                    "Mag Size": 30,
+                                    "Reload Time": "2.8s",
+                                    "ADS Time": "208ms",
+                                    "Bullet Velocity": "480m/s",
+                                    "Movement Speed": "5.1m/s",
+                                    "Sprint to Fire": "110ms",
+                                    "Tac Sprint to Fire": "0ms",
+                                    "ADS Move Speed": "3.3m/s",
+                                    "Zoom": "0.88x",
+                                    "Sprint": "5.7m/s",
+                                    "Tac Sprint": "7.1m/s",
+                                    "Crouch Speed": "1.9m/s",
+                                    "Swap Speed": "1400ms",
+                                    "Min Hipfire": "2°",
+                                    "Max Hipfire": "5.6°",
+                                    "Tac Spread": "2.7°",
+                                    "Target Flinch": "0.8N",
+                                    "Flinch Resist": "0.15N",
+                                    "Hitscan Range": "24m"
+                                },
+                                "attachments":{
+                                    "Muzzle":[
+
+                                    ],
                                 }
                             },
                             "new": {"gun": "here"}
