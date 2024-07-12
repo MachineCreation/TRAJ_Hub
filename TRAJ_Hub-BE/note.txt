@@ -1,7 +1,7 @@
-muzzle MZ120
-Barrel B011
-underbarrel U120
-Ammo A024
+muzzle MZ143
+Barrel B013
+underbarrel U163
+Ammo A028
 Laser L044
 optics OP194
 mag M006
