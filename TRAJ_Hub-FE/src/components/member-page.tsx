@@ -3,11 +3,13 @@
 //components
 import Header from "./header";
 import Profile from "./member-profile";
+import { MemberName } from "../config/Members";
+
 
 //css
 
 interface MemberProps {
-    name: string
+    name: MemberName;
 }
 
 const MemberPage = (props: MemberProps) => {
@@ -17,7 +19,7 @@ const MemberPage = (props: MemberProps) => {
             <Header 
                 name={props.name}/>
             <Profile
-                />
+                name={props.name}/>
         </section>
     );
 };

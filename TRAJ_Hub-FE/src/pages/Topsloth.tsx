@@ -10,7 +10,7 @@ function TopSloth() {
   
   return (
     <MemberPage 
-      name={'Topsloth'}/>
+      name={'TopSloth'}/>
   )
 }
 

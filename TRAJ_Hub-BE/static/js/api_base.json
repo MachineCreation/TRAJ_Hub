@@ -1,6 +1,5 @@
-
 {
-    "endpoints": {      
+    "endpoints": {
         "weapons": {
             "description": "Retrieve a list of all available weapons in Warzone 3.",
             "method": "GET",
@@ -1055,9 +1054,7 @@
                                             }
                                         }
                                     ],
-                                    "Bolt": {
-                                
-                                    },
+                                    "Bolt": {},
                                     "Laser": [
                                         {
                                             "id": "L000",
@@ -1706,7 +1703,7 @@
                                     "Magazine": [
                                         {
                                             "id": "M000",
-                                            "name": "20 Round Mag", 
+                                            "name": "20 Round Mag",
                                             "stats": {
                                                 "Move Speed": "+2.1%",
                                                 "Crouch Speed": "+2.4%",
@@ -1715,11 +1712,11 @@
                                                 "ADS Move": "+6.9%",
                                                 "ADS Time": "-7.9%",
                                                 "Sprint to Fire": "-15.3%"
-                                                }
+                                            }
                                         },
                                         {
                                             "id": "M001",
-                                            "name":"50 Round Mag",
+                                            "name": "50 Round Mag",
                                             "stats": {
                                                 "Move Speed": "-9.9%",
                                                 "Crouch Speed": "-10%",
@@ -1729,11 +1726,11 @@
                                                 "ADS Time": "+18.9%",
                                                 "Reload Time": "+60%",
                                                 "Sprint to Fire": "+2.6%"
-                                                }
+                                            }
                                         },
                                         {
                                             "id": "M002",
-                                            "name":"100 Round Drum",
+                                            "name": "100 Round Drum",
                                             "stats": {
                                                 "Move Speed": "-18.9%",
                                                 "Crouch Speed": "-20.8%",
@@ -1743,10 +1740,10 @@
                                                 "ADS Time": "+31.4%",
                                                 "Reload Time": "+64%",
                                                 "Sprint to Fire": "+7.8%"
-                                                }
+                                            }
                                         }
                                     ],
-                                "Ammunition": [
+                                    "Ammunition": [
                                         {
                                             "id": "A000",
                                             "name": "9mm High Grain Rounds",
@@ -1812,10 +1809,8 @@
                                             }
                                         }
                                     ],
-                                    "Carry handle": {
-                                
-                                    },
-                                "Rear-grip": [
+                                    "Carry handle": {},
+                                    "Rear-grip": [
                                         {
                                             "id": "RG000",
                                             "name": "Rubberized",
@@ -1961,7 +1956,7 @@
                                     ]
                                 }
                             },
-                            "BAS-P":{
+                            "BAS-P": {
                                 "type": "SMG",
                                 "stats": {
                                     "RPM": 870,
@@ -2422,7 +2417,7 @@
                                             }
                                         }
                                     ],
-                                    "Barrel":[
+                                    "Barrel": [
                                         {
                                             "id": "B005",
                                             "name": "12\" Bruen SZ-36",
@@ -2495,9 +2490,8 @@
                                                 "ADS Time": "-11.9%"
                                             }
                                         }
-                                        
                                     ],
-                                    "Underbarrel":[
+                                    "Underbarrel": [
                                         {
                                             "id": "U078",
                                             "name": "XRK Edge BW-4 Handstop",
@@ -2941,9 +2935,9 @@
                                                 "Crouch Speed": "-13.9%",
                                                 "ADS Time": "+7.1%"
                                             }
-                                        }                                
+                                        }
                                     ],
-                                    "Ammunition":[
+                                    "Ammunition": [
                                         {
                                             "id": "A008",
                                             "name": "9mm High Grain Rounds",
@@ -3007,9 +3001,9 @@
                                                 "Horizontal Recoil": "+5%",
                                                 "Vertical Recoil": "+5%"
                                             }
-                                        }                                
+                                        }
                                     ],
-                                    "Laser":[
+                                    "Laser": [
                                         {
                                             "id": "L015",
                                             "name": "Kimura RYL33 Laser Light",
@@ -3133,7 +3127,7 @@
                                             }
                                         }
                                     ],
-                                    "Optics":[
+                                    "Optics": [
                                         {
                                             "id": "OP064",
                                             "name": "Cronen Intlas MSP-12",
@@ -3660,7 +3654,7 @@
                                             }
                                         }
                                     ],
-                                    "Magazine":[
+                                    "Magazine": [
                                         {
                                             "id": "M003",
                                             "name": "20 Round Mag",
@@ -3689,7 +3683,7 @@
                                             }
                                         }
                                     ],
-                                    "Stock":[
+                                    "Stock": [
                                         {
                                             "id": "S009",
                                             "name": "BR Stockless Mod",
@@ -3742,7 +3736,7 @@
                                             }
                                         }
                                     ],
-                                    "Rear-grip":[
+                                    "Rear-grip": [
                                         {
                                             "id": "RG002",
                                             "name": "Bruen GR-500",
@@ -3773,7 +3767,6 @@
                                         }
                                     ]
                                 }
-                        
                             },
                             "FJX Horus": {
                                 "type": "SMG",
@@ -3799,8 +3792,8 @@
                                     "Flinch Resist": "0N",
                                     "Hitscan Range": "24m"
                                 },
-                                "attachments":{
-                                    "Muzzle":[
+                                "attachments": {
+                                    "Muzzle": [
                                         {
                                             "id": "MZ083",
                                             "name": "Jak BFB",
@@ -4184,7 +4177,7 @@
                                             }
                                         }
                                     ],
-                                    "Barrel":[
+                                    "Barrel": [
                                         {
                                             "id": "B009",
                                             "name": "Ruse-90 Light Barrel",
@@ -4224,7 +4217,7 @@
                                             }
                                         }
                                     ],
-                                    "Underbarrel":[
+                                    "Underbarrel": [
                                         {
                                             "id": "U079",
                                             "name": "XRK Edge BW-4 Handstop",
@@ -4731,7 +4724,7 @@
                                             }
                                         }
                                     ],
-                                    "Ammunition":[
+                                    "Ammunition": [
                                         {
                                             "id": "A016",
                                             "name": "9mm High Grain Rounds",
@@ -4804,7 +4797,7 @@
                                             }
                                         }
                                     ],
-                                    "Laser":[
+                                    "Laser": [
                                         {
                                             "id": "L030",
                                             "name": "Kimura RYL33 Laser Light",
@@ -4928,7 +4921,7 @@
                                             }
                                         }
                                     ],
-                                    "Optics":[
+                                    "Optics": [
                                         {
                                             "id": "OP128",
                                             "name": "Jak Bullseye",
@@ -5474,7 +5467,7 @@
                                             }
                                         }
                                     ],
-                                    "Magazine":[
+                                    "Magazine": [
                                         {
                                             "id": "M005",
                                             "name": "25 Round Mag",
@@ -5506,7 +5499,7 @@
                                             }
                                         }
                                     ],
-                                    "Rear-grip":[
+                                    "Rear-grip": [
                                         {
                                             "id": "RG005",
                                             "name": "Coup-40 Grip",
@@ -5536,7 +5529,7 @@
                                             }
                                         }
                                     ],
-                                    "Stock":[
+                                    "Stock": [
                                         {
                                             "id": "S012",
                                             "name": "No Stock Mod",
@@ -5593,7 +5586,7 @@
                                             }
                                         }
                                     ],
-                                    "Conversion":[
+                                    "Conversion": [
                                         {
                                             "id": "C002",
                                             "name": "Jak Scimitar Kit",
@@ -5637,8 +5630,8 @@
                                     "Flinch Resist": "0.2N",
                                     "Hitscan Range": "34m"
                                 },
-                                "attachments":{
-                                    "Muzzle":[
+                                "attachments": {
+                                    "Muzzle": [
                                         {
                                             "id": "MZ121",
                                             "name": "HMRES Mod Suppressor S",
@@ -5880,7 +5873,7 @@
                                             }
                                         }
                                     ],
-                                    "Barrel":[
+                                    "Barrel": [
                                         {
                                             "id": "B012",
                                             "name": "FSS-X7 Barrel",
@@ -5914,7 +5907,7 @@
                                             }
                                         }
                                     ],
-                                    "Underbarrel":[
+                                    "Underbarrel": [
                                         {
                                             "id": "U121",
                                             "name": "XRK Edge BW-4 Handstop",
@@ -6437,7 +6430,7 @@
                                             }
                                         }
                                     ],
-                                    "Ammunition":[
+                                    "Ammunition": [
                                         {
                                             "id": "A025",
                                             "name": "5.7x28mm Frangible",
@@ -6461,7 +6454,7 @@
                                             "stats": {}
                                         }
                                     ],
-                                    "Laser":[
+                                    "Laser": [
                                         {
                                             "id": "L045",
                                             "name": "SL Razorhawk Loser Light",
@@ -6586,7 +6579,7 @@
                                             }
                                         }
                                     ],
-                                    "Optics":[
+                                    "Optics": [
                                         {
                                             "id": "OP195",
                                             "name": "Cronen Intlos MSP-12",
@@ -6763,10 +6756,8 @@
                                             }
                                         }
                                     ],
-                                    "Magazine":[
-
-                                    ],
-                                    "Rear-grip":[
+                                    "Magazine": [],
+                                    "Rear-grip": [
                                         {
                                             "id": "RG008",
                                             "name": "D15 Grip",
@@ -6808,7 +6799,7 @@
                                             }
                                         }
                                     ],
-                                    "Stock":[
+                                    "Stock": [
                                         {
                                             "id": "S016",
                                             "name": "Assault-60 Stock Factory",
@@ -6912,9 +6903,7 @@
                                             }
                                         }
                                     ],
-                                    "Conversion":[
-
-                                    ]
+                                    "Conversion": []
                                 }
                             },
                             "Fennec 45": {
@@ -6941,8 +6930,8 @@
                                     "Flinch Resist": "0N",
                                     "Hitscan Range": "15m"
                                 },
-                                "attachments":{
-                                    "Muzzle":[
+                                "attachments": {
+                                    "Muzzle": [
                                         {
                                             "id": "MZ144",
                                             "name": "HMRES Mod Suppressor S",
@@ -7319,7 +7308,7 @@
                                             }
                                         }
                                     ],
-                                    "Barrel":[
+                                    "Barrel": [
                                         {
                                             "id": "B014",
                                             "name": "5.5\" Fennec MiniTac",
@@ -7409,7 +7398,7 @@
                                             }
                                         }
                                     ],
-                                    "Underbarrel":[
+                                    "Underbarrel": [
                                         {
                                             "id": "U164",
                                             "name": "XRK Edge BW-4 Handstop",
@@ -7863,7 +7852,7 @@
                                             }
                                         }
                                     ],
-                                    "Ammunition":[
+                                    "Ammunition": [
                                         {
                                             "id": "A029",
                                             "name": ".45 Auto High Grain Rounds",
@@ -7920,7 +7909,7 @@
                                             "stats": {}
                                         }
                                     ],
-                                    "Laser":[
+                                    "Laser": [
                                         {
                                             "id": "L060",
                                             "name": "Kimura RYL33 Laser Light",
@@ -8046,7 +8035,7 @@
                                             }
                                         }
                                     ],
-                                    "Optics":[
+                                    "Optics": [
                                         {
                                             "id": "OP219",
                                             "name": "Cronen Intlos MSP-12",
@@ -8575,7 +8564,7 @@
                                             }
                                         }
                                     ],
-                                    "Magazine":[
+                                    "Magazine": [
                                         {
                                             "id": "M007",
                                             "name": "Fennec Double Tap Mod",
@@ -8610,9 +8599,8 @@
                                                 "Sprint to Fire": "+1%"
                                             }
                                         }
-                                        
                                     ],
-                                    "Rear-grip":[
+                                    "Rear-grip": [
                                         {
                                             "id": "RG012",
                                             "name": "Fennec Stippled Grip",
@@ -8642,7 +8630,7 @@
                                             }
                                         }
                                     ],
-                                    "Stock":[
+                                    "Stock": [
                                         {
                                             "id": "S016",
                                             "name": "Fennec Bullfighter",
@@ -8716,9 +8704,7 @@
                                             }
                                         }
                                     ],
-                                    "Conversion":[
-
-                                    ]
+                                    "Conversion": []
                                 }
                             },
                             "HRM-9": {
@@ -8745,22 +8731,107 @@
                                     "Flinch Resist": "0.15N",
                                     "Hitscan Range": "24m"
                                 },
-                                "attachments":{
-                                    "Muzzle":[
-
-                                    ],
+                                "attachments": {
+                                    "Muzzle": [],
+                                    "Barrel": [],
+                                    "Underbarrel": [],
+                                    "Ammunition": [],
+                                    "Laser": [],
+                                    "Optics": [],
+                                    "Magazine": [],
+                                    "Rear-grip": [],
+                                    "Stock": [],
+                                    "Conversion": []
                                 }
                             },
-                            "new": {"gun": "here"}
+                            "ISO 45": {
+                                "type": "SMG",
+                                "stats": {
+                                    "RPM": 896,
+                                    "Mag Size": 30,
+                                    "Reload Time": "2.6s",
+                                    "ADS Time": "210ms",
+                                    "Bullet Velocity": "540m/s",
+                                    "Movement Speed": "4.9m/s",
+                                    "Sprint to Fire": "110ms",
+                                    "Tac Sprint to Fire": "0ms",
+                                    "ADS Move Speed": "3.2m/s",
+                                    "Zoom": "0.88x",
+                                    "Sprint": "5.9m/s",
+                                    "Tac Sprint": "7.1m/s",
+                                    "Crouch Speed": "1.9m/s",
+                                    "Swap Speed": "1300ms",
+                                    "Min Hipfire": "2.6°",
+                                    "Max Hipfire": "5.8°",
+                                    "Tac Spread": "2.9°",
+                                    "Target Flinch": "0.8N",
+                                    "Flinch Resist": "0.2N",
+                                    "Hitscan Range": "27m"
+                                },
+                                "attachments": {
+                                    "Muzzle": [],
+                                    "Barrel": [],
+                                    "Underbarrel": [],
+                                    "Ammunition": [],
+                                    "Laser": [],
+                                    "Optics": [],
+                                    "Magazine": [],
+                                    "Rear-grip": [],
+                                    "Stock": [],
+                                    "Conversion": []
+                                }
+                            },
+                            "new": {
+                                "gun": "here"
+                            }
                         },
-                        "LMG": {},
+                        "LMG": {
+                            "Bruen MK9": {
+                                "type": "LMG",
+                                "stats": {
+                                    "RPM": 759,
+                                    "Mag Size": 100,
+                                    "Reload Time": "5.8s",
+                                    "ADS Time": "350ms",
+                                    "Bullet Velocity": "810m/s",
+                                    "Movement Speed": "4.4m/s",
+                                    "Sprint to Fire": "250ms",
+                                    "Tac Sprint to Fire": "0ms",
+                                    "ADS Move Speed": "2.4m/s",
+                                    "Zoom": "1x",
+                                    "Sprint": "5.1m/s",
+                                    "Tac Sprint": "6.4m/s",
+                                    "Crouch Speed": "2.1m/s",
+                                    "Swap Speed": "2517ms",
+                                    "Min Hipfire": "3.1°",
+                                    "Max Hipfire": "9°",
+                                    "Tac Spread": "4°",
+                                    "Target Flinch": "0.9N",
+                                    "Flinch Resist": "0.2N",
+                                    "Hitscan Range": "40.5m"
+                                },
+                                "attachments": {
+                                    "Muzzle": [],
+                                    "Barrel": [],
+                                    "Underbarrel": [],
+                                    "Ammunition": [],
+                                    "Laser": [],
+                                    "Optics": [],
+                                    "Magazine": [],
+                                    "Rear-grip": [],
+                                    "Stock": [],
+                                    "Conversion": []
+                                },
+                                "new":{
+                                    "gun":"here"}
+                            }
+                        },
                         "Assault Rifle": {}
                     }
                 },
                 "Tactical": [],
                 "Lethal": [],
                 "Perks": []
-
             }
         }
     }

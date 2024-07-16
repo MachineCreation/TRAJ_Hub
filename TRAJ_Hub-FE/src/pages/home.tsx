@@ -6,6 +6,7 @@ import NavCube from "../components/nav-cube";
 import QuadSquad from "../components/quad-squad";
 import TeamStats from "../components/team-stats";
 
+
 function Home() {
 
 

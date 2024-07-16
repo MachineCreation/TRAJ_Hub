@@ -4,7 +4,7 @@
     left: 1vh;
     height: 40vh;
     width: 25vh;
-    background-image: url(../images/T.png);
+    background-image: url(/media/T.png);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.9;
@@ -17,7 +17,7 @@
     right: 3vh;
     height: 35vh;
     width: 20vh;
-    background-image: url(../images/R.png);
+    background-image: url(/media/R.png);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.9;
@@ -30,7 +30,7 @@
     left: 11vh;
     height: 35vh;
     width: 20vh;
-    background-image: url(../images/A.png);
+    background-image: url(/media/A.png);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.9;
@@ -43,7 +43,7 @@
     right: 11vh;
     height: 35vh;
     width: 20vh;
-    background-image: url(../images/J.png);
+    background-image: url(/media/J.png);
     background-size: cover;
     background-repeat: no-repeat;
     opacity: .9;

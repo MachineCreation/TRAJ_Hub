@@ -1,54 +1,69 @@
 // react
 
+import { useState,useEffect } from "react";
+
 // components
 
-import Primary from "../images/profile/primary.png"
-import Secondary from "../images/profile/secondary.png"
-import hero from "../images/profile/hero.png"
-import Tactical from '../images/profile/smaoke_grenade.png'
-import Lethal from '../images/profile/Sticky grenade.png'
-import P1 from '../images/profile/Irradiated_p_1.png'
-import P2 from '../images/profile/Mountaineer_p_2.png'
-import P3 from '../images/profile/Tempered_s_3.png'
-import P4 from '../images/profile/combat_scou_p_4.png'
+import { members, MemberName } from "../config/Members"
 
 // css
-// interface ProfileProps {
-//     name: string
-// }
+interface MemberProps {
+    name: MemberName;
+}
 
-const Profile = () => {
+const Profile = (props: MemberProps) => {
+
+    const member = members[props.name]
+    const [memberData, setMemberData] = useState<typeof member>(member);
+
+    useEffect(() => {
+        const fetchMemberData = async () => {
+            try {
+                const response = await fetch('https://api.example.com/member/${props}'); // don't forget where your endpoint goes Joe!
+                const data: Partial<typeof member> = await response.json();
+                setMemberData((prevData) => ({
+                    ...prevData,
+                    ...data
+                }));
+            } catch (error) {
+                console.error('Failed to fetch member data:', error);
+            }
+        };
+
+        fetchMemberData();
+    }, []);
+
     return (
         <>
         <article className="relative flex flex-col md:flex-row justify-items-center  w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5 ">
             <figure className=" relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto ">
-                <img className="flex max-w-full h-auto" src={hero} alt="" />
+                <img className="flex max-w-full h-auto" src={memberData.hero} alt="" />
             </figure>
             <article className="flex flex-col m-auto md:w-4/6">
                 <section className="flex flex-col lg:flex-row">
                     <figure className="p-2">
-                        <img  src={Primary} alt=" SVA 545 " />
+                        <img  src={memberData.primary} alt=" SVA 545 " />
                     </figure>
                     <figure className="p-2">
-                        <img  src={Secondary} alt="Superi 46" />
+                        <img  src={memberData.secondary} alt="Superi 46" />
                     </figure>
                 </section>
                 <section className="flex">
                     <figure className="m-auto p-2">
-                        <img src={Tactical} alt="" />
+                        <img src={memberData.tactical} alt="" />
                     </figure>
                     <figure className="m-auto p-2">
-                        <img src={Lethal} alt="" />
+                        <img src={memberData.lethal} alt="" />
                     </figure>
                 </section>
                 <section className="flex flex-col m-auto sm:flex-row">
                     <figure className="flex p-2">
-                        <img className="w-1/2 max-w-40 p-2" src={P1} alt=" SVA 545 " />
-                        <img className="w-1/2 max-w-40 p-2" src={P2} alt="" />
+                        <img className="w-1/2 max-w-40 p-2" src={memberData.perk1} alt=" SVA 545 " />
+                        <img className="w-1/2 max-w-40 p-2" src={memberData.perk2} alt="" />
                     </figure>
                     <figure className="flex p-2">
-                        <img className="w-1/2 max-w-40 p-2" src={P3} alt=" SVA 545 " />
-                        <img className="w-1/2 max-w-40 p-2" src={P4} alt="" />
+                        <img className="w-1/2 max-w-40 p-2" src={memberData.perk3} alt=" SVA 545 " />
+                        <img className="w-1/2 max-w-40 p-2" src={memberData.perk4} alt="" />
                     </figure>
                 </section>
             </article>
