@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#notes
+
+prompt.txt
+api_calls.txt
+equip_notes.txt

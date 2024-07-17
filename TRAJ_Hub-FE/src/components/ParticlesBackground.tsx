@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { Engine } from "@tsparticles/engine";
 import { loadFull } from "tsparticles";
-import { loadPolygonPath } from "tsparticles-path-polygon";
+import { loadPolygonPath } from "@tsparticles/path-polygon";
 import particlesOptions from "../particles_1.json";
 import { ISourceOptions } from "@tsparticles/engine";
 

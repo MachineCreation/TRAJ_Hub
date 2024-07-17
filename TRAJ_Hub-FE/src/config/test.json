@@ -1,0 +1,145 @@
+{
+    "hero": "/media/JesusTts/hero.png",
+    "Primary Image": "/media/JesusTts/primary.png",
+    "Primary Weapon Details": {
+        "name": "SVA 545",
+        "class": "Assault Rifle",
+        "stats": {
+            "RPM": 833.3,
+            "Mag Size": 30,
+            "Reload Time": "2.5s",
+            "ADS Time": "240ms",
+            "Bullet Velocity": "625m/s",
+            "Movement Speed": "4.9m/s",
+            "Sprint to Fire": "136ms",
+            "Tac Sprint to Fire": "0ms",
+            "ADS Move Speed": "3.1m/s",
+            "Zoom": "0.88x",
+            "Sprint": "5.6m/s",
+            "Tac Sprint": "7m/s",
+            "Crouch Speed": "1.9m/s",
+            "Swap Speed": "1360ms",
+            "Min Hipfire": "2°",
+            "Max Hipfire": "6.1°",
+            "Tac Spread": "3.3°",
+            "Target Flinch": "0.7N",
+            "Flinch Resist": "0N",
+            "Hitscan Range": "31.3m"
+        },
+        "Attachments": {
+            "Muzzle": {
+                "id": "MZ000",
+                "name": "HMRES Mod Suppressor S",
+                "stats": {
+                    "Bullet Velocity": "+10%",
+                    "Horizontal Recoil": "+8%",
+                    "Vertical Recoil": "+8%"
+                }
+            },
+            "Barrel": {
+                "id": "B000",
+                "name": "AMR9 Commando Pro Barrel",
+                "stats": {
+                    "Horizontal Recoil": "+5.3%",
+                    "Vertical Recoil": "+4.9%",
+                    "Move Speed": "+3.1%",
+                    "Crouch Speed": "+4.8%",
+                    "Sprint Speed": "+1.5%",
+                    "Tac Sprint Speed": "+1.2%",
+                    "ADS Time": "-9.2%",
+                    "Sprint to Fire": "-4.2%"
+                }
+            },
+            "Underbarrel": {
+                    "id": "U000",
+                    "name": "XRK Edge BW-4 Handstop",
+                    "stats": {
+                        "Min Hipfire Area": "+7%",
+                        "Tac Spread": "+14.9%",
+                        "Move Speed": "+6.9%",
+                        "Crouch Speed": "+13.2%",
+                        "ADS Time": "-5.4%",
+                        "Sprint to Fire": "-5.8%"
+                    }
+                }
+        }
+    },
+    "Secondary Image" : "/media/JesusTts/secondary.png",
+    "Secondary Weapon Details": {
+        "name": "Not SVA 545",
+        "class": "Assault Rifle",
+        "stats": {
+            "RPM": 833.3,
+            "Mag Size": 30,
+            "Reload Time": "2.5s",
+            "ADS Time": "240ms",
+            "Bullet Velocity": "625m/s",
+            "Movement Speed": "4.9m/s",
+            "Sprint to Fire": "136ms",
+            "Tac Sprint to Fire": "0ms",
+            "ADS Move Speed": "3.1m/s",
+            "Zoom": "0.88x",
+            "Sprint": "5.6m/s",
+            "Tac Sprint": "7m/s",
+            "Crouch Speed": "1.9m/s",
+            "Swap Speed": "1360ms",
+            "Min Hipfire": "2°",
+            "Max Hipfire": "6.1°",
+            "Tac Spread": "3.3°",
+            "Target Flinch": "0.7N",
+            "Flinch Resist": "0N",
+            "Hitscan Range": "31.3m"
+        },
+        "Attachments": {
+            "Muzzle": {
+                "id": "MZ000",
+                "name": "HMRES Mod Suppressor S",
+                "stats": {
+                    "Bullet Velocity": "+10%",
+                    "Horizontal Recoil": "+8%",
+                    "Vertical Recoil": "+8%"
+                }
+            },
+            "Barrel": {
+                "id": "B000",
+                "name": "AMR9 Commando Pro Barrel",
+                "stats": {
+                    "Horizontal Recoil": "+5.3%",
+                    "Vertical Recoil": "+4.9%",
+                    "Move Speed": "+3.1%",
+                    "Crouch Speed": "+4.8%",
+                    "Sprint Speed": "+1.5%",
+                    "Tac Sprint Speed": "+1.2%",
+                    "ADS Time": "-9.2%",
+                    "Sprint to Fire": "-4.2%"
+                }
+            },
+            "Underbarrel": {
+                    "id": "U000",
+                    "name": "XRK Edge BW-4 Handstop",
+                    "stats": {
+                        "Min Hipfire Area": "+7%",
+                        "Tac Spread": "+14.9%",
+                        "Move Speed": "+6.9%",
+                        "Crouch Speed": "+13.2%",
+                        "ADS Time": "-5.4%",
+                        "Sprint to Fire": "-5.8%"
+                    }
+            }
+        }
+    },
+    "lethal": "Semtex",
+    "tactical": "Smoke Grenade",
+    "perks": {
+        "P1": "E.O.D.",
+        "P2": "Mountaineer",
+        "P3": "Tempered",
+        "P4": "Combat Scout"
+    },
+    "clips": {
+        "C1":"url",
+        "C2":"url",
+        "C3":"url",
+        "C4":"url"
+    }
+}
