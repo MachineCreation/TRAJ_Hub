@@ -5,136 +5,196 @@
         "name": "SVA 545",
         "class": "Assault Rifle",
         "stats": {
-            "RPM": 833.3,
+            "RPM": 744,
             "Mag Size": 30,
-            "Reload Time": "2.5s",
-            "ADS Time": "240ms",
-            "Bullet Velocity": "625m/s",
+            "Reload Time": "2.6s",
+            "ADS Time": "230ms",
+            "Bullet Velocity": "760m/s",
             "Movement Speed": "4.9m/s",
-            "Sprint to Fire": "136ms",
+            "Sprint to Fire": "189ms",
             "Tac Sprint to Fire": "0ms",
-            "ADS Move Speed": "3.1m/s",
-            "Zoom": "0.88x",
-            "Sprint": "5.6m/s",
-            "Tac Sprint": "7m/s",
-            "Crouch Speed": "1.9m/s",
-            "Swap Speed": "1360ms",
-            "Min Hipfire": "2°",
-            "Max Hipfire": "6.1°",
-            "Tac Spread": "3.3°",
-            "Target Flinch": "0.7N",
+            "ADS Move Speed": "2.9m/s",
+            "Zoom": "1x",
+            "Sprint": "5.7m/s",
+            "Tac Sprint": "7.3m/s",
+            "Crouch Speed": "2.4m/s",
+            "Swap Speed": "1510ms",
+            "Min Hipfire": "3.3°",
+            "Max Hipfire": "6.5°",
+            "Tac Spread": "2.6°",
+            "Target Flinch": "0.8N",
             "Flinch Resist": "0N",
-            "Hitscan Range": "31.3m"
+            "Hitscan Range": "38m"
         },
         "Attachments": {
             "Muzzle": {
-                "id": "MZ000",
-                "name": "HMRES Mod Suppressor S",
+                "id": "MZ393",
+                "name": "ZEHMN35 Compensated Flash Hider",
                 "stats": {
-                    "Bullet Velocity": "+10%",
-                    "Horizontal Recoil": "+8%",
-                    "Vertical Recoil": "+8%"
+                    "Bullet Velocity": "-5%",
+                    "Horiz. Recoil": "-5%",
+                    "Vert. Recoil": "-15%",
+                    "ADS Time": "+5.2%"
                 }
             },
             "Barrel": {
-                "id": "B000",
-                "name": "AMR9 Commando Pro Barrel",
+                "id": "B032",
+                "name": "STV Precision Barrel",
                 "stats": {
-                    "Horizontal Recoil": "+5.3%",
-                    "Vertical Recoil": "+4.9%",
-                    "Move Speed": "+3.1%",
-                    "Crouch Speed": "+4.8%",
-                    "Sprint Speed": "+1.5%",
-                    "Tac Sprint Speed": "+1.2%",
-                    "ADS Time": "-9.2%",
-                    "Sprint to Fire": "-4.2%"
+                    "Range": "+12.5%",
+                    "Bullet Velocity": "+15%",
+                    "Gun Kick": "-7.5%",
+                    "Horiz. Recoil": "-7.5%",
+                    "Vert. Recoil": "-7.5%",
+                    "Min Hipfire Area": "-11%",
+                    "Max Hipfire Area": "-16%",
+                    "Tac Spread": "-14%",
+                    "ADS Move": "-4.1%",
+                    "ADS Time": "+12%",
+                    "Sprint to Fire": "+2.4%"
                 }
             },
             "Underbarrel": {
-                    "id": "U000",
-                    "name": "XRK Edge BW-4 Handstop",
-                    "stats": {
-                        "Min Hipfire Area": "+7%",
-                        "Tac Spread": "+14.9%",
-                        "Move Speed": "+6.9%",
-                        "Crouch Speed": "+13.2%",
-                        "ADS Time": "-5.4%",
-                        "Sprint to Fire": "-5.8%"
-                    }
+                "id": "U346",
+                "name": "Bruen Heavy Support Grip",
+                "stats": {
+                    "Gun Kick": "-10.3%",
+                    "Horiz. Recoil": "-8%",
+                        "Vert. Recoil": "-4%",
+                    "ADS Time": "+10%"
                 }
+            },
+            "Magazine": {
+                "id": "M015",
+                "name": "45 Round Mag",
+                "stats": {
+                    "Move Speed": "-4.4%",
+                    "Crouch Speed": "-4.4%",
+                    "Sprint Speed": "-4.3%",
+                    "Tac Sprint Speed": "-1.7%",
+                    "ADS Move": "-4.4%",
+                    "ADS Time": "+4.4%",
+                    "Reload Time": "+19%",
+                    "Sprint to Fire": "+1%"
+                }
+            },
+            "Ammunition": {
+                "id": "A057",
+                "name": "5.45 Overpressured +P",
+                "stats": {
+                    "Damage": "Unknown"
+                }
+            }
+
         }
     },
     "Secondary Image" : "/media/JesusTts/secondary.png",
     "Secondary Weapon Details": {
-        "name": "Not SVA 545",
-        "class": "Assault Rifle",
+        "name": "Superi 46",
+        "class": "SMG",
         "stats": {
-            "RPM": 833.3,
+            "RPM": 667,
             "Mag Size": 30,
-            "Reload Time": "2.5s",
-            "ADS Time": "240ms",
-            "Bullet Velocity": "625m/s",
-            "Movement Speed": "4.9m/s",
-            "Sprint to Fire": "136ms",
+            "Reload Time": "2.4s",
+            "ADS Time": "200ms",
+            "Bullet Velocity": "630m/s",
+            "Movement Speed": "5m/s",
+            "Sprint to Fire": "110ms",
             "Tac Sprint to Fire": "0ms",
-            "ADS Move Speed": "3.1m/s",
+            "ADS Move Speed": "3.6m/s",
             "Zoom": "0.88x",
-            "Sprint": "5.6m/s",
-            "Tac Sprint": "7m/s",
-            "Crouch Speed": "1.9m/s",
-            "Swap Speed": "1360ms",
+            "Sprint": "5.9m/s",
+            "Tac Sprint": "7.1m/s",
+            "Crouch Speed": "2.1m/s",
+            "Swap Speed": "1633ms",
             "Min Hipfire": "2°",
-            "Max Hipfire": "6.1°",
-            "Tac Spread": "3.3°",
-            "Target Flinch": "0.7N",
-            "Flinch Resist": "0N",
-            "Hitscan Range": "31.3m"
+            "Max Hipfire": "5°",
+            "Tac Spread": "2.2°",
+            "Target Flinch": "0.8N",
+            "Flinch Resist": "0.17N",
+            "Hitscan Range": "31.5m"
         },
         "Attachments": {
-            "Muzzle": {
-                "id": "MZ000",
-                "name": "HMRES Mod Suppressor S",
-                "stats": {
-                    "Bullet Velocity": "+10%",
-                    "Horizontal Recoil": "+8%",
-                    "Vertical Recoil": "+8%"
-                }
-            },
             "Barrel": {
-                "id": "B000",
-                "name": "AMR9 Commando Pro Barrel",
+                "id": "B041",
+                "name": "ATOLL-Z4 Suppressed Barrel",
                 "stats": {
-                    "Horizontal Recoil": "+5.3%",
-                    "Vertical Recoil": "+4.9%",
-                    "Move Speed": "+3.1%",
-                    "Crouch Speed": "+4.8%",
-                    "Sprint Speed": "+1.5%",
-                    "Tac Sprint Speed": "+1.2%",
-                    "ADS Time": "-9.2%",
-                    "Sprint to Fire": "-4.2%"
+                    "Range": "-15%",
+                    "Bullet Velocity": "-15%",
+                    "Gun Kick": "-8%",
+                    "Horiz. Recoil": "-7%",
+                    "Vert. Recoil": "-17%",
+                    "ADS Time": "+4%",
+                    "Sprint to Fire": "+5%"
                 }
             },
-            "Underbarrel": {
-                    "id": "U000",
-                    "name": "XRK Edge BW-4 Handstop",
-                    "stats": {
-                        "Min Hipfire Area": "+7%",
-                        "Tac Spread": "+14.9%",
-                        "Move Speed": "+6.9%",
-                        "Crouch Speed": "+13.2%",
-                        "ADS Time": "-5.4%",
-                        "Sprint to Fire": "-5.8%"
-                    }
+            "Ammunition": {
+                "id": "A061",
+                "name": "4.6mm Overpressured +P",
+                "stats": {
+                    "Damage":"Unknown"
+                }
+            },
+            "Optic": {
+                "id": "OP541",
+                "name": "SZ Holotherm",
+                "stats": {
+                    "Default Zoom": "2.14x"
+                }
+            },
+            "Magazine": {
+                "id": "M018",
+                "name": "40 Round Mag",
+                "stats": {
+                    "Move Speed": "-2%",
+                    "Sprint Speed": "-2%",
+                    "Tac Sprint Speed": "-1%",
+                    "ADS Move": "-3%",
+                    "ADS Time": "+7%",
+                    "Reload Time": "+15%",
+                    "Swap Speed": "+13%"
+                }
+            },
+            "Stock": {
+                "id": "S035",
+                "name": "Jak Cutthroat",
+                "stats": {
+                    "Gun Kick": "+10%",
+                    "Horiz. Recoil": "+10%",
+                    "Vert. Recoil": "+10%",
+                    "Tac Spread": "+8.3%",
+                    "Move. Speed": "+6%",
+                    "Crouch Speed": "+10%",
+                    "ADS Move.": "+17%"
+                }
             }
         }
     },
-    "lethal": "Semtex",
-    "tactical": "Smoke Grenade",
+    "lethal": {
+        "name": "Semtex",
+        "description": "Timed sticky grenade."
+    },
+    "tactical": {
+        "name": "Smoke Grenade",
+        "description": "Deploys a smoke screen that blocks vision and automated targeting systems."
+    },
     "perks": {
-        "P1": "E.O.D.",
-        "P2": "Mountaineer",
-        "P3": "Tempered",
-        "P4": "Combat Scout"
+        "P1": {
+            "name": "E.O.D.",
+            "description": "Reduces damage from non-killstreak explosives and fire. Reset fuse timers when picking up live grenades."
+        },
+        "P2": {
+            "name": "Mountaineer",
+            "description": "Reduces fall damage."
+        },
+        "P3": {
+            "name": "Tempered",
+            "description": "Refill armor plates to full with two plates instead of three."
+        },
+        "P4": {
+            "name": "Combat Scout",
+            "description": "Bullets you fire briefly mark an enemy for you and your squad. Hitting the enemy from farther away increases the mark time."
+        }
     },
     "clips": {
         "C1":"url",

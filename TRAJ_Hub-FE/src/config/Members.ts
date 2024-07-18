@@ -34,13 +34,31 @@ export interface WeaponDetails {
             };
         };
     };
-    "lethal": string;
-    "tactical": string;
+    "lethal": {
+        "name": string;
+        "description": string;
+    };
+    "tactical": {
+        "name": string;
+        "description": string;
+    };
     "perks": {
-        "P1": string;
-        "P2": string;
-        "P3": string;
-        "P4": string;
+        "P1": {
+            "name": string;
+            "description": string;
+        };
+        "P2": {
+            "name": string;
+            "description": string;
+        };
+        "P3": {
+            "name": string;
+            "description": string;
+        };
+        "P4": {
+            "name": string;
+            "description": string;
+        };
     };
     "clips": {
         "C1": string;
@@ -73,5 +91,6 @@ export const members: Record<string, Member> = {
 export type MemberName = keyof typeof members;
 export type WeaponType = keyof WeaponDetails;
 export type WeaponDetailKey = "Primary Weapon Details" | "Secondary Weapon Details";
+export type PerkId = 'P1' | 'P2' | 'P3' | 'P4';
 
 
