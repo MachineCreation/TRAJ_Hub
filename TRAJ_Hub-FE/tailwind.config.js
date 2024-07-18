@@ -6,11 +6,15 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        'grey': 'rgba(27,27,27)'
+      },
       height: {
         'custom-main': 'calc(100svh - 10rem)', 
       },
       boxShadow: {
-        'orange-inner': '0 0 .5rem .5rem rgba(114 38 0 / .5) inset'
+        'orange-inner': '0 0 .5rem .5rem rgba(114 38 0 / .5) inset',
+        'outer-green': '0 0 .5rem .5rem rgba(17, 254, 0, 0.6)'
       },
       keyframes: {
         border: {

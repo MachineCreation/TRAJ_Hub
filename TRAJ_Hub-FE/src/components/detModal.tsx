@@ -54,7 +54,7 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
 
     return (
         <article className="absolute flex justify-items-center items-center w-screen h-screen bg-black bg-opacity-70 z-30">
-            <section className="relative flex m-auto flex-wrap ">
+            <section className="relative flex m-auto p-16 rounded-2xl shadow-outer-green flex-wrap bg-grey ">
                 {memberData.WeaponDetails && (
                     <>
                     <figure className="flex flex-col">
@@ -64,7 +64,6 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
                         <ul className="relative flex flex-col m-3 p-3 ">
                             {Object.entries(memberData.WeaponDetails[weapon].stats).map(([key, value]) => (
                                 <li
-                                className="" 
                                 key={key}>
                                     <strong>{key}:</strong> <span className=" text-yellow-500">&nbsp;&nbsp;{value}</span>
                                 </li>
@@ -72,11 +71,10 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
                         </ul>
                     </figure>
                     <figure className="flex flex-col">
-                        <h2 className="text-sky-400 text-3xl"><strong><h2 className="text-sky-400 text-3xl">Attachments</h2></strong></h2>
+                        <h2 className="text-sky-400 text-3xl"><strong>Attachments</strong></h2>
                         <ul className="relative flex flex-col m-3 p-3 ">
                             {Object.entries(memberData.WeaponDetails[weapon].Attachments).map(([_key, attachment]) => (
                                 <li
-                                className="" 
                                 key={attachment.id}>
                                     <strong className="text-green-500">{attachment.name}</strong>
                                     <ul>
