@@ -1,12 +1,12 @@
-muzzle MZ354
-Barrel B032
-underbarrel U323
-Ammo A051
-Laser L105
-optics OP426
-mag M014
-Rear-Grip RG021
-stock S027
+muzzle MZ435
+Barrel B043
+underbarrel U419
+Ammo A072
+Laser L153
+optics OP646
+mag M021
+Rear-Grip RG032
+stock S043
 conversion C003
 
 
