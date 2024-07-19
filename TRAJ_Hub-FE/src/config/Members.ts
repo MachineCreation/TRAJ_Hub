@@ -92,5 +92,5 @@ export type MemberName = keyof typeof members;
 export type WeaponType = keyof WeaponDetails;
 export type WeaponDetailKey = "Primary Weapon Details" | "Secondary Weapon Details";
 export type PerkId = 'P1' | 'P2' | 'P3' | 'P4';
-
+export type equipId = 'lethal' | 'tactical' | 'perks'
 

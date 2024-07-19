@@ -1,96 +1,173 @@
-// static/js/dashboard.js
-import { data } from './api_base.js';
+import { data } from '../json/api_base.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     const primaryGunTypeInput = document.getElementById('primary-gun-type');
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
-    const primaryPartsContainer = document.getElementById('primary-parts-container');
+    const primaryGunNameInput = document.createElement('input');
+    const primaryGunNameSug = document.createElement('datalist');
+    const primaryAttachmentsContainer = document.getElementById('primary-attachments-container');
 
     const secondaryGunTypeInput = document.getElementById('secondary-gun-type');
     const secondaryGunTypeSug = document.getElementById('secondary-gun-type-sug');
-    const secondaryPartsContainer = document.getElementById('secondary-parts-container');
+    const secondaryGunNameInput = document.createElement('input');
+    const secondaryGunNameSug = document.createElement('datalist');
+    const secondaryAttachmentsContainer = document.getElementById('secondary-attachments-container');
+
+    const lethalEquipment = document.getElementById("lethal-equipment-list")
+    const tacticalEquipment = document.getElementById("tactical-equipment-list")
+
 
     // Populate gun types in the datalist
-    Object.keys(data.guns).forEach(gunType => {
+    Object.keys(data.endpoints.weapons.response.weapons.class).forEach(gunClass => {
         const optionPrimary = document.createElement('option');
-        optionPrimary.value = gunType;
+        optionPrimary.value = gunClass;
         primaryGunTypeSug.appendChild(optionPrimary);
 
         const optionSecondary = document.createElement('option');
-        optionSecondary.value = gunType;
+        optionSecondary.value = gunClass;
         secondaryGunTypeSug.appendChild(optionSecondary);
     });
 
-    // Function to update suggestions
-    const updateSuggestions = (part, datalistElement) => {
-        datalistElement.innerHTML = ''; // Clear previous suggestions
-        Object.keys(data[part]).forEach(item => {
-            const option = document.createElement('option');
-            option.value = item;
-            if (item === '') {
-                option.textContent = 'None'; // Display 'None' for empty string option
-            }
-            datalistElement.appendChild(option);
-        });
-    };
+    console.log(data.endpoints.weapons.response.weapons["Lethal"]);
 
-    // Function to create input elements for gun parts
-    const createPartInput = (part, container, context) => {
+    
+    data.endpoints.weapons.response.Lethal.forEach(lethal => {
+        const optionLethal = document.createElement('option');
+        optionLethal.value = lethal.name;
+        lethalEquipment.appendChild(optionLethal);
+    });
+
+    data.endpoints.weapons.response.Tactical.forEach(tactical => {
+        const optiontactical = document.createElement('option');
+        optiontactical.value = tactical.name;
+        tacticalEquipment.appendChild(optiontactical);
+    });
+
+    const createGunNameInput = (context, container) => {
         const div = document.createElement('div');
         const label = document.createElement('label');
-        label.setAttribute('for', `${context}-${part}`);
-        label.textContent = part.charAt(0).toUpperCase() + part.slice(1);
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = `${context}-${part}`;
-        input.name = `${context}-${part}`;
-        input.setAttribute('list', `${context}-${part}-sug`);
-        input.setAttribute('autocomplete', 'on');
-        input.value = ''; // Set default value to empty string
-        const datalist = document.createElement('datalist');
-        datalist.id = `${context}-${part}-sug`;
+        label.setAttribute('for', `${context}-gun-name`);
+        label.textContent = `${context.charAt(0).toUpperCase() + context.slice(1)} Gun Name`;
+        const input = context === 'primary' ? primaryGunNameInput : secondaryGunNameInput;
+        const datalist = context === 'primary' ? primaryGunNameSug : secondaryGunNameSug;
+        input.setAttribute('type', 'text');
+        input.setAttribute('id', `${context}-gun-name`);
+        input.setAttribute('name', `${context}-gun-name`);
+        input.setAttribute('list', `${context}-gun-name-sug`);
+        datalist.id = `${context}-gun-name-sug`;
         div.appendChild(label);
         div.appendChild(input);
         div.appendChild(datalist);
         container.appendChild(div);
-        updateSuggestions(part, datalist);
     };
 
-    // Handle gun type selection and populate the sections
-    const populateSections = (gunType, container, context) => {
-        if (data.guns[gunType]) {
-            container.innerHTML = ''; // Clear previous parts
-            data.guns[gunType].forEach(part => {
-                createPartInput(part, container, context);
+    // Function to create attachment input
+    const createAttachmentInput = (type, context, container, gun) => {
+        const div = document.createElement('div');
+        const label = document.createElement('label');
+        label.textContent = `${type}`;
+        const select = document.createElement('select');
+        select.id = `${context}-${type.toLowerCase()}-type`;
+        select.name = `${context}-${type.toLowerCase()}-type`;
+
+        const defaultOption = document.createElement('option');
+        defaultOption.value = "";
+        defaultOption.textContent = "Select attachment type";
+        select.appendChild(defaultOption);
+
+        const attachmentTypes = Object.keys(gun.attachments); // Adjust based on your weapon structure
+        attachmentTypes.forEach(attachmentType => {
+            const option = document.createElement('option');
+            option.value = attachmentType;
+            option.textContent = attachmentType;
+            select.appendChild(option);
+        });
+
+        const attachmentNameDiv = document.createElement('div');
+        attachmentNameDiv.style.display = 'none'; // Initially hidden
+
+        const attachmentNameLabel = document.createElement('label');
+        attachmentNameLabel.textContent = "Name:";
+        const attachmentNameSelect = document.createElement('select');
+        attachmentNameSelect.name = `${context}-${type.toLowerCase()}-name`;
+
+        attachmentNameDiv.appendChild(attachmentNameLabel);
+        attachmentNameDiv.appendChild(attachmentNameSelect);
+
+        select.addEventListener('change', function () {
+            const selectedType = this.value;
+            if (selectedType) {
+                attachmentNameDiv.style.display = 'block';
+                attachmentNameSelect.innerHTML = ''; // Clear previous options
+
+                const defaultNameOption = document.createElement('option');
+                defaultNameOption.value = "";
+                defaultNameOption.textContent = "Select attachment name";
+                attachmentNameSelect.appendChild(defaultNameOption);
+
+                const attachments = gun.attachments[selectedType]; // Adjust based on your weapon structure
+                attachments.forEach(attachment => {
+                    const nameOption = document.createElement('option');
+                    nameOption.value = attachment.name;
+                    nameOption.textContent = attachment.name;
+                    attachmentNameSelect.appendChild(nameOption);
+                });
+            } else {
+                attachmentNameDiv.style.display = 'none';
+            }
+        });
+
+        div.appendChild(label);
+        div.appendChild(select);
+        div.appendChild(attachmentNameDiv);
+        container.appendChild(div);
+    };
+
+    const updateGunNames = (context, gunClass) => {
+        const gunNameInput = context === 'primary' ? primaryGunNameInput : secondaryGunNameInput;
+        const gunNameSug = context === 'primary' ? primaryGunNameSug : secondaryGunNameSug;
+        gunNameSug.innerHTML = ''; // Clear previous suggestions
+
+        if (data.endpoints.weapons.response.weapons.class[gunClass]) {
+            Object.keys(data.endpoints.weapons.response.weapons.class[gunClass]).forEach(gunName => {
+                const option = document.createElement('option');
+                option.value = gunName;
+                gunNameSug.appendChild(option);
             });
+
+            gunNameInput.addEventListener('input', function () {
+                const selectedGun = this.value;
+                populateAttachments(context, gunClass, selectedGun);
+            });
+        }
+    };
+
+    // Populate sections with attachments
+    const populateAttachments = (context, gunType, gunName) => {
+        const refGunType = data.endpoints.weapons.response.weapons.class[gunType]
+        const container = context === 'primary' ? primaryAttachmentsContainer : secondaryAttachmentsContainer;
+        container.innerHTML = ''; // Clear previous attachments
+
+        if (refGunType[gunName]) {
+            const gunData = refGunType[gunName];
+            for (let i = 1; i <= 5; i++) {
+                createAttachmentInput(`Attachment ${i}`, context, container, refGunType[gunName]);
+            }
         }
     };
 
     // Add event listeners to gun type inputs
     primaryGunTypeInput.addEventListener('input', function () {
-        const selectedGun = this.value;
-        populateSections(selectedGun, primaryPartsContainer, 'primary');
+        const selectedGunClass = this.value;
+        createGunNameInput('primary', primaryAttachmentsContainer);
+        updateGunNames('primary', selectedGunClass);
     });
 
     secondaryGunTypeInput.addEventListener('input', function () {
-        const selectedGun = this.value;
-        populateSections(selectedGun, secondaryPartsContainer, 'secondary');
+        const selectedGunClass = this.value;
+        createGunNameInput('secondary', secondaryAttachmentsContainer);
+        updateGunNames('secondary', selectedGunClass);
     });
-
-    // Function to handle image preview
-    const handleImagePreview = (input, preview) => {
-        input.addEventListener('change', function () {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    };
 
     const primaryInput = document.getElementById('primary');
     const primaryPreview = document.getElementById('primary-preview');

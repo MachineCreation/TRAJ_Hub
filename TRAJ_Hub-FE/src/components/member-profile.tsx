@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import WeaponModal from "./detModal";
-import { members, MemberName, Member, WeaponDetails, PerkId } from "../config/Members";
+import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
 
 // Import JSON data dynamically based on member name
 const importWeaponDetails = async (name: MemberName): Promise<WeaponDetails> => {
@@ -53,13 +53,22 @@ const Profile = (props: MemberProps) => {
         setIsModalVisible(false);
     };
 
-    const handleImageClick = (id: PerkId) => (event: React.MouseEvent<HTMLImageElement>) => {
-        const perk = memberData.WeaponDetails?.perks[id as keyof typeof memberData.WeaponDetails.perks];
+    const handleEquipClick = (eid: equipId, id?: PerkId) => (event: React.MouseEvent<HTMLImageElement>) => {
+        let equip: { name: string, description: string } | null = null;
 
-        if (perk) {
+        if (eid === 'perks' && id) {
+            const perks = memberData.WeaponDetails?.[eid];
+            if (perks && id in perks) {
+                equip = perks[id as keyof typeof perks];
+            }
+        } else {
+            equip = memberData.WeaponDetails?.[eid] as { name: string, description: string };
+        }
+
+        if (equip) {
             setDescriptionBox({
-                name: perk.name,
-                description: perk.description
+                name: equip.name,
+                description: equip.description
             });
             const rect = event.currentTarget.getBoundingClientRect();
             setBoxPosition({
@@ -109,10 +118,20 @@ const Profile = (props: MemberProps) => {
                     </section>
                     <section className="flex">
                         <figure className="m-auto p-2 cursor-help">
-                            <img src={`/media/tacticals/${memberData.WeaponDetails?.tactical.name}.png`} alt="Tactical" />
+                            <img 
+                            src={`/media/tacticals/${memberData.WeaponDetails?.tactical.name}.png`} 
+                            alt="Tactical"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleEquipClick("tactical")(e)}} />
                         </figure>
                         <figure className="m-auto p-2 cursor-help">
-                            <img src={`/media/lethals/${memberData.WeaponDetails?.lethal.name}.png`} alt="Lethal" />
+                            <img 
+                            src={`/media/lethals/${memberData.WeaponDetails?.lethal.name}.png`} 
+                            alt="Lethal"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleEquipClick("lethal")(e)}} />
                         </figure>
                     </section>
                     <section className="flex flex-col m-auto sm:flex-row">
@@ -124,7 +143,7 @@ const Profile = (props: MemberProps) => {
                                 alt={memberData.WeaponDetails?.perks.P1.name}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleImageClick("P1")(e);
+                                    handleEquipClick("perks","P1")(e);
                                 }}
                             />
                             <img
@@ -134,7 +153,7 @@ const Profile = (props: MemberProps) => {
                                 alt={memberData.WeaponDetails?.perks.P2.name}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleImageClick("P2")(e);
+                                    handleEquipClick("perks","P2")(e);
                                 }}
                             />
                         </figure>
@@ -146,7 +165,7 @@ const Profile = (props: MemberProps) => {
                                 alt={memberData.WeaponDetails?.perks.P3.name}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleImageClick("P3")(e);
+                                    handleEquipClick("perks","P3")(e);
                                 }}
                             />
                             <img
@@ -156,7 +175,7 @@ const Profile = (props: MemberProps) => {
                                 alt={memberData.WeaponDetails?.perks.P4.name}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleImageClick("P4")(e);
+                                    handleEquipClick("perks","P4")(e);
                                 }}
                             />
                         </figure>
@@ -165,7 +184,7 @@ const Profile = (props: MemberProps) => {
             </article>
             {descriptionBox && boxPosition && (
                 <div
-                    className="absolute bg-grey p-4 rounded-2xl shadow-lg transform -translate-x-1/2"
+                    className="absolute bg-grey p-4 mt-4 rounded-2xl shadow-outer-green transform -translate-x-1/2 z-30"
                     style={{ top: boxPosition.top, left: boxPosition.left, width: boxPosition.width }}
                 >
                     <h2>{descriptionBox.name}</h2>

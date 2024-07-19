@@ -53,8 +53,8 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
     }, [name, member.WeaponDetails]);
 
     return (
-        <article className="absolute flex justify-items-center items-center w-screen h-screen bg-black bg-opacity-70 z-30">
-            <section className="relative flex m-auto p-16 rounded-2xl shadow-outer-green flex-wrap bg-grey ">
+        <article className="fixed flex justify-items-center items-center w-screen h-screen p-4 bg-black bg-opacity-70 z-30">
+            <section className="relative flex m-auto p-16 h-full full overflow-scroll rounded-2xl shadow-outer-green flex-wrap bg-grey ">
                 {memberData.WeaponDetails && (
                     <>
                     <figure className="flex flex-col">

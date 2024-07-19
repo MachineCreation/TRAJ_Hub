@@ -10,11 +10,11 @@ load_dotenv()
 # Dummy data store - replace with Supabase later
 users = {
     "testuser": {
-        "password": generate_password_hash("testpassword"),
-        "needs_password_update": True,
+        "password": generate_password_hash("test"),
+        "needs_password_update": False,
         "data": {
             "email": "testuser@example.com",
-            "name": "Test User"
+            "name": "User"
         }
     }
 }

@@ -28,7 +28,7 @@ main form article section {
 }
 
 main form article section div {
-    justify-content: space-between;
+    justify-content: flex-start;
     display: flex;
     padding: .5rem;
 }
@@ -41,18 +41,41 @@ button {
     border-radius: .5rem;
 }
 
-label {
-    display: flex;
-    padding: .2rem;
+h1 {
+    margin: auto;
 }
 
-input {
+label {
     display: flex;
+    width: fit-content;
+    height: fit-content;
     padding: .2rem;
+    margin: auto;
+}
+
+input,select {
+    display: flex;
+    width: 10rem;
+    padding: .2rem;
+    margin: auto;
     border-radius: .5rem;
 }
 
-#primary-parts-container, #secondary-parts-container {
-    display: flex;
+#primary-attachments-container, #secondary-attachments-container {
     flex-direction: column;
+    justify-content: flex-start;
+}
+
+#primary-attachments-container div {
+    flex-grow: 0;
+}
+
+#secondary-attachments-container div {
+    flex-grow: 0;
+}
+
+#title {
+    color: beige;
+    font-size:xx-large;
+    flex-wrap: wrap;
 }

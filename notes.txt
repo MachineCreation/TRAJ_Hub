@@ -1,0 +1,260 @@
+This is part of my backend called main.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>Main Page</title>
+</head>
+<body>
+    <main>
+        <form id="user-data-form">
+            <h1>Welcome, {{ user_data.name }}</h1>
+            <article>
+                <section>
+                    <div>
+                        <label for="primary"><b>Primary weapon</b>:</label>
+                        <input type="file" id="primary" name="primary" accept="image/*" required>
+                        <img id="primary-preview" src="" alt="Primary Weapon Preview" style="display:none; max-width: 100px; max-height: 100px;"/>
+                    </div>
+                    <div>
+                        <label for="primary-gun-type">Primary Gun Type</label>
+                        <input type="text" id="primary-gun-type" name="primary-gun-type" list="primary-gun-type-sug" autocomplete="on">
+                        <datalist id="primary-gun-type-sug"></datalist>
+                    </div>
+                    <div id="primary-parts-container">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <label for="secondary"><b>Secondary weapon</b>:</label>
+                        <input type="file" id="secondary" name="secondary" accept="image/*" required>
+                        <img id="secondary-preview" src="" alt="Secondary Weapon Preview" style="display:none; max-width: 100px; max-height: 100px;"/>
+                    </div>
+                    <div>
+                        <label for="secondary-gun-type">Secondary Gun Type</label>
+                        <input type="text" id="secondary-gun-type" name="secondary-gun-type" list="secondary-gun-type-sug" autocomplete="on">
+                        <datalist id="secondary-gun-type-sug"></datalist>
+                    </div>
+                    <div id="secondary-parts-container">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </section>
+            </article>
+            <button type="submit">Update Loadout</button>
+        </form>
+    </main>
+    <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
+
+
+there are sections the populate dynamic content as you can see. i would like to change the script to pull the dynamic content from api_base.json which is set up in this format.
+
+
+{
+    "endpoints": {
+        "weapons": {
+            "description": "Retrieve a list of all available weapons in Warzone 3.",
+            "method": "GET",
+            "url": "/api/weapons",
+            "response": {
+                "weapons": {
+                    "class": {
+                        "SMG": {
+                            "AMR 9": {
+                                "type": "SMG",
+                                "stats": { gun stats go here }
+                                "attachments": {
+                                    "Muzzle": [
+                                        "id": "",
+                                        "name": "",
+                                        "stats": {attachment stats go here}
+                                    ],
+                                    "Barrel": [
+                                        "id": "",
+                                        "name": "",
+                                        "stats": {attachment stats go here}
+                                    ],
+                                    more attachments here ...
+                                }
+                            },
+                            "HRM 9": {
+                                "type": "SMG",
+                                "stats": { gun stats go here }
+                                "attachments": {
+                                    "Muzzle": [
+                                        "id": "",
+                                        "name": "",
+                                        "stats": {attachment stats go here}
+                                    ],
+                                    "Barrel": [
+                                        "id": "",
+                                        "name": "",
+                                        "stats": {attachment stats go here}
+                                    ],
+                                    more attachments here ...
+                                }
+                            },
+                            more SMG's go here ...
+                        },
+                        more classes go here...
+                    },
+                    "Tactical": [
+                    {
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "name": "",
+                        "description": ""
+                      },
+                      more tacticals go here ...
+                    ],
+                    "lethal": [
+                    {
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "name": "",
+                        "description": ""
+                      },
+                      more lethals go here ...
+                    ],
+                    "perks": {
+                        "perks1_2": [
+                        {
+                            "name": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "",
+                            "description": ""
+                        },
+                        more perks1_2 go here ...
+                        ],
+                        more perks go here ...
+                    }
+                }
+            }
+        }
+    }
+}
+
+i would like the dynamic inputs for primary and secondary to be
+
+class? (list of classes that auto fill)
+Gun? (list of the guns in the class example "AMR 9")
+attachments:(5 inputs)
+    attachment? (list of attachments for gun)
+
+each input should be hidden untill the previous one is filled
+
+here is the js file to go with it
+
+// static/js/dashboard.js
+import { data } from './api_base.js';
+
+document.addEventListener('DOMContentLoaded', function () {
+    const primaryGunTypeInput = document.getElementById('primary-gun-type');
+    const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
+    const primaryPartsContainer = document.getElementById('primary-parts-container');
+
+    const secondaryGunTypeInput = document.getElementById('secondary-gun-type');
+    const secondaryGunTypeSug = document.getElementById('secondary-gun-type-sug');
+    const secondaryPartsContainer = document.getElementById('secondary-parts-container');
+
+    // Populate gun types in the datalist
+    Object.keys(data.guns).forEach(gunType => {
+        const optionPrimary = document.createElement('option');
+        optionPrimary.value = gunType;
+        primaryGunTypeSug.appendChild(optionPrimary);
+
+        const optionSecondary = document.createElement('option');
+        optionSecondary.value = gunType;
+        secondaryGunTypeSug.appendChild(optionSecondary);
+    });
+
+    // Function to update suggestions
+    const updateSuggestions = (part, datalistElement) => {
+        datalistElement.innerHTML = ''; // Clear previous suggestions
+        Object.keys(data[part]).forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            if (item === '') {
+                option.textContent = 'None'; // Display 'None' for empty string option
+            }
+            datalistElement.appendChild(option);
+        });
+    };
+
+    // Function to create input elements for gun parts
+    const createPartInput = (part, container, context) => {
+        const div = document.createElement('div');
+        const label = document.createElement('label');
+        label.setAttribute('for', `${context}-${part}`);
+        label.textContent = part.charAt(0).toUpperCase() + part.slice(1);
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = `${context}-${part}`;
+        input.name = `${context}-${part}`;
+        input.setAttribute('list', `${context}-${part}-sug`);
+        input.setAttribute('autocomplete', 'on');
+        input.value = ''; // Set default value to empty string
+        const datalist = document.createElement('datalist');
+        datalist.id = `${context}-${part}-sug`;
+        div.appendChild(label);
+        div.appendChild(input);
+        div.appendChild(datalist);
+        container.appendChild(div);
+        updateSuggestions(part, datalist);
+    };
+
+    // Handle gun type selection and populate the sections
+    const populateSections = (gunType, container, context) => {
+        if (data.guns[gunType]) {
+            container.innerHTML = ''; // Clear previous parts
+            data.guns[gunType].forEach(part => {
+                createPartInput(part, container, context);
+            });
+        }
+    };
+
+    // Add event listeners to gun type inputs
+    primaryGunTypeInput.addEventListener('input', function () {
+        const selectedGun = this.value;
+        populateSections(selectedGun, primaryPartsContainer, 'primary');
+    });
+
+    secondaryGunTypeInput.addEventListener('input', function () {
+        const selectedGun = this.value;
+        populateSections(selectedGun, secondaryPartsContainer, 'secondary');
+    });
+
+    // Function to handle image preview
+    const handleImagePreview = (input, preview) => {
+        input.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    };
+
+    const primaryInput = document.getElementById('primary');
+    const primaryPreview = document.getElementById('primary-preview');
+    const secondaryInput = document.getElementById('secondary');
+    const secondaryPreview = document.getElementById('secondary-preview');
+
+    handleImagePreview(primaryInput, primaryPreview);
+    handleImagePreview(secondaryInput, secondaryPreview);
+});

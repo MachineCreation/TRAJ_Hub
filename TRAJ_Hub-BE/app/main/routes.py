@@ -14,25 +14,25 @@ def main_page():
     user_data = users.get(current_user.id)["data"]
     return render_template('main.html', user_data=user_data)
 
-@main_bp.route('/update_data', methods=['POST'])
-@login_required
-def update_data():
-    data = request.json
-    user_data = data.get('data')
-    username = current_user.id
+# @main_bp.route('/update_data', methods=['POST'])
+# @login_required
+# def update_data():
+#     data = request.json
+#     user_data = data.get('data')
+#     username = current_user.id
 
-    user = users.get(username)
-    if user:
-        user['data'].update(user_data)
-        return jsonify({"status": "success", "message": "Data updated."})
-    return jsonify({"status": "fail", "message": "User not found."}), 404
+#     user = users.get(username)
+#     if user:
+#         user['data'].update(user_data)
+#         return jsonify({"status": "success", "message": "Data updated."})
+#     return jsonify({"status": "fail", "message": "User not found."}), 404
 
-# Set up Google Drive API credentials
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
-SERVICE_ACCOUNT_FILE = 'path/to/your/service-account-file.json'
+# # Set up Google Drive API credentials
+# SCOPES = ['https://www.googleapis.com/auth/drive.file']
+# SERVICE_ACCOUNT_FILE = 'path/to/your/service-account-file.json'
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+# credentials = service_account.Credentials.from_service_account_file(
+#     SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 @main_bp.route('/')
 def home():

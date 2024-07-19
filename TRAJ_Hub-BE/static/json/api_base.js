@@ -1,4 +1,4 @@
-{
+export const data = {
     "endpoints": {
         "weapons": {
             "description": "Retrieve a list of all available weapons in Warzone 3.",

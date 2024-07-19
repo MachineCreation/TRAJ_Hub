@@ -9,36 +9,75 @@
 <body>
     <main>
         <form id="user-data-form">
-            <h1>Welcome, {{ user_data.name }}</h1>
+            <h1 id="title">Welcome, {{ user_data.name }}</h1>
             <article>
                 <section>
                     <div>
                         <label for="primary"><b>Primary weapon</b>:</label>
-                        <input type="file" id="primary" name="primary" accept="image/*" required>
-                        <img id="primary-preview" src="" alt="Primary Weapon Preview" style="display:none; max-width: 100px; max-height: 100px;"/>
+                        <input type="file" id="primary" name="primary" accept="image/*">
                     </div>
                     <div>
                         <label for="primary-gun-type">Primary Gun Type</label>
                         <input type="text" id="primary-gun-type" name="primary-gun-type" list="primary-gun-type-sug" autocomplete="on">
                         <datalist id="primary-gun-type-sug"></datalist>
                     </div>
-                    <div id="primary-parts-container">
-                        <!-- Dynamic content will be inserted here -->
+                    <div id="primary-attachments-container">
+                        <!-- Dynamic weapon content  -->
                     </div>
                 </section>
                 <section>
                     <div>
                         <label for="secondary"><b>Secondary weapon</b>:</label>
-                        <input type="file" id="secondary" name="secondary" accept="image/*" required>
-                        <img id="secondary-preview" src="" alt="Secondary Weapon Preview" style="display:none; max-width: 100px; max-height: 100px;"/>
+                        <input type="file" id="secondary" name="secondary" accept="image/*">
                     </div>
                     <div>
                         <label for="secondary-gun-type">Secondary Gun Type</label>
                         <input type="text" id="secondary-gun-type" name="secondary-gun-type" list="secondary-gun-type-sug" autocomplete="on">
                         <datalist id="secondary-gun-type-sug"></datalist>
                     </div>
-                    <div id="secondary-parts-container">
-                        <!-- Dynamic content will be inserted here -->
+                    <div id="secondary-attachments-container">
+                        <!-- Dynamic weapon content  -->
+                    </div>
+                </section>
+            </article>
+            <article>
+                <section>
+                    <div>
+                        <h1>Lethal</h1>
+                        <label for="lethal">Equipment</label>
+                        <input name="lethal" id="lethal" placeholder="Choose equipment" autocomplete="on" List="lethal-equipment-list">
+                        <datalist id="lethal-equipment-list"></datalist>
+                    </div>
+                    <div>
+                        <h1>Tactical</h1>
+                        <label for="tactical">Equipment</label>
+                        <input name="tactical" id="tactical" placeholder="Choose equipment" autocomplete="on" List="tactical-equipment-list">
+                        <datalist id="tactical-equipment-list"></datalist>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h1>Perk 1</h1>
+                        <label for="perks1">Equipment</label>
+                        <input name="perks1" id="perks1" placeholder="Choose perk" autocomplete="on" List="perks1_2-equipment-list">
+                        <datalist id="perks1_2-equipment-list"></datalist>
+                    </div>
+                    <div>
+                        <h1>Perk 2</h1>
+                        <label for="perks2">Equipment</label>
+                        <input name="perks2" id="perks2" placeholder="Choose perk" autocomplete="on" List="perks1_2-equipment-list">
+                    </div>
+                    <div>
+                        <h1>Perk 3</h1>
+                        <label for="perks3">Equipment</label>
+                        <input name="perks3" id="perks3" placeholder="Choose perk" autocomplete="on" List="perks3-equipment-list">
+                        <datalist id="perks3-equipment-list"></datalist>
+                    </div>
+                    <div>
+                        <h1>Perk 4</h1>
+                        <label for="perks4">Equipment</label>
+                        <input name="perks4" id="perks4" placeholder="Choose perk" autocomplete="on" List="perks4-equipment-list">
+                        <datalist id="perks4-equipment-list"></datalist>
                     </div>
                 </section>
             </article>
