@@ -1,27 +1,10 @@
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from flask_login import LoginManager, UserMixin
-from dotenv import load_dotenv
-from werkzeug.security import generate_password_hash
+from flask_login import LoginManager
+from models import User, supabase, supabase_service
 import os
 
-load_dotenv()
-
-# Dummy data store - replace with Supabase later
-users = {
-    "testuser": {
-        "password": generate_password_hash("test"),
-        "needs_password_update": False,
-        "data": {
-            "email": "testuser@example.com",
-            "name": "User"
-        }
-    }
-}
-
 login_manager = LoginManager()
-
-
 
 def create_app():
     app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
@@ -45,10 +28,5 @@ def create_app():
 
 @login_manager.user_loader
 def load_user(username):
-    if username in users:
-        return User(username)
-    return None
-
-class User(UserMixin):
-    def __init__(self, username):
-        self.id = username
+    user, _ = User.get(username)
+    return user

@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const lethalEquipment = document.getElementById("lethal-equipment-list")
     const tacticalEquipment = document.getElementById("tactical-equipment-list")
+    const perks1_2Equipment = document.getElementById('perks1_2-list')
+    const perks3Equipment = document.getElementById('perks3-list')
+    const perks4Equipment = document.getElementById('perks4-list')
+
 
 
     // Populate gun types in the datalist
@@ -27,20 +31,40 @@ document.addEventListener('DOMContentLoaded', function () {
         optionSecondary.value = gunClass;
         secondaryGunTypeSug.appendChild(optionSecondary);
     });
-
-    console.log(data.endpoints.weapons.response.weapons["Lethal"]);
-
     
+    // Populate Lethal options
     data.endpoints.weapons.response.Lethal.forEach(lethal => {
         const optionLethal = document.createElement('option');
         optionLethal.value = lethal.name;
         lethalEquipment.appendChild(optionLethal);
     });
 
+    // Populate tactical options
     data.endpoints.weapons.response.Tactical.forEach(tactical => {
         const optiontactical = document.createElement('option');
         optiontactical.value = tactical.name;
         tacticalEquipment.appendChild(optiontactical);
+    });
+    
+    // Populate perks 1 & 2 options
+    data.endpoints.weapons.response.Perks.perks1_2.forEach(perks1_2 => {
+        const optionperks1_2 = document.createElement('option');
+        optionperks1_2.value = perks1_2.name;
+        perks1_2Equipment.appendChild(optionperks1_2);
+    });
+
+    // Populate perks 3 options
+    data.endpoints.weapons.response.Perks.perks3.forEach(perks3 => {
+        const optionperks3 = document.createElement('option');
+        optionperks3.value = perks3.name;
+        perks3Equipment.appendChild(optionperks3);
+    });
+
+    // Populate perks 4 options
+    data.endpoints.weapons.response.Perks.perks4.forEach(perks4 => {
+        const optionperks4 = document.createElement('option');
+        optionperks4.value = perks4.name;
+        perks4Equipment.appendChild(optionperks4);
     });
 
     const createGunNameInput = (context, container) => {
@@ -169,11 +193,4 @@ document.addEventListener('DOMContentLoaded', function () {
         updateGunNames('secondary', selectedGunClass);
     });
 
-    const primaryInput = document.getElementById('primary');
-    const primaryPreview = document.getElementById('primary-preview');
-    const secondaryInput = document.getElementById('secondary');
-    const secondaryPreview = document.getElementById('secondary-preview');
-
-    handleImagePreview(primaryInput, primaryPreview);
-    handleImagePreview(secondaryInput, secondaryPreview);
 });
