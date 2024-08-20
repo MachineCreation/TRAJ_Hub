@@ -8,81 +8,159 @@
 </head>
 <body>
     <main>
-        <form id="user-data-form">
-            <h1 id="title">Welcome, {{ user_data.username }}</h1>
-            <article>
-                <section>
-                    <div>
+        <h1 id="title">Welcome, {{ user_data.username }}</h1>
+        <form id="hero-image-form">
+            <section>
+                <div>
+                    <label for="hero"><b>Hero Image</b></label>
+                    <input type="file" id="hero" name="hero" accept="image/*">
+                </div>
+                <button type="submit"><b>Update Hero Image</b></button>
+            </section>
+        </form>
+        <article>
+            <form id="primary-weapon-form">
+                <section>                                                       <!-- primary Weapon form -->
                         <label for="primary"><b>Primary weapon</b>:</label>
                         <input type="file" id="primary" name="primary" accept="image/*">
-                    </div>
-                    <div>
+
                         <label for="primary-gun-type">Primary Gun Type</label>
                         <input type="text" id="primary-gun-type" name="primary-gun-type" list="primary-gun-type-sug" autocomplete="on">
                         <datalist id="primary-gun-type-sug"></datalist>
-                    </div>
-                    <div id="primary-attachments-container">
-                        <!-- Dynamic weapon content  -->
-                    </div>
+
+                        <label for="primary-weapon"><b>Choose Primary Weapon</b></label>
+                        <input type="text" id="primary-weapon" name="primary-weapon" list="primary-weapon-sug" autocomplete="on">
+                        <datalist id="primary-weapon-sug"></datalist>
+
+                        <label for="PA1-type"><b>Atttachment 1</b></label>
+                        <input type="text" id="PA1-type" name="PA1-type" list="PA1-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="PA1-type-sug"></datalist>
+
+                        <input type="text" id="PA1" name="PA1" list="PA1-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="PA1-sug"></datalist>
+
+                        <label for="PA2-type"><b>Atttachment 2</b></label>
+                        <input type="text" id="PA2-type" name="PA2-type" list="PA2-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="PA2-type-sug"></datalist>
+
+                        <input type="text" id="PA2" name="PA2" list="PA2-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="PA2-sug"></datalist>
+
+                        <label for="PA3-type"><b>Atttachment 3</b></label>
+                        <input type="text" id="PA3-type" name="PA3-type" list="PA3-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="PA3-type-sug"></datalist>
+
+                        <input type="text" id="PA3" name="PA3" list="PA3-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="PA3-sug"></datalist>
+
+                        <label for="PA4-type"><b>Atttachment 4</b></label>
+                        <input type="text" id="PA4-type" name="PA4-type" list="PA4-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="PA4-type-sug"></datalist>
+
+                        <input type="text" id="PA4" name="PA4" list="PA4-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="PA4-sug"></datalist>
+
+                        <label for="PA5-type"><b>Atttachment 5</b></label>
+                        <input type="text" id="PA5-type" name="PA5-type" list="PA5-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="PA5-type-sug"></datalist>
+
+                        <input type="text" id="PA5" name="PA5" list="PA5-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="PA5-sug"></datalist>
+
                 </section>
+            </form>
+            <form id="secondary-weapon-form">                                   <!-- secondary weapon form -->
                 <section>
-                    <div>
                         <label for="secondary"><b>Secondary weapon</b>:</label>
                         <input type="file" id="secondary" name="secondary" accept="image/*">
-                    </div>
-                    <div>
+
                         <label for="secondary-gun-type">Secondary Gun Type</label>
                         <input type="text" id="secondary-gun-type" name="secondary-gun-type" list="secondary-gun-type-sug" autocomplete="on">
                         <datalist id="secondary-gun-type-sug"></datalist>
-                    </div>
-                    <div id="secondary-attachments-container">
-                        <!-- Dynamic weapon content  -->
-                    </div>
+
+                        <label for="primary-weapon"><b>Choose Primary Weapon</b></label>
+                        <input type="text" id="primary-weapon" name="primary-weapon" list="primary-weapon-sug" autocomplete="on">
+                        <datalist id="primary-weapon-sug"></datalist>
+
+                        <label for="SA1-type"><b>Atttachment 1</b></label>
+                        <input type="text" id="SA1-type" name="SA1-type" list="SA1-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="SA1-type-sug"></datalist>
+
+                        <input type="text" id="SA1" name="SA1" list="SA1-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="SA1-sug"></datalist>
+
+                        <label for="SA2-type"><b>Atttachment 2</b></label>
+                        <input type="text" id="SA2-type" name="SA2-type" list="SA2-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="SA2-type-sug"></datalist>
+
+                        <input type="text" id="SA2" name="SA2" list="SA2-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="SA2-sug"></datalist>
+
+                        <label for="SA3-type"><b>Atttachment 3</b></label>
+                        <input type="text" id="SA3-type" name="SA3-type" list="SA3-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="SA3-type-sug"></datalist>
+
+                        <input type="text" id="SA3" name="SA3" list="SA3-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="SA3-sug"></datalist>
+
+                        <label for="SA4-type"><b>Atttachment 4</b></label>
+                        <input type="text" id="SA4-type" name="SA4-type" list="SA4-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="SA4-type-sug"></datalist>
+
+                        <input type="text" id="SA4" name="SA4" list="SA4-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="SA4-sug"></datalist>
+
+                        <label for="SA5-type"><b>Atttachment 5</b></label>
+                        <input type="text" id="SA5-type" name="SA5-type" list="SA5-type-sug" autocomplete="on" placeholder="Choose Attachment Type">
+                        <datalist id="SA5-type-sug"></datalist>
+
+                        <input type="text" id="SA5" name="SA5" list="SA5-sug" autocomplete="on" placeholder="Choose Attachment">
+                        <datalist id="SA5-sug"></datalist>
                 </section>
-            </article>
-            <article>
-                <section>
-                    <div>
-                        <h1>Lethal</h1>
-                        <label for="lethal"></label>
-                        <input name="lethal" id="lethal" placeholder="Choose equipment" autocomplete="on" List="lethal-equipment-list">
-                        <datalist id="lethal-equipment-list"></datalist>
-                    </div>
-                    <div>
-                        <h1>Tactical</h1>
-                        <label for="tactical"></label>
-                        <input name="tactical" id="tactical" placeholder="Choose equipment" autocomplete="on" List="tactical-equipment-list">
-                        <datalist id="tactical-equipment-list"></datalist>
-                    </div>
-                </section>
-                <section>
-                    <div>
-                        <h1>Perk 1</h1>
-                        <label for="perks1"></label>
-                        <input name="perks1" id="perks1" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
-                        <datalist id="perks1_2-list"></datalist>
-                    </div>
-                    <div>
-                        <h1>Perk 2</h1>
-                        <label for="perks2"></label>
-                        <input name="perks2" id="perks2" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
-                    </div>
-                    <div>
-                        <h1>Perk 3</h1>
-                        <label for="perks3"></label>
-                        <input name="perks3" id="perks3" placeholder="Choose perk" autocomplete="on" List="perks3-list">
-                        <datalist id="perks3-list"></datalist>
-                    </div>
-                    <div>
-                        <h1>Perk 4</h1>
-                        <label for="perks4"></label>
-                        <input name="perks4" id="perks4" placeholder="Choose perk" autocomplete="on" List="perks4-list">
-                        <datalist id="perks4-list"></datalist>
-                    </div>
-                </section>
-            </article>
-            <button type="submit">Update Loadout</button>
-        </form>
+            </form>
+        </article>
+        <article>
+            <section>
+                <div>
+                    <h1>Lethal</h1>
+                    <label for="lethal"></label>
+                    <input name="lethal" id="lethal" placeholder="Choose equipment" autocomplete="on" List="lethal-equipment-list">
+                    <datalist id="lethal-equipment-list"></datalist>
+                </div>
+                <div>
+                    <h1>Tactical</h1>
+                    <label for="tactical"></label>
+                    <input name="tactical" id="tactical" placeholder="Choose equipment" autocomplete="on" List="tactical-equipment-list">
+                    <datalist id="tactical-equipment-list"></datalist>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1>Perk 1</h1>
+                    <label for="perks1"></label>
+                    <input name="perks1" id="perks1" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
+                    <datalist id="perks1_2-list"></datalist>
+                </div>
+                <div>
+                    <h1>Perk 2</h1>
+                    <label for="perks2"></label>
+                    <input name="perks2" id="perks2" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
+                </div>
+                <div>
+                    <h1>Perk 3</h1>
+                    <label for="perks3"></label>
+                    <input name="perks3" id="perks3" placeholder="Choose perk" autocomplete="on" List="perks3-list">
+                    <datalist id="perks3-list"></datalist>
+                </div>
+                <div>
+                    <h1>Perk 4</h1>
+                    <label for="perks4"></label>
+                    <input name="perks4" id="perks4" placeholder="Choose perk" autocomplete="on" List="perks4-list">
+                    <datalist id="perks4-list"></datalist>
+                </div>
+            </section>
+        </article>
+        <button type="submit">Update Loadout</button>
     </main>
     <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
