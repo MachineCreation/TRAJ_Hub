@@ -1,27 +1,57 @@
 import { data } from '../json/api_base.js';
 
-document.addEventListener('DOMContentLoaded', function () {
-    const primaryGunTypeInput = document.getElementById('primary-gun-type');
+
+document.addEventListener('DOMContentLoaded', function () { 
+
+    const heroImageForm = document.getElementById('hero-image-form');           // forms
+    const primaryWeaponForm = document.getElementById('primary-weapon-form');
+    const secondaryWeaponForm = document.getElementById('secondary-weapon-form');
+    const equipForm =  document.getElementById('equipment');
+    const perkForm = document.getElementById('perks');
+
+    const primaryGunTypeInput = document.getElementById('primary-gun-type');    // primary weapons
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
-    const primaryGunNameInput = document.createElement('input');
-    const primaryGunNameSug = document.createElement('datalist');
-    const primaryAttachmentsContainer = document.getElementById('primary-attachments-container');
+    const primaryWeaponinput = document.getElementById('primary-weapon');
+    const primaryWeaponSug = document.getElementById('primary-weapon-sug');
+    const PATypeSug = document.getElementById('PA-type-sug');
+    const PA1Typeinput = document.getElementById('PA1-type');
+    const PA2Typeinput = document.getElementById('PA2-type');
+    const PA3Typeinput = document.getElementById('PA3-type');
+    const PA4Typeinput = document.getElementById('PA4-type');
 
-    const secondaryGunTypeInput = document.getElementById('secondary-gun-type');
+    const secondaryGunTypeInput = document.getElementById('secondary-gun-type');    // secondary weapons
     const secondaryGunTypeSug = document.getElementById('secondary-gun-type-sug');
-    const secondaryGunNameInput = document.createElement('input');
-    const secondaryGunNameSug = document.createElement('datalist');
-    const secondaryAttachmentsContainer = document.getElementById('secondary-attachments-container');
+    const secondaryWeaponinput = document.getElementById('secondary-weapon');
+    const secondaryWeaponSug = document.getElementById('secondary-weapon-sug');
+    const SATypeSug = document.getElementById('SA-type-sug');
+    const SA1Typeinput = document.getElementById('SA1-type');
+    const SA2Typeinput = document.getElementById('SA2-type');
+    const SA3Typeinput = document.getElementById('SA3-type');
+    const SA4Typeinput = document.getElementById('SA4-type');
 
-    const lethalEquipment = document.getElementById("lethal-equipment-list")
-    const tacticalEquipment = document.getElementById("tactical-equipment-list")
-    const perks1_2Equipment = document.getElementById('perks1_2-list')
-    const perks3Equipment = document.getElementById('perks3-list')
-    const perks4Equipment = document.getElementById('perks4-list')
+    const perks1EquipmentInput = document.getElementById('perks1');             // perks
+    const perks2EquipmentInput = document.getElementById('perks2');
+    const perks3EquipmentInput = document.getElementById('perks3');
+    const perks4EquipmentInput = document.getElementById('perks4');
+    const perks1_2Equipment = document.getElementById('perks1_2-list');
+    const perks3Equipment = document.getElementById('perks3-list');
+    const perks4Equipment = document.getElementById('perks4-list');
 
+    const lethalEquipmentInput = document.getElementById('lethal');             // equpiment
+    const tacticalEquipmentInput = document.getElementById('tactical');
+    const lethalEquipment = document.getElementById("lethal-equipment-list");
+    const tacticalEquipment = document.getElementById("tactical-equipment-list");
 
+    function checkInputs(formId) {                                              // set initial enabled state for inputs 
+        const inputs = formId.querySelectorAll('input[type="text"]');
+    
+        inputs.forEach((input, index) => {
+            input.disabled = index > 0 && inputs[index - 1].value.trim() === "";
+        });
+    };
+    
 
-    // Populate gun types in the datalist
+                                                                                // populate gun type datalists
     Object.keys(data.endpoints.weapons.response.weapons.class).forEach(gunClass => {
         const optionPrimary = document.createElement('option');
         optionPrimary.value = gunClass;
@@ -31,166 +61,83 @@ document.addEventListener('DOMContentLoaded', function () {
         optionSecondary.value = gunClass;
         secondaryGunTypeSug.appendChild(optionSecondary);
     });
+
+    const weaponslist = (weaponSlot, gunType) => {                              // populate gun lists
+        weaponSlot.innerHTML = '';
+        Object.keys(data.endpoints.weapons.response.weapons.class[gunType]).forEach(gun => {
+            const option = document.createElement('option');
+            option.value = gun;
+            weaponSlot.appendChild(option);
+        });
+    };
+
+    const attachmentsList = (sugList, weapon, weapontype) => {
+        sugList.innerHTML = '';
+        Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(attachment => {
+            const attachmentOption = document.createElement('option');
+            attachmentOption.value = attachment
+            console.log(attachment)
+            sugList.appendChild(attachmentOption)
+        })
+        console.log(`{sugList}`)
+    };
+
+    const inputListeners = (weapon, check) => {
+        weapon.querySelectorAll('input[class="PA-type"]').forEach((input) => {
+            input.addEventListener('input', () => {
+                checkInputs(check);
+            })
+        })
+    };
     
-    // Populate Lethal options
+    primaryGunTypeInput.addEventListener('input', () => {
+        weaponslist(primaryWeaponSug, primaryGunTypeInput.value);
+        checkInputs(primaryWeaponForm);
+    });
+
+    secondaryGunTypeInput.addEventListener('input', () => {
+        weaponslist(secondaryWeaponSug, secondaryGunTypeInput.value);
+        checkInputs(secondaryWeaponForm);
+    });
+
+    primaryWeaponinput.addEventListener('input', () => {
+        inputListeners(primaryWeaponinput, primaryWeaponForm);
+        attachmentsList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value)
+        checkInputs(primaryWeaponForm)
+    })
+    
+                                                                                // Populate Lethal options
     data.endpoints.weapons.response.Lethal.forEach(lethal => {
         const optionLethal = document.createElement('option');
         optionLethal.value = lethal.name;
         lethalEquipment.appendChild(optionLethal);
     });
 
-    // Populate tactical options
+                                                                                // Populate tactical options
     data.endpoints.weapons.response.Tactical.forEach(tactical => {
         const optiontactical = document.createElement('option');
         optiontactical.value = tactical.name;
         tacticalEquipment.appendChild(optiontactical);
     });
     
-    // Populate perks 1 & 2 options
+                                                                                // Populate perks 1 & 2 options
     data.endpoints.weapons.response.Perks.perks1_2.forEach(perks1_2 => {
         const optionperks1_2 = document.createElement('option');
         optionperks1_2.value = perks1_2.name;
         perks1_2Equipment.appendChild(optionperks1_2);
     });
 
-    // Populate perks 3 options
+                                                                                // Populate perks 3 options
     data.endpoints.weapons.response.Perks.perks3.forEach(perks3 => {
         const optionperks3 = document.createElement('option');
         optionperks3.value = perks3.name;
         perks3Equipment.appendChild(optionperks3);
     });
 
-    // Populate perks 4 options
+                                                                                // Populate perks 4 options
     data.endpoints.weapons.response.Perks.perks4.forEach(perks4 => {
         const optionperks4 = document.createElement('option');
         optionperks4.value = perks4.name;
         perks4Equipment.appendChild(optionperks4);
     });
-
-    const createGunNameInput = (context, container) => {
-        const div = document.createElement('div');
-        const label = document.createElement('label');
-        label.setAttribute('for', `${context}-gun-name`);
-        label.textContent = `${context.charAt(0).toUpperCase() + context.slice(1)} Gun Name`;
-        const input = context === 'primary' ? primaryGunNameInput : secondaryGunNameInput;
-        const datalist = context === 'primary' ? primaryGunNameSug : secondaryGunNameSug;
-        input.setAttribute('type', 'text');
-        input.setAttribute('id', `${context}-gun-name`);
-        input.setAttribute('name', `${context}-gun-name`);
-        input.setAttribute('list', `${context}-gun-name-sug`);
-        datalist.id = `${context}-gun-name-sug`;
-        div.appendChild(label);
-        div.appendChild(input);
-        div.appendChild(datalist);
-        container.appendChild(div);
-    };
-
-    // Function to create attachment input
-    const createAttachmentInput = (type, context, container, gun) => {
-        const div = document.createElement('div');
-        const label = document.createElement('label');
-        label.textContent = `${type}`;
-        const select = document.createElement('select');
-        select.id = `${context}-${type.toLowerCase()}-type`;
-        select.name = `${context}-${type.toLowerCase()}-type`;
-
-        const defaultOption = document.createElement('option');
-        defaultOption.value = "";
-        defaultOption.textContent = "Select attachment type";
-        select.appendChild(defaultOption);
-
-        const attachmentTypes = Object.keys(gun.attachments); // Adjust based on your weapon structure
-        attachmentTypes.forEach(attachmentType => {
-            const option = document.createElement('option');
-            option.value = attachmentType;
-            option.textContent = attachmentType;
-            select.appendChild(option);
-        });
-
-        const attachmentNameDiv = document.createElement('div');
-        attachmentNameDiv.style.display = 'none'; // Initially hidden
-
-        const attachmentNameLabel = document.createElement('label');
-        attachmentNameLabel.textContent = "Name:";
-        const attachmentNameSelect = document.createElement('select');
-        attachmentNameSelect.name = `${context}-${type.toLowerCase()}-name`;
-
-        attachmentNameDiv.appendChild(attachmentNameLabel);
-        attachmentNameDiv.appendChild(attachmentNameSelect);
-
-        select.addEventListener('change', function () {
-            const selectedType = this.value;
-            if (selectedType) {
-                attachmentNameDiv.style.display = 'block';
-                attachmentNameSelect.innerHTML = ''; // Clear previous options
-
-                const defaultNameOption = document.createElement('option');
-                defaultNameOption.value = "";
-                defaultNameOption.textContent = "Select attachment name";
-                attachmentNameSelect.appendChild(defaultNameOption);
-
-                const attachments = gun.attachments[selectedType]; // Adjust based on your weapon structure
-                attachments.forEach(attachment => {
-                    const nameOption = document.createElement('option');
-                    nameOption.value = attachment.name;
-                    nameOption.textContent = attachment.name;
-                    attachmentNameSelect.appendChild(nameOption);
-                });
-            } else {
-                attachmentNameDiv.style.display = 'none';
-            }
-        });
-
-        div.appendChild(label);
-        div.appendChild(select);
-        div.appendChild(attachmentNameDiv);
-        container.appendChild(div);
-    };
-
-    const updateGunNames = (context, gunClass) => {
-        const gunNameInput = context === 'primary' ? primaryGunNameInput : secondaryGunNameInput;
-        const gunNameSug = context === 'primary' ? primaryGunNameSug : secondaryGunNameSug;
-        gunNameSug.innerHTML = ''; // Clear previous suggestions
-
-        if (data.endpoints.weapons.response.weapons.class[gunClass]) {
-            Object.keys(data.endpoints.weapons.response.weapons.class[gunClass]).forEach(gunName => {
-                const option = document.createElement('option');
-                option.value = gunName;
-                gunNameSug.appendChild(option);
-            });
-
-            gunNameInput.addEventListener('input', function () {
-                const selectedGun = this.value;
-                populateAttachments(context, gunClass, selectedGun);
-            });
-        }
-    };
-
-    // Populate sections with attachments
-    const populateAttachments = (context, gunType, gunName) => {
-        const refGunType = data.endpoints.weapons.response.weapons.class[gunType]
-        const container = context === 'primary' ? primaryAttachmentsContainer : secondaryAttachmentsContainer;
-        container.innerHTML = ''; // Clear previous attachments
-
-        if (refGunType[gunName]) {
-            const gunData = refGunType[gunName];
-            for (let i = 1; i <= 5; i++) {
-                createAttachmentInput(`Attachment ${i}`, context, container, refGunType[gunName]);
-            }
-        }
-    };
-
-    // Add event listeners to gun type inputs
-    primaryGunTypeInput.addEventListener('input', function () {
-        const selectedGunClass = this.value;
-        createGunNameInput('primary', primaryAttachmentsContainer);
-        updateGunNames('primary', selectedGunClass);
-    });
-
-    secondaryGunTypeInput.addEventListener('input', function () {
-        const selectedGunClass = this.value;
-        createGunNameInput('secondary', secondaryAttachmentsContainer);
-        updateGunNames('secondary', selectedGunClass);
-    });
-
 });

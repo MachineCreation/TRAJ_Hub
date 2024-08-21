@@ -4,21 +4,21 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-main form {
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-main form article {
+main article {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-main form article section {
+main article form {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     flex-grow: 1;
     margin: .5rem;
     padding: .5rem;
@@ -26,15 +26,16 @@ main form article section {
     border-radius: .5rem;
 }
 
-main form article section div {
-    justify-content: flex-start;
+main article form section {
     display: flex;
+    flex-direction: column;
     padding: .5rem;
 }
 
 button {
+    justify-self: center;
     max-width: fit-content;
-    margin: auto;
+    margin: 1rem auto auto;
     padding: .4rem;
     background-color: aquamarine;
     border-radius: .5rem;
@@ -49,28 +50,19 @@ label {
     width: fit-content;
     height: fit-content;
     padding: .2rem;
-    margin: auto;
+    margin: 1rem auto auto;
 }
 
 input,select {
     display: flex;
-    width: 10rem;
+    width: 12rem;
     padding: .2rem;
     margin: auto;
     border-radius: .5rem;
 }
 
-#primary-attachments-container, #secondary-attachments-container {
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-#primary-attachments-container div {
-    flex-grow: 0;
-}
-
-#secondary-attachments-container div {
-    flex-grow: 0;
+input:focus, select:focus {
+    box-shadow: 0 0 1rem rgb(142, 247, 5);
 }
 
 #title {

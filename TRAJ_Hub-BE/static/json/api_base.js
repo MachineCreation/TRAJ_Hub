@@ -18675,7 +18675,11 @@ export const data = {
                         },
                         "Marksman Rifle": {
                             "new":{
-                                "mr": "here"
+                                "mr": "here",
+                                "attachments": {
+                                    "Muzzle": "",
+                                    "Barrel": ""
+                                }
                             }
                         },
                         "Sniper Rifle": {
