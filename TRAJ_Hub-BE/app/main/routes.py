@@ -17,19 +17,6 @@ def main_page():
 def home():
     return render_template('upload.html')
 
-@main_bp.route('/upload', methods=['POST'])
-def upload_image():
-    file = request.files['file']
-    file_extension = os.path.splitext(file.filename)[1]
-    file_path = f"public/{file.filename}"
-
-    # Upload to Supabase Storage
-    response = supabase.storage().from_('your-bucket-name').upload(file_path, file)
-
-    if response['status'] == 'success':
-        # Save the file URL in the database
-        file_url = f"{url}/storage/v1/object/public/your-bucket-name/{file_path}"
-        # Store file_url in your database
-        return jsonify({"url": file_url}), 200
-    else:
-        return jsonify({"error": response['message']}), 400
+@main_bp.route('/hero-form', methods=['POST'])
+def hero_submit():
+    

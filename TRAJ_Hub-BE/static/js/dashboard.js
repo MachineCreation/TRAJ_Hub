@@ -3,11 +3,10 @@ import { data } from '../json/api_base.js';
 
 document.addEventListener('DOMContentLoaded', function () { 
 
-    const heroImageForm = document.getElementById('hero-image-form');           // forms
-    const primaryWeaponForm = document.getElementById('primary-weapon-form');
+           
+    const primaryWeaponForm = document.getElementById('primary-weapon-form');   // forms
     const secondaryWeaponForm = document.getElementById('secondary-weapon-form');
-    const equipForm =  document.getElementById('equipment');
-    const perkForm = document.getElementById('perks');
+
 
     const primaryGunTypeInput = document.getElementById('primary-gun-type');    // primary weapons
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
@@ -30,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const PA4Sug = document.getElementById('PA4-sug');
     const PA5Sug = document.getElementById('PA5-sug');
 
+                                                                                // primary lists
     const PATypeInputList = [PA1Typeinput, PA2Typeinput, PA3Typeinput, PA4Typeinput, PA5Typeinput];
     const PASugList = [PA1Sug, PA2Sug, PA3Sug, PA4Sug, PA5Sug];
     const PAInputList = [PA1, PA2, PA3, PA4, PA5]
@@ -55,23 +55,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const SA4Sug = document.getElementById('SA4-sug');
     const SA5Sug = document.getElementById('SA5-sug');
 
+                                                                                // secondary lists
     const SATypeInputList = [SA1Typeinput, SA2Typeinput, SA3Typeinput, SA4Typeinput, SA5Typeinput]
     const SASugList = [SA1Sug, SA2Sug, SA3Sug, SA4Sug, SA5Sug]
     const SAInputList = [SA1, SA2, SA3, SA4, SA5]
 
-    const perks1EquipmentInput = document.getElementById('perks1');             // perks
-    const perks2EquipmentInput = document.getElementById('perks2');
-    const perks3EquipmentInput = document.getElementById('perks3');
-    const perks4EquipmentInput = document.getElementById('perks4');
-    const perks1_2Equipment = document.getElementById('perks1_2-list');
+    
+    const perks1_2Equipment = document.getElementById('perks1_2-list');         // perks
     const perks3Equipment = document.getElementById('perks3-list');
     const perks4Equipment = document.getElementById('perks4-list');
 
-    const lethalEquipmentInput = document.getElementById('lethal');             // equpiment
-    const tacticalEquipmentInput = document.getElementById('tactical');
-    const lethalEquipment = document.getElementById("lethal-equipment-list");
+             
+    const lethalEquipment = document.getElementById("lethal-equipment-list");   // equpiment
     const tacticalEquipment = document.getElementById("tactical-equipment-list");
 
+    
     function checkInputs(formId) {                                              // set initial enabled state for inputs 
         const inputs = formId.querySelectorAll('input[type="text"]');
     
@@ -143,8 +141,8 @@ document.addEventListener('DOMContentLoaded', function () {
     PAInputList.forEach(attachmentInput => {
         attachmentInput.addEventListener('input', () => {
             checkInputs(primaryWeaponForm)
-        })
-    })
+        });
+    });
 
     secondaryGunTypeInput.addEventListener('input', () => {
         weaponslist(secondaryWeaponSug, secondaryGunTypeInput.value);
@@ -155,7 +153,20 @@ document.addEventListener('DOMContentLoaded', function () {
         inputListeners(secondaryWeaponinput, secondaryWeaponForm, 'SA');
         attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value)
         checkInputs(secondaryWeaponForm)
-    })
+    });
+
+    SATypeInputList.forEach((type, index) => {
+        type.addEventListener('input', () => {
+            attachmentList(SASugList[index], secondaryGunTypeInput.value, secondaryWeaponinput.value, type.value);
+            checkInputs(secondaryWeaponForm);
+        });
+    });
+
+    SAInputList.forEach(attachmentInput => {
+        attachmentInput.addEventListener('input', () => {
+            checkInputs(secondaryWeaponForm)
+        });
+    });
     
                                                                                 // Populate Lethal options
     data.endpoints.weapons.response.Lethal.forEach(lethal => {

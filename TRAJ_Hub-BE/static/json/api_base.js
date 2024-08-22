@@ -1054,7 +1054,6 @@ export const data = {
                                             }
                                         }
                                     ],
-                                    "Bolt": {},
                                     "Laser": [
                                         {
                                             "id": "L000",
@@ -1809,7 +1808,6 @@ export const data = {
                                             }
                                         }
                                     ],
-                                    "Carry handle": {},
                                     "Rear-grip": [
                                         {
                                             "id": "RG000",
