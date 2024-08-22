@@ -18,6 +18,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const PA2Typeinput = document.getElementById('PA2-type');
     const PA3Typeinput = document.getElementById('PA3-type');
     const PA4Typeinput = document.getElementById('PA4-type');
+    const PA5Typeinput = document.getElementById('PA5-type');
+    const PA1 = document.getElementById('PA1');
+    const PA2 = document.getElementById('PA2');
+    const PA3 = document.getElementById('PA3');
+    const PA4 = document.getElementById('PA4');
+    const PA5 = document.getElementById('PA5');
+    const PA1Sug = document.getElementById('PA1-sug');
+    const PA2Sug = document.getElementById('PA2-sug');
+    const PA3Sug = document.getElementById('PA3-sug');
+    const PA4Sug = document.getElementById('PA4-sug');
+    const PA5Sug = document.getElementById('PA5-sug');
+
+    const PATypeInputList = [PA1Typeinput, PA2Typeinput, PA3Typeinput, PA4Typeinput, PA5Typeinput];
+    const PASugList = [PA1Sug, PA2Sug, PA3Sug, PA4Sug, PA5Sug];
+    const PAInputList = [PA1, PA2, PA3, PA4, PA5]
 
     const secondaryGunTypeInput = document.getElementById('secondary-gun-type');    // secondary weapons
     const secondaryGunTypeSug = document.getElementById('secondary-gun-type-sug');
@@ -28,6 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const SA2Typeinput = document.getElementById('SA2-type');
     const SA3Typeinput = document.getElementById('SA3-type');
     const SA4Typeinput = document.getElementById('SA4-type');
+    const SA5Typeinput = document.getElementById('SA5-type');
+    const SA1 = document.getElementById('SA1');
+    const SA2 = document.getElementById('SA2');
+    const SA3 = document.getElementById('SA3');
+    const SA4 = document.getElementById('SA4');
+    const SA5 = document.getElementById('SA5');
+    const SA1Sug = document.getElementById('SA1-sug');
+    const SA2Sug = document.getElementById('SA2-sug');
+    const SA3Sug = document.getElementById('SA3-sug');
+    const SA4Sug = document.getElementById('SA4-sug');
+    const SA5Sug = document.getElementById('SA5-sug');
+
+    const SATypeInputList = [SA1Typeinput, SA2Typeinput, SA3Typeinput, SA4Typeinput, SA5Typeinput]
+    const SASugList = [SA1Sug, SA2Sug, SA3Sug, SA4Sug, SA5Sug]
+    const SAInputList = [SA1, SA2, SA3, SA4, SA5]
 
     const perks1EquipmentInput = document.getElementById('perks1');             // perks
     const perks2EquipmentInput = document.getElementById('perks2');
@@ -71,39 +101,60 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    const attachmentsList = (sugList, weapon, weapontype) => {
+    const attachmentTypeList = (sugList, weapon, weapontype) => {                  // populate attachment types
         sugList.innerHTML = '';
-        Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(attachment => {
-            const attachmentOption = document.createElement('option');
-            attachmentOption.value = attachment
-            console.log(attachment)
-            sugList.appendChild(attachmentOption)
-        })
-        console.log(`{sugList}`)
+        Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(type => {
+            const typeOption = document.createElement('option');
+            typeOption.value = type
+            // console.log(type)
+            sugList.appendChild(typeOption)
+        });
     };
-
-    const inputListeners = (weapon, check) => {
-        weapon.querySelectorAll('input[class="PA-type"]').forEach((input) => {
-            input.addEventListener('input', () => {
-                checkInputs(check);
-            })
-        })
-    };
+                                                                                // populate spesific gun attachments
+    const attachmentList = (attachmentSugList, weapontype, weapon, attachmentType) =>{
+        attachmentSugList.innerHtml = '';
+        data.endpoints.weapons.response.weapons.class[weapontype][weapon].attachments[attachmentType].forEach(attachment => {
+            const attachmentOption = document.createElement('option')
+            attachmentOption.value = attachment.name;
+            // console.log(attachment.name);
+            attachmentSugList.appendChild(attachmentOption)
+            checkInputs(primaryWeaponForm)
+            checkInputs(secondaryWeaponForm)
+    });
+    } 
     
     primaryGunTypeInput.addEventListener('input', () => {
         weaponslist(primaryWeaponSug, primaryGunTypeInput.value);
         checkInputs(primaryWeaponForm);
     });
+    
+    primaryWeaponinput.addEventListener('input', () => {
+        attachmentTypeList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value)
+        checkInputs(primaryWeaponForm)
+    });
+
+    PATypeInputList.forEach((type, index) => {
+        type.addEventListener('input', () => {
+            attachmentList(PASugList[index], primaryGunTypeInput.value, primaryWeaponinput.value, type.value);
+            checkInputs(primaryWeaponForm);
+        });
+    });
+
+    PAInputList.forEach(attachmentInput => {
+        attachmentInput.addEventListener('input', () => {
+            checkInputs(primaryWeaponForm)
+        })
+    })
 
     secondaryGunTypeInput.addEventListener('input', () => {
         weaponslist(secondaryWeaponSug, secondaryGunTypeInput.value);
         checkInputs(secondaryWeaponForm);
     });
 
-    primaryWeaponinput.addEventListener('input', () => {
-        inputListeners(primaryWeaponinput, primaryWeaponForm);
-        attachmentsList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value)
-        checkInputs(primaryWeaponForm)
+    secondaryWeaponinput.addEventListener('input', () => {
+        inputListeners(secondaryWeaponinput, secondaryWeaponForm, 'SA');
+        attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value)
+        checkInputs(secondaryWeaponForm)
     })
     
                                                                                 // Populate Lethal options
