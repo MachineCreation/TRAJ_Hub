@@ -6,7 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
            
     const primaryWeaponForm = document.getElementById('primary-weapon-form');   // forms
     const secondaryWeaponForm = document.getElementById('secondary-weapon-form');
+    const heroForm = document.getElementById('hero-image-form');
+    const equipmentForm = document.getElementById('equipment');
+    const perksForm = document.getElementById('perks');
 
+    const primarySubmitButton = primaryWeaponForm.querySelector('button[type="submit"]');
+    const secondarySubmitButton = secondaryWeaponForm.querySelector('button[type="submit"]');
+    const heroSubmitButton = heroForm.querySelector('button[type="submit"]');
+    const equipmentSubmitButton = equipmentForm.querySelector('button[type="submit"]');
+    const perksSubmitButtn = perksForm.querySelector('button[type="submit"]');
 
     const primaryGunTypeInput = document.getElementById('primary-gun-type');    // primary weapons
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
@@ -61,13 +69,46 @@ document.addEventListener('DOMContentLoaded', function () {
     const SAInputList = [SA1, SA2, SA3, SA4, SA5]
 
     
-    const perks1_2Equipment = document.getElementById('perks1_2-list');         // perks
+    const perks1_2Equipment = document.getElementById('perks1_2-list');         // perks var
     const perks3Equipment = document.getElementById('perks3-list');
     const perks4Equipment = document.getElementById('perks4-list');
 
              
-    const lethalEquipment = document.getElementById("lethal-equipment-list");   // equpiment
+    const lethalEquipment = document.getElementById("lethal-equipment-list");   // equpiment var
     const tacticalEquipment = document.getElementById("tactical-equipment-list");
+
+
+
+    const submitHeroImage = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(heroForm);
+
+        try {
+            const uploadResponse = await fetch('/hero-image-upload', {
+                method: 'POST',
+                body: formData
+            });
+    
+            if (uploadResponse.ok) {
+                const urlResponse = await fetch('/hero-url', {
+                    method: 'PUT'
+                });
+        
+                if (!urlResponse.ok) {
+                    console.error("Failed to upload URL");
+                }
+            } else {
+                console.error("Failed to upload image");
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
+    };
+
+    heroSubmitButton.addEventListener('click', (e) => {                          // Submit button event listeners
+        submitHeroImage(e);
+    });
+
 
     
     function checkInputs(formId) {                                              // set initial enabled state for inputs 
@@ -99,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    const attachmentTypeList = (sugList, weapon, weapontype) => {                  // populate attachment types
+    const attachmentTypeList = (sugList, weapon, weapontype, form) => {                  // populate attachment types and weapon stats
         sugList.innerHTML = '';
         Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(type => {
             const typeOption = document.createElement('option');
@@ -107,19 +148,37 @@ document.addEventListener('DOMContentLoaded', function () {
             // console.log(type)
             sugList.appendChild(typeOption)
         });
+        const weaponStatsSelect = form.querySelector('input[class="weapon_stats"]')
+        const stats = data.endpoints.weapons.response.weapons.class[weapontype][weapon]['stats']
+        const jstats = JSON.stringify(stats)
+        weaponStatsSelect.value = jstats
+        console.log(weaponStatsSelect.value)
     };
                                                                                 // populate spesific gun attachments
-    const attachmentList = (attachmentSugList, weapontype, weapon, attachmentType) =>{
-        attachmentSugList.innerHtml = '';
+    const attachmentList = (attachmentSugList, weapontype, weapon, attachmentType, form) =>{
+        const fragment = document.createDocumentFragment();
         data.endpoints.weapons.response.weapons.class[weapontype][weapon].attachments[attachmentType].forEach(attachment => {
             const attachmentOption = document.createElement('option')
             attachmentOption.value = attachment.name;
             // console.log(attachment.name);
-            attachmentSugList.appendChild(attachmentOption)
-            checkInputs(primaryWeaponForm)
-            checkInputs(secondaryWeaponForm)
-    });
-    } 
+            fragment.appendChild(attachmentOption)
+        });
+        attachmentSugList.replaceChildren(fragment)
+        checkInputs(form)
+    };
+
+    const PAattachmentStats = (attachment, weaponType, weapon, index) => {      // get attachment stats
+        const statsInput = document.getElementById(`PA${index}-stats`);
+        const attachType = document.getElementById(`PA${index}-type`);
+        const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
+        if (stats) {
+            statsInput.value = stats
+            console.log(statsInput.value)
+        }
+        else {
+            statsInput.value = {"stats": "none"}
+        };
+    };
     
     primaryGunTypeInput.addEventListener('input', () => {
         weaponslist(primaryWeaponSug, primaryGunTypeInput.value);
@@ -127,19 +186,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     primaryWeaponinput.addEventListener('input', () => {
-        attachmentTypeList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value)
+        attachmentTypeList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value, primaryWeaponForm)
         checkInputs(primaryWeaponForm)
     });
 
     PATypeInputList.forEach((type, index) => {
         type.addEventListener('input', () => {
-            attachmentList(PASugList[index], primaryGunTypeInput.value, primaryWeaponinput.value, type.value);
+            attachmentList(PASugList[index], primaryGunTypeInput.value, primaryWeaponinput.value, type.value, primaryWeaponForm);
             checkInputs(primaryWeaponForm);
         });
     });
 
-    PAInputList.forEach(attachmentInput => {
+    PAInputList.forEach((attachmentInput, index) => {
         attachmentInput.addEventListener('input', () => {
+            PAattachmentStats(attachmentInput, primaryGunTypeInput.value, primaryWeaponinput.value, index + 1)
             checkInputs(primaryWeaponForm)
         });
     });
