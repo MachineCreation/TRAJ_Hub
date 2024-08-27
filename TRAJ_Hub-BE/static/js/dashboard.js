@@ -79,18 +79,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    const submitHeroImage = async (e) => {
+    const submitForm = async (e, form, slot) => {                                      // Form submitions
         e.preventDefault();
-        const formData = new FormData(heroForm);
+        const formData = new FormData(form);
 
         try {
-            const uploadResponse = await fetch('/hero-image-upload', {
+            const uploadResponse = await fetch(`/${slot}-image-upload`, {
                 method: 'POST',
                 body: formData
             });
     
             if (uploadResponse.ok) {
-                const urlResponse = await fetch('/hero-url', {
+                const urlResponse = await fetch(`/${slot}-url`, {
                     method: 'PUT'
                 });
         
@@ -106,7 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     heroSubmitButton.addEventListener('click', (e) => {                          // Submit button event listeners
-        submitHeroImage(e);
+        submitForm(e, heroForm, 'hero');
+    });
+
+    primarySubmitButton.addEventListener('click', (e) => {
+        submitForm(e, primaryWeaponForm, 'weapon');
+    });
+
+    secondarySubmitButton.addEventListener('click', (e) => {
+        submitForm(e, secondaryWeaponForm, 'weapon');
     });
 
 
@@ -140,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    const attachmentTypeList = (sugList, weapon, weapontype, form) => {                  // populate attachment types and weapon stats
+    const attachmentTypeList = (sugList, weapon, weapontype, form) => {         // populate attachment types and weapon stats
         sugList.innerHTML = '';
         Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(type => {
             const typeOption = document.createElement('option');
@@ -170,6 +178,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const PAattachmentStats = (attachment, weaponType, weapon, index) => {      // get attachment stats
         const statsInput = document.getElementById(`PA${index}-stats`);
         const attachType = document.getElementById(`PA${index}-type`);
+        const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
+        if (stats) {
+            statsInput.value = stats
+            console.log(statsInput.value)
+        }
+        else {
+            statsInput.value = {"stats": "none"}
+        };
+    };
+
+    const SAattachmentStats = (attachment, weaponType, weapon, index) => {      // get attachment stats
+        const statsInput = document.getElementById(`SA${index}-stats`);
+        const attachType = document.getElementById(`SA${index}-type`);
         const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
         if (stats) {
             statsInput.value = stats
@@ -210,20 +231,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     secondaryWeaponinput.addEventListener('input', () => {
-        inputListeners(secondaryWeaponinput, secondaryWeaponForm, 'SA');
-        attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value)
+        attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value, secondaryWeaponForm)
         checkInputs(secondaryWeaponForm)
     });
 
     SATypeInputList.forEach((type, index) => {
         type.addEventListener('input', () => {
-            attachmentList(SASugList[index], secondaryGunTypeInput.value, secondaryWeaponinput.value, type.value);
+            attachmentList(SASugList[index], secondaryGunTypeInput.value, secondaryWeaponinput.value, type.value, secondaryWeaponForm);
             checkInputs(secondaryWeaponForm);
         });
     });
 
-    SAInputList.forEach(attachmentInput => {
+    SAInputList.forEach((attachmentInput, index) => {
         attachmentInput.addEventListener('input', () => {
+            SAattachmentStats(attachmentInput, secondaryGunTypeInput.value, secondaryWeaponinput.value, index + 1)
             checkInputs(secondaryWeaponForm)
         });
     });

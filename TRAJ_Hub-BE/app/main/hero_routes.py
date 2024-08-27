@@ -45,7 +45,7 @@ def upload_hero_image():
             
             # Upload to Supabase
             with open(file_path, "rb") as f:
-                response = supabase_service.storage.from_("user_profile_photos").upload(filename, f, {"content-type": "image/png"})
+                supabase_service.storage.from_("user_profile_photos").upload(filename, f, {"content-type": "image/png"})
         finally:
             if os.path.exists(file_path):
                 try:
@@ -53,7 +53,6 @@ def upload_hero_image():
                 except PermissionError:
                     print(f"PermissionError: Couldn't remove file {file_path} as it is being used by another process.")
 
-        print(response)
 
         return jsonify({}), 200
 

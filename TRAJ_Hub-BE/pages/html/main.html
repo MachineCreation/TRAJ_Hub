@@ -36,7 +36,7 @@
                         <label for="primary-weapon"><b>Primary Weapon</b></label>
                         <input type="text" id="primary-weapon" name="primary-weapon" list="primary-weapon-sug" autocomplete="on" placeholder="Choose Primary Weapon" required disabled>
                         <datalist id="primary-weapon-sug"></datalist>
-                            <input type="hidden" id="primary_weapon_stats" class="weapon_stats" type="text"></input>
+                            <input type="hidden" name="primary-weapon-stats" id="primary-weapon-stats" class="weapon_stats" type="text">
 
                         <label for="PA1-type"><b>Atttachment 1</b></label>
                         <input type="text" class="PA-type" id="PA1-type" name="PA1-type" list="PA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
@@ -44,44 +44,44 @@
 
                             <input type="text" class="PA" id="PA1" name="PA1" list="PA1-sug" autocomplete="on" placeholder="Choose Attachment"disabled>
                             <datalist id="PA1-sug"></datalist>
-                            <input type="hidden" id="PA1-stats" type="text">
+                            <input type="hidden" name="PA1-stats" id="PA1-stats" type="text">
 
                         <label for="PA2-type"><b>Atttachment 2</b></label>
                         <input type="text" class="PA-type" id="PA2-type" name="PA2-type" list="PA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" class="PA" id="PA2" name="PA2" list="PA2-sug" autocomplete="on" placeholder="Choose Attachment"disabled>
                             <datalist id="PA2-sug"></datalist>
-                            <input type="hidden" id="PA2-stats" type="text">
+                            <input type="hidden" name="PA2-stats" id="PA2-stats" type="text">
 
                         <label for="PA3-type"><b>Atttachment 3</b></label>
                         <input type="text" class="PA-type" id="PA3-type" name="PA3-type" list="PA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" class="PA" id="PA3" name="PA3" list="PA3-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="PA3-sug"></datalist>
-                            <input type="hidden" id="PA3-stats" type="text">
+                            <input type="hidden" name="PA3-stats" id="PA3-stats" type="text">
 
                         <label for="PA4-type"><b>Atttachment 4</b></label>
                         <input type="text" class="PA-type" id="PA4-type" name="PA4-type" list="PA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" class="PA" id="PA4" name="PA4" list="PA4-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="PA4-sug"></datalist>
-                            <input type="hidden" id="PA4-stats" type="text">
+                            <input type="hidden" name="PA4-stats" id="PA4-stats" type="text">
 
                         <label for="PA5-type"><b>Atttachment 5</b></label>
                         <input type="text" class="PA-type" id="PA5-type" name="PA5-type" list="PA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" class="PA" id="PA5" name="PA5" list="PA5-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="PA5-sug"></datalist>
-                            <input type="hidden" id="PA5-stats" type="text">
+                            <input type="hidden" name="PA5-stats" id="PA5-stats" type="text">
 
                         <button type="reset"><b>Clear Primary Weapon</b></button>
                         <button type="submit"><b>Update Primary weapon</b></button>
                 </section>
             </form>
-            <form id="secondary-weapon-form" action="/secondary-form">                                   <!-- secondary weapon form -->
+            <form id="secondary-weapon-form" enctype="multipart/form-data">                                   <!-- secondary weapon form -->
                 <section>
                         <label for="secondary"><b>Secondary weapon</b>:</label>
-                        <input type="file" id="secondary" name="secondary" accept="image/*" required>
+                        <input type="file" id="secondary" name="secondary" accept="image/png" required>
 
                         <label for="secondary-gun-type"><b>Secondary Gun Type</b></label>
                         <input type="text" id="secondary-gun-type" name="secondary-gun-type" list="secondary-gun-type-sug" autocomplete="on" required>
@@ -90,6 +90,7 @@
                         <label for="secondary-weapon"><b>Secondary Weapon</b></label>
                         <input type="text" id="secondary-weapon" name="secondary-weapon" list="secondary-weapon-sug" autocomplete="on" placeholder="Choose Seconsary Weapon" required disabled>
                         <datalist id="secondary-weapon-sug"></datalist>
+                            <input type="hidden" name="secondary-weapon-stats" id="secondary-weapon-stats" class="weapon_stats" type="text">
 
                         <label for="SA1-type"><b>Atttachment 1</b></label>
                         <input type="text" id="SA1-type" name="SA1-type" list="SA-type-sug" autocomplete="on" placeholder="Choose Attachment Type"disabled>
@@ -97,30 +98,35 @@
 
                             <input type="text" id="SA1" name="SA1" list="SA1-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="SA1-sug"></datalist>
+                            <input type="hidden" name="SA1-stats" id="SA1-stats" type="text">
 
                         <label for="SA2-type"><b>Atttachment 2</b></label>
                         <input type="text" id="SA2-type" name="SA2-type" list="SA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" id="SA2" name="SA2" list="SA2-sug" autocomplete="on" placeholder="Choose Attachment"disabled>
                             <datalist id="SA2-sug"></datalist>
+                            <input type="hidden" name="SA2-stats" id="SA2-stats" type="text">
 
                         <label for="SA3-type"><b>Atttachment 3</b></label>
                         <input type="text" id="SA3-type" name="SA3-type" list="SA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" id="SA3" name="SA3" list="SA3-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="SA3-sug"></datalist>
+                            <input type="hidden" name="SA3-stats" id="SA3-stats" type="text">
 
                         <label for="SA4-type"><b>Atttachment 4</b></label>
                         <input type="text" id="SA4-type" name="SA4-type" list="SA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" id="SA4" name="SA4" list="SA4-sug" autocomplete="on" placeholder="Choose Attachment"disabled>
                             <datalist id="SA4-sug"></datalist>
+                            <input type="hidden" name="SA4-stats" id="SA4-stats" type="text">
 
                         <label for="SA5-type"><b>Atttachment 5</b></label>
                         <input type="text" id="SA5-type" name="SA5-type" list="SA-type-sug" autocomplete="on" placeholder="Choose Attachment Type" disabled>
 
                             <input type="text" id="SA5" name="SA5" list="SA5-sug" autocomplete="on" placeholder="Choose Attachment" disabled>
                             <datalist id="SA5-sug"></datalist>
+                            <input type="hidden" name="SA5-stats" id="SA5-stats" type="text">
 
                         <button type="reset"><b>Clear Secondary Weapon</b></button>
                         <button type="submit"><b>Update Secondary Weapon</b></button>
@@ -128,7 +134,7 @@
             </form>
         </article>
         <article>
-            <form id="equipment" action="/equipment-form">   
+            <form id="equipment" action="/equipment-form" method="PUT">   
                 <section>
                     <div>
                         <label for="lethal"><b>Lethal</b></label>
