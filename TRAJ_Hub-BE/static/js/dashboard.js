@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
             if (uploadResponse.ok) {
                 const urlResponse = await fetch(`/${slot}-url`, {
-                    method: 'PUT'
+                    method: 'PUT',
+                    body: formData
                 });
         
                 if (!urlResponse.ok) {
