@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, request, current_app
+from flask import Blueprint, render_template, jsonify, request, current_app, url_for
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 from models import supabase_service, User
@@ -59,11 +59,10 @@ def upload_weapon_image():
     else:
         return jsonify({'error': 'Invalid file'}), 400
         
-@weapon_bp.route('/weapon-url', methods=['PUT'])
+@weapon_bp.route('/weapon-url', methods=['POST'])
 @login_required
 def uploadWeaponData():
     username = current_user.id
-    user_data = User.get(username)[1]
     
     if 'primary' in request.files:
         slot = 'primary'
@@ -87,15 +86,6 @@ def uploadWeaponData():
             if att_name in data and data[att_name]:
                 attachment_list[data[att_name]] = data.get(att_stats_name, 'No stats available')
 
-        # print("Payload to be sent to Supabase:")
-        # print({
-        #     weapon: {
-        #         data[weapon]: {
-        #             "stats": data[weapon_stats],
-        #             "attachments": attachment_list
-        #         }
-        #     }
-        # })
         try:
             response = supabase_service.table("Loadouts").update({
                 weapon: {
@@ -121,11 +111,11 @@ def uploadWeaponData():
                     f"{slot}_image_url": public_url
                 }).eq("name", username).execute()
             
-            if not response.data:
+            if response.data:
+                return jsonify({}), 200
+            else:
                 print(f"no response was recieved")
                 return jsonify({'error': 'no response'}), 500
-            
-            return render_template('main.html', user_data=user_data)
             
         except Exception as e:
             print(f"Error occurred: {str(e)}")

@@ -23,15 +23,15 @@ def create_app():
     from .main.main_routes import main_bp
     from .main.hero_routes import hero_bp
     from .main.weapon_routes import weapon_bp
-    # from .main.equipment_routes import equipment_bp
-    # from .main.perks_routes import perks_bp
+    from .main.equipment_routes import equipment_bp
+    from .main.perks_routes import perks_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
     app.register_blueprint(hero_bp)
     app.register_blueprint(weapon_bp)
-    # app.register_blueprint(equipment_bp)
-    # app.register_blueprint(perks_bp)
+    app.register_blueprint(equipment_bp)
+    app.register_blueprint(perks_bp)
 
     return app
 

@@ -91,11 +91,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
             if (uploadResponse.ok) {
                 const urlResponse = await fetch(`/${slot}-url`, {
-                    method: 'PUT',
+                    method: 'POST',
                     body: formData
                 });
         
-                if (!urlResponse.ok) {
+                if (urlResponse.ok) {
+                    window.location.reload();
+                } else {
                     console.error("Failed to upload URL");
                 }
             } else {
@@ -105,6 +107,24 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error("An error occurred:", error);
         }
     };
+
+    const submitEquipment = async () => {
+        const formdata = new FormData(equipmentForm)
+
+        await fetch ('/equipment-form', {
+            method: 'POST',
+            body: formdata
+        })
+    };
+
+    const submitPerks = async () => {
+        const formdata = new FormData(perksForm)
+
+        await fetch ('/perks-form', {
+            method: 'POST',
+            body: formdata
+        })
+    }
 
     heroSubmitButton.addEventListener('click', (e) => {                          // Submit button event listeners
         submitForm(e, heroForm, 'hero');
@@ -117,6 +137,14 @@ document.addEventListener('DOMContentLoaded', function () {
     secondarySubmitButton.addEventListener('click', (e) => {
         submitForm(e, secondaryWeaponForm, 'weapon');
     });
+
+    equipmentSubmitButton.addEventListener('click', () => {
+        submitEquipment()
+    });
+
+    perksSubmitButtn.addEventListener('click', () => {
+        submitPerks()
+    })
 
 
     
