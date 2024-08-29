@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template, jsonify, request, current_app, url_for
+from flask import Blueprint, render_template, jsonify, request, current_app
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 from models import supabase_service, User
 import os
 from PIL import Image
-
+import json
 
 weapon_bp = Blueprint('weapon', __name__,template_folder='../../pages/html')
 
@@ -84,20 +84,21 @@ def uploadWeaponData():
             att_stats_name = f'{att_name}-stats'
             
             if att_name in data and data[att_name]:
-                attachment_list[data[att_name]] = data.get(att_stats_name, 'No stats available')
+                # Parse the attachment stats to ensure they're stored as JSON objects
+                attachment_list[data[att_name]] = json.loads(data.get(att_stats_name, '{}'))
 
         try:
             response = supabase_service.table("Loadouts").update({
                 weapon: {
                     data[weapon]: {
-                        "stats": data[weapon_stats],
+                        "stats": json.loads(data[weapon_stats]),  # Ensure the stats are stored as JSON
                         "attachments": attachment_list
                     }
                 }
             }).eq("name", username).execute()
             
             if not response.data:
-                print(f"no response was recieved")
+                print(f"no response was received")
                 return jsonify({'error': 'no response'}), 500
         except Exception as e:
             print(f"Error occurred: {str(e)}")
@@ -114,7 +115,7 @@ def uploadWeaponData():
             if response.data:
                 return jsonify({}), 200
             else:
-                print(f"no response was recieved")
+                print(f"no response was received")
                 return jsonify({'error': 'no response'}), 500
             
         except Exception as e:

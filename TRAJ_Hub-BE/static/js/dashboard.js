@@ -73,9 +73,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const perks3Equipment = document.getElementById('perks3-list');
     const perks4Equipment = document.getElementById('perks4-list');
 
+    const P1Input = document.getElementById('perks1');
+    const P2Input = document.getElementById('perks2');
+    const P3Input = document.getElementById('perks3');
+    const P4Input = document.getElementById('perks4');
+
+    const perksList = [P1Input, P2Input, P3Input, P4Input]
              
     const lethalEquipment = document.getElementById("lethal-equipment-list");   // equpiment var
     const tacticalEquipment = document.getElementById("tactical-equipment-list");
+    const lethalInput = document.getElementById('lethal');
+    const tacticalInput = document.getElementById('tactical');
+    
+    const equipmentList = [lethalInput, tacticalInput]
 
 
 
@@ -204,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         checkInputs(form)
     };
 
-    const PAattachmentStats = (attachment, weaponType, weapon, index) => {      // get attachment stats
+    const PAattachmentStats = (attachment, weaponType, weapon, index) => {      // get primary attachment stats
         const statsInput = document.getElementById(`PA${index}-stats`);
         const attachType = document.getElementById(`PA${index}-type`);
         const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
@@ -217,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     };
 
-    const SAattachmentStats = (attachment, weaponType, weapon, index) => {      // get attachment stats
+    const SAattachmentStats = (attachment, weaponType, weapon, index) => {      // get secondary attachment stats
         const statsInput = document.getElementById(`SA${index}-stats`);
         const attachType = document.getElementById(`SA${index}-type`);
         const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
@@ -229,8 +239,46 @@ document.addEventListener('DOMContentLoaded', function () {
             statsInput.value = {"stats": "none"}
         };
     };
+
+    const equipmentStats = (slot) => {   
+        // console.log(slot)                                       // get equipment stats
+        const equipId = `${slot.value}`;
+        // console.log(equipId)
+        const equipName = `${slot.getAttribute('name')}`;
+        // console.log(equipName)
+        const equipStatsInput = document.getElementById(`${equipName}-stats`);
+        const stats = JSON.stringify(data.endpoints.weapons.response[equipName].find(att => att.name === equipId).description);
+        if (stats) {
+            equipStatsInput.value = stats
+            console.log(stats)
+        } else {
+            equipStatsInput.value = {"stats": "none"};
+        };
+    };
+
+    const perksStats = (slot) => {                                              // get perks stats
+        const perkId = slot.value;
+        // console.log(perkId)
+        const perkName = `${slot.getAttribute('name')}`;
+        // console.log(perkName)
+        const perkStatsInput = document.getElementById(`${perkName}-stats`);
+        console.log(`${perkName}-stats`)
+        let stats = ''
+
+        if (perkName === 'perks1' || perkName === 'perks2') {
+            stats = JSON.stringify(data.endpoints.weapons.response.Perks['perks1_2'].find(att => att.name === perkId).description);
+        } else {
+            stats = JSON.stringify(data.endpoints.weapons.response.Perks[perkName].find(perk => perk.name === perkId).description);
+        };
+        if (stats) {
+            perkStatsInput.value = stats
+            console.log(stats)
+        } else {
+            perkStatsInput.value = {"stats": "none"};
+        };
+    };
     
-    primaryGunTypeInput.addEventListener('input', () => {
+    primaryGunTypeInput.addEventListener('input', () => {                       // input event listeners
         weaponslist(primaryWeaponSug, primaryGunTypeInput.value);
         checkInputs(primaryWeaponForm);
     });
@@ -277,16 +325,28 @@ document.addEventListener('DOMContentLoaded', function () {
             checkInputs(secondaryWeaponForm)
         });
     });
+
+    perksList.forEach((perk) => {
+        perk.addEventListener('input', () => {
+            perksStats(perk);
+        });
+    });
+
+    equipmentList.forEach((equip) => {
+        equip.addEventListener('input', () => {
+            equipmentStats(equip);
+        });
+    });
     
                                                                                 // Populate Lethal options
-    data.endpoints.weapons.response.Lethal.forEach(lethal => {
+    data.endpoints.weapons.response.lethal.forEach(lethal => {
         const optionLethal = document.createElement('option');
         optionLethal.value = lethal.name;
         lethalEquipment.appendChild(optionLethal);
     });
 
                                                                                 // Populate tactical options
-    data.endpoints.weapons.response.Tactical.forEach(tactical => {
+    data.endpoints.weapons.response.tactical.forEach(tactical => {
         const optiontactical = document.createElement('option');
         optiontactical.value = tactical.name;
         tacticalEquipment.appendChild(optiontactical);

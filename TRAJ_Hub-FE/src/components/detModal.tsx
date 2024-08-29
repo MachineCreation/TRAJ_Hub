@@ -2,29 +2,17 @@
 import { useState, useEffect } from "react";
 
 //components
-import { members, MemberName, Member, WeaponDetails, WeaponDetailKey } from "../config/Members";
-
-// Import JSON data dynamically based on member name
-const importWeaponDetails = async (name: MemberName): Promise<WeaponDetails> => {
-    switch (name) {
-        case "JesusTts":
-            return (await import("../config/test.json")).default;
-        // Add cases for other members as needed
-        default:
-            throw new Error("No WeaponDetails found for the given member.");
-    }
-};
+import { MemberName, Member, WeaponDetailKey } from "../config/Members";
 
 //css
 interface WeaponModalProps {
     name: MemberName;
     equip: boolean;
+    data: Member;
 }
 
-const WeaponModal = ({ name, equip }: WeaponModalProps) => {
-    const member = members[name];
+const WeaponModal = ({equip, data }: WeaponModalProps) => {
     const [weapon, setWeapon] = useState<WeaponDetailKey>("Primary Weapon Details");
-    const [memberData, setMemberData] = useState<Member>(member);
 
     useEffect(() => {
         if (equip) {
@@ -34,35 +22,17 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
         }
     }, [equip]);
 
-    useEffect(() => {
-        const fetchMemberData = async () => {
-            try {
-                const data = await importWeaponDetails(name);
-                setMemberData((prevData) => ({
-                    ...prevData,
-                    WeaponDetails: data
-                }));
-            } catch (error) {
-                console.error('Failed to fetch member data:', error);
-            }
-        };
-
-        if (!member.WeaponDetails) {
-            fetchMemberData();
-        }
-    }, [name, member.WeaponDetails]);
-
     return (
         <article className="fixed flex justify-items-center items-center w-screen h-screen p-4 bg-black bg-opacity-70 z-30">
             <section className="relative flex m-auto p-16 h-full full overflow-scroll rounded-2xl shadow-outer-green flex-wrap bg-grey ">
-                {memberData.WeaponDetails && (
+                {data.WeaponDetails && (
                     <>
                     <figure className="flex flex-col">
                         <h1 className="text-sky-400 text-3xl">
-                        <strong>{memberData.WeaponDetails?.[weapon]?.name}</strong>
+                        <strong>{data.WeaponDetails?.[weapon]?.name}</strong>
                         </h1>
                         <ul className="relative flex flex-col m-3 p-3 ">
-                            {Object.entries(memberData.WeaponDetails[weapon].stats).map(([key, value]) => (
+                            {Object.entries(data.WeaponDetails[weapon].stats).map(([key, value]) => (
                                 <li
                                 key={key}>
                                     <strong>{key}:</strong> <span className=" text-yellow-500">&nbsp;&nbsp;{value}</span>
@@ -73,9 +43,9 @@ const WeaponModal = ({ name, equip }: WeaponModalProps) => {
                     <figure className="flex flex-col">
                         <h2 className="text-sky-400 text-3xl"><strong>Attachments</strong></h2>
                         <ul className="relative flex flex-col m-3 p-3 ">
-                            {Object.entries(memberData.WeaponDetails[weapon].Attachments).map(([_key, attachment]) => (
+                            {Object.entries(data.WeaponDetails[weapon].Attachments).map(([key, attachment]) => (
                                 <li
-                                key={attachment.id}>
+                                key={key}>
                                     <strong className="text-green-500">{attachment.name}</strong>
                                     <ul>
                                         {Object.entries(attachment.stats).map(([statKey, statValue]) => (

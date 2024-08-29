@@ -3,7 +3,6 @@ export interface WeaponDetails {
     "Primary Image": string;
     "Primary Weapon Details": {
         name: string;
-        class: string;
         stats: {
             [key: string]: string | number;
         };
@@ -20,7 +19,6 @@ export interface WeaponDetails {
     "Secondary Image": string;
     "Secondary Weapon Details": {
         name: string;
-        class: string;
         stats: {
             [key: string]: string | number;
         };
@@ -36,28 +34,28 @@ export interface WeaponDetails {
     };
     "lethal": {
         "name": string;
-        "description": string;
+        "stats": string;
     };
     "tactical": {
         "name": string;
-        "description": string;
+        "stats": string;
     };
     "perks": {
         "P1": {
             "name": string;
-            "description": string;
+            "stats": string;
         };
         "P2": {
             "name": string;
-            "description": string;
+            "stats": string;
         };
         "P3": {
             "name": string;
-            "description": string;
+            "stats": string;
         };
         "P4": {
             "name": string;
-            "description": string;
+            "stats": string;
         };
     };
     "clips": {

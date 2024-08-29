@@ -18693,7 +18693,7 @@ export const data = {
                         
                     }
                 },
-                "Tactical": [
+                "tactical": [
                     {
                         "name": "Flash Grenade",
                         "description": "Blinds and deafens targets."
@@ -18739,7 +18739,7 @@ export const data = {
                         "description": "Counter-intel grenade that simulates gunfire, movement, and radar signatures to confuse the enemy."
                       }
                 ],
-                "Lethal": [
+                "lethal": [
                     {
                         "name": "Frag Grenade",
                         "description": "Cookable fragmentation grenade."

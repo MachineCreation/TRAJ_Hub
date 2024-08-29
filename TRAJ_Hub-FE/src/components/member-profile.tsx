@@ -3,17 +3,20 @@ import WeaponModal from "./detModal";
 import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
 
 // Import JSON data dynamically based on member name
-const importWeaponDetails = async (name: MemberName): Promise<WeaponDetails> => {
-    switch (name) {
-        case "JesusTts":
-            return (await import("../config/test.json")).default;
-        // Add cases for other members as needed
-        default:
-            throw new Error("No Weapon Details found for the given member.");
-    }
-};
+// const importWeaponDetails = async (name: MemberName): Promise<WeaponDetails> => {
+//     // switch (name) {
+//     //     case "JesusTts":
+//     //         return (await import("../config/test.json")).default;
+//     //     // Add cases for other members as needed
+//     //     default:
+//     //         throw new Error("No Weapon Details found for the given member.");
+//     // }
+
+// };
 
 // css
+
+
 interface MemberProps {
     name: MemberName;
 }
@@ -26,23 +29,107 @@ const Profile = (props: MemberProps) => {
     const [descriptionBox, setDescriptionBox] = useState<{ name: string, description: string } | null>(null);
     const [boxPosition, setBoxPosition] = useState<{ top: number, left: number, width: number } | null>(null);
 
+    async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
+        try {
+            const response = await fetch('http://127.0.0.1:5000/get-member-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ member: memberName }),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to fetch member profile');
+            }
+    
+            const data = await response.json();
+    
+            if (data.length === 0) {
+                return null;
+            }
+    
+            const profile = data[0]; // Assuming you get a single object in an array
+    
+            const transformWeaponDetails = (weaponData: any) => {
+                const weaponName = Object.keys(weaponData)[0];
+                const weaponInfo = weaponData[weaponName];
+    
+                return {
+                    name: weaponName,
+                    stats: weaponInfo.stats,
+                    Attachments: Object.keys(weaponInfo.attachments || {}).reduce((acc: any, type: string) => {
+                        acc[type] = {
+                            name: type,
+                            stats: weaponInfo.attachments[type]
+                        };
+                        return acc;
+                    }, {}),
+                };
+            };
+    
+            const formattedData: WeaponDetails = {
+                hero: profile.hero_image_url,
+                "Primary Image": profile.primary_image_url,
+                "Primary Weapon Details": transformWeaponDetails(profile['primary-weapon']),
+                "Secondary Image": profile.secondary_image_url,
+                "Secondary Weapon Details": transformWeaponDetails(profile['secondary-weapon']),
+                lethal: profile.lethal,
+                tactical: profile.tactical,
+                perks: {
+                    P1: profile.perk1,
+                    P2: profile.perk2,
+                    P3: profile.perk3,
+                    P4: profile.perk4,
+                },
+                clips: {
+                    C1: profile.C1,
+                    C2: profile.C2,
+                    C3: profile.C3,
+                    C4: profile.C4,
+                },
+            };
+    
+            return formattedData;
+        } catch (error) {
+            console.error('An error occurred:', error);
+            return null;
+        }
+    }
+    
+
     useEffect(() => {
-        const fetchMemberData = async () => {
-            try {
-                const data = await importWeaponDetails(props.name);
+        async function loadMemberData(memberName: MemberName) {
+            const memberData = await fetchMemberData(memberName);
+            if (memberData) {
+                members[memberName].WeaponDetails = memberData;
                 setMemberData((prevData) => ({
                     ...prevData,
-                    WeaponDetails: data
+                    WeaponDetails: memberData,
                 }));
-            } catch (error) {
-                console.error('Failed to fetch member data:', error);
             }
-        };
-
-        if (!member.WeaponDetails) {
-            fetchMemberData();
         }
-    }, [props.name, member.WeaponDetails]);
+
+        loadMemberData(props.name);
+    }, [props.name]);
+
+    // useEffect(() => {
+    //     const fetchMemberData = async () => {
+    //         try {
+    //             const data = await importWeaponDetails(props.name);
+    //             setMemberData((prevData) => ({
+    //                 ...prevData,
+    //                 WeaponDetails: data
+    //             }));
+    //         } catch (error) {
+    //             console.error('Failed to fetch member data:', error);
+    //         }
+    //     };
+
+    //     if (!member.WeaponDetails) {
+    //         fetchMemberData();
+    //     }
+    // }, [props.name, member.WeaponDetails]);
 
     const handleClick = (prime: boolean) => () => {
         setIsPrimary(prime);
@@ -54,7 +141,7 @@ const Profile = (props: MemberProps) => {
     };
 
     const handleEquipClick = (eid: equipId, id?: PerkId) => (event: React.MouseEvent<HTMLImageElement>) => {
-        let equip: { name: string, description: string } | null = null;
+        let equip: { name: string, stats: string } | null = null;
 
         if (eid === 'perks' && id) {
             const perks = memberData.WeaponDetails?.[eid];
@@ -62,13 +149,13 @@ const Profile = (props: MemberProps) => {
                 equip = perks[id as keyof typeof perks];
             }
         } else {
-            equip = memberData.WeaponDetails?.[eid] as { name: string, description: string };
+            equip = memberData.WeaponDetails?.[eid] as { name: string, stats: string };
         }
 
         if (equip) {
             setDescriptionBox({
                 name: equip.name,
-                description: equip.description
+                description: equip.stats
             });
             const rect = event.currentTarget.getBoundingClientRect();
             setBoxPosition({
@@ -91,6 +178,8 @@ const Profile = (props: MemberProps) => {
         };
     }, []);
 
+    console.log(memberData)
+
     return (
         <>
             <div
@@ -101,6 +190,7 @@ const Profile = (props: MemberProps) => {
                 <WeaponModal
                     name={props.name}
                     equip={isPrimary}
+                    data = {memberData}
                 />
             </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
@@ -110,10 +200,10 @@ const Profile = (props: MemberProps) => {
                 <article className="flex flex-col m-auto md:w-4/6">
                     <section className="flex flex-col lg:flex-row">
                         <figure id="primary" className="p-2" onClick={handleClick(true)}>
-                            <img src={memberData.WeaponDetails?.["Primary Image"]} alt=" SVA 545 " />
+                            <img src={memberData.WeaponDetails?.["Primary Image"]} alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} />
                         </figure>
                         <figure id="secondary" className="p-2" onClick={handleClick(false)}>
-                            <img src={memberData.WeaponDetails?.["Secondary Image"]} alt="Superi 46" />
+                            <img src={memberData.WeaponDetails?.["Secondary Image"]} alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} />
                         </figure>
                     </section>
                     <section className="flex">

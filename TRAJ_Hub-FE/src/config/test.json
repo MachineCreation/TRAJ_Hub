@@ -172,28 +172,28 @@
     },
     "lethal": {
         "name": "Semtex",
-        "description": "Timed sticky grenade."
+        "stats": "Timed sticky grenade."
     },
     "tactical": {
         "name": "Smoke Grenade",
-        "description": "Deploys a smoke screen that blocks vision and automated targeting systems."
+        "stats": "Deploys a smoke screen that blocks vision and automated targeting systems."
     },
     "perks": {
         "P1": {
             "name": "E.O.D.",
-            "description": "Reduces damage from non-killstreak explosives and fire. Reset fuse timers when picking up live grenades."
+            "stats": "Reduces damage from non-killstreak explosives and fire. Reset fuse timers when picking up live grenades."
         },
         "P2": {
             "name": "Mountaineer",
-            "description": "Reduces fall damage."
+            "stats": "Reduces fall damage."
         },
         "P3": {
             "name": "Tempered",
-            "description": "Refill armor plates to full with two plates instead of three."
+            "stats": "Refill armor plates to full with two plates instead of three."
         },
         "P4": {
             "name": "Combat Scout",
-            "description": "Bullets you fire briefly mark an enemy for you and your squad. Hitting the enemy from farther away increases the mark time."
+            "stats": "Bullets you fire briefly mark an enemy for you and your squad. Hitting the enemy from farther away increases the mark time."
         }
     },
     "clips": {

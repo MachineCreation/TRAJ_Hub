@@ -12,17 +12,29 @@ def equipmentUpload():
     
     print(data)
     try:
-        tactical = data.get('tactical')   
+        tactical = data.get('tactical')
+        tacStats = data.get('tactical-stats') 
         lethal = data.get('lethal')
+        letStats = data.get('lethal-stats')
         
-        if tactical:
-            response = supabase_service.table("Loadouts").update({"tactical": tactical}).eq("name", username).execute()
+        if tactical and tacStats:
+            response = supabase_service.table("Loadouts").update({
+                "tactical": {
+                    "name": tactical,
+                    "stats": tacStats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading tactical data"
                 return jsonify({"Error": error_message})
             
-        if lethal:
-            response = supabase_service.table("Loadouts").update({"lethal": lethal}).eq("name", username).execute()
+        if lethal and letStats:
+            response = supabase_service.table("Loadouts").update({
+                "lethal": {
+                    "name": lethal,
+                    "stats": letStats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading tactical data"
                 return jsonify({"Error": error_message})

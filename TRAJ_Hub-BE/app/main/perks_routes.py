@@ -12,29 +12,54 @@ def perksUpload():
     
     try:
         perks1 = data.get('perks1')
+        p1_stats = data.get('perks1-stats')
         perks2 = data.get('perks2')
+        p2_stats = data.get('perks2-stats')
         perks3 = data.get('perks3')
+        p3_stats = data.get('perks3-stats')
         perks4 = data.get('perks4')
-        if perks1:
-            response = supabase_service.table("Loadouts").update({"perk1": perks1}).eq("name", username).execute()
+        p4_stats = data.get('perks4-stats')
+        
+        if perks1 and p1_stats:
+            response = supabase_service.table("Loadouts").update({
+                "perk1": {
+                    "name": perks1,
+                    "stats": p1_stats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading perks1 data"
                 return jsonify({"Error": error_message})
             
-        if perks2:
-            response = supabase_service.table("Loadouts").update({"perk2": perks2}).eq("name", username).execute()
+        if perks2 and p2_stats:
+            response = supabase_service.table("Loadouts").update({
+                "perk2": {
+                    "name": perks2,
+                    "stats": p2_stats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading perks2 data"
                 return jsonify({"Error": error_message})
             
-        if perks3:
-            response = supabase_service.table("Loadouts").update({"perk3": perks3}).eq("name", username).execute()
+        if perks3 and p3_stats:
+            response = supabase_service.table("Loadouts").update({
+                "perk3": {
+                    "name": perks3,
+                    "stats": p3_stats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading perks3 data"
                 return jsonify({"Error": error_message})
             
-        if perks4:
-            response = supabase_service.table("Loadouts").update({"perk4": perks4}).eq("name", username).execute()
+        if perks4 and p4_stats:
+            response = supabase_service.table("Loadouts").update({
+                "perk4": {
+                    "name": perks4,
+                    "stats": p4_stats
+                }
+                }).eq("name", username).execute()
             if not response.data:
                 error_message = response.error.message if response.error else "unknown error uploading perks4 data"
                 return jsonify({"Error": error_message})
