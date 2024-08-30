@@ -2,18 +2,6 @@ import { useState, useEffect } from "react";
 import WeaponModal from "./detModal";
 import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
 
-// Import JSON data dynamically based on member name
-// const importWeaponDetails = async (name: MemberName): Promise<WeaponDetails> => {
-//     // switch (name) {
-//     //     case "JesusTts":
-//     //         return (await import("../config/test.json")).default;
-//     //     // Add cases for other members as needed
-//     //     default:
-//     //         throw new Error("No Weapon Details found for the given member.");
-//     // }
-
-// };
-
 // css
 
 
@@ -113,23 +101,6 @@ const Profile = (props: MemberProps) => {
         loadMemberData(props.name);
     }, [props.name]);
 
-    // useEffect(() => {
-    //     const fetchMemberData = async () => {
-    //         try {
-    //             const data = await importWeaponDetails(props.name);
-    //             setMemberData((prevData) => ({
-    //                 ...prevData,
-    //                 WeaponDetails: data
-    //             }));
-    //         } catch (error) {
-    //             console.error('Failed to fetch member data:', error);
-    //         }
-    //     };
-
-    //     if (!member.WeaponDetails) {
-    //         fetchMemberData();
-    //     }
-    // }, [props.name, member.WeaponDetails]);
 
     const handleClick = (prime: boolean) => () => {
         setIsPrimary(prime);
@@ -178,7 +149,7 @@ const Profile = (props: MemberProps) => {
         };
     }, []);
 
-    console.log(memberData)
+    // console.log(memberData)
 
     return (
         <>
@@ -229,7 +200,7 @@ const Profile = (props: MemberProps) => {
                             <img
                                 id="P1"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
-                                src={`/media/perks/${memberData.WeaponDetails?.perks.P1.name}.png`}
+                                src={`/media/perks/${memberData.WeaponDetails?.perks.P1.name}.webp`}
                                 alt={memberData.WeaponDetails?.perks.P1.name}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -239,7 +210,7 @@ const Profile = (props: MemberProps) => {
                             <img
                                 id="P2"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
-                                src={`/media/perks/${memberData.WeaponDetails?.perks.P2.name}.png`}
+                                src={`/media/perks/${memberData.WeaponDetails?.perks.P2.name}.webp`}
                                 alt={memberData.WeaponDetails?.perks.P2.name}
                                 onClick={(e) => {
                                     e.stopPropagation();

@@ -6,15 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
            
     const primaryWeaponForm = document.getElementById('primary-weapon-form');   // forms
     const secondaryWeaponForm = document.getElementById('secondary-weapon-form');
-    const heroForm = document.getElementById('hero-image-form');
-    const equipmentForm = document.getElementById('equipment');
-    const perksForm = document.getElementById('perks');
-
-    const primarySubmitButton = primaryWeaponForm.querySelector('button[type="submit"]');
-    const secondarySubmitButton = secondaryWeaponForm.querySelector('button[type="submit"]');
-    const heroSubmitButton = heroForm.querySelector('button[type="submit"]');
-    const equipmentSubmitButton = equipmentForm.querySelector('button[type="submit"]');
-    const perksSubmitButtn = perksForm.querySelector('button[type="submit"]');
 
     const primaryGunTypeInput = document.getElementById('primary-gun-type');    // primary weapons
     const primaryGunTypeSug = document.getElementById('primary-gun-type-sug');
@@ -87,77 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const equipmentList = [lethalInput, tacticalInput]
 
-
-
-    const submitForm = async (e, form, slot) => {                                      // Form submitions
-        e.preventDefault();
-        const formData = new FormData(form);
-
-        try {
-            const uploadResponse = await fetch(`/${slot}-image-upload`, {
-                method: 'POST',
-                body: formData
-            });
-    
-            if (uploadResponse.ok) {
-                const urlResponse = await fetch(`/${slot}-url`, {
-                    method: 'POST',
-                    body: formData
-                });
-        
-                if (urlResponse.ok) {
-                    window.location.reload();
-                } else {
-                    console.error("Failed to upload URL");
-                }
-            } else {
-                console.error("Failed to upload image");
-            }
-        } catch (error) {
-            console.error("An error occurred:", error);
-        }
-    };
-
-    const submitEquipment = async () => {
-        const formdata = new FormData(equipmentForm)
-
-        await fetch ('/equipment-form', {
-            method: 'POST',
-            body: formdata
-        })
-    };
-
-    const submitPerks = async () => {
-        const formdata = new FormData(perksForm)
-
-        await fetch ('/perks-form', {
-            method: 'POST',
-            body: formdata
-        })
-    }
-
-    heroSubmitButton.addEventListener('click', (e) => {                          // Submit button event listeners
-        submitForm(e, heroForm, 'hero');
-    });
-
-    primarySubmitButton.addEventListener('click', (e) => {
-        submitForm(e, primaryWeaponForm, 'weapon');
-    });
-
-    secondarySubmitButton.addEventListener('click', (e) => {
-        submitForm(e, secondaryWeaponForm, 'weapon');
-    });
-
-    equipmentSubmitButton.addEventListener('click', () => {
-        submitEquipment()
-    });
-
-    perksSubmitButtn.addEventListener('click', () => {
-        submitPerks()
-    })
-
-
-    
     function checkInputs(formId) {                                              // set initial enabled state for inputs 
         const inputs = formId.querySelectorAll('input[type="text"]');
     
@@ -199,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const stats = data.endpoints.weapons.response.weapons.class[weapontype][weapon]['stats']
         const jstats = JSON.stringify(stats)
         weaponStatsSelect.value = jstats
-        console.log(weaponStatsSelect.value)
+        // console.log(weaponStatsSelect.value)
     };
                                                                                 // populate spesific gun attachments
     const attachmentList = (attachmentSugList, weapontype, weapon, attachmentType, form) =>{
@@ -220,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
         if (stats) {
             statsInput.value = stats
-            console.log(statsInput.value)
+            // console.log(statsInput.value)
         }
         else {
             statsInput.value = {"stats": "none"}
@@ -233,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
         if (stats) {
             statsInput.value = stats
-            console.log(statsInput.value)
+            // console.log(statsInput.value)
         }
         else {
             statsInput.value = {"stats": "none"}
@@ -250,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const stats = JSON.stringify(data.endpoints.weapons.response[equipName].find(att => att.name === equipId).description);
         if (stats) {
             equipStatsInput.value = stats
-            console.log(stats)
+            // console.log(stats)
         } else {
             equipStatsInput.value = {"stats": "none"};
         };
@@ -262,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const perkName = `${slot.getAttribute('name')}`;
         // console.log(perkName)
         const perkStatsInput = document.getElementById(`${perkName}-stats`);
-        console.log(`${perkName}-stats`)
+        // console.log(`${perkName}-stats`)
         let stats = ''
 
         if (perkName === 'perks1' || perkName === 'perks2') {
@@ -272,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         if (stats) {
             perkStatsInput.value = stats
-            console.log(stats)
+            // console.log(stats)
         } else {
             perkStatsInput.value = {"stats": "none"};
         };

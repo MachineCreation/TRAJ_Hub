@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request, current_app, render_template
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 from models import supabase_service, User
@@ -19,6 +19,7 @@ def upload_hero_image():
 
     if file:
         username = current_user.id
+        user_data = User.get(username)[0]
         filename = secure_filename(f"{username}_hero_image")
         file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
 
@@ -46,6 +47,17 @@ def upload_hero_image():
             # Upload to Supabase
             with open(file_path, "rb") as f:
                 supabase_service.storage.from_("user_profile_photos").upload(filename, f, {"content-type": "image/png"})
+                
+            public_url = supabase_service.storage.from_("user_profile_photos").get_public_url(f"{username}_hero_image")
+
+            if public_url:
+                response = supabase_service.table("Loadouts").update({
+                    "hero_image_url": public_url
+                }).eq("name",username).execute()
+
+                if not response.data:
+                    error_message = response.error.message if response.error else "unknown error"
+                    return jsonify({"error": error_message}), 500
         finally:
             if os.path.exists(file_path):
                 try:
@@ -53,28 +65,6 @@ def upload_hero_image():
                 except PermissionError:
                     print(f"PermissionError: Couldn't remove file {file_path} as it is being used by another process.")
 
-
-        return jsonify({}), 200
-
+        return render_template('main.html', user_data = user_data)
 
     return jsonify({'error': 'Invalid file'}), 400
-
-@hero_bp.route('/hero-url', methods=['POST'])
-@login_required
-def reroute_hero_url():
-    username = current_user.id
-
-    public_url = supabase_service.storage.from_("user_profile_photos").get_public_url(f"{username}_hero_image")
-
-    if public_url:
-        response = supabase_service.table("Loadouts").update({
-            "hero_image_url": public_url
-        }).eq("name",username).execute()
-
-        if response.data:
-            return jsonify({}), 200
-        else:
-            error_message = response.error.message if response.error else "unknown error"
-            return jsonify({"error": error_message}), 500
-
-    return jsonify({'error': 'invalid request'}), 400

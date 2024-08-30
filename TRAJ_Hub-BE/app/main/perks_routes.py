@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template
 from flask_login import login_required, current_user
-from models import supabase_service
+from models import supabase_service, User
 
 perks_bp = Blueprint('perks', __name__, template_folder='../../pages/html')
 
@@ -8,6 +8,7 @@ perks_bp = Blueprint('perks', __name__, template_folder='../../pages/html')
 @login_required
 def perksUpload():
     username = current_user.id
+    user_data = User.get(username)[0]
     data = request.form
     
     try:
@@ -64,7 +65,7 @@ def perksUpload():
                 error_message = response.error.message if response.error else "unknown error uploading perks4 data"
                 return jsonify({"Error": error_message})
 
-        return jsonify({"message": "data upload successful"})
+        return render_template("main.html", user_data = user_data)
     
     except Exception as e:
         print(f"Error occurred: {str(e)}")

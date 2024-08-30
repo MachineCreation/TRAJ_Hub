@@ -6,28 +6,32 @@ import os
 from PIL import Image
 import json
 
-weapon_bp = Blueprint('weapon', __name__,template_folder='../../pages/html')
+weapon_bp = Blueprint('weapon', __name__, template_folder='../../pages/html')
 
-@weapon_bp.route('/weapon-image-upload', methods=['POST'])
+@weapon_bp.route('/weapon-upload', methods=['POST'])
 @login_required
-def upload_weapon_image():
+def upload_weapon():
     if 'primary' in request.files:
         slot = 'primary'
+        attachment = 'PA'
     elif 'secondary' in request.files:
         slot = 'secondary'
+        attachment = 'SA'
     else:
         return jsonify({'Error': "Expected element ID's not found"}), 400
     
-    file = request.files[f'{slot}']
+    username = current_user.id
+    user_data = User.get(username)[0]
+    file = request.files.get(f'{slot}')
+    
     if file:
-        username = current_user.id
         filename = secure_filename(f"{username}_{slot}_image")
         file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
 
         try:
             supabase_service.storage.from_("user_weapon_photos").remove([filename])
-        except:
-            print(f"Error removing existing file: {str(Exception)}")
+        except Exception as e:
+            print(f"Error removing existing file: {str(e)}")
 
         file.save(file_path)
 
@@ -53,27 +57,7 @@ def upload_weapon_image():
                     os.remove(file_path)
                 except PermissionError:
                     print(f"PermissionError: Couldn't remove file {file_path} as it is being used by another process.")
-
-        return jsonify({}), 200
         
-    else:
-        return jsonify({'error': 'Invalid file'}), 400
-        
-@weapon_bp.route('/weapon-url', methods=['POST'])
-@login_required
-def uploadWeaponData():
-    username = current_user.id
-    
-    if 'primary' in request.files:
-        slot = 'primary'
-        attachment = 'PA'
-    elif 'secondary' in request.files:
-        slot = 'secondary'
-        attachment = 'SA'
-    else:
-        return jsonify({'Error': "Expected element ID's not found"}), 400
-    
-    try:
         data = request.form
         weapon = f'{slot}-weapon'
         weapon_stats = f'{slot}-weapon-stats'
@@ -84,7 +68,6 @@ def uploadWeaponData():
             att_stats_name = f'{att_name}-stats'
             
             if att_name in data and data[att_name]:
-                # Parse the attachment stats to ensure they're stored as JSON objects
                 attachment_list[data[att_name]] = json.loads(data.get(att_stats_name, '{}'))
 
         try:
@@ -98,7 +81,7 @@ def uploadWeaponData():
             }).eq("name", username).execute()
             
             if not response.data:
-                print(f"no response was received")
+                print(f"No response was received")
                 return jsonify({'error': 'no response'}), 500
         except Exception as e:
             print(f"Error occurred: {str(e)}")
@@ -113,15 +96,14 @@ def uploadWeaponData():
                 }).eq("name", username).execute()
             
             if response.data:
-                return jsonify({}), 200
+                return render_template('main.html', user_data = user_data)
             else:
-                print(f"no response was received")
+                print(f"No response was received")
                 return jsonify({'error': 'no response'}), 500
             
         except Exception as e:
             print(f"Error occurred: {str(e)}")
             return jsonify({'error': 'unknown', 'details': str(e)}), 500
             
-    except Exception as e:
-        print(f"Error occurred: {str(e)}")
-        return jsonify({'error': 'unknown', 'details': str(e)}), 500
+    else:
+        return jsonify({'error': 'Invalid file'}), 400

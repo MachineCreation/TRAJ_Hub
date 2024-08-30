@@ -10,7 +10,7 @@
     <main>
         <h1 id="title">Welcome, {{ user_data.username }}</h1>
         <article>
-            <form id="hero-image-form" enctype="multipart/form-data">
+            <form id="hero-image-form" action="/hero-image-upload" method="post" enctype="multipart/form-data">
                 <section>
                     <div>
                         <label for="hero"><b>Hero Image</b></label>
@@ -24,8 +24,8 @@
             </form>
         </article>
         <article>
-            <form id="primary-weapon-form" enctype="multipart/form-data">
-                <section>                                                       <!-- primary Weapon form -->
+            <form id="primary-weapon-form" action="/weapon-upload" method="post" enctype="multipart/form-data">
+                <section>
                         <label for="primary"><b>Primary weapon</b>:</label>
                         <input type="file" id="primary" name="primary" accept="image/png" required>
 
@@ -78,7 +78,7 @@
                         <button type="submit"><b>Update Primary weapon</b></button>
                 </section>
             </form>
-            <form id="secondary-weapon-form" enctype="multipart/form-data">                                   <!-- secondary weapon form -->
+            <form id="secondary-weapon-form" action="/weapon-upload" method="post" enctype="multipart/form-data">
                 <section>
                         <label for="secondary"><b>Secondary weapon</b>:</label>
                         <input type="file" id="secondary" name="secondary" accept="image/png" required>
@@ -134,53 +134,28 @@
             </form>
         </article>
         <article>
-            <form id="equipment" enctype="text/plain">   
+            <form action="/clip-upload" method="post" enctype="multipart/form-data">
                 <section>
                     <div>
-                        <label for="lethal"><b>Lethal</b></label>
-                        <input name="lethal" id="lethal" placeholder="Choose equipment" autocomplete="on" List="lethal-equipment-list">
-                        <datalist id="lethal-equipment-list"></datalist>
-                        <input type="hidden" name="lethal-stats" id="lethal-stats" type="text">
+                        <label for="C1"><b>Clip 1</b></label>
+                        <input type="text" name="C1">
                     </div>
                     <div>
-                        <label for="tactical"><b>Tactical</b></label>
-                        <input name="tactical" id="tactical" placeholder="Choose equipment" autocomplete="on" List="tactical-equipment-list">
-                        <datalist id="tactical-equipment-list"></datalist>
-                        <input type="hidden" name="tactical-stats" id="tactical-stats" type="text">
-                    </div>
-
-                    <button type="reset"><b>Clear Equipment</b></button>
-                    <button type="submit"><b>Update Equipment</b></button>
-                </section>
-            </form>
-            <form id="perks" enctype="text/plain">
-                <section>
-                    <div>
-                        <label for="perks1"><b>Perk 1</b></label>
-                        <input name="perks1" id="perks1" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
-                        <datalist id="perks1_2-list"></datalist>
-                        <input type="hidden" name="perks1-stats" id="perks1-stats" type="text">
+                        <label for="C2"><b>Clip 2</b></label>
+                        <input type="text" name="C2">
                     </div>
                     <div>
-                        <label for="perks2"><b>Perk 2</b></label>
-                        <input name="perks2" id="perks2" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
-                        <input type="hidden" name="perks2-stats" id="perks2-stats" type="text">
+                        <label for="C3"><b>Clip 3</b></label>
+                        <input type="text" name="C3">
                     </div>
                     <div>
-                        <label for="perks3"><b>Perk 3</b></label>
-                        <input name="perks3" id="perks3" placeholder="Choose perk" autocomplete="on" List="perks3-list">
-                        <datalist id="perks3-list"></datalist>
-                        <input type="hidden" name="perks3-stats" id="perks3-stats" type="text">
+                        <label for="C4"><b>Clip 4</b></label>
+                        <input type="text" name="C4">
                     </div>
                     <div>
-                        <label for="perks4"><b>Perk 4</b></label>
-                        <input name="perks4" id="perks4" placeholder="Choose perk" autocomplete="on" List="perks4-list">
-                        <datalist id="perks4-list"></datalist>
-                        <input type="hidden" name="perks4-stats" id="perks4-stats" type="text">
+                        <label for="C5"><b>Clip 5</b></label>
+                    <input type="text" name="C5">
                     </div>
-
-                    <button type="reset"><b>Clear Perks</b></button>
-                    <button type="submit"><b>Update Perks</b></button>
                 </section>
             </form>
         </article>
