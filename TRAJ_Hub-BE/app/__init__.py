@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_cors import CORS
 from flask_login import LoginManager
 from models import User
@@ -25,6 +25,7 @@ def create_app():
     from .main.weapon_routes import weapon_bp
     from .main.equipment_routes import equipment_bp
     from .main.perks_routes import perks_bp
+    from .main.proxy import proxy_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -32,6 +33,7 @@ def create_app():
     app.register_blueprint(weapon_bp)
     app.register_blueprint(equipment_bp)
     app.register_blueprint(perks_bp)
+    app.register_blueprint(proxy_bp)
 
     return app
 

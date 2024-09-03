@@ -134,6 +134,57 @@
             </form>
         </article>
         <article>
+            <form id="equipment" enctype="text/plain">   
+                <section>
+                    <div>
+                        <label for="lethal"><b>Lethal</b></label>
+                        <input name="lethal" id="lethal" placeholder="Choose equipment" autocomplete="on" List="lethal-equipment-list">
+                        <datalist id="lethal-equipment-list"></datalist>
+                        <input type="hidden" name="lethal-stats" id="lethal-stats" type="text">
+                    </div>
+                    <div>
+                        <label for="tactical"><b>Tactical</b></label>
+                        <input name="tactical" id="tactical" placeholder="Choose equipment" autocomplete="on" List="tactical-equipment-list">
+                        <datalist id="tactical-equipment-list"></datalist>
+                        <input type="hidden" name="tactical-stats" id="tactical-stats" type="text">
+                    </div>
+
+                    <button type="reset"><b>Clear Equipment</b></button>
+                    <button type="submit"><b>Update Equipment</b></button>
+                </section>
+            </form>
+            <form id="perks" enctype="text/plain">
+                <section>
+                    <div>
+                        <label for="perks1"><b>Perk 1</b></label>
+                        <input name="perks1" id="perks1" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
+                        <datalist id="perks1_2-list"></datalist>
+                        <input type="hidden" name="perks1-stats" id="perks1-stats" type="text">
+                    </div>
+                    <div>
+                        <label for="perks2"><b>Perk 2</b></label>
+                        <input name="perks2" id="perks2" placeholder="Choose perk" autocomplete="on" List="perks1_2-list">
+                        <input type="hidden" name="perks2-stats" id="perks2-stats" type="text">
+                    </div>
+                    <div>
+                        <label for="perks3"><b>Perk 3</b></label>
+                        <input name="perks3" id="perks3" placeholder="Choose perk" autocomplete="on" List="perks3-list">
+                        <datalist id="perks3-list"></datalist>
+                        <input type="hidden" name="perks3-stats" id="perks3-stats" type="text">
+                    </div>
+                    <div>
+                        <label for="perks4"><b>Perk 4</b></label>
+                        <input name="perks4" id="perks4" placeholder="Choose perk" autocomplete="on" List="perks4-list">
+                        <datalist id="perks4-list"></datalist>
+                        <input type="hidden" name="perks4-stats" id="perks4-stats" type="text">
+                    </div>
+
+                    <button type="reset"><b>Clear Perks</b></button>
+                    <button type="submit"><b>Update Perks</b></button>
+                </section>
+            </form>
+        </article>
+        <article>
             <form action="/clip-upload" method="post" enctype="multipart/form-data">
                 <section>
                     <div>

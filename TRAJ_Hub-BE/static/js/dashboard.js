@@ -1,9 +1,5 @@
-import { data } from '../json/api_base.js';
-
-
 document.addEventListener('DOMContentLoaded', function () { 
 
-           
     const primaryWeaponForm = document.getElementById('primary-weapon-form');   // forms
     const secondaryWeaponForm = document.getElementById('secondary-weapon-form');
 
@@ -28,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const PA4Sug = document.getElementById('PA4-sug');
     const PA5Sug = document.getElementById('PA5-sug');
 
-                                                                                // primary lists
+    // primary lists
     const PATypeInputList = [PA1Typeinput, PA2Typeinput, PA3Typeinput, PA4Typeinput, PA5Typeinput];
     const PASugList = [PA1Sug, PA2Sug, PA3Sug, PA4Sug, PA5Sug];
     const PAInputList = [PA1, PA2, PA3, PA4, PA5]
@@ -54,12 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const SA4Sug = document.getElementById('SA4-sug');
     const SA5Sug = document.getElementById('SA5-sug');
 
-                                                                                // secondary lists
-    const SATypeInputList = [SA1Typeinput, SA2Typeinput, SA3Typeinput, SA4Typeinput, SA5Typeinput]
-    const SASugList = [SA1Sug, SA2Sug, SA3Sug, SA4Sug, SA5Sug]
-    const SAInputList = [SA1, SA2, SA3, SA4, SA5]
+    // secondary lists
+    const SATypeInputList = [SA1Typeinput, SA2Typeinput, SA3Typeinput, SA4Typeinput, SA5Typeinput];
+    const SASugList = [SA1Sug, SA2Sug, SA3Sug, SA4Sug, SA5Sug];
+    const SAInputList = [SA1, SA2, SA3, SA4, SA5];
 
-    
     const perks1_2Equipment = document.getElementById('perks1_2-list');         // perks var
     const perks3Equipment = document.getElementById('perks3-list');
     const perks4Equipment = document.getElementById('perks4-list');
@@ -69,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const P3Input = document.getElementById('perks3');
     const P4Input = document.getElementById('perks4');
 
-    const perksList = [P1Input, P2Input, P3Input, P4Input]
+    const perksList = [P1Input, P2Input, P3Input, P4Input];
              
-    const lethalEquipment = document.getElementById("lethal-equipment-list");   // equpiment var
+    const lethalEquipment = document.getElementById("lethal-equipment-list");   // equipment var
     const tacticalEquipment = document.getElementById("tactical-equipment-list");
     const lethalInput = document.getElementById('lethal');
     const tacticalInput = document.getElementById('tactical');
     
-    const equipmentList = [lethalInput, tacticalInput]
+    const equipmentList = [lethalInput, tacticalInput];
 
     function checkInputs(formId) {                                              // set initial enabled state for inputs 
         const inputs = formId.querySelectorAll('input[type="text"]');
@@ -85,127 +80,123 @@ document.addEventListener('DOMContentLoaded', function () {
             input.disabled = index > 0 && inputs[index - 1].value.trim() === "";
         });
     };
-    
 
-                                                                                // populate gun type datalists
-    Object.keys(data.endpoints.weapons.response.weapons.class).forEach(gunClass => {
-        const optionPrimary = document.createElement('option');
-        optionPrimary.value = gunClass;
-        primaryGunTypeSug.appendChild(optionPrimary);
+    // Utility function to fetch data from the new API
+    const fetchData = async (endpoint) => {
+        try {
+            const response = await fetch(`/api-proxy/${endpoint}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("An error occurred while fetching data:", error);
+            return null;
+        }
+    }
 
-        const optionSecondary = document.createElement('option');
-        optionSecondary.value = gunClass;
-        secondaryGunTypeSug.appendChild(optionSecondary);
-    });
+    // Populate gun type datalists
+    const populateGunTypeLists = async () => {
+        const data = await fetchData('/weapon-types');
+        if (data && data.weapon_types) {
+            data.weapon_types.forEach(gunClass => {
+                const optionPrimary = document.createElement('option');
+                optionPrimary.value = gunClass;
+                primaryGunTypeSug.appendChild(optionPrimary);
 
-    const weaponslist = (weaponSlot, gunType) => {                              // populate gun lists
+                const optionSecondary = document.createElement('option');
+                optionSecondary.value = gunClass;
+                secondaryGunTypeSug.appendChild(optionSecondary);
+            });
+        }
+    };
+
+    const weaponslist = async (weaponSlot, gunType) => {  // Populate gun lists
         weaponSlot.innerHTML = '';
-        Object.keys(data.endpoints.weapons.response.weapons.class[gunType]).forEach(gun => {
-            const option = document.createElement('option');
-            option.value = gun;
-            weaponSlot.appendChild(option);
-        });
+        const data = await fetchData(`/weapons/${gunType}`);
+        if (data && data.weapons) {
+            data.weapons.forEach(gun => {
+                const option = document.createElement('option');
+                option.value = gun;
+                weaponSlot.appendChild(option);
+            });
+        }
     };
 
-    const attachmentTypeList = (sugList, weapon, weapontype, form) => {         // populate attachment types and weapon stats
+    const attachmentTypeList = async (sugList, weapon, weaponType, form) => {  // Populate attachment types and weapon stats
         sugList.innerHTML = '';
-        Object.keys(data.endpoints.weapons.response.weapons.class[weapontype][weapon]['attachments']).forEach(type => {
-            const typeOption = document.createElement('option');
-            typeOption.value = type
-            // console.log(type)
-            sugList.appendChild(typeOption)
-        });
-        const weaponStatsSelect = form.querySelector('input[class="weapon_stats"]')
-        const stats = data.endpoints.weapons.response.weapons.class[weapontype][weapon]['stats']
-        const jstats = JSON.stringify(stats)
-        weaponStatsSelect.value = jstats
-        // console.log(weaponStatsSelect.value)
-    };
-                                                                                // populate spesific gun attachments
-    const attachmentList = (attachmentSugList, weapontype, weapon, attachmentType, form) =>{
-        const fragment = document.createDocumentFragment();
-        data.endpoints.weapons.response.weapons.class[weapontype][weapon].attachments[attachmentType].forEach(attachment => {
-            const attachmentOption = document.createElement('option')
-            attachmentOption.value = attachment.name;
-            // console.log(attachment.name);
-            fragment.appendChild(attachmentOption)
-        });
-        attachmentSugList.replaceChildren(fragment)
-        checkInputs(form)
+        const data = await fetchData(`/weapon/${weaponType}/${weapon}`);
+        if (data && data.attachment_types) {
+            data.attachment_types.forEach(type => {
+                const typeOption = document.createElement('option');
+                typeOption.value = type;
+                sugList.appendChild(typeOption);
+            });
+        }
+        const weaponStatsSelect = form.querySelector('input[class="weapon_stats"]');
+        weaponStatsSelect.value = JSON.stringify(data.stats || {});
     };
 
-    const PAattachmentStats = (attachment, weaponType, weapon, index) => {      // get primary attachment stats
-        const statsInput = document.getElementById(`PA${index}-stats`);
+    const attachmentList = async (attachmentSugList, weaponType, weapon, attachmentType, form) => {  // Populate specific gun attachments
+        const data = await fetchData(`/attachment_type/${weaponType}/${weapon}/${attachmentType}`);
+        if (data && data.attachments) {
+            const fragment = document.createDocumentFragment();
+            data.attachments.forEach(attachment => {
+                const attachmentOption = document.createElement('option');
+                attachmentOption.value = attachment;
+                fragment.appendChild(attachmentOption);
+            });
+            attachmentSugList.replaceChildren(fragment);
+            checkInputs(form);
+        }
+    };
+
+    const PAattachmentStats = async (attachment, weaponType, weapon, index) => {  // Get primary attachment stats
         const attachType = document.getElementById(`PA${index}-type`);
-        const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
-        if (stats) {
-            statsInput.value = stats
-            // console.log(statsInput.value)
-        }
-        else {
-            statsInput.value = {"stats": "none"}
-        };
+        const data = await fetchData(`/attachment/${weaponType}/${weapon}/${attachType.value}/${attachment.value}`);
+        const statsInput = document.getElementById(`PA${index}-stats`);
+        statsInput.value = JSON.stringify(data.stats || {"stats": "none"});
     };
 
-    const SAattachmentStats = (attachment, weaponType, weapon, index) => {      // get secondary attachment stats
-        const statsInput = document.getElementById(`SA${index}-stats`);
+    const SAattachmentStats = async (attachment, weaponType, weapon, index) => {  // Get secondary attachment stats
         const attachType = document.getElementById(`SA${index}-type`);
-        const stats = JSON.stringify(data.endpoints.weapons.response.weapons.class[weaponType][weapon].attachments[attachType.value].find(att => att.name === attachment.value).stats);
-        if (stats) {
-            statsInput.value = stats
-            // console.log(statsInput.value)
-        }
-        else {
-            statsInput.value = {"stats": "none"}
-        };
+        const data = await fetchData(`/attachment/${weaponType}/${weapon}/${attachType.value}/${attachment.value}`);
+        const statsInput = document.getElementById(`SA${index}-stats`);
+        statsInput.value = JSON.stringify(data.stats || {"stats": "none"});
     };
 
-    const equipmentStats = (slot) => {   
-        // console.log(slot)                                       // get equipment stats
-        const equipId = `${slot.value}`;
-        // console.log(equipId)
-        const equipName = `${slot.getAttribute('name')}`;
-        // console.log(equipName)
+    const equipmentStats = async (slot) => {   // Get equipment stats
+        const equipName = slot.getAttribute('name');
+        const data = await fetchData(`/${equipName}/${slot.value}`);
         const equipStatsInput = document.getElementById(`${equipName}-stats`);
-        const stats = JSON.stringify(data.endpoints.weapons.response[equipName].find(att => att.name === equipId).description);
-        if (stats) {
-            equipStatsInput.value = stats
-            // console.log(stats)
-        } else {
-            equipStatsInput.value = {"stats": "none"};
-        };
+        equipStatsInput.value = JSON.stringify(data.description || {"stats": "none"});
     };
 
-    const perksStats = (slot) => {                                              // get perks stats
-        const perkId = slot.value;
-        // console.log(perkId)
-        const perkName = `${slot.getAttribute('name')}`;
-        // console.log(perkName)
-        const perkStatsInput = document.getElementById(`${perkName}-stats`);
-        // console.log(`${perkName}-stats`)
-        let stats = ''
+    const perksStats = async (slot) => {  // Get perks stats
+        const perkName = slot.getAttribute('name');
+        let endpoint = '';
 
         if (perkName === 'perks1' || perkName === 'perks2') {
-            stats = JSON.stringify(data.endpoints.weapons.response.Perks['perks1_2'].find(att => att.name === perkId).description);
-        } else {
-            stats = JSON.stringify(data.endpoints.weapons.response.Perks[perkName].find(perk => perk.name === perkId).description);
-        };
-        if (stats) {
-            perkStatsInput.value = stats
-            // console.log(stats)
-        } else {
-            perkStatsInput.value = {"stats": "none"};
-        };
+            endpoint = `/perks1_2/${slot.value}`;
+        } else if (perkName === 'perks3') {
+            endpoint = `/perks3/${slot.value}`;
+        } else if (perkName === 'perks4') {
+            endpoint = `/perks4/${slot.value}`;
+        }
+
+        const data = await fetchData(endpoint);
+        const perkStatsInput = document.getElementById(`${perkName}-stats`);
+        perkStatsInput.value = JSON.stringify(data.description || {"stats": "none"});
     };
-    
-    primaryGunTypeInput.addEventListener('input', () => {                       // input event listeners
+
+    primaryGunTypeInput.addEventListener('input', () => {  // Input event listeners
         weaponslist(primaryWeaponSug, primaryGunTypeInput.value);
         checkInputs(primaryWeaponForm);
     });
-    
+
     primaryWeaponinput.addEventListener('input', () => {
-        attachmentTypeList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value, primaryWeaponForm)
-        checkInputs(primaryWeaponForm)
+        attachmentTypeList(PATypeSug, primaryWeaponinput.value, primaryGunTypeInput.value, primaryWeaponForm);
+        checkInputs(primaryWeaponForm);
     });
 
     PATypeInputList.forEach((type, index) => {
@@ -217,8 +208,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     PAInputList.forEach((attachmentInput, index) => {
         attachmentInput.addEventListener('input', () => {
-            PAattachmentStats(attachmentInput, primaryGunTypeInput.value, primaryWeaponinput.value, index + 1)
-            checkInputs(primaryWeaponForm)
+            PAattachmentStats(attachmentInput, primaryGunTypeInput.value, primaryWeaponinput.value, index + 1);
+            checkInputs(primaryWeaponForm);
         });
     });
 
@@ -228,8 +219,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     secondaryWeaponinput.addEventListener('input', () => {
-        attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value, secondaryWeaponForm)
-        checkInputs(secondaryWeaponForm)
+        attachmentTypeList(SATypeSug, secondaryWeaponinput.value, secondaryGunTypeInput.value, secondaryWeaponForm);
+        checkInputs(secondaryWeaponForm);
     });
 
     SATypeInputList.forEach((type, index) => {
@@ -241,8 +232,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     SAInputList.forEach((attachmentInput, index) => {
         attachmentInput.addEventListener('input', () => {
-            SAattachmentStats(attachmentInput, secondaryGunTypeInput.value, secondaryWeaponinput.value, index + 1)
-            checkInputs(secondaryWeaponForm)
+            SAattachmentStats(attachmentInput, secondaryGunTypeInput.value, secondaryWeaponinput.value, index + 1);
+            checkInputs(secondaryWeaponForm);
         });
     });
 
@@ -257,39 +248,72 @@ document.addEventListener('DOMContentLoaded', function () {
             equipmentStats(equip);
         });
     });
-    
-                                                                                // Populate Lethal options
-    data.endpoints.weapons.response.lethal.forEach(lethal => {
-        const optionLethal = document.createElement('option');
-        optionLethal.value = lethal.name;
-        lethalEquipment.appendChild(optionLethal);
-    });
 
-                                                                                // Populate tactical options
-    data.endpoints.weapons.response.tactical.forEach(tactical => {
-        const optiontactical = document.createElement('option');
-        optiontactical.value = tactical.name;
-        tacticalEquipment.appendChild(optiontactical);
-    });
-    
-                                                                                // Populate perks 1 & 2 options
-    data.endpoints.weapons.response.Perks.perks1_2.forEach(perks1_2 => {
-        const optionperks1_2 = document.createElement('option');
-        optionperks1_2.value = perks1_2.name;
-        perks1_2Equipment.appendChild(optionperks1_2);
-    });
+    // Populate Lethal options
+    const populateLethalOptions = async () => {
+        const data = await fetchData('/Lethal-equipment');
+        if (data && data.Lethal_equipment) {
+            data.Lethal_equipment.forEach(lethal => {
+                const optionLethal = document.createElement('option');
+                optionLethal.value = lethal;
+                lethalEquipment.appendChild(optionLethal);
+            });
+        }
+    };
 
-                                                                                // Populate perks 3 options
-    data.endpoints.weapons.response.Perks.perks3.forEach(perks3 => {
-        const optionperks3 = document.createElement('option');
-        optionperks3.value = perks3.name;
-        perks3Equipment.appendChild(optionperks3);
-    });
+    // Populate Tactical options
+    const populateTacticalOptions = async () => {
+        const data = await fetchData('/tactical-equipment');
+        if (data && data.tactical_equipment) {
+            data.tactical_equipment.forEach(tactical => {
+                const optionTactical = document.createElement('option');
+                optionTactical.value = tactical;
+                tacticalEquipment.appendChild(optionTactical);
+            });
+        }
+    };
 
-                                                                                // Populate perks 4 options
-    data.endpoints.weapons.response.Perks.perks4.forEach(perks4 => {
-        const optionperks4 = document.createElement('option');
-        optionperks4.value = perks4.name;
-        perks4Equipment.appendChild(optionperks4);
-    });
+    // Populate Perks 1 & 2 options
+    const populatePerks1_2Options = async () => {
+        const data = await fetchData('/perks1_2/names');
+        if (data && data.perks1_2_names) {
+            data.perks1_2_names.forEach(perk => {
+                const optionPerk = document.createElement('option');
+                optionPerk.value = perk;
+                perks1_2Equipment.appendChild(optionPerk);
+            });
+        }
+    };
+
+    // Populate Perks 3 options
+    const populatePerks3Options = async () => {
+        const data = await fetchData('/perks3/names');
+        if (data && data.perks3_names) {
+            data.perks3_names.forEach(perk => {
+                const optionPerk = document.createElement('option');
+                optionPerk.value = perk;
+                perks3Equipment.appendChild(optionPerk);
+            });
+        }
+    };
+
+    // Populate Perks 4 options
+    const populatePerks4Options = async () => {
+        const data = await fetchData('/perks4/names');
+        if (data && data.perks4_names) {
+            data.perks4_names.forEach(perk => {
+                const optionPerk = document.createElement('option');
+                optionPerk.value = perk;
+                perks4Equipment.appendChild(optionPerk);
+            });
+        }
+    };
+
+    // Initialize and populate lists
+    populateGunTypeLists();
+    populateLethalOptions();
+    populateTacticalOptions();
+    populatePerks1_2Options();
+    populatePerks3Options();
+    populatePerks4Options();
 });
