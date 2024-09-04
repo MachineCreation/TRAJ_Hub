@@ -19,7 +19,7 @@ const Profile = (props: MemberProps) => {
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
-            const response = await fetch('http://127.0.0.1:5000/get-member-profile', {
+            const response = await fetch('https://traj-hub.onrender.com//get-member-profile', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
