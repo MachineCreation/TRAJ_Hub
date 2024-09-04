@@ -25,6 +25,9 @@ export default {
       animation: {
         border: 'border 4s infinite',
       },
+      borderWidth: {
+        '0.2': '.2rem'
+      },
     },
   },
   plugins: [],

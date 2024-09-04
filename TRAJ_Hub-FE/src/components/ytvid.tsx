@@ -14,7 +14,7 @@ const YouTubeVideo = (props: YouTubeVideoProps) => {
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="YouTube Video"
-        className='relative m-auto flex h-full w-auto z-20'
+        className='relative my-4 mx-auto flex h-auto w-full z-20'
       ></iframe>
     </div>
   );

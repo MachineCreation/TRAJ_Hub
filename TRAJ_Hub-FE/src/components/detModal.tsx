@@ -2,11 +2,10 @@
 import { useState, useEffect } from "react";
 
 //components
-import { MemberName, Member, WeaponDetailKey } from "../config/Members";
+import { Member, WeaponDetailKey } from "../config/Members";
 
 //css
 interface WeaponModalProps {
-    name: MemberName;
     equip: boolean;
     data: Member;
 }

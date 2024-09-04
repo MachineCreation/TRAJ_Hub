@@ -63,6 +63,8 @@ export interface WeaponDetails {
         "C2": string;
         "C3": string;
         "C4": string;
+        "C5": string;
+        "C6": string;
     }
 
 }
