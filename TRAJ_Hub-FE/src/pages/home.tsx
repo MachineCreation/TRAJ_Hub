@@ -5,6 +5,7 @@ import Header from "../components/header";
 import NavCube from "../components/nav-cube";
 import QuadSquad from "../components/quad-squad";
 import TeamStats from "../components/team-stats";
+import Footer from "../components/footer";
 
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
     <NavCube />
     <QuadSquad />
     <TeamStats />
+    <Footer />
     </section>
   )
 }

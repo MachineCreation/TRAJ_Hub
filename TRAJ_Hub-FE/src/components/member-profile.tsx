@@ -77,8 +77,8 @@ const Profile = (props: MemberProps) => {
                     C2: profile.C2,
                     C3: profile.C3,
                     C4: profile.C4,
-                    C5: profile.C3,
-                    C6: profile.C4,
+                    C5: profile.C5,
+                    C6: profile.C6,
                 },
             };
     

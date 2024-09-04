@@ -4,6 +4,7 @@
 import Header from "./header";
 import Profile from "./member-profile";
 import { MemberName } from "../config/Members";
+import Footer from "./footer";
 
 
 //css
@@ -20,6 +21,7 @@ const MemberPage = (props: MemberProps) => {
                 name={props.name}/>
             <Profile
                 name={props.name}/>
+            <Footer />
         </section>
     );
 };

@@ -216,6 +216,50 @@
                 </section>
             </form>
         </article>
+        {% if user_data.username == 'JesusTts' %}
+        <article>
+            <form action="/main-page-upload" method="post" enctype="multipart/form-data">
+                <section>
+                    <div>
+                        <label id="sq-p-name" for="sq-p-name"><b>Squad Primary Name</b></label>
+                        <input type="text" name="sq-p-name">
+                    </div>
+                    <div>
+                        <label id="sq-s-name" for="sq-s-name"><b>Squad Secondary name</b></label>
+                        <input type="text" name="sq-s-name">
+                    </div>
+                    <div>
+                        <label id="clip1" for="clip1"><b> Main Clip right</b></label>
+                        <input type="text" name="clip1">
+                    </div>
+                    <div>
+                        <label id="clip2" for="clip2"><b>Main Clip left</b></label>
+                        <input type="text" name="clip2">
+                    </div>
+                    <div>
+                        <label id="clip3" for="clip3"><b>Main Clip center</b></label>
+                        <input type="text" name="clip3">
+                    </div>
+                    <div>
+                        <label for="C6"><b>Clip 6</b></label>
+                        <input type="text" name="C6">
+                    </div>
+                    <div>
+                        <label for="primary-image"><b>primary-image </b></label>
+                        <input type="file" id="primary-image" name="primary-image" accept="image/png">
+                    </div>
+                    <div>
+                        <label for="secondary-image"><b>secondary-image </b></label>
+                        <input type="file" id="secondary-image" name="secondary-image" accept="image/png">
+                    </div>
+                    <button type="reset"><b>Clear Clips</b></button>
+                    <button type="submit"><b>Submit Clips</b></button>
+                </section>
+            </form>
+        </article>
+        {% else %}
+            <div></div>
+        {% endif %}
     </main>
     <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>

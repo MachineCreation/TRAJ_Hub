@@ -41,7 +41,7 @@ def upload_weapon():
 
                 crop_box = (
                     int(0 * width),  # left
-                    int(0.02 * height), # top
+                    int(0.04 * height), # top
                     int(width),  # right
                     int(height)  # bottom
                 )
