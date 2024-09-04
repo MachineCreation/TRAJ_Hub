@@ -18,8 +18,9 @@ def uploadClips():
         c3 = data.get('C3')
         c4 = data.get('C4')
         c5 = data.get('C5')
+        c6 = data.get('C6')
         
-        datalist = [c1, c2, c3, c4, c5]
+        datalist = [c1, c2, c3, c4, c5, c6]
         
         for index, clip in enumerate(datalist, start=1):
             if clip != '':
