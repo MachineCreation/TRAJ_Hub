@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const equipName = slot.getAttribute('name');
         const data = await fetchData(`/${equipName}/${slot.value}`);
         const equipStatsInput = document.getElementById(`${equipName}-stats`);
+        console.log(equipStatsInput)
         equipStatsInput.value = JSON.stringify(data.description || {"stats": "none"});
     };
 
@@ -251,9 +252,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Populate Lethal options
     const populateLethalOptions = async () => {
-        const data = await fetchData('/Lethal-equipment');
-        if (data && data.Lethal_equipment) {
-            data.Lethal_equipment.forEach(lethal => {
+        const data = await fetchData('/lethal-equipment');
+        if (data && data.lethal_equipment) {
+            data.lethal_equipment.forEach(lethal => {
                 const optionLethal = document.createElement('option');
                 optionLethal.value = lethal;
                 lethalEquipment.appendChild(optionLethal);

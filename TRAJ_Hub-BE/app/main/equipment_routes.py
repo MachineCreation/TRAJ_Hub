@@ -9,8 +9,9 @@ equipment_bp = Blueprint('equipment', __name__, template_folder='../../pages/htm
 def equipmentUpload():
     
     username = current_user.id
-    user_data = User.get(username)[0]
+    user_data = User.get(username)[1]
     data = request.form
+    print(data)
     
     try:
         tactical = data.get('tactical')
@@ -40,7 +41,7 @@ def equipmentUpload():
                 error_message = response.error.message if response.error else "unknown error uploading tactical data"
                 return jsonify({"Error": error_message})
 
-        return render_template("main.html", user_data = user_data)
+        return render_template('main.html', user_data=user_data)
     
     except Exception as e:
         print(f"Error occurred: {str(e)}")

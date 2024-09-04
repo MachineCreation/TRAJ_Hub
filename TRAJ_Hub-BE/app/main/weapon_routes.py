@@ -21,7 +21,7 @@ def upload_weapon():
         return jsonify({'Error': "Expected element ID's not found"}), 400
     
     username = current_user.id
-    user_data = User.get(username)[0]
+    user_data = User.get(username)[1]
     file = request.files.get(f'{slot}')
     
     if file:
@@ -96,7 +96,7 @@ def upload_weapon():
                 }).eq("name", username).execute()
             
             if response.data:
-                return render_template('main.html', user_data = user_data)
+                return render_template('main.html', user_data=user_data)
             else:
                 print(f"No response was received")
                 return jsonify({'error': 'no response'}), 500

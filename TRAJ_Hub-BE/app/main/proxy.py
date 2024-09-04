@@ -12,7 +12,7 @@ def api_proxy(endpoint):
     
     # Correct the API base URL
     api_url = f"https://strippers.onrender.com/{endpoint}"  # Corrected base URL
-    headers = {"Authorization": f"Bearer {api_key}"}
+    headers = {"X-API-Key": f"{api_key}"}
         
     # Forward the request to the actual API
     response = requests.get(api_url, headers=headers, params=request.args)

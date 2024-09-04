@@ -19,7 +19,7 @@ def upload_hero_image():
 
     if file:
         username = current_user.id
-        user_data = User.get(username)[0]
+        user_data = User.get(username)[1]
         filename = secure_filename(f"{username}_hero_image")
         file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
 

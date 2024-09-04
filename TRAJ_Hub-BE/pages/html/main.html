@@ -15,7 +15,7 @@
                     <div>
                         <label for="hero"><b>Hero Image</b></label>
                         <input type="file" id="hero" name="hero" accept="image/png" required>
-                        <h5>All images must be in PNG format</h5>
+                        <h5>!!!<span id="warning">All images must be in PNG format</span>!!!</h5>
                     </div>
                     <button type="reset"><b>Clear Hero Image</b></button>
                     <button type="submit"><b>Update Hero Image</b></button>
@@ -134,7 +134,7 @@
             </form>
         </article>
         <article>
-            <form id="equipment" enctype="text/plain">   
+            <form id="equipment" action="/equipment-form" method="post" enctype="multipart/form-data">   
                 <section>
                     <div>
                         <label for="lethal"><b>Lethal</b></label>
@@ -153,7 +153,7 @@
                     <button type="submit"><b>Update Equipment</b></button>
                 </section>
             </form>
-            <form id="perks" enctype="text/plain">
+            <form id="perks" action="/perks-form" method="post" enctype="multipart/form-data">
                 <section>
                     <div>
                         <label for="perks1"><b>Perk 1</b></label>
@@ -205,8 +205,10 @@
                     </div>
                     <div>
                         <label for="C5"><b>Clip 5</b></label>
-                    <input type="text" name="C5">
+                        <input type="text" name="C5">
                     </div>
+                    <button type="reset"><b>Clear Clips</b></button>
+                    <button type="submit"><b>Submit Clips</b></button>
                 </section>
             </form>
         </article>

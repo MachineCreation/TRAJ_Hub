@@ -8,7 +8,7 @@ perks_bp = Blueprint('perks', __name__, template_folder='../../pages/html')
 @login_required
 def perksUpload():
     username = current_user.id
-    user_data = User.get(username)[0]
+    user_data = User.get(username)[1]
     data = request.form
     
     try:

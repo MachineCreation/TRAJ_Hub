@@ -25,6 +25,7 @@ def create_app():
     from .main.weapon_routes import weapon_bp
     from .main.equipment_routes import equipment_bp
     from .main.perks_routes import perks_bp
+    from .main.clip_routes import clip_bp
     from .main.proxy import proxy_bp
 
     app.register_blueprint(auth_bp)
@@ -33,6 +34,7 @@ def create_app():
     app.register_blueprint(weapon_bp)
     app.register_blueprint(equipment_bp)
     app.register_blueprint(perks_bp)
+    app.register_blueprint(clip_bp)
     app.register_blueprint(proxy_bp)
 
     return app

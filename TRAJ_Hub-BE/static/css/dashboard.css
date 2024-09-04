@@ -5,10 +5,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 main {
+    width: 100%;
     max-width: 1250px;
     display: flex;
     flex-grow: 1;
@@ -76,4 +76,10 @@ input:focus, select:focus {
     color: beige;
     font-size:xx-large;
     flex-wrap: wrap;
+}
+
+#warning {
+    font-weight: 900;
+    color: gold;
+    text-decoration: underline;
 }
