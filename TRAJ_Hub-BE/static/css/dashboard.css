@@ -48,8 +48,9 @@ button {
     border-radius: .5rem;
 }
 
-h1 {
+h1, h5 {
     margin: auto;
+    text-align: center;
 }
 
 label {
@@ -80,6 +81,6 @@ input:focus, select:focus {
 
 #warning {
     font-weight: 900;
-    color: gold;
+    color: rgb(255, 0, 13);
     text-decoration: underline;
 }
