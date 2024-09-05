@@ -32,17 +32,17 @@ def memberProfile():
 
         
         processed_data = []
-        for row in response.data:
+        for col in response.data:
             
-            row['primary-weapon'] = json.loads(row['primary-weapon'])
-            row['secondary-weapon'] = json.loads(row['secondary-weapon'])
-            row['lethal'] = json.loads(row['lethal'])
-            row['perk1'] = json.loads(row['perk1'])
-            row['perk2'] = json.loads(row['perk2'])
-            row['perk3'] = json.loads(row['perk3'])
-            row['perk4'] = json.loads(row['perk4'])
-            row['tactical'] = json.loads(row['tactical'])
-            processed_data.append(row)
+            col['primary-weapon'] = json.loads(col['primary-weapon'])
+            col['secondary-weapon'] = json.loads(col['secondary-weapon'])
+            col['lethal'] = json.loads(col['lethal'])
+            col['perk1'] = json.loads(col['perk1'])
+            col['perk2'] = json.loads(col['perk2'])
+            col['perk3'] = json.loads(col['perk3'])
+            col['perk4'] = json.loads(col['perk4'])
+            col['tactical'] = json.loads(col['tactical'])
+            processed_data.append(col)
 
         return jsonify(processed_data), 200
 
@@ -67,10 +67,14 @@ def main_page_upload():
         "C6": request.form.get("C6"),
     }
 
-    update_data = {}
     for key, value in form_data.items():
         if value:
-            update_data[key] = value
+            response = supabase_service.table('main').update({
+                key: json.dump(value)
+            }).eq("id", "home").execute()
+            
+            if not response.data:
+                print(f"No response was received for {key}: {value}")
 
     if 'primary-image' in request.files and request.files['primary-image'].filename != '':
         primary_image = request.files['primary-image']
@@ -121,9 +125,6 @@ def main_page_upload():
                 else:
                     print(f"No response was received")
                     return jsonify({'error': 'no response'}), 500
-        
-    if update_data:
-        supabase_service.table('main').update(update_data).eq('id', 'home').execute()
 
     return render_template('main.html', user_data=user_data)
 
@@ -137,13 +138,6 @@ def get_home_page():
         
         processed_data = []
         for row in response.data:
-            row['sq-primary'] = json.dumps(row['sq-primary'])
-            row['sq-secondary'] = json.dumps(row['sq-secondary'])
-            row['sq-p-name'] = json.dumps(row['sq-p-name'])
-            row['sq-s-name'] = json.dumps(row['sq-s-name'])
-            row['clip1'] = json.dumps(row['clip1'])
-            row['clip2'] = json.dumps(row['clip2'])
-            row['clip3'] = json.dumps(row['clip3'])
             processed_data.append(row)
             
         return jsonify(processed_data), 200

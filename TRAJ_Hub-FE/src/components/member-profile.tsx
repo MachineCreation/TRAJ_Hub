@@ -169,7 +169,9 @@ const Profile = (props: MemberProps) => {
             </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
                 <figure className="relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto">
-                    <ImageWithSkeleton className="flex max-w-full h-auto" src={`${memberData.WeaponDetails?.hero || ""}/380x740`} alt="Member Profile image" />
+                    <ImageWithSkeleton className="flex max-w-full h-auto"
+                     src={`${memberData.WeaponDetails?.hero || ""}/380x740`} 
+                     alt="Member Profile image" />
                 </figure>
                 <article className="flex flex-col m-auto md:w-4/6">
                     <section className="flex flex-col lg:flex-row">

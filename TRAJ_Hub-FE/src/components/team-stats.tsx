@@ -60,24 +60,24 @@ const TeamStats = () => {
     return (
         <section className="relative xl:absolute flex flex-col xl:flex-row xl:justify-between w-full xl:h-screen m-auto ">
             <aside className="flex order-2 xl:order-1 flex-col justify-stretch w-full xl:w-1/6 h-fit xl:h-full xl:pt-28 ">
-                <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
-                    Squad favorite Primary <br /> `{sq_p_name}`
+                <figure className=" flex flex-col xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
+                    Squad favorite Primary <br /> {sq_p_name} {clip1}
                         <ImageWithSkeleton 
                             src = {sq_primary}
                             alt = {`${sq_p_name}`}
-                            className=""
+                            className="w-full aspect-video"
                         />
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     <YouTubeVideo 
-                        videoId={`${clip1}`}
+                        videoId={clip1}
                     />
                 </figure>
             </aside>
             <article className="flex order-1 xl:order-2 xl:self-end w-full xl:w-1/4 h-60 xl:h-1/4">
                 <figure className="flex grow mr-auto ml-auto justify-items-center text-center">
                     <YouTubeVideo 
-                        videoId={`${clip3}`} 
+                        videoId={clip3} 
                     />
                 </figure>
             </article>
@@ -85,14 +85,14 @@ const TeamStats = () => {
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     Squad favorite secondary <br /> `{sq_s_name}`
                         <ImageWithSkeleton 
-                            src = {sq_secondary}
+                            src = {`${sq_secondary || ""}`}
                             alt = {`${sq_s_name}`}
-                            className=""
+                            className="w-full aspect-video"
                         />
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     <YouTubeVideo
-                        videoId={`${clip2}`}
+                        videoId={clip2}
                     />
                 </figure>
             </aside>
