@@ -6,12 +6,14 @@ import os
 
 main_bp = Blueprint('main', __name__, template_folder='../../pages/html')
 
-@main_bp.route('/main')                                                         # route to main page
+# Render home page Backend interface
+@main_bp.route('/main')
 @login_required
 def main_page():
     user_data = User.get(current_user.id)[1]
     return render_template('main.html', user_data=user_data)
 
+# fetch member data for frntend (public)
 @main_bp.route('/get-member-profile', methods=['POST'])
 def memberProfile():
     try:
@@ -25,7 +27,6 @@ def memberProfile():
             return jsonify({'error': 'Member not provided'}), 400
 
         response = supabase_service.from_('Loadouts').select('*').eq("name", member).execute()
-        print(f"Supabase response: {response}")
         if not response.data:
             return jsonify({'error': response.error.message}), 500
 
@@ -49,6 +50,8 @@ def memberProfile():
         print(f"Error occurred: {e}")
         return jsonify({'error': 'unknown', 'details': str(e)}), 500
 
+
+# upload home page data
 @main_bp.route('/main-page-upload', methods=['POST'])
 @login_required
 def main_page_upload():
@@ -123,3 +126,28 @@ def main_page_upload():
         supabase_service.table('main').update(update_data).eq('id', 'home').execute()
 
     return render_template('main.html', user_data=user_data)
+
+@main_bp.route('/populate-home', methods=['POST'])
+def get_home_page():
+    
+    try:
+        response = supabase_service.from_('main').select('*').eq("id", "home").execute()
+        if not response.data:
+            return jsonify({'error': response.error.message}), 500
+        
+        processed_data = []
+        for row in response.data:
+            row['sq-primary'] = json.dumps(row['sq-primary'])
+            row['sq-secondary'] = json.dumps(row['sq-secondary'])
+            row['sq-p-name'] = json.dumps(row['sq-p-name'])
+            row['sq-s-name'] = json.dumps(row['sq-s-name'])
+            row['clip1'] = json.dumps(row['clip1'])
+            row['clip2'] = json.dumps(row['clip2'])
+            row['clip3'] = json.dumps(row['clip3'])
+            processed_data.append(row)
+            
+        return jsonify(processed_data), 200
+    
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        return jsonify({'error': 'unknown', 'details': str(e)}), 500

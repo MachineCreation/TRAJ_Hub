@@ -21,7 +21,7 @@ const Profile = (props: MemberProps) => {
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
-            const response = await fetch('https://traj-hub.onrender.com//get-member-profile', {
+            const response = await fetch('https://traj-hub.onrender.com/get-member-profile', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Profile = (props: MemberProps) => {
                 return null;
             }
     
-            const profile = data[0]; // Assuming you get a single object in an array
+            const profile = data[0];
     
             const transformWeaponDetails = (weaponData: any) => {
                 const weaponName = Object.keys(weaponData)[0];
