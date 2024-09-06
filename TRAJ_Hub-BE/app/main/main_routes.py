@@ -99,7 +99,6 @@ def main_page_upload():
                     return render_template('main.html', user_data=user_data)
                 else:
                     print(f"No response was received")
-                    return jsonify({'error': 'no response'}), 500
 
     if 'secondary-image' in request.files and request.files['secondary-image'].filename != '':
         secondary_image = request.files['secondary-image']
@@ -124,7 +123,6 @@ def main_page_upload():
                     return render_template('main.html', user_data=user_data)
                 else:
                     print(f"No response was received")
-                    return jsonify({'error': 'no response'}), 500
 
     return render_template('main.html', user_data=user_data)
 
