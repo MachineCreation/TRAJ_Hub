@@ -22,9 +22,9 @@ const routes: RouteType[] = [
       name: "TopSloth",
     },
     {
-      path: "/Araspberryberet",
+      path: "/araspberryberet",
       component: Araspberryberet,
-      name: "Araspberryberet",
+      name: "araspberryberet",
     },
     {
       path: "/RedPrimeOrigin",

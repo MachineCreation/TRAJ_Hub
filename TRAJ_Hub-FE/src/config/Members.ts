@@ -80,7 +80,7 @@ export const members: Record<string, Member> = {
     RedPrimeOrigin: {                                                     //images for RedPrimeOrigin
         WeaponDetails: null,
     },
-    Araspberryberet: {                                                     //images for Araspberryberet
+    araspberryberet: {                                                     //images for Araspberryberet
         WeaponDetails: null,
     },
     JesusTts: {                                                     //images for JesusTts

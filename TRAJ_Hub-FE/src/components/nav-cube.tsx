@@ -21,7 +21,7 @@ function NavCube() {
             <div className="cube flex justify-items-center m-auto text-yellow-400">
                 <div className="front side flex justify-items-center m-auto ">
                     <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/topsloth")}>
-                        <p className="flex m-auto ">TopSloth</p>
+                        <p className="flex m-auto ">Top sLoTh</p>
                     </div>
                 </div>
                 <div className="back side flex justify-items-center">
@@ -30,8 +30,8 @@ function NavCube() {
                     </div>
                 </div>
                 <div className="right side flex justify-items-center">
-                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/Araspberryberet")}>
-                    <p className="flex m-auto ">Araspberryberret</p>
+                    <div className="face flex m-auto border-2 border-transparent animate-border cursor-pointer" onClick={navClick("/araspberryberet")}>
+                    <p className="flex m-auto ">araspberryberret</p>
                     </div>
                 </div>
                 <div className="left side flex justify-items-center">

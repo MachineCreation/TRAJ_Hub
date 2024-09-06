@@ -10,7 +10,7 @@ function Araspberryberet() {
   
   return (
     <MemberPage 
-      name={'Araspberryberet'}/>
+      name={'araspberryberet'}/>
   )
 }
 
