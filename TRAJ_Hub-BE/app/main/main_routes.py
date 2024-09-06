@@ -70,7 +70,7 @@ def main_page_upload():
     for key, value in form_data.items():
         if value:
             response = supabase_service.table('main').update({
-                key: json.dump(value)
+                key: value
             }).eq("id", "home").execute()
             
             if not response.data:
