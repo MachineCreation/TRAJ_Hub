@@ -23,8 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-#notes
+# game components
 
-prompt.txt
-api_calls.txt
-equip_notes.txt
+Game components
+

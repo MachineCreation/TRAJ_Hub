@@ -7,7 +7,7 @@ import Arcade from "../pages/Arcade.tsx";
 
 interface RouteType {
     path: string,
-    component: () => JSX.Element,
+    component: React.ComponentType<any>,
     name: string
 }
 

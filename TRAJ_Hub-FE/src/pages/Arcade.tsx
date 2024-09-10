@@ -7,7 +7,11 @@ import Header from "../components/header";
 // Game components
 import Cabnet from "../Game components/Click_arcade";
 
-function Arcade() {
+interface ArcadeProps {
+    setIsGameActive: (isActive: boolean) => void;
+}
+
+function Arcade({setIsGameActive}:ArcadeProps) {
     return (
         <div className="flex flex-col justify-items-center">
             <Header
@@ -15,6 +19,7 @@ function Arcade() {
             />
             <Cabnet 
                 name={'Click-Arcade-1.0'}
+                setIsGameActive={setIsGameActive}
                 />
             <LeaderBoard
                 name={'Click-Arcade-1.0'}

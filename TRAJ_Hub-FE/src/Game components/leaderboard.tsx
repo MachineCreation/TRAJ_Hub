@@ -45,11 +45,11 @@ const LeaderBoard = ({name}: LeaderBoardProps) => {
         <div className="relative flex flex-col mx-auto w-11/12 h-[30rem] md:w-9/12 md:aspect-video border border-yellow-700 rounded-2xl bg-black bg-opacity-80">
             <h1 className="text-white border-b-2 border-cyan-600 text-5xl w-full h-fit text-center mx-auto my-2">Top 100</h1>
             <ul className="p-2 w-full h-full overflow-y-auto ">
-                {board.map((score) =>(
+                {board.sort((prev, cur) => cur.score - prev.score).map((score) =>(
                     <li key={score.id} className="flex flex-col sm:flex-row w-full h-fit p-1 flex-wrap text-center justify-items-center sm:justify-between text-yellow-600 border-b border-dashed border-cyan-600 text-2xl">
                         <p className="sm:border-r-2 sm:w-1/3 border-green-500">{score.initials}</p>
-                        <p className="sm:border-r-2 sm:w-1/3 border-green-500">{score.hit_count}</p>
-                        <p className="sm:w-1/3">{score.score}</p>
+                        <p className="sm:border-r-2 sm:w-1/3 border-green-500">Hits: {score.hit_count}</p>
+                        <p className="sm:w-1/3"> Score: {score.score}</p>
                     </li>
                 ))}
             </ul>
