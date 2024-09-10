@@ -1,10 +1,4 @@
-// React
-
 import { useEffect, useState } from "react";
-
-// Game components
-
-// css
 
 interface TargetProps {
     onHit: () => void;
@@ -13,19 +7,19 @@ interface TargetProps {
     speed: number;
 }
 
-const Target = ({onHit, onMiss, isSafe, speed}: TargetProps) => {
-    const [isVisable, setIsVisable] = useState<boolean>(true);
+const Target = ({ onHit, onMiss, isSafe, speed }: TargetProps) => {
+    const [isVisible, setIsVisible] = useState<boolean>(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            setIsVisable(false);
+            setIsVisible(false);
             if (!isSafe) {
                 onMiss();
             }
-        }, (speed - 50));
+        }, speed - 50);
 
         return () => clearTimeout(timeout);
-    }, [onMiss]);
+    }, [onMiss, isSafe, speed]);
 
     const click = () => {
         if (isSafe) {
@@ -33,23 +27,23 @@ const Target = ({onHit, onMiss, isSafe, speed}: TargetProps) => {
         } else {
             onHit();
         }
-        setIsVisable(false);
+        setIsVisible(false);
     };
 
-    if (!isVisable) return null;
+    if (!isVisible) return null;
 
     return (
         <div
-      onClick={click}
-      className={`${
-        isSafe ? 'bg-green-500' : 'bg-red-500'
-      } rounded-full w-6 h-6 md:w-12 md:h-12 absolute cursor-pointer transition-transform duration-200`}
-      style={{
-        top: `${Math.random() * 80}%`,
-        left: `${Math.random() * 80}%`,
-      }}
-    />
-    )
+            onClick={click}
+            className={`${
+                isSafe ? 'bg-green-500' : 'bg-red-500'
+            } rounded-full w-6 h-6 md:w-12 md:h-12 absolute cursor-pointer transition-transform duration-200`}
+            style={{
+                top: `${Math.random() * 80}%`,
+                left: `${Math.random() * 80}%`,
+            }}
+        />
+    );
 };
 
 export default Target;

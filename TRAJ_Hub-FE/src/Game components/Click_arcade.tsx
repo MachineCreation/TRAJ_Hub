@@ -46,7 +46,6 @@ const Cabnet = ({name}: cabnetProps) => {
 
     const saveScore = () => {
         fetch("https://traj-hub.onrender.com/save-score", {
-        // fetch("http://127.0.0.1:5000/save-score", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -72,14 +71,14 @@ const Cabnet = ({name}: cabnetProps) => {
           } else {
             setIsSafe(false)
           }
-        }, 1500);
+        }, speed);
 
         return () => clearInterval(interval);
     },[isGameOver]);
 
     if (isGameOver) {
         return (
-            <div className="flex flex-col items-center justify-center w-11/12 h-[30rem] md:w-9/12 md:aspect-video my-6 border rounded-2xl border-yellow-700 bg-black bg-opacity-80 mx-auto text-white z-40">
+            <div className="flex flex-col items-center justify-center w-11/12 h-[30rem] md:w-9/12 md:h-auto md:aspect-video my-6 border rounded-2xl border-yellow-700 bg-black bg-opacity-80 mx-auto text-white z-40">
         <h1 className=" text-red-600 text-4xl mb-4">Game Over!</h1>
         <p className="text-white text-2xl mb-4">Your score: <span className="text-orange-400">{score}</span></p>
         <p className="text-white text 2xl mb-6">Your hits: <span className="text-green-500">{hitCount}</span></p>
@@ -108,7 +107,7 @@ const Cabnet = ({name}: cabnetProps) => {
     };
 
     return (
-      <div className="relative w-11/12 h-[30rem] md:w-9/12 md:aspect-video my-6 border rounded-2xl border-yellow-700 bg-black bg-opacity-80 mx-auto">
+      <div className="relative w-11/12 h-[30rem] md:w-9/12  md:h-auto md:aspect-video my-6 border rounded-2xl border-yellow-700 bg-black bg-opacity-80 mx-auto">
         <div className="absolute top-4 left-4 text-2xl text-orange-700">
           <p>Hits: {hitCount}</p>
           <p>Misses: {missCount}/{maxMisses}</p>
