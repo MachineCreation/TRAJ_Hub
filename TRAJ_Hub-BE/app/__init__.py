@@ -12,9 +12,9 @@ def create_app():
     ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5000",
-    "http://traj-hub.onrender.com",
+    "https://traj-hub.onrender.com",
     "https://venerable-centaur-983b8b.netlify.app"
-]
+    ]
     CORS(app, resources={r"/*": {"origins": ORIGINS}})
 
     UPLOAD_FOLDER = 'uploads/'

@@ -18,7 +18,7 @@ const LeaderBoard = ({name}: LeaderBoardProps) => {
     useEffect(() => {
         const getLeaderBoard = async () => {
             try {
-                const response = await fetch('http://traj-hub.onrender.com/leaderboard', {
+                const response = await fetch('https://traj-hub.onrender.com/leaderboard', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
