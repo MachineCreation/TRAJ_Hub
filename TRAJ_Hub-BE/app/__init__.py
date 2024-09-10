@@ -2,7 +2,6 @@ from flask import Flask
 from flask_cors import CORS
 from flask_login import LoginManager
 from models import User
-from config import ORIGINS
 import os
 
 login_manager = LoginManager()
@@ -10,6 +9,12 @@ login_manager = LoginManager()
 def create_app():
     app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
     app.secret_key = os.getenv('SECRET_KEY')
+    ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:5000",
+    "http://traj-hub.onrender.com",
+    "https://venerable-centaur-983b8b.netlify.app"
+]
     CORS(app, resources={r"/*": {"origins": ORIGINS}})
 
     UPLOAD_FOLDER = 'uploads/'
@@ -28,6 +33,7 @@ def create_app():
     from .main.perks_routes import perks_bp
     from .main.clip_routes import clip_bp
     from .main.proxy import proxy_bp
+    from .main.Game_routes import game_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -37,6 +43,7 @@ def create_app():
     app.register_blueprint(perks_bp)
     app.register_blueprint(clip_bp)
     app.register_blueprint(proxy_bp)
+    app.register_blueprint(game_bp)
 
     return app
 

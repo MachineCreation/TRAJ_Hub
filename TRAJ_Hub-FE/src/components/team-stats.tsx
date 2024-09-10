@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // components
 import YouTubeVideo from "./ytvid";
 import ImageWithSkeleton from "./image_skeleton";
+import { useNavigate } from "react-router-dom";
 
 // css
 
@@ -15,6 +16,12 @@ const TeamStats = () => {
     const [clip1, setclip1] = useState<string>('')
     const [clip2, setclip2] = useState<string>('')
     const [clip3, setclip3] = useState<string>('')
+
+    const navigate = useNavigate();
+
+    const navClick = (nav: string) => (_event: React.MouseEvent<HTMLDivElement>) => {
+        navigate(nav);
+    }
 
 
     const fetchHome = async () => {
@@ -56,13 +63,23 @@ const TeamStats = () => {
     return (
         <section className="relative xl:absolute flex flex-col xl:flex-row xl:justify-between w-full xl:h-screen m-auto ">
             <aside className="flex order-2 mx-auto xl:mx-1 xl:order-1 flex-col justify-stretch w-11/12 xl:w-1/6 h-fit xl:h-full xl:pt-28 ">
-                <figure className=" flex flex-col justify-around xl:grow mx-auto my-1 xl:m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50 ">
+                <figure className=" flex flex-col justify-around xl:grow mx-auto my-1 xl:m-1 h-1/2 p-3 bg-slate-500 bg-opacity-10 text-cyan-50 ">
+                    <div>
                     <h1 className="text-center">Squad favorite Primary <br /> <span className="text-orange-600 mb-2">{sq_p_name}</span></h1>
                         <ImageWithSkeleton 
                             src = {"https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png"}
                             alt = {`${sq_p_name}`}
                             className="w-auto aspect-video"
                         />
+                    </div>
+                    <div>
+                    <h1 className="text-center">Squad favorite Secondary <br /> <span className="text-orange-600 mb-2">{sq_s_name}</span></h1>
+                        <ImageWithSkeleton 
+                            src = {"https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_secondary.png"}
+                            alt = {`${sq_s_name}`}
+                            className="w-auto aspect-video"
+                        />
+                    </div>
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     <YouTubeVideo 
@@ -78,13 +95,10 @@ const TeamStats = () => {
                 </figure>
             </article>
             <aside className="flex order-3 flex-col w-11/12 mx-auto xl:mx-1 xl:w-1/6 h-fit xl:h-full xl:pt-28">
-                <figure className=" flex flex-col justify-around xl:grow mx-auto my-1 xl:m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
-                    <h1 className="text-center">Squad favorite Secondary <br /> <span className="text-orange-600 mb-2">{sq_s_name}</span></h1>
-                        <ImageWithSkeleton 
-                            src = {"https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_secondary.png"}
-                            alt = {`${sq_s_name}`}
-                            className="w-auto aspect-video"
-                        />
+                <figure className=" flex flex-col justify-around w-full xl:grow mx-auto my-1 xl:m-1 h-fit min-h-96 p-3 bg-slate-500 bg-opacity-10 text-cyan-50
+                                    border-2 rounded-2xl border-green-500 shadow-orange-inner">
+                <div className="text-4xl text-center drop-shadow-arcade animate-pulse-shadow text-orange-700 underline decoration-cyan-500 cursor-pointer" 
+                                onClick={navClick("/Arcade")}>Click Arcade 1.0</div>
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     <YouTubeVideo
