@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import YouTubeVideo from "./ytvid";
 import ImageWithSkeleton from "./image_skeleton";
 import { useNavigate } from "react-router-dom";
+import ImageDescription from "./image-description";
 
 // css
 
@@ -16,6 +17,10 @@ const TeamStats = () => {
     const [clip1, setclip1] = useState<string>('')
     const [clip2, setclip2] = useState<string>('')
     const [clip3, setclip3] = useState<string>('')
+    const [favWeaponName, setfavWeaponName] = useState<string>('');
+    const [favWeaponType, setfavWeaponType] = useState<string>('');
+    const [imageAddress, setimageAddress] = useState<string>('');
+    const [isModalVisible, setisModalVisable] = useState<boolean>(false)
 
     const navigate = useNavigate();
 
@@ -58,13 +63,30 @@ const TeamStats = () => {
 
     useEffect(() => {
         fetchHome()
-    },[])
+    },[]);
+
+    const closeModal = () => {
+        setisModalVisable(false)
+    }
+
+    const favWeaponClick = (prime: boolean) => {
+        if (prime) {
+            setfavWeaponName(sq_p_name);
+            setfavWeaponType("Assault riffle");
+            setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png")
+        } else {
+            setfavWeaponName(sq_s_name);
+            setfavWeaponType("Smg");
+            setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_secondary.png")
+        }
+        setisModalVisable(true)
+    }
 
     return (
         <section className="relative xl:absolute flex flex-col xl:flex-row xl:justify-between w-full xl:h-screen m-auto ">
             <aside className="flex order-2 mx-auto xl:mx-1 xl:order-1 flex-col justify-stretch w-11/12 xl:w-1/6 h-fit xl:h-full xl:pt-28 ">
                 <figure className=" flex flex-col justify-around xl:grow mx-auto my-1 xl:m-1 h-1/2 p-3 bg-slate-500 bg-opacity-10 text-cyan-50 ">
-                    <div>
+                    <div onClick={() => favWeaponClick(true)}>
                     <h1 className="text-center">Squad favorite Primary <br /> <span className="text-orange-600 mb-2">{sq_p_name}</span></h1>
                         <ImageWithSkeleton 
                             src = {"https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png"}
@@ -72,7 +94,7 @@ const TeamStats = () => {
                             className="w-auto aspect-video"
                         />
                     </div>
-                    <div>
+                    <div onClick={() => favWeaponClick(false)}>
                     <h1 className="text-center">Squad favorite Secondary <br /> <span className="text-orange-600 mb-2">{sq_s_name}</span></h1>
                         <ImageWithSkeleton 
                             src = {"https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_secondary.png"}
@@ -106,6 +128,15 @@ const TeamStats = () => {
                     />
                 </figure>
             </aside>
+            <div onClick={closeModal}
+                className={`absolute flex top-0 left-0 w-full h-dvh p-[2vw] shadow-outer-green ${isModalVisible ? 'opacity-100 z-50' : 'opacity-0 pointer-events-none -z-10'}`}>
+                <ImageDescription 
+                    name={favWeaponName}
+                    type={favWeaponType}
+                    dataAddress="http://127.0.0.1:5000"
+                    imageAddress={imageAddress}
+                />
+            </div>
         </section>
     );
 };

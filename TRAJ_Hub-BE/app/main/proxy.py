@@ -10,11 +10,10 @@ def api_proxy(endpoint):
     if not api_key:
         return jsonify({"error": "API key is not configured"}), 500
     
-    # Correct the API base URL
-    api_url = f"https://strippers.onrender.com/{endpoint}"  # Corrected base URL
+    api_url = f"https://strippers.onrender.com/{endpoint}"  
     headers = {"X-API-Key": f"{api_key}"}
         
-    # Forward the request to the actual API
+
     response = requests.get(api_url, headers=headers, params=request.args)
 
     # If the request failed, return an error
