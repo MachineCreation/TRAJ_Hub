@@ -176,10 +176,15 @@ const Profile = (props: MemberProps) => {
                 <article className="flex flex-col m-auto md:w-4/6">
                     <section className="flex flex-col lg:flex-row">
                         <figure id="primary" className="p-2" onClick={handleClick(true)}>
-                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Primary Image"] || ""}/360x200`} alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} />
+                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Primary Image"] || ""}/360x200`} 
+                                               alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} 
+                                               className="border border-orange-600 rounded-2xl"/>
                         </figure>
                         <figure id="secondary" className="p-2" onClick={handleClick(false)}>
-                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Secondary Image"] || ""}/360x200`} alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} />
+                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Secondary Image"] || ""}/360x200`} 
+                                               alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
+                                               className="border border-cyan-400 rounded-2xl"
+                                               />
                         </figure>
                     </section>
                     <section className="flex">

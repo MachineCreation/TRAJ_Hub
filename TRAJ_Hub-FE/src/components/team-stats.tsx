@@ -23,6 +23,8 @@ const TeamStats = () => {
     const [isModalVisible, setisModalVisable] = useState<boolean>(false)
 
     const navigate = useNavigate();
+    const backendUrl = "https://traj-hub.onrender.com"
+    // const backendUrl = "http://127.0.0.1:5000"
 
     const navClick = (nav: string) => (_event: React.MouseEvent<HTMLDivElement>) => {
         navigate(nav);
@@ -31,7 +33,7 @@ const TeamStats = () => {
 
     const fetchHome = async () => {
         try {
-            const response = await fetch('https://traj-hub.onrender.com/populate-home', {
+            const response = await fetch(`${backendUrl}/populate-home`, {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json"
@@ -72,7 +74,7 @@ const TeamStats = () => {
     const favWeaponClick = (prime: boolean) => {
         if (prime) {
             setfavWeaponName(sq_p_name);
-            setfavWeaponType("Assault riffle");
+            setfavWeaponType("Assault rifle");
             setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png")
         } else {
             setfavWeaponName(sq_s_name);
@@ -129,11 +131,11 @@ const TeamStats = () => {
                 </figure>
             </aside>
             <div onClick={closeModal}
-                className={`absolute flex top-0 left-0 w-full h-dvh p-[2vw] shadow-outer-green ${isModalVisible ? 'opacity-100 z-50' : 'opacity-0 pointer-events-none -z-10'}`}>
+                className={`fixed top-[2rem] left-[calc(100vw/12)] flex m-auto w-5/6 h-[calc(100dvh*.9)] px-[1vw] rounded-2xl bg-black bg-opacity-70 shadow-outer-green overflow-scroll ${isModalVisible ? 'opacity-100 z-50' : 'opacity-0 pointer-events-none -z-10'}`}>
                 <ImageDescription 
                     name={favWeaponName}
                     type={favWeaponType}
-                    dataAddress="http://127.0.0.1:5000"
+                    dataAddress={backendUrl}
                     imageAddress={imageAddress}
                 />
             </div>

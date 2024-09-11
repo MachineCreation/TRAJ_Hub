@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, jsonify, request, current_app
 from flask_login import login_required, current_user
 from models import User, supabase_service
 from models import weapon_api_key
+import requests
 import json
 import os
 
@@ -145,7 +146,7 @@ def get_home_page():
         print(f"Error occurred: {e}")
         return jsonify({'error': 'unknown', 'details': str(e)}), 500
     
-@main_bp.route('/', methods=["POST"])
+@main_bp.route('/weapon-data', methods=["POST"])
 def get_weapon():
     try:
         data = request.get_json()
@@ -162,9 +163,15 @@ def get_weapon():
         if not api_key:
             return jsonify({"error": "API key is not configured"}), 500
         
-        api_url = f"https://strippers.onrender.com/weapns.{type}.{name}.stats"  
+        api_url = f"https://strippers.onrender.com/weapon/{type}/{name}"  
         headers = {"X-API-Key": f"{api_key}"}
         
-        
-        
-    print('HAPPY?!')
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == 200:
+            return jsonify(response.json()), 200
+        else:
+            return jsonify({"error": "Failed to fetch data from external API", "status_code": response.status_code}), response.status_code
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        return jsonify({'error': 'unknown', 'details': str(e)}), 500
