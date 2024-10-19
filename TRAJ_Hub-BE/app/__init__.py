@@ -13,7 +13,9 @@ def create_app():
     "http://localhost:5173",
     "http://localhost:5000",
     "https://traj-hub.onrender.com",
-    "https://venerable-centaur-983b8b.netlify.app"
+    "https://venerable-centaur-983b8b.netlify.app",
+    "https://dancing-maamoul-5fa7fd.netlify.app/",
+    "https://dashing-manatee-d2c1ef.netlify.app/"
     ]
     CORS(app, resources={r"/*": {"origins": ORIGINS}})
 
@@ -34,6 +36,7 @@ def create_app():
     from .main.clip_routes import clip_bp
     from .main.proxy import proxy_bp
     from .main.Game_routes import game_bp
+    from .profile.email_contact_route import profileEmail_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
@@ -44,6 +47,7 @@ def create_app():
     app.register_blueprint(clip_bp)
     app.register_blueprint(proxy_bp)
     app.register_blueprint(game_bp)
+    app.register_blueprint(profileEmail_bp)
 
     return app
 

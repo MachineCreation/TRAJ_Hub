@@ -13,6 +13,9 @@ supabase_service_role_key = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 supabase: Client = create_client(supabase_url, supabase_key)
 supabase_service: Client = create_client(supabase_url, supabase_service_role_key)
 
+senderemail = os.getenv('EMAIL')
+email_password = os.getenv('EMAIL_PASSWORD')
+
 class User(UserMixin):
     def __init__(self, username):
         self.id = username
