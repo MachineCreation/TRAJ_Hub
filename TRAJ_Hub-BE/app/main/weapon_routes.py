@@ -107,3 +107,8 @@ def upload_weapon():
             
     else:
         return jsonify({'error': 'Invalid file'}), 400
+    
+@weapon_bp('/weapon-types', methods=['POST'])
+def weapon_types():
+    
+    return
