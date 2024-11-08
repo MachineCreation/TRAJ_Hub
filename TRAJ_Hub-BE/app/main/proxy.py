@@ -22,3 +22,31 @@ def api_proxy(endpoint):
    
     # Return the JSON response from the API
     return jsonify(response.json())
+
+@proxy_bp.route('/api/<path:endpoint>', methods=['POST'])
+def api(endpoint):
+    api_key = weapon_api_key
+    if not api_key:
+        return jsonify({"error": "API key is not configured"}), 500
+    
+    api_url = f"https://strippers.onrender.com/{endpoint}"  
+    headers = {
+        "X-API-Key": f"{api_key}",
+        "Content-Type": "application/json"
+        }
+        
+    data = request.get_json()
+    
+    # Forward the request to the remote API
+    response = requests.post(api_url, headers=headers, json=data)
+
+
+    # If the request failed, return an error
+    if response.status_code != 200:
+        return jsonify({
+            "error": "Failed to fetch data from the API",
+            "details": response.text
+        }), response.status_code
+   
+    # Return the JSON response from the API
+    return jsonify(response.json())

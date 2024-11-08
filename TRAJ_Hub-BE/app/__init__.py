@@ -15,7 +15,8 @@ def create_app():
     "https://traj-hub.onrender.com",
     "https://venerable-centaur-983b8b.netlify.app",
     "https://dancing-maamoul-5fa7fd.netlify.app/",
-    "https://dashing-manatee-d2c1ef.netlify.app/"
+    "https://dashing-manatee-d2c1ef.netlify.app/",
+    "https://codesandbox.io/p/sandbox/zgmmdz?file=%2Fsrc%2FApp.tsx%3A164%2C19"
     ]
     CORS(app, resources={r"/*": {"origins": ORIGINS}})
 
