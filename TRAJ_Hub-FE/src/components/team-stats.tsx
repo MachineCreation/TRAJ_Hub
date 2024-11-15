@@ -23,8 +23,8 @@ const TeamStats = () => {
     const [isModalVisible, setisModalVisable] = useState<boolean>(false)
 
     const navigate = useNavigate();
-    const backendUrl = "https://traj-hub.onrender.com"
-    // const backendUrl = "http://127.0.0.1:5000"
+    // const backendUrl = "https://traj-hub.onrender.com"
+     const backendUrl = "http://127.0.0.1:5000"
 
     const navClick = (nav: string) => (_event: React.MouseEvent<HTMLDivElement>) => {
         navigate(nav);
@@ -74,7 +74,7 @@ const TeamStats = () => {
     const favWeaponClick = (prime: boolean) => {
         if (prime) {
             setfavWeaponName(sq_p_name);
-            setfavWeaponType("Assault rifle");
+            setfavWeaponType("Assaultrifle");
             setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png")
         } else {
             setfavWeaponName(sq_s_name);

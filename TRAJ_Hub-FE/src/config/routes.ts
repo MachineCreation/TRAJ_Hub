@@ -4,6 +4,7 @@ import RedPrimeOrigin from "../pages/RedPrimeOrigin.tsx";
 import Araspberryberet from "../pages/Araspberryberet.tsx";
 import JesusTts from "../pages/JesusTts.tsx";
 import Arcade from "../pages/Arcade.tsx";
+import Test from "../pages/test.tsx";
 
 interface RouteType {
     path: string,
@@ -41,6 +42,11 @@ const routes: RouteType[] = [
       path:"/Arcade",
       component: Arcade,
       name: "Arcade"
+    },
+    {
+      path:"/Test",
+      component: Test,
+      name: "Test"
     },
 ];
 

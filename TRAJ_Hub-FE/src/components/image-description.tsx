@@ -58,7 +58,7 @@ const ImageDescription = ({name, type, dataAddress, imageAddress}: imageProps) =
                     />
                     <h1 className="text-center text-[4vw]">{type} -&gt; <span className="text-yellow-600">{name}</span></h1>
                     <ul className="relative flex flex-wrap justify-items-center mx-auto p-3">
-                            {Object.entries(description).map(([key, value]) => (
+                            {Object.entries(description).slice(0, -1).map(([key, value]) => (
                                 <li
                                 key={key}
                                 className="flex mx-auto my-2 p-3 underline decoration-orange-600 border-y-2 border-cyan-400 rounded-2xl">
