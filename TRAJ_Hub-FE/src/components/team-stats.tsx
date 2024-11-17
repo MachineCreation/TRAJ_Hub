@@ -23,8 +23,8 @@ const TeamStats = () => {
     const [isModalVisible, setisModalVisable] = useState<boolean>(false)
 
     const navigate = useNavigate();
-    // const backendUrl = "https://traj-hub.onrender.com"
-     const backendUrl = "http://127.0.0.1:5000"
+    const backendUrl = "https://traj-hub.onrender.com"
+    //const backendUrl = "http://127.0.0.1:5000"
 
     const navClick = (nav: string) => (_event: React.MouseEvent<HTMLDivElement>) => {
         navigate(nav);

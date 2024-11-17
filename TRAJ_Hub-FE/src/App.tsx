@@ -1,16 +1,18 @@
 
 //React
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // components
 
 import ParticlesBackground from "./components/ParticlesBackground";
-import Arcade from './pages/Arcade';
+
 
 //config
 import routes from "./config/routes"
 import { useState } from 'react';
+
+const Arcade = lazy(() => import('./pages/Arcade'))
 
 function App() {
   const [isGameActive, setIsGameActive] = useState<boolean>(false);
