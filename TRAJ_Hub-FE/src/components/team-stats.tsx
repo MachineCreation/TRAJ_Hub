@@ -123,6 +123,8 @@ const TeamStats = () => {
                                     border-2 rounded-2xl border-green-500 shadow-orange-inner">
                 <div className="text-4xl text-center drop-shadow-arcade animate-pulse-shadow text-orange-700 underline decoration-cyan-500 cursor-pointer" 
                                 onClick={navClick("/Arcade")}>Click Arcade 1.0</div>
+                                <div className="text-4xl text-center drop-shadow-arcade animate-pulse-shadow text-orange-700 underline decoration-cyan-500 cursor-pointer" 
+                                onClick={navClick("/WeaponCreator")}>Weapon Creator</div>
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
                     <YouTubeVideo

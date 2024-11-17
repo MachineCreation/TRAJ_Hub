@@ -1,10 +1,14 @@
+// react
+import { lazy } from "react";
+
 import Home from "../pages/home.tsx";
 import TopSloth from "../pages/Topsloth.tsx";
 import RedPrimeOrigin from "../pages/RedPrimeOrigin.tsx";
 import Araspberryberet from "../pages/Araspberryberet.tsx";
 import JesusTts from "../pages/JesusTts.tsx";
-import Arcade from "../pages/Arcade.tsx";
-import Test from "../pages/test.tsx";
+import WeaponCreator from "../pages/weaponCreator.tsx";
+
+const Arcade = lazy(() => import('../pages/Arcade.tsx'));
 
 interface RouteType {
     path: string,
@@ -14,9 +18,9 @@ interface RouteType {
 
 const routes: RouteType[] = [
     {
-      path: "",
+      path: "/",
       component: Home,
-      name: "Home Screen",
+      name: "Home",
     },
     {
       path: "/topsloth",
@@ -39,14 +43,14 @@ const routes: RouteType[] = [
       name: "JesusTts",
     },
     {
+      path:"/WeaponCreator",
+      component: WeaponCreator,
+      name: "Weapon Creator"
+    },
+    {
       path:"/Arcade",
       component: Arcade,
       name: "Arcade"
-    },
-    {
-      path:"/Test",
-      component: Test,
-      name: "Test"
     },
 ];
 

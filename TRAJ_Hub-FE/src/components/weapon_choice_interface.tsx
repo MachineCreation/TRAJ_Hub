@@ -1,6 +1,9 @@
 // react
 import { useState } from 'react';
 
+// components
+import { BooleanToggle } from './boolean-toggle';
+
 // functions
 import { SplitRifle } from '../config/helpers'
 
@@ -30,31 +33,31 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
   }
 
   return (
-    <div className='relative w-full'>
-      <header className='flex w-full m-2 p-1 justify-around border border-blue-700'>
-        <div className='flex w-1/2 justify-center '>
-        <h1>
-          Choose your weapon type.
-        </h1>
+    <div className='relative w-full text-xl'>
+      <header className='flex flex-col-reverse sm:flex-row m-2 p-3 justify-around items-center rounded-xl border-x-2'>
+        <div className='flex sm:w-1/2 justify-center items-center text-center'>
+          <h1>
+            Choose your weapon type.
+          </h1>
         </div>
-        <div className='flex w-1/2 justify-center items-center'>
-        {/* <button onClick={changeBuildMode}>Build Mode: {isBalanced? 'Balanced': 'Custom'}</button> */}
-        <div className='relative flex w-40 h-full rounded-full justify-between items-center py-1 px-2 bg-purple-800'>
-          {isBalanced ? 'Balanced': null}
-          <div 
-            className={`block h-5/6 w-1/2 rounded-full bg-gray-500  `}
-            onClick={changeBuildMode}>
-          </div>
-          {isBalanced? null : 'Custom'}
-        </div>
+        <div className='flex w-1/2 m-5 justify-center items-center'>
+          <BooleanToggle 
+            ifTrue='Balanced'
+            ifFalse='Custom'
+            height='h-10'
+            width='w-48'
+            IO={isBalanced}
+            changeMode={changeBuildMode}
+          />
         </div>
       </header>
-      <article className='flex w-full'>
-        <section className='flex-col w-1/2'>
+
+      <article className='flex flex-col sm:flex-row m-2 rounded-xl border-x-2'>
+        <section className='flex-col sm:w-1/2 justify-items-center sm:justify-items-start border-b-2 sm:border-none border-orange-500'>
           {weapons.weapontypes.map((wtype: string, index) => (
             <button
-              key={index}
-              className={`flex m-1 py-1 px-2 rounded-xl ${props.weaponType === wtype ? 'bg-green-600': 'bg-none'} bg-opacity-40`}
+              key={`wtype${index}`}
+              className={`flex m-1 py-1 px-2 rounded-xl ${props.weaponType === wtype ? 'bg-green-600': 'bg-none'} bg-opacity-40 text-left`}
               onClick={() => {
                 props.setWeaponType(wtype);
               }}
@@ -64,25 +67,32 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
           ))}
         </section>
 
-        <section className={`flex-col w-1/2 justify-items-center ${isBalanced? 'hidden': 'flex'}`}>
+        <section className={`flex-col sm:w-1/2 items-center sm:items-start ${isBalanced? 'hidden': 'flex'}`}>
+          <p className='m-2 p-2 border-b-2 border-blue-500'>
+            Choose parameters in order of importance
+          </p>
           {weapons.parameters.map((param: string, index) => (
             <button
-              key={index}
-              className={`flex justify-between m-1 py-1 px-2 w-40 rounded-xl ${!props.parameterList.includes(param) ? 'bg-none': 'bg-green-600'} bg-opacity-40`}
+              key={`param${index}`}
+              className={`relative flex flex-wrap justify-between m-1 py-1 px-2 w-40 rounded-xl ${!props.parameterList.includes(param) ? 'bg-none': 'bg-green-600'} bg-opacity-40`}
               onClick={() => {
                 props.addRemoveParameter(param);
               }}
             >
-              <p>{param}</p>
-              <p>{props.parameterList.includes(param) ? props.parameterList.indexOf(param) + 1 : null}</p>
+              <p><span className="relative text-[.7rem] align-top mr-2">?</span>{param}</p>
+              <p>{props.parameterList.includes(param) ? props.parameterList.indexOf(param) + 1 : <span className='text-red-600'>X</span>}</p>
+              <div className='absolute hidden'>
+                poop
+              </div>
             </button>
           ))}
         </section>
       </article>
 
-      <section className='flex w-full  justify-around'>
-        <div className='flex w-1/2 justify-center border border-red-700'>
+      <section className='flex m-2 p-3 justify-around rounded-xl border-x-2'>
+        <div className='flex w-1/2 justify-center items-center'>
         <button
+          className='py-1 px-[calc(5vw)] rounded-xl bg-green-500'
           onClick={() => {
             props.fetchData(isBalanced);
           }}
@@ -90,8 +100,9 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
           submit
         </button>
         </div>
-        <div className='flex w-1/2 justify-center border border-blue-700'>
+        <div className='flex w-1/2 justify-center items-center'>
         <button
+          className='py-1 px-[calc(5vw)] rounded-xl bg-yellow-500'
           onClick={() => {
             props.reset();
           }}

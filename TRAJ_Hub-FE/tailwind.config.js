@@ -38,6 +38,14 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.drop-filter': {
+          filter: 'drop-shadow(0 0 .5rem rgb(85, 85, 255))',
+        },
+      });
+    }
+  ],
 }
 

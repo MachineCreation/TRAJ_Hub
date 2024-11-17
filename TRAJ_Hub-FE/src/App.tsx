@@ -1,4 +1,6 @@
 
+//React
+import { Suspense } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // components
@@ -17,21 +19,23 @@ function App() {
       
         <HashRouter>
           {!isGameActive && <ParticlesBackground />}
-          <Routes>
-            { routes.map((route: any, index: any) => (
-              <Route
-                key={index}
-                path={route.path}
-                element={
-                  route.path === '/Arcade' ? (
-                    <Arcade setIsGameActive={setIsGameActive} />
-                  ) : (
-                    <route.component />
-                  )
-                }
-              />
-            )) }
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              { routes.map((route: any, index: any) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={
+                    route.path === '/Arcade' ? (
+                      <Arcade setIsGameActive={setIsGameActive} />
+                    ) : (
+                      <route.component />
+                    )
+                  }
+                />
+              )) }
+            </Routes>
+          </Suspense>
       </HashRouter>
   )
 }
