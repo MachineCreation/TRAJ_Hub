@@ -38,7 +38,7 @@ export default function WeaponBuilder() {
   const fetchData = async (buildMode: boolean) => {
     if (buildMode) {
       try {
-        const response = await fetch(`${weapons.backend_url}api-post/build_balanced/${weaponType}`,{method: "POST",});
+        const response = await fetch(`${weapons.backend_url}/api-post/build_balanced/${weaponType}`,{method: "POST",});
 
         if (!response.ok) {
           alert(
@@ -62,7 +62,7 @@ export default function WeaponBuilder() {
     }
     else {
         try {
-            const response = await fetch(`${weapons.backend_url}api/build_weapon`, {
+            const response = await fetch(`${weapons.backend_url}/api/build_weapon`, {
                 method:"POST",
                 headers: {
                     "Content-Type": "application/json"

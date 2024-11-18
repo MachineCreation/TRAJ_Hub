@@ -21,9 +21,6 @@ def memberProfile():
     try:
         data = request.get_json()
         member = data.get('member')
-        
-        print(f"Received data: {data}")
-        print(f"Member: {member}")
 
         if not member:
             return jsonify({'error': 'Member not provided'}), 400

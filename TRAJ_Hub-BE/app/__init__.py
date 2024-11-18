@@ -16,9 +16,9 @@ def create_app():
     "https://venerable-centaur-983b8b.netlify.app",
     "https://dancing-maamoul-5fa7fd.netlify.app/",
     "https://dashing-manatee-d2c1ef.netlify.app/",
-    "https://codesandbox.io/p/sandbox/zgmmdz?file=%2Fsrc%2FApp.tsx%3A164%2C19"
     ]
-    CORS(app, resources={r"/*": {"origins": ORIGINS}})
+    
+    CORS(app, resources={r"/*": {"origins": ORIGINS}}, supports_credentials=True)
 
     UPLOAD_FOLDER = 'uploads/'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -52,8 +52,3 @@ def create_app():
 
     return app
 
-
-@login_manager.user_loader
-def load_user(username):
-    user, _ = User.get(username)
-    return user

@@ -4,7 +4,7 @@ import { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 
 // components
-
+import PrivateRoute from './components/private-route';
 import ParticlesBackground from "./components/ParticlesBackground";
 
 
@@ -29,9 +29,13 @@ function App() {
                   path={route.path}
                   element={
                     route.path === '/Arcade' ? (
-                      <Arcade setIsGameActive={setIsGameActive} />
+                      <PrivateRoute component={<Arcade setIsGameActive={setIsGameActive} />}/>
                     ) : (
-                      <route.component />
+                      route.protected ? (
+                        <PrivateRoute component={route.component} />
+                      ) : (
+                        <route.component />
+                      )
                     )
                   }
                 />

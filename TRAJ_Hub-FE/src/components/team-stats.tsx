@@ -7,6 +7,9 @@ import ImageWithSkeleton from "./image_skeleton";
 import { useNavigate } from "react-router-dom";
 import ImageDescription from "./image-description";
 
+// vvariables
+import { backend_url } from "../config/variables";
+
 // css
 
 
@@ -23,8 +26,6 @@ const TeamStats = () => {
     const [isModalVisible, setisModalVisable] = useState<boolean>(false)
 
     const navigate = useNavigate();
-    const backendUrl = "https://traj-hub.onrender.com"
-    //const backendUrl = "http://127.0.0.1:5000"
 
     const navClick = (nav: string) => (_event: React.MouseEvent<HTMLDivElement>) => {
         navigate(nav);
@@ -33,7 +34,7 @@ const TeamStats = () => {
 
     const fetchHome = async () => {
         try {
-            const response = await fetch(`${backendUrl}/populate-home`, {
+            const response = await fetch(`${backend_url}/populate-home`, {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json"
@@ -137,7 +138,7 @@ const TeamStats = () => {
                 <ImageDescription 
                     name={favWeaponName}
                     type={favWeaponType}
-                    dataAddress={backendUrl}
+                    dataAddress={backend_url}
                     imageAddress={imageAddress}
                 />
             </div>

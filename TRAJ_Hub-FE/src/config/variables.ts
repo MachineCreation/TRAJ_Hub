@@ -26,8 +26,10 @@ export const negativeValueIsPositiveEffect = [
     "Handling",
   ];
   
-  export const backend_url = "http://127.0.0.1:5000/";
-  
+  // export const backend_url = "https://traj-hub.onrender.com";
+  export const backend_url = "http://127.0.0.1:5000";
+
+
   export const test_data = {
     "SO-14": {
       "Overall tier": "A",

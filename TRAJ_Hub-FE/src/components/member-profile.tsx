@@ -1,9 +1,16 @@
+// React
 import { useState, useEffect } from "react";
+
+// components
 import WeaponModal from "./detModal";
 import ClipGallery from "./clip_gallery";
-import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
 import ImageWithSkeleton from "./image_skeleton";
 
+//types
+import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
+
+// variables
+import { backend_url } from "../config/variables";
 // css
 
 
@@ -21,7 +28,7 @@ const Profile = (props: MemberProps) => {
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
-            const response = await fetch('https://traj-hub.onrender.com/get-member-profile', {
+            const response = await fetch(`${backend_url}/get-member-profile`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
