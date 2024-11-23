@@ -1,5 +1,12 @@
+//react
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+
+//redux
+import { useDispatch } from 'react-redux';
+import { setUsername } from '../store/user';
+
+// variables
 import { backend_url } from '../config/variables';
 
 interface PrivateRouteProps {
@@ -7,6 +14,8 @@ interface PrivateRouteProps {
 }
 
 const PrivateRoute = ({ component }: PrivateRouteProps): JSX.Element => {
+
+  const dispatch = useDispatch();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -17,7 +26,9 @@ const PrivateRoute = ({ component }: PrivateRouteProps): JSX.Element => {
           credentials: 'include',
         });
         const data = await response.json();
+        const username: string = await data.username
         setIsAuthenticated(data.authenticated);
+        dispatch(setUsername(username))
       } catch (error) {
         console.error('Error checking authentication:', error);
         setIsAuthenticated(false);
@@ -26,7 +37,6 @@ const PrivateRoute = ({ component }: PrivateRouteProps): JSX.Element => {
 
     checkAuth();
   }, []);
-
 
 
   if (isAuthenticated === null) {

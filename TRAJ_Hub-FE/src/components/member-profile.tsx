@@ -6,6 +6,11 @@ import WeaponModal from "./detModal";
 import ClipGallery from "./clip_gallery";
 import ImageWithSkeleton from "./image_skeleton";
 
+//Redux
+//redux
+import { useSelector } from "react-redux";
+import { RootState } from '../store/main';
+
 //types
 import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../config/Members";
 
@@ -25,6 +30,8 @@ const Profile = (props: MemberProps) => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [descriptionBox, setDescriptionBox] = useState<{ name: string, description: string } | null>(null);
     const [boxPosition, setBoxPosition] = useState<{ top: number, left: number, width: number } | null>(null);
+    const username = useSelector((state: RootState) => state.user.username)
+
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
@@ -176,6 +183,7 @@ const Profile = (props: MemberProps) => {
             </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
                 <figure className="relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto">
+                    {username == props.name? 'You are logged in': null}
                     <ImageWithSkeleton className="flex max-w-full h-auto"
                      src={`${memberData.WeaponDetails?.hero || ""}/380x740`} 
                      alt="Member Profile image" />

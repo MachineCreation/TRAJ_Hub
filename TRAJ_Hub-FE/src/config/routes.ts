@@ -47,7 +47,7 @@ const routes: RouteType[] = [
       path: "/JesusTts",
       component: JesusTts,
       name: "JesusTts",
-      protected: true
+      protected: false
     },
     {
       path:"/WeaponCreator",
@@ -59,7 +59,7 @@ const routes: RouteType[] = [
       path:"/Arcade",
       component: Arcade,
       name: "Arcade",
-      protected: true
+      protected: false
     },
     {
       path:"/login",
