@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, jsonify, request, current_app
 from flask_login import login_required, current_user
 from models import User, supabase_service
 from models import weapon_api_key
+from config import API_BASE_URL
 import requests
 import json
 import os
@@ -160,7 +161,7 @@ def get_weapon():
         if not api_key:
             return jsonify({"error": "API key is not configured"}), 500
         
-        api_url = f"https://strippers.onrender.com/weapon/{type}/{name}"  
+        api_url = f"{API_BASE_URL}weapon/{type}/{name}"  
         headers = {"X-API-Key": f"{api_key}"}
         
         response = requests.get(api_url, headers=headers)

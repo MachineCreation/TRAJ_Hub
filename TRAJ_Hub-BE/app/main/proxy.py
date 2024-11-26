@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from models import weapon_api_key
+from config import API_BASE_URL
 import requests
 
 proxy_bp = Blueprint('proxy', __name__, template_folder="../../pages/html")
@@ -10,7 +11,7 @@ def api_proxy(endpoint):
     if not api_key:
         return jsonify({"error": "API key is not configured"}), 500
     
-    api_url = f"https://strippers.onrender.com/{endpoint}"  
+    api_url = f"{API_BASE_URL}{endpoint}"  
     headers = {"X-API-Key": f"{api_key}"}
         
 
@@ -29,7 +30,7 @@ def api_post(endpoint):
     if not api_key:
         return jsonify({"error": "API key is not configured"}), 500
     
-    api_url = f"https://strippers.onrender.com/{endpoint}"  
+    api_url = f"{API_BASE_URL}{endpoint}"  
     headers = {"X-API-Key": f"{api_key}"}
         
 
@@ -48,7 +49,7 @@ def api(endpoint):
     if not api_key:
         return jsonify({"error": "API key is not configured"}), 500
     
-    api_url = f"https://strippers.onrender.com/{endpoint}"  
+    api_url = f"{API_BASE_URL}{endpoint}"  
     headers = {
         "X-API-Key": f"{api_key}",
         "Content-Type": "application/json"
