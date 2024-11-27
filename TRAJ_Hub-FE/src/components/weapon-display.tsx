@@ -3,7 +3,7 @@ import * as weapons from '../config/variables';
 import { WeaponData } from '../config/types';
 
 //functions
-import { SplitRifle, ToTitleCase, FormatToTwoDecimals } from "../config/helpers";
+import { ToTitleCase, FormatToTwoDecimals } from "../config/helpers";
 
 
 interface weaponDisplayProps {
@@ -56,15 +56,11 @@ const WeaponDiaplay = (props:weaponDisplayProps) => {
         return ToTitleCase(str);
     }
 
-    const splitRifle = (str:string) => {
-        return SplitRifle(str);
-    }
-
     return (
         <article className='flex w-full flex-col p-4 text-xl'>
           <header id="weap_header"
             className='flex flex-col md:flex-row my-2 p-1 justify-around text-2xl md:text-3xl text-center rounded-xl border-x-2'>
-            <section className='p-2'>{splitRifle(props.weaponData.type)} &gt; {props.data_name}</section>
+            <section className='p-2'>{toTitleCase(props.weaponData.type)} &gt; {props.data_name}</section>
             <section className='p-2'>Overall tier: {props.weaponData["Overall tier"]} </section>
             <button
               className='py-1 px-[calc(5vw)] rounded-xl bg-yellow-500'

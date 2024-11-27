@@ -1,5 +1,5 @@
 // react
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 // components
@@ -14,18 +14,30 @@ interface HeaderProps {
 const Header = (props: HeaderProps) => {
 
     const [dropNav, setDropNav] = useState<Boolean>(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
     const navigate = useNavigate()
 
     const handleNav = (nav:string) => {
         navigate(nav)
     }
 
-
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            setDropNav(false);
+          }
+        };
+    
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, []);
 
     return (
         <header className="flex justify-between items-center relative w-screen h-fit p-8 text-cyan-50 z-10">
             <p className="text-5xl cursor-pointer" onClick={() => {handleNav('/')}}><span className="text-yellow-600">&#91;</span>TRAJ<span className="text-yellow-600">&#93;</span> Hub</p>
-            <section className="relative text-lg cursor-pointer" onClick={() => {setDropNav(!dropNav)}}>
+            <section ref={dropdownRef} className="relative text-lg cursor-pointer" onClick={() => {setDropNav(!dropNav)}} onBlur={() => {setDropNav(false)}}>
                 {props.name}
                 <ul
                   className={`absolute w-fit h-fit p-5 right-0 top-10 rounded-xl ${dropNav? 'block': 'hidden'} bg-black shadow-orange-inner`}

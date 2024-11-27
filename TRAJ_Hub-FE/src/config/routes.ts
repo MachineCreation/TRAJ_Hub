@@ -11,7 +11,7 @@ import Login from "../pages/login.tsx";
 
 const Arcade = lazy(() => import('../pages/Arcade.tsx'));
 
-interface RouteType {
+export interface RouteType {
     path: string,
     component: React.ComponentType<any>,
     name: string,

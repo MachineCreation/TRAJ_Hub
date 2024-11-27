@@ -2,12 +2,11 @@
 import { useState, useEffect } from "react";
 
 // components
-import WeaponModal from "./detModal";
+import WeaponModal from "./weaponModal";
 import ClipGallery from "./clip_gallery";
 import ImageWithSkeleton from "./image_skeleton";
 
 //Redux
-//redux
 import { useSelector } from "react-redux";
 import { RootState } from '../store/main';
 
@@ -30,8 +29,8 @@ const Profile = (props: MemberProps) => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
     const [descriptionBox, setDescriptionBox] = useState<{ name: string, description: string } | null>(null);
     const [boxPosition, setBoxPosition] = useState<{ top: number, left: number, width: number } | null>(null);
-    const username = useSelector((state: RootState) => state.user.username)
-
+    const username = useSelector((state: RootState) => state.user.username);
+    const [authForPage, setauthforpage] = useState<boolean> (false);
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
@@ -101,26 +100,24 @@ const Profile = (props: MemberProps) => {
             console.error('An error occurred:', error);
             return null;
         }
-    }
-    
+    };
+
+    async function loadMemberData(memberName: MemberName) {
+        const memberData = await fetchMemberData(memberName);
+        if (memberData) {
+            members[memberName].WeaponDetails = memberData;
+            setMemberData((prevData) => ({
+                ...prevData,
+                WeaponDetails: memberData,
+            }));
+        }
+    };
 
     useEffect(() => {
-        async function loadMemberData(memberName: MemberName) {
-            const memberData = await fetchMemberData(memberName);
-            if (memberData) {
-                members[memberName].WeaponDetails = memberData;
-                setMemberData((prevData) => ({
-                    ...prevData,
-                    WeaponDetails: memberData,
-                }));
-            }
-        }
-
         loadMemberData(props.name);
-    }, [props.name]);
+    },[])
 
-
-    const handleClick = (prime: boolean) => () => {
+    const handleWeaponClick = (prime: boolean) => () => {
         setIsPrimary(prime);
         setIsModalVisible(true);
     };
@@ -155,51 +152,62 @@ const Profile = (props: MemberProps) => {
         }
     };
 
-    const handleDocumentClick = () => {
-        setDescriptionBox(null);
-        setBoxPosition(null);
-    };
-
     useEffect(() => {
-        document.addEventListener("click", handleDocumentClick);
-        return () => {
-            document.removeEventListener("click", handleDocumentClick);
+        const handleDocumentClick = () => {
+          setDescriptionBox(null);
+          setBoxPosition(null);
         };
-    }, []);
+      
+        document.addEventListener("click", handleDocumentClick);
+      
+        return () => {
+          document.removeEventListener("click", handleDocumentClick);
+        };
+      }, []);
 
-    // console.log(memberData)
+      useEffect(() => {
+        if (username === props.name) {
+            setauthforpage(true);
+        };
+      }, []);
 
     return (
         <>
             <div
                 id="wmodal"
                 className={`absolute transition-opacity duration-200 ${isModalVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                onClick={handleModalClick}
             >
                 <WeaponModal
                     equip={isPrimary}
                     data = {memberData}
+                    setdata= {loadMemberData}
+                    editable = {authForPage}
+                    click = {handleModalClick}
                 />
             </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
                 <figure className="relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto">
-                    {username == props.name? 'You are logged in': null}
-                    <ImageWithSkeleton className="flex max-w-full h-auto"
+                    <img className="flex max-w-full h-auto"
                      src={`${memberData.WeaponDetails?.hero || ""}/380x740`} 
                      alt="Member Profile image" />
                 </figure>
                 <article className="flex flex-col m-auto md:w-4/6">
                     <section className="flex flex-col lg:flex-row">
-                        <figure id="primary" className="p-2" onClick={handleClick(true)}>
-                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Primary Image"] || ""}/360x200`} 
-                                               alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} 
-                                               className="border border-orange-600 rounded-2xl"/>
+                        <figure id="primary" className="relative p-2" onClick={handleWeaponClick(true)}>
+                            <img src={`${memberData.WeaponDetails?.["Primary Image"] || ""}/360x200`} 
+                                alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} 
+                                className="border border-orange-600 rounded-2xl"/>
+                            {/* <div className="absolute">username: {username} props name: {props.name}</div> */}
+                            <button className={`absolute w-8 aspect-square bottom-4 right-4 ${authForPage? null: 'hidden' }`}>
+                                <img src="/media/edit_pencil.png" 
+                                alt="" 
+                                className="invert object-contain w-full h-full overflow-visible"/>
+                            </button>
                         </figure>
-                        <figure id="secondary" className="p-2" onClick={handleClick(false)}>
-                            <ImageWithSkeleton src={`${memberData.WeaponDetails?.["Secondary Image"] || ""}/360x200`} 
-                                               alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
-                                               className="border border-cyan-400 rounded-2xl"
-                                               />
+                        <figure id="secondary" className="relative p-2" onClick={handleWeaponClick(false)}>
+                            <img src={`${memberData.WeaponDetails?.["Secondary Image"] || ""}/360x200`} 
+                                alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
+                                className="border border-cyan-400 rounded-2xl"></img>
                         </figure>
                     </section>
                     <section className="flex">

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { BooleanToggle } from './boolean-toggle';
 
 // functions
-import { SplitRifle } from '../config/helpers'
+import { ToTitleCase } from '../config/helpers'
 
 // variables
 import * as weapons from '../config/variables'
@@ -23,10 +23,6 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
 
   // variables
   const [isBalanced, setIsBalanced] = useState<boolean>(false);
-
-  const splitRifle = (str: string) => {
-      return SplitRifle(str)
-    }
 
   const changeBuildMode = () => {
     setIsBalanced(!isBalanced)
@@ -62,7 +58,7 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
                 props.setWeaponType(wtype);
               }}
             >
-              <p>{splitRifle(wtype)}</p>
+              <p>{ToTitleCase(wtype)}</p>
             </button>
           ))}
         </section>

@@ -8,14 +8,14 @@ export const negativeValueIsPositiveEffect = [
   ];
   
   export const weapontypes = [
-    "Assaultrifle",
-    "Battlerifle",
-    "Lmg",
-    "Marksmanrifle",
-    "Pistols",
-    "Shotgun",
-    "Smg",
-    "Sniperrifle",
+    "assault rifle",
+		"battle rifle",
+		"lmg",
+		"marksman rifle",
+		"pistols",
+		"shotgun",
+		"smg",
+		"sniper rifle"
   ];
   
   export const parameters = [

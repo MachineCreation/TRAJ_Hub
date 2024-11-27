@@ -29,13 +29,9 @@ function App() {
                   path={route.path}
                   element={
                     route.path === '/Arcade' ? (
-                      <PrivateRoute component={<Arcade setIsGameActive={setIsGameActive} />}/>
+                      <Arcade setIsGameActive={setIsGameActive} />
                     ) : (
-                      route.protected ? (
-                        <PrivateRoute component={route.component} />
-                      ) : (
-                        <route.component />
-                      )
+                        <PrivateRoute route={route} />
                     )
                   }
                 />
