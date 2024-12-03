@@ -2,15 +2,14 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-//redux
-import { useDispatch } from 'react-redux';
-import { setUsername } from '../store/user';
+// routes
+import { checkAuth } from '../config/helpers';
 
 // types
 import {RouteType} from '../config/routes'
 
-// variables
-import { backend_url } from '../config/variables';
+
+
 
 interface PrivateRouteProps {
   route: RouteType
@@ -18,27 +17,15 @@ interface PrivateRouteProps {
 
 const PrivateRoute = ({ route }: PrivateRouteProps): JSX.Element => {
 
-  const dispatch = useDispatch();
+  const Auth = checkAuth();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  const checkAuth = async () => {
-    try {
-      const response = await fetch(`${backend_url}/auth/check`, {
-        method: 'GET',
-        credentials: 'include',
-      });
-      const data = await response.json();
-      const username: string = await data.username
-      setIsAuthenticated(data.authenticated);
-      dispatch(setUsername(username))
-    } catch (error) {
-      console.error('Error checking authentication:', error);
-      setIsAuthenticated(false);
-    }
-  };
-
-  checkAuth();
-
+  const auth = async () => {
+    const response = await Auth()
+    setIsAuthenticated(response);    
+  }
+  
+  auth();
 
   if (isAuthenticated === null) {
     return <div>Loading...</div>;

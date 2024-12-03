@@ -180,7 +180,6 @@ const Profile = (props: MemberProps) => {
                 <WeaponModal
                     equip={isPrimary}
                     data = {memberData}
-                    setdata= {loadMemberData}
                     editable = {authForPage}
                     click = {handleModalClick}
                 />

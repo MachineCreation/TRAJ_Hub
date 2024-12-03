@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, jsonify, request, current_app
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
+from .proxy import api_proxy
 from models import supabase_service, User
+import requests
 import os
 from PIL import Image
 import json
@@ -108,3 +110,47 @@ def upload_weapon():
     else:
         return jsonify({'error': 'Invalid file'}), 400
     
+@weapon_bp.route('/update-weapon-data', methods=["POST"])
+def updateWeaponData():
+    data = request.get_json()
+    if data:
+        try:
+            uname = data.get('user')
+            slot = data.get('slot')
+            wtype= data.get('type')
+            wname = data.get('name')
+            attachments_raw = data.get('attachments')
+            
+            weapon = api_proxy(f'weapon/{wtype}/{wname}')
+            weapon_stats = {}
+            for stat, value in  weapon.get_json().get('stats').items():
+                if not isinstance(value,dict):
+                    weapon_stats[stat] = value
+            attachments = {}
+            
+            for atype, att in attachments_raw.items():
+                response = api_proxy(f'/attachment/{wtype}/{wname}/{atype.lower()}/{att}')
+                stats = response.get_json()
+                attachments[att] = stats.get('stats')
+            weapon_object = {
+                        wname : {
+                            "attachments": attachments,
+                            "stats": weapon_stats
+                        }
+                    }
+            try:
+                response = supabase_service.table("Loadouts").update({
+                    f'{slot}-weapon': weapon_object
+                }).eq("name", uname).execute()
+                
+                if not response.data:
+                    print(f"No response was received")
+                    return jsonify({'error': 'no response'}), 500
+            except Exception as e:
+                print(f"Error occurred: {str(e)}")
+                return jsonify({'error': 'unknown', 'details': str(e)}), 500
+            
+            return jsonify({f'{uname} {slot} data updated': weapon_object}), 200    
+        except Exception as e:
+            print(f"Error occurred: {str(e)}")
+            return jsonify({'error': 'unknown', 'details': str(e)}), 500

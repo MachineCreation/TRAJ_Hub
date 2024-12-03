@@ -9,18 +9,17 @@ import { useSelector } from "react-redux";
 import { RootState } from '../store/main';
 
 //types
-import { Member, MemberName, WeaponDetailKey } from "../config/Members";
+import { Member, WeaponDetailKey } from "../config/Members";
 
 //css
 interface WeaponModalProps {
     equip: boolean;
     data: Member;
-    setdata: (membername:MemberName) => Promise<void>
     editable: boolean;
     click: () => void;
 }
 
-const WeaponModal = ({equip, data, setdata, editable, click }: WeaponModalProps) => {
+const WeaponModal = ({equip, data,  editable, click }: WeaponModalProps) => {
     const [weapon, setWeapon] = useState<WeaponDetailKey>("Primary Weapon Details");
     const [weaponPos, setWeaponPos] = useState<string>("primary");
     const [buttonClicked, setButtonClicked] = useState<boolean>(false);
@@ -37,17 +36,17 @@ const WeaponModal = ({equip, data, setdata, editable, click }: WeaponModalProps)
     },[equip]);
 
     return (
-        <article className="fixed flex flex-col justify-items-center items-center w-screen h-screen p-4 bg-black bg-opacity-70 z-30">
-            <section className="relative flex-col m-auto p-16 h-full full overflow-scroll rounded-2xl shadow-outer-green flex-wrap bg-grey ">
+        <article className="fixed flex flex-col justify-items-center items-center w-screen h-screen p-2 sm:p-4 bg-black bg-opacity-70 z-30">
+            <section className="relative flex-col m-auto p-4 pt-10 sm:p-16 min-w-1/2 h-full full overflow-scroll rounded-2xl shadow-outer-green flex-wrap bg-grey ">
                 {buttonClicked ? (
                     <EditWeapon 
-                        setdata={setdata}
                         equip={weaponPos}
+                        clicked={setButtonClicked}
                         />
                 ): (
                     <>
                     <div className="flex">
-                    {editable? (<section className="flex p-2 self-center w-fit mx-auto mb-5 -mt-20 bg-orange-500 rounded-xl text-xl">
+                    {editable? (<section className="flex p-2 self-center w-fit mx-auto mb-5 -mt-12 sm:-mt-20 bg-orange-500 rounded-xl text-xl">
                         <button onClick={() => {setButtonClicked(true)}}>
                             Edit {weaponPos} for {username}
                         </button>

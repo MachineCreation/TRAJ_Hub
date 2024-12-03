@@ -51,7 +51,7 @@ def memberProfile():
         return jsonify({'error': 'unknown', 'details': str(e)}), 500
 
 
-# upload home page data
+#-------------------------------------------------------- upload home page data
 @main_bp.route('/main-page-upload', methods=['POST'])
 @login_required
 def main_page_upload():
@@ -126,6 +126,7 @@ def main_page_upload():
 
     return render_template('main.html', user_data=user_data)
 
+#-----------------------------------------------------------fetch data for home page (public)
 @main_bp.route('/populate-home', methods=['POST'])
 def get_home_page():
     
@@ -144,6 +145,7 @@ def get_home_page():
         print(f"Error occurred: {e}")
         return jsonify({'error': 'unknown', 'details': str(e)}), 500
     
+# ------------------------------------------------------- get weapon data for main page
 @main_bp.route('/weapon-data', methods=["POST"])
 def get_weapon():
     try:

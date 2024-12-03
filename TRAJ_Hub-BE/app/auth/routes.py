@@ -55,9 +55,9 @@ def check_auth():
         data = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
         return jsonify({'authenticated': True, "username": data['sub']}), 200
     except jwt.ExpiredSignatureError:
-        return jsonify({'authenticated': False}), 200
+        return jsonify({'authenticated': False, "username": ''}), 200
     except jwt.InvalidTokenError:
-        return jsonify({'authenticated': False}), 200
+        return jsonify({'authenticated': False, "username": ''}), 200
 
 # @auth_bp.route('/logout', methods=['POST'])
 # @token_required

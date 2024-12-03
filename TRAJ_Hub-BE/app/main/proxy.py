@@ -11,7 +11,7 @@ def api_proxy(endpoint):
     if not api_key:
         return jsonify({"error": "API key is not configured"}), 500
     
-    api_url = f"{API_BASE_URL}{endpoint}"  
+    api_url = f"{API_BASE_URL}{endpoint}"
     headers = {"X-API-Key": f"{api_key}"}
         
 
@@ -70,3 +70,4 @@ def api(endpoint):
    
     # Return the JSON response from the API
     return jsonify(response.json())
+
