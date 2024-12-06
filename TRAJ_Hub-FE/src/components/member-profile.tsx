@@ -5,6 +5,12 @@ import { useState, useEffect } from "react";
 import WeaponModal from "./weaponModal";
 import ClipGallery from "./clip_gallery";
 import ImageWithSkeleton from "./image_skeleton";
+import EditImageModal from "./edit-image-modal";
+import EditImageButton from "./edit-image-button";
+import EditEPModal from "./edit-equip-modal";
+
+//MUI
+import { Skeleton } from "@mui/material";
 
 //Redux
 import { useSelector } from "react-redux";
@@ -31,6 +37,43 @@ const Profile = (props: MemberProps) => {
     const [boxPosition, setBoxPosition] = useState<{ top: number, left: number, width: number } | null>(null);
     const username = useSelector((state: RootState) => state.user.username);
     const [authForPage, setauthforpage] = useState<boolean> (false);
+    const [isEditImageVisible, setIsEditImageVisible] = useState<boolean>(false)
+    const [slot, setSlot] = useState<string>('')
+    const [primaryImageLoaded, setPrimaryImageLoaded] = useState<boolean>(false);
+    const primaryImage = new Image();
+    const [primaryImageSrc, setprimaryImageSrc] = useState<string | null>(null)
+    const [secondaryImageLoaded, setsecondaryImageLoaded] = useState<boolean>(false);
+    const secondaryImage = new Image();
+    const [secondaryImageSrc, setsecondaryImageSrc] = useState<string | null>(null)
+    const [heroImageLoaded, setheroImageLoaded] = useState<boolean>(false);
+    const heroImage = new Image();
+    const [heroImageSrc, setHeroImageSrc] = useState<string | null>(null);
+    const [equipEditorVis, setEquipEditorVis] = useState<boolean>(true);
+    const[editType, setEditType] =useState<string | null>(null)
+
+    if (memberData.WeaponDetails) {
+        heroImage.src = memberData.WeaponDetails?.hero
+        primaryImage.src = memberData.WeaponDetails?.["Primary Image"]
+        heroImage.onload = () => {
+            setHeroImageSrc(heroImage.src)
+            setheroImageLoaded(true)
+        }
+        primaryImage.onload = () => {
+            setprimaryImageSrc(primaryImage.src)
+            setPrimaryImageLoaded(true)
+        }
+    }
+
+    if (memberData.WeaponDetails) {
+        secondaryImage.src = memberData.WeaponDetails?.["Secondary Image"]
+        secondaryImage.onload = () => {
+            setsecondaryImageSrc(secondaryImage.src)
+            setsecondaryImageLoaded(true)
+        }
+        secondaryImage.onerror = () => {
+            console.log('failed to loasd image')
+        }
+    }
 
     async function fetchMemberData(memberName: string): Promise<WeaponDetails | null> {
         try {
@@ -184,34 +227,106 @@ const Profile = (props: MemberProps) => {
                     click = {handleModalClick}
                 />
             </div>
+            <div
+                id="imagemodal"
+                className={`absolute transition-opacity duration-200 ${isEditImageVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                
+                <EditImageModal 
+                    equip={slot}
+                    isvisable={setIsEditImageVisible}
+                    />
+            </div>
+            <div
+                id="imagemodal"
+                className={`absolute transition-opacity duration-200 ${equipEditorVis ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                
+                <EditEPModal 
+                    isVis={setEquipEditorVis}
+                    mtype={editType}
+                    />
+
+            </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
                 <figure className="relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto">
-                    <img className="flex max-w-full h-auto"
-                     src={`${memberData.WeaponDetails?.hero || ""}/380x740`} 
-                     alt="Member Profile image" />
+                    {heroImageLoaded? (
+                        <>
+                        <img className="flex max-w-full h-auto"
+                            src={heroImageSrc || ''}
+                            alt="Member Profile image" />
+
+                        <EditImageButton 
+                            authForPage={authForPage}
+                            setSlot={setSlot}
+                            setVis = {setIsEditImageVisible}
+                            slot="hero"
+                        />
+                     </>
+                    ):(
+                        <Skeleton 
+                        variant="rounded"
+                        animation="wave"
+                        width={380}
+                        height={740}
+                        sx={{ bgcolor: 'rgb(50,50,50)' }}
+                        />
+                    )}
                 </figure>
                 <article className="flex flex-col m-auto md:w-4/6">
                     <section className="flex flex-col lg:flex-row">
-                        <figure id="primary" className="relative p-2" onClick={handleWeaponClick(true)}>
-                            <img src={`${memberData.WeaponDetails?.["Primary Image"] || ""}/360x200`} 
-                                alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} 
-                                className="border border-orange-600 rounded-2xl"/>
-                            {/* <div className="absolute">username: {username} props name: {props.name}</div> */}
-                            <button className={`absolute w-8 aspect-square bottom-4 right-4 ${authForPage? null: 'hidden' }`}>
-                                <img src="/media/edit_pencil.png" 
-                                alt="" 
-                                className="invert object-contain w-full h-full overflow-visible"/>
-                            </button>
+                        <figure 
+                            id="primary" 
+                            className="relative p-2" >
+                            
+                            {primaryImageLoaded? (
+                                <>
+                                    <img src={primaryImageSrc || ''} 
+                                    alt={`${memberData.WeaponDetails?.["Primary Weapon Details"].name}`} 
+                                    className="border border-orange-600 rounded-2xl"
+                                    onClick={handleWeaponClick(true)}/>
+
+                                    <EditImageButton 
+                                    authForPage={authForPage}
+                                    setSlot={setSlot}
+                                    setVis = {setIsEditImageVisible}
+                                    slot="primary"/>
+                                </>
+                            ): (
+                                <Skeleton 
+                                    variant="rounded"
+                                    animation="wave"
+                                    width={360}
+                                    height={200}
+                                    sx={{ bgcolor: 'rgb(50,50,50)' }}
+                                    />
+                            )}
                         </figure>
                         <figure id="secondary" className="relative p-2" onClick={handleWeaponClick(false)}>
-                            <img src={`${memberData.WeaponDetails?.["Secondary Image"] || ""}/360x200`} 
-                                alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
-                                className="border border-cyan-400 rounded-2xl"></img>
+                            {secondaryImageLoaded? (
+                                <>
+                                <img src={secondaryImageSrc|| ""} 
+                                    alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
+                                    className="border border-cyan-400 rounded-2xl"></img>
+                                <EditImageButton 
+                                    authForPage={authForPage}
+                                    setSlot={setSlot}
+                                    setVis = {setIsEditImageVisible}
+                                    slot="secondary"
+                                />
+                                </>
+                            ): (
+                                <Skeleton 
+                                    variant="rounded"
+                                    animation="wave"
+                                    width={360}
+                                    height={200}
+                                    sx={{ bgcolor: 'rgb(50,50,50)' }}
+                                    />
+                            )}
                         </figure>
                     </section>
-                    <section className="flex">
+                    <section className="relative flex justify-around">
                         <figure 
-                            className="m-auto p-2 cursor-help"
+                            className="p-2 cursor-help"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 handleEquipClick("tactical")(e)}}>
@@ -221,7 +336,7 @@ const Profile = (props: MemberProps) => {
                              />
                         </figure>
                         <figure 
-                            className="m-auto p-2 cursor-help"
+                            className="p-2 cursor-help"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 handleEquipClick("lethal")(e)}} >
@@ -230,9 +345,21 @@ const Profile = (props: MemberProps) => {
                             alt="Lethal"
                             />
                         </figure>
+                        {authForPage? (
+                        <button 
+                            className="absolute flex w-full bottom-0 bg-cyan-300 rounded bg-opacity-30 justify-center"
+                            onClick={() => {
+                                setEditType('equip');
+                                setEquipEditorVis(true);
+                            }}
+                            >
+                            Edit equipment
+                        </button>
+                    ): (null)}
                     </section>
-                    <section className="flex flex-col m-auto sm:flex-row">
-                        <figure className="flex p-2">
+
+                    <section className="relative flex flex-col sm:flex-row justify-center">
+                        <figure className="flex p-2 justify-around">
                             <div
                                 id="P1"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
@@ -260,7 +387,7 @@ const Profile = (props: MemberProps) => {
                                 />
                             </div>
                         </figure>
-                        <figure className="flex p-2">
+                        <figure className="flex p-2 justify-around">
                             <div
                                 id="P3"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
@@ -269,7 +396,7 @@ const Profile = (props: MemberProps) => {
                                     handleEquipClick("perks","P3")(e);
                                 }}>
                                 <ImageWithSkeleton
-                                    className="w-full max-w-40"
+                                    className="max-w-40"
                                     src={`/media/perks/${memberData.WeaponDetails?.perks.P3.name}.webp`}
                                     alt={memberData.WeaponDetails?.perks.P3.name || ''}
                                 />
@@ -288,6 +415,17 @@ const Profile = (props: MemberProps) => {
                                 />
                             </div>
                         </figure>
+                        {authForPage? (
+                        <button 
+                            className="absolute flex w-full bottom-0 bg-cyan-300 rounded bg-opacity-30 justify-center"
+                            onClick={() => {
+                                setEditType('perks');
+                                setEquipEditorVis(true);
+                            }}
+                            >
+                            Edit perks
+                        </button>
+                    ): (null)}
                     </section>
                 </article>
             </article>

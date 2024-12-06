@@ -164,3 +164,52 @@ export const pushMemberDataUpdate = async (
 
     return true
   }
+
+/* update image requires username, slot, image file in png
+ returns boolean for success/failure */
+
+export const updateImage = async (uname:string, slot: string, image: File): Promise<boolean> => {
+
+  if (!uname || !slot) {
+    console.error({
+      'Error': 'form incomplete',
+      'Form data':
+        { 'username': uname,
+          'slot': slot,
+          'image': image.name
+        }
+      });
+      return false;
+  };
+
+  try {
+    const formData = new FormData();
+    formData.append('uname', uname);
+    formData.append('slot', slot);
+    formData.append('file', image);
+
+    const response = await fetch(`${backend_url}/update-image`,
+          {
+            method: "POST",
+            body: formData
+          }
+        );
+    
+    if (!response.ok) {
+      console.error({'error': 'unknown', 'details': `${response.statusText}`})
+      return false
+    }
+    const result = await response.json()
+    alert(`update image: ${result}`)
+    return true
+  }
+  catch (error) {
+    console.error({ error: 'Unexpected error', details: error });
+    return false;
+  }
+  
+};
+
+export const fetchEquipment = async (name: string): Promise<string[]> => {
+  return []
+}
