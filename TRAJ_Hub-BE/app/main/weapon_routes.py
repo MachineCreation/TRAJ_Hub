@@ -96,6 +96,8 @@ def update_weapon_image():
     slot = request.form.get('slot')
     uname = request.form.get('uname')
 
+    print(slot)
+
     if not image or not slot or not uname:
         return jsonify({'error': 'missing parameters'}), 400
 
@@ -104,21 +106,18 @@ def update_weapon_image():
     crop_box = (
         (0, 0.04, 1, 1) if slot != "hero" else
         (0.33, 0.03, 0.61, 1)
-    )  # Crop box (normalized values for left, top, right, bottom)
+    )
     file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
 
-    # Remove existing file
     try:
         supabase_service.storage.from_(bucket).remove([filename])
     except Exception as e:
         print(f"Error removing existing file: {str(e)}")
 
     try:
-        # Save, crop, and upload image
         save_and_crop_image(image, file_path, crop_box)
         public_url = upload_to_supabase(bucket, filename, file_path)
 
-        # Update database
         column_name = f"{slot}_image_url" if slot != "hero" else "hero_image_url"
         response = supabase_service.table("Loadouts").update({column_name: public_url}).eq("name", uname).execute()
 
@@ -131,7 +130,6 @@ def update_weapon_image():
         print(f"Error occurred: {str(e)}")
         return jsonify({'error': 'unknown', 'details': str(e)}), 500
     finally:
-        # Clean up temporary file
         if os.path.exists(file_path):
             try:
                 os.remove(file_path)

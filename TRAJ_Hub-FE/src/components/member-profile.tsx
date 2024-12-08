@@ -48,7 +48,7 @@ const Profile = (props: MemberProps) => {
     const [heroImageLoaded, setheroImageLoaded] = useState<boolean>(false);
     const heroImage = new Image();
     const [heroImageSrc, setHeroImageSrc] = useState<string | null>(null);
-    const [equipEditorVis, setEquipEditorVis] = useState<boolean>(true);
+    const [equipEditorVis, setEquipEditorVis] = useState<boolean>(false);
     const[editType, setEditType] =useState<string | null>(null)
 
     if (memberData.WeaponDetails) {
@@ -243,6 +243,8 @@ const Profile = (props: MemberProps) => {
                 <EditEPModal 
                     isVis={setEquipEditorVis}
                     mtype={editType}
+                    memberTactical={memberData.WeaponDetails?.tactical.name || ''}
+                    memberLethal={memberData.WeaponDetails?.lethal.name || ''}
                     />
 
             </div>
@@ -300,13 +302,15 @@ const Profile = (props: MemberProps) => {
                                     />
                             )}
                         </figure>
-                        <figure id="secondary" className="relative p-2" onClick={handleWeaponClick(false)}>
+                        <figure id="secondary" className="relative p-2" >
                             {secondaryImageLoaded? (
                                 <>
-                                <img src={secondaryImageSrc|| ""} 
+                                    <img src={secondaryImageSrc|| ""} 
                                     alt={`${memberData.WeaponDetails?.["Secondary Weapon Details"].name}`} 
-                                    className="border border-cyan-400 rounded-2xl"></img>
-                                <EditImageButton 
+                                    className="border border-cyan-400 rounded-2xl"
+                                    onClick={handleWeaponClick(false)}/>
+
+                                    <EditImageButton 
                                     authForPage={authForPage}
                                     setSlot={setSlot}
                                     setVis = {setIsEditImageVisible}
@@ -438,9 +442,9 @@ const Profile = (props: MemberProps) => {
                     <p>{descriptionBox.description}</p>
                 </div>
             )}
-            <ClipGallery 
+            {/* <ClipGallery 
                 data = {memberData}
-            />
+            /> */}
         </>
     );
 };

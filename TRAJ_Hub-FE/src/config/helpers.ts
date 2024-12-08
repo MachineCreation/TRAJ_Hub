@@ -199,8 +199,7 @@ export const updateImage = async (uname:string, slot: string, image: File): Prom
       console.error({'error': 'unknown', 'details': `${response.statusText}`})
       return false
     }
-    const result = await response.json()
-    alert(`update image: ${result}`)
+    alert(`update image: ${response.statusText}`)
     return true
   }
   catch (error) {
@@ -210,6 +209,60 @@ export const updateImage = async (uname:string, slot: string, image: File): Prom
   
 };
 
-export const fetchEquipment = async (name: string): Promise<string[]> => {
-  return []
+export const fetchEquipment = async (name: string): Promise<{ok: boolean, datalist: string[]}> => {
+
+  if (name) {
+    try {
+      const response = await fetch(`${backend_url}/api-post/${name}-equipment`, {method: "POST"})
+
+      if (!response.ok) {
+        console.error({'error': 'unknown', 'details': `${response.statusText}`})
+        return {ok: false, datalist: []}
+      }
+
+      const data = await response.json()
+      if (response) {
+        console.log(Object.values(data)[0])
+        return {ok: true, datalist: Object.values(data)[0] as string[]}
+      } else {
+        return {ok: false, datalist: []}
+      }
+      
+
+    } catch (error) {
+      console.error({'Error': 'Failed to fetch data from server', 'details': error})
+      return {ok: false, datalist: []}
+    }
+  } else {
+    console.error({'Error': 'No equipment type found in request', 'Equipment name': name})
+      return {ok: false, datalist: []}
+  }
+}
+
+/* Update equipment requires username, lethal, tactical as strings
+returns boolean success/ fail */
+
+export const updateEquipment = async (uname: string, lethal: string, tactical:string): Promise<boolean> => {
+  try {
+
+    const formData = new FormData();
+    formData.append('uname', uname);
+    formData.append('lethal', lethal);
+    formData.append('tactical', tactical);
+
+    const response = await fetch(`${backend_url}/equipment-form`, {
+      method: "POST",
+      body: formData
+    })
+
+    if (!response.ok) {
+      console.error({'error': 'unknown', 'details':response.statusText})
+      return false
+    }
+
+    return true
+  } catch (error) {
+    console.error({'Error': 'Failed to fetch data from server', 'details': error})
+    return false
+  }
 }

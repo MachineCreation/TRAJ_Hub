@@ -1,11 +1,16 @@
 
 
+//components
+import EditEquipment from "./edit-equipment";
+
 interface EditEquipModalProps {
     isVis: (setEquipmentEditorVis: boolean) => void;
     mtype: string | null;
+    memberLethal: string;
+    memberTactical: string;
 }
 
-const EditEPModal = ({isVis, mtype}:EditEquipModalProps) => {
+const EditEPModal = ({isVis, mtype, memberLethal, memberTactical}:EditEquipModalProps) => {
     
     return (
         <article className="fixed flex flex-col justify-items-center items-center w-screen h-screen p-2 sm:p-4 bg-black bg-opacity-70 z-30">
@@ -16,7 +21,10 @@ const EditEPModal = ({isVis, mtype}:EditEquipModalProps) => {
                 {mtype? (
                     <>
                         {mtype === 'equip'? (
-                            <>equip</>
+                            <EditEquipment 
+                                memberLethal={memberLethal}
+                                memberTactical={memberTactical}
+                                />
                         ): (
                             <>perks</>
                         )}

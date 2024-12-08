@@ -1,7 +1,7 @@
 
 
 // helpers
-import { checkAuth, updateImage } from "../config/helpers";
+import { updateImage } from "../config/helpers";
 
 //Redux
 import { useSelector } from "react-redux";
@@ -17,17 +17,15 @@ const EditImageModal = ({equip, isvisable}: EditImageModalProps) => {
 
     const username = useSelector((state: RootState) => state.user.username);
     const [newimage, setNewimage] = useState<File | null>(null);
-    const [isAuth, setIsAuth] = useState<boolean | null>(null);
-    const Auth = checkAuth()
+    const [isLoading, setIsLoading] = useState<boolean |null>(null);
 
     const submitImage = async () => {
-
-        const auth = await Auth()
-        setIsAuth(auth)
-
-        if (isAuth && newimage){
-            updateImage(username,equip,newimage)
-            setTimeout(() => {document.location.reload()},700)
+         
+        if (newimage){
+            const response = await updateImage(username,equip,newimage)
+            if (await response) {
+                setTimeout(() => {document.location.reload()},1000)
+            }
         }
     }
 
@@ -50,14 +48,36 @@ const EditImageModal = ({equip, isvisable}: EditImageModalProps) => {
                         type="file"
                         className="flex w-[70vw] sm:w-auto"
                         onInput={(e) => {
-                                    const target = e.target as HTMLInputElement;
-                                    if (target.files && target.files.length > 0) {
-                                        setNewimage(target.files[0])
-                                    }                                
+                            const target = e.target as HTMLInputElement;
+                            if (target.files && target.files.length > 0) {
+                                setIsLoading(true);
+                                const selectedFile = target.files[0];
+                                setNewimage(selectedFile);
+                      
+                                const reader = new FileReader();
+                                reader.onload = () => {
+                                    setIsLoading(true);
+                                    console.log("File is ready for preview:", selectedFile.name);
+                                };
+                                reader.readAsDataURL(selectedFile);
+                            }
                         }} />
+                        {isLoading != null? (
+                            <>
+                                {!isLoading? (
+                                    <p className="flex justify-center bg-yellow-500 bg-opacity-50 rounded">
+                                        Loading...
+                                    </p>
+                                ): (
+                                    <p className="flex justify-center bg-green-500 bg-opacity-50 rounded">
+                                        Ready
+                                </p>)}
+                            </>
+                        ): (null)}
                     <button 
                         className=" bg-gradient-to-b p-1 my-3 rounded-xl shadow-outer-lower-light from-gray-400 h-fit"
                         type="button"
+                        disabled={!isLoading}
                         onClick={() => {
                             submitImage()
                         }}> Submit
