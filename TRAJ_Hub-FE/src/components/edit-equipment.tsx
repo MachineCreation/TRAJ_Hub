@@ -8,17 +8,12 @@ import { useSelector } from "react-redux"
 import { RootState } from "../store/main"
 
 //helpers
-import { checkAuth, fetchEquipment, updateEquipment } from "../config/helpers";
+import { fetchEquipment, updateEquipment } from "../config/helpers";
 import { useState } from "react";
 
 interface EditEquipmentProps {
     memberLethal: string;
     memberTactical: string;
-    // memberWildcard: string;
-    // memberPerk1: string;
-    // memberPerk2: string;
-    // memberPerk3: string;
-    // memberPerk4: string;
 }
 
 const EditEquipment = (props: EditEquipmentProps) => {
@@ -26,8 +21,7 @@ const EditEquipment = (props: EditEquipmentProps) => {
     const [sugLists, setSugLists] = useState<{ [key: string]: string[] }>({});
     const [lethal, setLethal] = useState<string>(props.memberLethal);
     const [tactical, setTactical] = useState<string>(props.memberTactical);
-    const Auth = checkAuth();
-    const [isAuth, setIsAuth] = useState<Boolean | null>(null);
+
     const equipList: {
                 etype: string;
                 state: string;
@@ -91,8 +85,7 @@ const EditEquipment = (props: EditEquipmentProps) => {
                     list={`${equipment.etype}list`}
                     value={equipment.state}
                     onBlur={(e) => {
-                        const target = e.target as HTMLInputElement;
-                        target.value = equipment.state
+                        e.target.value = equipment.state
                     }}
                     onClick={(e) => {
                         const target = e.target as HTMLInputElement;

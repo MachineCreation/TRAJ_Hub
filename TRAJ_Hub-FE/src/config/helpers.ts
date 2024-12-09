@@ -199,7 +199,7 @@ export const updateImage = async (uname:string, slot: string, image: File): Prom
       console.error({'error': 'unknown', 'details': `${response.statusText}`})
       return false
     }
-    alert(`update image: ${response.statusText}`)
+    alert(`update image: ${response.statusText}\nNote that updating the database can take upto 2 min`)
     return true
   }
   catch (error) {
@@ -208,6 +208,9 @@ export const updateImage = async (uname:string, slot: string, image: File): Prom
   }
   
 };
+
+/* get a list of equipment by type
+returns object with success?fail boolean as 'ok', and a string array of equipment names as 'datalist'*/
 
 export const fetchEquipment = async (name: string): Promise<{ok: boolean, datalist: string[]}> => {
 
