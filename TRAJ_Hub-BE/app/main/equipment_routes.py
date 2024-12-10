@@ -1,6 +1,5 @@
-from flask import Blueprint, jsonify, request, render_template
-from flask_login import login_required, current_user
-from models import supabase_service, User
+from flask import Blueprint, jsonify, request
+from models import supabase_service
 import requests
 from .proxy import api_post
 
@@ -10,7 +9,6 @@ equipment_bp = Blueprint('equipment', __name__, template_folder='../../pages/htm
 def equipmentUpload():
     
     data = request.form
-    print(data)
     
     try:
         tactical = data.get('tactical')

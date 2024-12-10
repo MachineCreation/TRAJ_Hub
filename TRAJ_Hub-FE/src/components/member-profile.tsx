@@ -245,6 +245,14 @@ const Profile = (props: MemberProps) => {
                     mtype={editType}
                     memberTactical={memberData.WeaponDetails?.tactical.name || ''}
                     memberLethal={memberData.WeaponDetails?.lethal.name || ''}
+                    memberWildcard={memberData.WeaponDetails?.perks.P4.name || ''}
+                    memberPerk1={memberData.WeaponDetails?.perks.P1.name || ''}
+                    memberPerk2={memberData.WeaponDetails?.perks.P2.name || ''}
+                    memberPerk3={memberData.WeaponDetails?.perks.P3.name || ''} 
+                    wcd={memberData.WeaponDetails?.perks.P4.stats || ''} 
+                    p1d={memberData.WeaponDetails?.perks.P1.stats || ''} 
+                    p2d={memberData.WeaponDetails?.perks.P2.stats || ''} 
+                    p3d={memberData.WeaponDetails?.perks.P3.stats || ''}
                     />
 
             </div>

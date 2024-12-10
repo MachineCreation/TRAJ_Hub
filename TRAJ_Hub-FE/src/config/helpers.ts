@@ -34,6 +34,7 @@ import { backend_url } from "./variables";
 //redux
 import { useDispatch } from 'react-redux';
 import { setUsername } from '../store/user';
+import { json } from "react-router-dom";
 
 // ---------------------------Auth check -------------------------------
 
@@ -225,7 +226,7 @@ export const fetchEquipment = async (name: string): Promise<{ok: boolean, datali
 
       const data = await response.json()
       if (response) {
-        console.log(Object.values(data)[0])
+        // console.log(Object.values(data)[0])
         return {ok: true, datalist: Object.values(data)[0] as string[]}
       } else {
         return {ok: false, datalist: []}
@@ -269,3 +270,132 @@ export const updateEquipment = async (uname: string, lethal: string, tactical:st
     return false
   }
 }
+
+/* fetch perks data as object. requires perk slot as a number.
+Returns object success/fail as 'ok', array of names as 'datalist'*/
+
+//types
+import { PerksType, Perk } from "./types";
+
+export const fetchperks = async (): Promise<{ok: boolean, datalist: PerksType | null}> => {
+
+  try {
+    const response = await fetch(`${backend_url}/api-post/perks`, {
+      method: "POST",
+    })
+    if (!response.ok) {
+      console.error({'error': 'unknown', 'details':response.statusText})
+      return {ok: false, datalist: null}
+    }
+    const data = await response.json()
+    const result = {
+      ok: true,
+      datalist: data as PerksType
+    }
+    return result
+  } catch (error) {
+    console.error({'Error': 'Failed to fetch data from server', 'details': error})
+    return {ok: false, datalist: null}
+  }
+}
+
+
+/* fetch wildcard data as object. requires no parameters.
+Returns object success/fail as 'ok', array of names as 'datalist'*/
+
+export const fetchWildcards = async (): Promise<{ok: boolean, datalist: {Wildcard: Perk[]} | null}> => {
+  try {
+    const response = await fetch(`${backend_url}/api-post/get-wildcards`, {
+      method: "POST",
+    })
+    if (!response.ok) {
+      console.error({'error': 'unknown', 'details':response.statusText})
+      return {ok: false, datalist: null}
+    }
+    const data = await response.json()
+    const result = {
+      ok: true,
+      datalist: data as {Wildcard: Perk[]}
+    }
+    return result
+  } catch (error) {
+    console.error({'Error': 'Failed to fetch data from server', 'details': error})
+    return {ok: false, datalist: null}
+  }
+}
+
+/* update perks data, requires username as string and, 3 perks as strings
+returns success/ fail as boolean */
+
+export const updatePerks = async (
+  username: string,
+  perk1: string,
+  p1Descrip: string,
+  perk2: string,
+  p2Descrip: string,
+  perk3: string,
+  p3Descrip: string,
+): Promise<boolean> => {
+  if (username) {
+    const formData = new FormData();
+    formData.append('username', username);
+    formData.append("p1descrip", p1Descrip);
+    formData.append("perk2", perk2);
+    formData.append("p2descrip", p2Descrip);
+    formData.append("perk3", perk3);
+    formData.append("p3descrip", p3Descrip)
+    try {
+      const response = await fetch(`${backend_url}/update-perks`, {
+        method: "POST",
+        body: formData
+      });
+      if (!response.ok) {
+        console.error({'error': 'unknown', 'details':response.statusText});
+        return false;
+      }
+      return true;
+    } catch (error) {
+      console.error({'Error': 'Failed to upload data to server', 'details': error});
+      return false;
+    }
+  } else {
+    console.error({'Error': 'One or more perks parameters empty', "perk 1": perk1, "perk 2": perk2, "perk 3": perk3});
+    return false;
+  }
+};
+
+/* update wildcard data, requires username as string and, wildcard as string
+returns success/ fail as boolean */
+
+export const updateWildcard = async (username: string, wildcard: string, wildcardDescrip: string): Promise<boolean> => {
+  if (username) {
+    if (wildcard) {
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('wildcard', wildcard);
+      formData.append('wdescrip', wildcardDescrip);
+      try {
+        const response = await fetch(`${backend_url}/update-wildcard`, {
+          method: "POST",
+          body: formData
+        });
+        
+        if (!response.ok) {
+          console.error({'error': 'unknown', 'details':response.statusText});
+          return false;
+        }
+        alert('Equipment updated successfully')
+        return true;
+      } catch (error) {
+        console.error({'Error': 'Failed to upload data to server', 'details': error});
+        return false;
+      }
+    } else {
+      console.error({'Error': 'wildcard empty'});
+      return false;
+    }
+  } else {
+      console.error({'Error': 'No username found', 'Username': username});
+      return false;
+  };
+};

@@ -42,3 +42,12 @@ export type MemberWeaponData = {
   },
   attachment_types: string[]
 }
+
+export type Perk = {
+  name: string,
+  description: string
+}
+
+export type PerksType = {
+  [key: string]: Perk[],
+}

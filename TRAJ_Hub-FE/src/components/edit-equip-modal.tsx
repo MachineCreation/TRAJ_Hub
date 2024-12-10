@@ -2,15 +2,24 @@
 
 //components
 import EditEquipment from "./edit-equipment";
+import EditPerksNWildcard from "./edit-perks-n-wildcard";
 
 interface EditEquipModalProps {
     isVis: (setEquipmentEditorVis: boolean) => void;
     mtype: string | null;
     memberLethal: string;
     memberTactical: string;
+    memberWildcard: string;
+    wcd:string;
+    memberPerk1: string;
+    p1d: string;
+    memberPerk2: string;
+    p2d: string;
+    memberPerk3: string;
+    p3d:string;
 }
 
-const EditEPModal = ({isVis, mtype, memberLethal, memberTactical}:EditEquipModalProps) => {
+const EditEPModal = ({isVis, mtype, memberLethal, memberTactical, memberPerk1, memberPerk2, memberPerk3, memberWildcard, wcd, p1d, p2d, p3d}:EditEquipModalProps) => {
     
     return (
         <article className="fixed flex flex-col justify-items-center items-center w-screen h-screen p-2 sm:p-4 bg-black bg-opacity-70 z-30">
@@ -26,7 +35,15 @@ const EditEPModal = ({isVis, mtype, memberLethal, memberTactical}:EditEquipModal
                                 memberTactical={memberTactical}
                                 />
                         ): (
-                            <>perks</>
+                            <EditPerksNWildcard 
+                                    memberWildcard={memberWildcard}
+                                    memberPerk1={memberPerk1}
+                                    memberPerk2={memberPerk2}
+                                    memberPerk3={memberPerk3} 
+                                    wcd={wcd} 
+                                    p1d={p1d} 
+                                    p2d={p2d} 
+                                    p3d={p3d}                            />
                         )}
                     </>
                 ): (
