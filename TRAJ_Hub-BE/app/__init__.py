@@ -10,8 +10,6 @@ def create_app():
     app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
     app.secret_key = os.getenv('SECRET_KEY')
     ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:5000",
     "https://traj-hub.onrender.com",
     "https://venerable-centaur-983b8b.netlify.app",
     "https://dancing-maamoul-5fa7fd.netlify.app/",
@@ -30,7 +28,6 @@ def create_app():
 
     from .auth.routes import auth_bp
     from .main.main_routes import main_bp
-    from .main.hero_routes import hero_bp
     from .main.weapon_routes import weapon_bp
     from .main.equipment_routes import equipment_bp
     from .main.perks_routes import perks_bp
@@ -41,7 +38,6 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(main_bp)
-    app.register_blueprint(hero_bp)
     app.register_blueprint(weapon_bp)
     app.register_blueprint(equipment_bp)
     app.register_blueprint(perks_bp)
