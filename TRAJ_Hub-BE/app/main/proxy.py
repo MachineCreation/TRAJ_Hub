@@ -3,7 +3,7 @@ from models import weapon_api_key
 from config import API_BASE_URL
 import requests
 
-proxy_bp = Blueprint('proxy', __name__, template_folder="../../pages/html")
+proxy_bp = Blueprint('proxy', __name__)
 
 @proxy_bp.route('/api-proxy/<path:endpoint>', methods=['GET'])
 def api_proxy(endpoint):

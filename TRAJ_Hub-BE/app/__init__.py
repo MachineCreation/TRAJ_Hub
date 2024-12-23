@@ -14,7 +14,7 @@ def create_app():
     # "https://127.0.0.1:5173",
     # "http://localhost:5173",
     "https://traj-hub.onrender.com",
-    "https://venerable-centaur-983b8b.netlify.app",
+    "https://traj-hub.netlify.app",
     "https://dancing-maamoul-5fa7fd.netlify.app/",
     "https://dashing-manatee-d2c1ef.netlify.app/",
     ]
