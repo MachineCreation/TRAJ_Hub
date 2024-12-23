@@ -7,7 +7,7 @@ import ImageWithSkeleton from "./image_skeleton";
 import { useNavigate } from "react-router-dom";
 import ImageDescription from "./image-description";
 
-// vvariables
+// variables
 import { backend_url } from "../config/variables";
 
 // css

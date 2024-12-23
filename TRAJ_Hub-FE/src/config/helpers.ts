@@ -34,7 +34,6 @@ import { backend_url } from "./variables";
 //redux
 import { useDispatch } from 'react-redux';
 import { setUsername } from '../store/user';
-import { json } from "react-router-dom";
 
 // ---------------------------Auth check -------------------------------
 

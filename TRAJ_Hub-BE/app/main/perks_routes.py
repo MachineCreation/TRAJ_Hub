@@ -1,7 +1,5 @@
-from flask import Blueprint, jsonify, request, render_template
-from flask_login import login_required, current_user
-from models import supabase_service, User
-from .proxy import api_post
+from flask import Blueprint, jsonify, request
+from models import supabase_service
 
 perks_bp = Blueprint('perks', __name__, template_folder='../../pages/html')
 

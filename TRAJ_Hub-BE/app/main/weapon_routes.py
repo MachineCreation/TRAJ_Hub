@@ -1,14 +1,9 @@
-from flask import Blueprint, render_template, jsonify, request, current_app
-from flask_login import login_required, current_user
+from flask import Blueprint, jsonify, request, current_app
 from werkzeug.utils import secure_filename
 from .proxy import api_proxy
-from models import supabase_service, User
-import requests
+from models import supabase_service
 import os
 from PIL import Image
-import json
-
-404
 
 weapon_bp = Blueprint('weapon', __name__, template_folder='../../pages/html')
 

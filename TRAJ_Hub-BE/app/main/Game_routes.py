@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify
 from models import supabase_service
-import json
 import uuid
 
 game_bp = Blueprint('game', __name__, template_folder='../../pages/html')
@@ -51,7 +50,7 @@ def get_leaderboard():
         game = data.get('game')
         print(game)
         
-        response = supabase_service.table('Click-Arcade-1.0').select('*').execute()
+        response = supabase_service.table(f'{game}').select('*').execute()
         if not response.data:
             return jsonify({'error': response.error.message}), 500
         

@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import User, supabase_service
 import jwt
 from datetime import datetime, timezone, timedelta
-from .auth_required import token_required
+
 
 
 auth_bp = Blueprint('auth', __name__, template_folder='../../pages/html')

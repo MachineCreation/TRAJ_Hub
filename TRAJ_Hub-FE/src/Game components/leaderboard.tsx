@@ -1,12 +1,11 @@
 // React
-
 import { useEffect, useState } from "react";
 
-//game components
-
-// types
-
+//types
 import { leaderBoard } from "../config/Leaderboard"; 
+
+//variables
+import { backend_url } from "../config/variables";
 
 interface LeaderBoardProps {
     name: string;
@@ -18,7 +17,7 @@ const LeaderBoard = ({name}: LeaderBoardProps) => {
     useEffect(() => {
         const getLeaderBoard = async () => {
             try {
-                const response = await fetch('https://traj-hub.onrender.com/leaderboard', {
+                const response = await fetch(`${backend_url}/leaderboard`, {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

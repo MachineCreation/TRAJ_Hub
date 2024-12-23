@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, request
 from models import supabase_service
-import requests
 from .proxy import api_post
 
 equipment_bp = Blueprint('equipment', __name__, template_folder='../../pages/html')

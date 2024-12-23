@@ -450,9 +450,9 @@ const Profile = (props: MemberProps) => {
                     <p>{descriptionBox.description}</p>
                 </div>
             )}
-            {/* <ClipGallery 
+            <ClipGallery 
                 data = {memberData}
-            /> */}
+            />
         </>
     );
 };

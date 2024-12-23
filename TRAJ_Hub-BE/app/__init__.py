@@ -10,6 +10,9 @@ def create_app():
     app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
     app.secret_key = os.getenv('SECRET_KEY')
     ORIGINS = [
+    # "https://127.0.0.1:5000",
+    # "https://127.0.0.1:5173",
+    # "http://localhost:5173",
     "https://traj-hub.onrender.com",
     "https://venerable-centaur-983b8b.netlify.app",
     "https://dancing-maamoul-5fa7fd.netlify.app/",
