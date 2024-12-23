@@ -1,10 +1,15 @@
 export const negativeValueIsPositiveEffect = [
-    "ADS Time",
-    "Sprint to Fire",
-    "Reload Time",
-    "Gun Kick",
-    "Horiz. Recoil",
-    "Vert. Recoil",
+    'Hipfire Max Spread',
+    'Hipfire Min Spread',
+    'Recoil Gun Kick',
+    'Vertical Recoil Control',
+    'Horizontal Recoil Control',
+    'Reload Quickness',
+    'Empty Reload Quickness',
+    'Aim Down Sight Speed',
+    'Sprint to Fire Speed',
+    'Slide to Fire Speed',
+    'Weapon Swap Speed'
   ];
   
   export const weapontypes = [

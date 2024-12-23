@@ -114,7 +114,7 @@ const WeaponDiaplay = (props:weaponDisplayProps) => {
                           {Object.entries(values.stats).map((stat, index) => (
                             <li key={index}
                                 className='pl-2'>
-                              <>{stat[0]}</>
+                              <>{stat[0]}: </>
                               <span
                                 style={{
                                   color: colorStatEffectIndicator(
