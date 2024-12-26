@@ -144,10 +144,9 @@ const EditWeapon = ({equip, clicked}: EditWeaponProps) => {
             <form id="memberWeaponEdit">
                 
                 <div className="flex flex-col">
-                    <div className="flex flex-wrap items-center my-3 justify-between">Gunslinger:
+                    <div className="flex flex-wrap items-center self-center my-3 justify-between">
                     <BooleanToggle 
-                        ifTrue={"Enabled"} 
-                        ifFalse={"Disabled"} 
+                        ifTrue={"Gunfighter"} 
                         height={"h-12"} 
                         width={"w-40"} 
                         IO={gunslinger} 

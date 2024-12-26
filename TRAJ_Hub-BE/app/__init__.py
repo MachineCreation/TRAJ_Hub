@@ -1,23 +1,18 @@
 from flask import Flask
 from flask_cors import CORS
 from flask_login import LoginManager
-from models import User
+from models import supabase_service
 import os
+from config import ORIGINS
+from apscheduler.schedulers.background import BackgroundScheduler
+
 
 login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
     app.secret_key = os.getenv('SECRET_KEY')
-    ORIGINS = [
-    # "https://127.0.0.1:5000",
-    # "https://127.0.0.1:5173",
-    # "http://localhost:5173",
-    "https://traj-hub.onrender.com",
-    "https://traj-hub.netlify.app",
-    "https://dancing-maamoul-5fa7fd.netlify.app/",
-    "https://dashing-manatee-d2c1ef.netlify.app/",
-    ]
+    
     
     CORS(app, resources={r"/*": {"origins": ORIGINS}}, supports_credentials=True)
 
@@ -48,6 +43,14 @@ def create_app():
     app.register_blueprint(proxy_bp)
     app.register_blueprint(game_bp)
     app.register_blueprint(profileEmail_bp)
+    
+    def query_supabase():
+        response = supabase_service.table("User").select("username").execute()
+        print("Supabase query response:", response.data)
+
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(query_supabase, 'interval', days=3)
+    scheduler.start()
 
     return app
 

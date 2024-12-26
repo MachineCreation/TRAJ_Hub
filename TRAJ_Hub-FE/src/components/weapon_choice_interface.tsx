@@ -16,17 +16,27 @@ interface WeaponChoiceInterfaceProps {
     parameterList: string[]
     addRemoveParameter: (addParameter: string) => void;
     reset: () => void;
-    fetchData: (fetchData: boolean) => void
+    fetchData: (fetchData: string) => void
+    gunfighter: boolean;
+    setgunfighter: (setGunfighter: boolean) => void;
 }
 
 export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps) {
 
   // variables
   const [isBalanced, setIsBalanced] = useState<boolean>(false);
+  const [mode, setMode] = useState<string>('custom');
 
   const changeBuildMode = () => {
     setIsBalanced(!isBalanced)
+    isBalanced? (setMode('custom')):(setMode('balanced'))
   }
+
+  const Gunfighter = () => {
+    props.setgunfighter(!props.gunfighter)
+    // console.log(props.gunfighter);
+  };
+
 
   return (
     <div className='relative w-full text-xl'>
@@ -39,11 +49,19 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
         <div className='flex w-1/2 m-5 justify-center items-center'>
           <BooleanToggle 
             ifTrue='Balanced'
-            ifFalse='Custom'
             height='h-10'
             width='w-48'
             IO={isBalanced}
             changeMode={changeBuildMode}
+          />
+        </div>
+        <div className='flex w-1/2 m-5 justify-center items-center'>
+          <BooleanToggle 
+            ifTrue='Gunfighter'
+            height='h-10'
+            width='w-48'
+            IO={props.gunfighter}
+            changeMode={Gunfighter}
           />
         </div>
       </header>
@@ -75,7 +93,10 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
                 props.addRemoveParameter(param);
               }}
             >
-              <p><span className="relative text-[.7rem] align-top mr-2">?</span>{param}</p>
+              <p>
+                {/* <span className="relative text-[.7rem] align-top mr-2">?</span> */}
+                {param}
+              </p>
               <p>{props.parameterList.includes(param) ? props.parameterList.indexOf(param) + 1 : <span className='text-red-600'>X</span>}</p>
               <div className='absolute hidden'>
                 poop
@@ -90,8 +111,9 @@ export default function WeaponChoiceInterface(props: WeaponChoiceInterfaceProps)
         <button
           className='py-1 px-[calc(5vw)] rounded-xl bg-green-500'
           onClick={() => {
-            props.fetchData(isBalanced);
+            props.fetchData(mode);
           }}
+          disabled={(isBalanced && props.weaponType) || (!isBalanced && props.weaponType && props.parameterList.length == 5)? false: true}
         >
           submit
         </button>

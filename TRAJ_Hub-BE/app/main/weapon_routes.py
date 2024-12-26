@@ -1,14 +1,21 @@
 from flask import Blueprint, jsonify, request, current_app
 from werkzeug.utils import secure_filename
-from .proxy import api_proxy
+from .proxy import api_proxy, api_post
+from models import weapon_api_key as api_key
+from config import API_BASE_URL
 from models import supabase_service
+from config import ORIGINS
+import requests
+import json
 import os
 from PIL import Image
+from ..auth.auth_required import token_required
 
 weapon_bp = Blueprint('weapon', __name__, template_folder='../../pages/html')
 
 #------------------------------------------------------------ update weaopn data requires username, slot, weapon Type, weapon name and {attachment type: attachment, ...} in json body
 @weapon_bp.route('/update-weapon-data', methods=["POST"])
+@token_required
 def updateWeaponData():
     data = request.get_json()
     if data:
@@ -86,6 +93,7 @@ def upload_to_supabase(bucket, filename, file_path):
         raise RuntimeError(f"Error uploading to Supabase: {str(e)}")
 
 @weapon_bp.route('/update-image', methods=["POST"])
+@token_required
 def update_weapon_image():
     image = request.files.get('file')
     slot = request.form.get('slot')
@@ -130,3 +138,34 @@ def update_weapon_image():
                 os.remove(file_path)
             except PermissionError:
                 print(f"PermissionError: Couldn't remove file {file_path} as it is being used by another process.")
+                
+@weapon_bp.route('/build_weapon', methods=["POST"])
+def build_Weapon():
+    data = request.get_json()
+    path = data.get('path')
+    origin = request.headers.get('origin')
+    
+    if origin not in ORIGINS:
+        return jsonify({'Error': f'origin: {origin} forbiden'}), 403
+    
+    if path == 'balanced':
+        endpoint = 'build_balanced'
+    elif path == 'custom':
+        endpoint = 'build_weapon'
+    else: 
+        return jsonify({"Error": f'Path: "{path}", not found'}), 404
+        
+    try:
+        params = data.get('details')
+        api_url = f"{API_BASE_URL}{endpoint}"  
+        headers = {
+            "X-API-Key": f"{api_key}",
+            "Content-Type": "application/json"
+        }
+        response = requests.post(api_url, headers=headers, json=params)
+        
+        if response.status_code != 200:
+            return jsonify({"error": "Failed to fetch data from the API"}), response.status_code
+        return response.json()
+    except Exception as e:
+        return jsonify({"Error": str(e)})

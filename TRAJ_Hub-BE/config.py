@@ -1,4 +1,5 @@
 import os
+import json
 
 from dotenv import load_dotenv
 
@@ -12,3 +13,7 @@ SQLALCHEMY_TRACK_NOTIFICAITONS = False
 API_KEY = os.getenv('API_KEY')
 API_BASE_URL = os.getenv('API_BASE_URL')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+ISSUER_NAME = os.getenv('ISSUER_NAME')
+
+orig_str = os.environ.get('ORIGINS')
+ORIGINS = json.loads(orig_str)

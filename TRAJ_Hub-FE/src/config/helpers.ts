@@ -43,7 +43,7 @@ export const checkAuth = () => {
   return async (): Promise<boolean> => {
     try {
       const response = await fetch(`${backend_url}/auth/check`, {
-        method: 'GET',
+        method: 'POST',
         credentials: 'include',
       });
       const data = await response.json();
@@ -64,7 +64,7 @@ export const fetchWeaponsByType = async (weaponType: string | null):Promise<stri
     return []
   }
   try {
-    const response = await fetch(`${backend_url}/api-proxy/weapons/${weaponType}`, {method: "GET"})
+    const response = await fetch(`${backend_url}/api-proxy/weapons/${weaponType}`, {method: "GET", credentials: 'include'})
 
     const data = await response.json()
     const weaponList: string[] = await data["weapons"]
@@ -82,7 +82,7 @@ export const fetchWeaponsByType = async (weaponType: string | null):Promise<stri
 
 export const fetchEditWeaponData = async (weaponType:string, weaponName:string): Promise<MemberWeaponData | null> => {
   try {
-    const response = await fetch(`${backend_url}/api-proxy/weapon/${weaponType}/${weaponName}`,{method: "GET"})
+    const response = await fetch(`${backend_url}/api-proxy/weapon/${weaponType}/${weaponName}`,{method: "GET", credentials: 'include'})
 
     if (!response.ok) {
       console.error(`Failed to fetch weapon data: ${response.statusText}`)
@@ -114,7 +114,7 @@ export const fetchEditattachmentsByType = async (weaponType:string, weaponName:s
   };
 
   try {
-    const response = await fetch(`${backend_url}/api-proxy/attachment_type/${weaponType}/${weaponName}/${attachmentType}`, {method: "GET"})
+    const response = await fetch(`${backend_url}/api-proxy/attachment_type/${weaponType}/${weaponName}/${attachmentType}`, {method: "GET", credentials: 'include'})
 
     if (!response.ok) {
       console.error(`Failed to fetch list of attachments for ${weaponType}, ${weaponName}, ${attachmentType}. Error: ${response.statusText}`)
@@ -152,6 +152,7 @@ export const pushMemberDataUpdate = async (
 
     const response = await fetch(`${backend_url}/update-weapon-data`,{
       method: "POST",
+      credentials: 'include',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(upBody)
     })
@@ -191,6 +192,7 @@ export const updateImage = async (uname:string, slot: string, image: File): Prom
     const response = await fetch(`${backend_url}/update-image`,
           {
             method: "POST",
+            credentials: 'include',
             body: formData
           }
         );
@@ -216,7 +218,7 @@ export const fetchEquipment = async (name: string): Promise<{ok: boolean, datali
 
   if (name) {
     try {
-      const response = await fetch(`${backend_url}/api-post/${name}-equipment`, {method: "POST"})
+      const response = await fetch(`${backend_url}/api-post/${name}-equipment`, {method: "POST", credentials: 'include'})
 
       if (!response.ok) {
         console.error({'error': 'unknown', 'details': `${response.statusText}`})
@@ -255,6 +257,7 @@ export const updateEquipment = async (uname: string, lethal: string, tactical:st
 
     const response = await fetch(`${backend_url}/equipment-form`, {
       method: "POST",
+      credentials: 'include',
       body: formData
     })
 
@@ -281,6 +284,7 @@ export const fetchperks = async (): Promise<{ok: boolean, datalist: PerksType | 
   try {
     const response = await fetch(`${backend_url}/api-post/perks`, {
       method: "POST",
+      credentials: 'include'
     })
     if (!response.ok) {
       console.error({'error': 'unknown', 'details':response.statusText})
@@ -306,6 +310,7 @@ export const fetchWildcards = async (): Promise<{ok: boolean, datalist: {Wildcar
   try {
     const response = await fetch(`${backend_url}/api-post/get-wildcards`, {
       method: "POST",
+      credentials: 'include'
     })
     if (!response.ok) {
       console.error({'error': 'unknown', 'details':response.statusText})
@@ -338,6 +343,7 @@ export const updatePerks = async (
   if (username) {
     const formData = new FormData();
     formData.append('username', username);
+    formData.append("perk1", perk1);
     formData.append("p1descrip", p1Descrip);
     formData.append("perk2", perk2);
     formData.append("p2descrip", p2Descrip);
@@ -346,6 +352,7 @@ export const updatePerks = async (
     try {
       const response = await fetch(`${backend_url}/update-perks`, {
         method: "POST",
+        credentials: 'include',
         body: formData
       });
       if (!response.ok) {
@@ -376,6 +383,7 @@ export const updateWildcard = async (username: string, wildcard: string, wildcar
       try {
         const response = await fetch(`${backend_url}/update-wildcard`, {
           method: "POST",
+          credentials: 'include',
           body: formData
         });
         

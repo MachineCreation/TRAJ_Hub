@@ -9,7 +9,8 @@ export const negativeValueIsPositiveEffect = [
     'Aim Down Sight Speed',
     'Sprint to Fire Speed',
     'Slide to Fire Speed',
-    'Weapon Swap Speed'
+    'Weapon Swap Speed',
+    "Mini Map Firing Ping"
   ];
   
   export const weapontypes = [
@@ -197,10 +198,6 @@ export const negativeValueIsPositiveEffect = [
         Zoom: {
           original: "1 x",
           revised: "1 x",
-        },
-        dps: {
-          original: 478.8875,
-          revised: 478.8875,
         },
       },
       type: "Battlerifle",

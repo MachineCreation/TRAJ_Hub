@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import User, supabase_service
 import jwt
 from datetime import datetime, timezone, timedelta
+from config import ISSUER_NAME
 
 
 
@@ -31,6 +32,7 @@ def login():
         
         token = jwt.encode({
             'sub': username,
+            'iss': ISSUER_NAME,
             'iat': datetime.now(tzone),
             'exp': datetime.now(tzone) + timedelta(hours=36)
         },current_app.config['SECRET_KEY'], algorithm='HS256')
@@ -45,7 +47,7 @@ def login():
 
 #---------check if user is authorized---------
 
-@auth_bp.route('/auth/check', methods=['GET'])
+@auth_bp.route('/auth/check', methods=['POST'])
 def check_auth():
     token = request.cookies.get('token')
     if not token:

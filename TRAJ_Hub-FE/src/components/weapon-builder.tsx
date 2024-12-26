@@ -18,6 +18,7 @@ export default function WeaponBuilder() {
   const [weaponIsLoaded, setWeaponIsLoaded] = useState<boolean>(false);
   const [weaponType, setWeaponType] = useState<string | null>(null);
   const [parameterList, setParameterList] = useState<string[]>([]);
+  const [gunfighter, setGunFighter] = useState<boolean>(true);
   const weapon_stats = Object.entries(weaponData.stats).map(([key, value]) => ({
     [key]: {
       original: value.original,
@@ -35,63 +36,47 @@ export default function WeaponBuilder() {
 
   // data functions
 
-  const fetchData = async (buildMode: boolean) => {
-    if (buildMode) {
-      try {
-        const response = await fetch(`${weapons.backend_url}/api-post/build_balanced/${weaponType}`,{method: "POST",});
+  const fetchData = async (path: string) => {
 
-        if (!response.ok) {
-          alert(
-            "Failed to fetch balanced build from API. Check outage page for maintenance schedule."
-          );
+    try {
+      const bdata = {
+        "path": path,
+        "details": {
+          "weapon_type": weaponType,
+          "parameters": parameterList,
+          "gunfighter": gunfighter
         }
-
-        const data = await response.json();
-
-        if (data.length === 0) {
-          return null;
-        }
-        const dataNew: TestData = data;
-
-        setData(dataNew);
-        setWeaponIsLoaded(true);
-      } catch (error) {
-        console.error("An error occurred:", error);
-        return null;
       }
-    }
-    else {
-        try {
-            const response = await fetch(`${weapons.backend_url}/api/build_weapon`, {
-                method:"POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "weapon_type": weaponType,
-                    "parameters": parameterList
-                })
-            })
-            if (!response.ok) {
-                alert(
-                  "Failed to fetch balanced build from API. Check outage page for maintenance schedule."
-                );
-              }
-      
-              const data = await response.json();
-      
-              if (data.length === 0) {
-                return null;
-              }
-              const dataNew: TestData = data;
-      
-              setData(dataNew);
-              setWeaponIsLoaded(true);
-        }
-        catch (error) {
-            console.error("An error occurred:", error);
-            return null;
-        }
+
+      const response = await fetch(`${weapons.backend_url}/build_weapon`,{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bdata)
+      });
+
+      if (!response.ok) {
+        alert(
+          "Failed to fetch balanced build from API. Check outage page for maintenance schedule."
+        );
+        document.location.reload();
+      };
+
+      const data = await response.json();
+
+      if (data.length === 0) {
+        alert("No build was returned from the server. Contact your administrator")
+        document.location.reload();
+      };
+      const dataNew: TestData = data;
+
+      // console.log(dataNew)
+
+      setData(dataNew);
+      setWeaponIsLoaded(true);
+    } catch (error) {
+      console.error("An error occurred:", error);
+      alert("Failed to fetch build from API. Check outage page for maintenance schedule.");
+      document.location.reload();
     }
   };
 
@@ -101,6 +86,7 @@ export default function WeaponBuilder() {
     setWeaponIsLoaded(false)
     setWeaponType(null);
     setParameterList([]);
+    setGunFighter(true);
   };
 
   const addRemoveParameter = (parameter: string) => {
@@ -132,6 +118,8 @@ export default function WeaponBuilder() {
             addRemoveParameter={addRemoveParameter}
             reset={reset}
             fetchData={fetchData}
+            gunfighter={gunfighter}
+            setgunfighter={setGunFighter}
         />
       )}
     </article>

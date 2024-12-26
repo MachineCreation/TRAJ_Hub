@@ -79,19 +79,23 @@ const WeaponDiaplay = (props:weaponDisplayProps) => {
                 {props.weapon_stats.map((stat: Record<string, any>, index) => {
                   const [key, values] = Object.entries(stat)[0];
                   return (
-                    <li key={index} className='flex flex-grow justify-between p-1 pl-4'>
-                      <p> <span className='text-white'>{toTitleCase(key)}: </span>{values.original}</p>
-                      <span
-                        style={{
-                          color: textColorComparison(
-                            key,
-                            parseValue(values.original),
-                            parseValue(values.revised)
-                          ),
-                        }}
-                      >
-                        &#8594; {formatToTwoDecimals(values.revised)}
-                      </span>
+                    <li key={index} className='flex flex-col flex-grow justify-between p-1 pl-4'>
+                      <p> <span className='text-white'>{toTitleCase(key)}: </span></p>   {/* Weapon stat name */}
+                      <div className='flex justify-between'>
+                        {values.original}                                                  {/* Weapon original stat */}
+                        <p>&#8594;</p>
+                        <span
+                          style={{
+                            color: textColorComparison(
+                              key,
+                              parseValue(values.original),
+                              parseValue(values.revised)
+                            ),
+                          }}
+                        >
+                           {formatToTwoDecimals(values.revised)}                           {/* Weapon revised stat */}
+                        </span>
+                      </div>
                     </li>
                   );
                 })}

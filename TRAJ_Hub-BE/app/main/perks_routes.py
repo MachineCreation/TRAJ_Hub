@@ -1,9 +1,11 @@
 from flask import Blueprint, jsonify, request
 from models import supabase_service
+from ..auth.auth_required import token_required
 
 perks_bp = Blueprint('perks', __name__, template_folder='../../pages/html')
 
 @perks_bp.route('/update-perks', methods=['POST'])
+@token_required
 def perksUpload():
     data = request.form
     
@@ -62,6 +64,7 @@ def perksUpload():
 
     
 @perks_bp.route('/update-wildcard', methods= ["POST"])
+@token_required
 def updateWildcard():
     data = request.form
     try:
