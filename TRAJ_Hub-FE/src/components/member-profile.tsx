@@ -171,27 +171,32 @@ const Profile = (props: MemberProps) => {
 
     const handleEquipClick = (eid: equipId, id?: PerkId) => (event: React.MouseEvent<HTMLElement>) => {
         let equip: { name: string, stats: string } | null = null;
-
-        if (eid === 'perks' && id) {
-            const perks = memberData.WeaponDetails?.[eid];
-            if (perks && id in perks) {
-                equip = perks[id as keyof typeof perks];
-            }
-        } else {
-            equip = memberData.WeaponDetails?.[eid] as { name: string, stats: string };
+        if (descriptionBox && boxPosition) {
+            setDescriptionBox(null);
+            setBoxPosition(null);
         }
-
-        if (equip) {
-            setDescriptionBox({
-                name: equip.name,
-                description: equip.stats
-            });
-            const rect = event.currentTarget.getBoundingClientRect();
-            setBoxPosition({
-                top: rect.bottom + window.scrollY,
-                left: rect.left + (rect.width / 2) + window.scrollX,
-                width: rect.width
-            });
+        else {
+            if (eid === 'perks' && id) {
+                const perks = memberData.WeaponDetails?.[eid];
+                if (perks && id in perks) {
+                    equip = perks[id as keyof typeof perks];
+                }
+            } else {
+                equip = memberData.WeaponDetails?.[eid] as { name: string, stats: string };
+            }
+    
+            if (equip) {
+                setDescriptionBox({
+                    name: equip.name,
+                    description: equip.stats
+                });
+                const rect = event.currentTarget.getBoundingClientRect();
+                setBoxPosition({
+                    top: rect.bottom + window.scrollY,
+                    left: rect.left + (rect.width / 2) + window.scrollX,
+                    width: rect.width
+                });
+            }
         }
     };
 
@@ -338,22 +343,22 @@ const Profile = (props: MemberProps) => {
                     </section>
                     <section className="relative flex justify-around">
                         <figure 
-                            className="p-2 cursor-help"
+                            className="p-2 max-w-56 cursor-help"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 handleEquipClick("tactical")(e)}}>
                             <ImageWithSkeleton 
-                            src={`/media/tacticals/${memberData.WeaponDetails?.tactical.name}.png`} 
+                            src={`/media/tacticals/${memberData.WeaponDetails?.tactical.name}.webp`} 
                             alt="Tactical"
                              />
                         </figure>
                         <figure 
-                            className="p-2 cursor-help"
+                            className="p-2 max-w-56 cursor-help"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 handleEquipClick("lethal")(e)}} >
                             <ImageWithSkeleton 
-                            src={`/media/lethals/${memberData.WeaponDetails?.lethal.name}.png`} 
+                            src={`/media/lethals/${memberData.WeaponDetails?.lethal.name}.webp`} 
                             alt="Lethal"
                             />
                         </figure>
@@ -370,8 +375,8 @@ const Profile = (props: MemberProps) => {
                     ): (null)}
                     </section>
 
-                    <section className="relative flex flex-col sm:flex-row justify-center">
-                        <figure className="flex p-2 justify-around">
+                    <section className="relative flex flex-col sm:flex-row justify-between">
+                        <figure className="flex flex-col sm:flex-row p-2 justify-around items-center">
                             <div
                                 id="P1"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
@@ -398,8 +403,6 @@ const Profile = (props: MemberProps) => {
                                     alt={memberData.WeaponDetails?.perks.P2.name || ''}
                                 />
                             </div>
-                        </figure>
-                        <figure className="flex p-2 justify-around">
                             <div
                                 id="P3"
                                 className="w-1/2 max-w-40 p-2 cursor-help"
@@ -413,16 +416,18 @@ const Profile = (props: MemberProps) => {
                                     alt={memberData.WeaponDetails?.perks.P3.name || ''}
                                 />
                             </div>
+                        </figure>
+                        <figure className="flex p-2 justify-around items-center">
                             <div
                                 id="P4"
-                                className="w-1/2 max-w-40 p-2 cursor-help"
+                                className="flex w-4/5 max-w-64 p-2 justify-center cursor-help"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleEquipClick("perks","P4")(e);
                                 }}>
                                 <ImageWithSkeleton
                                     className="w-full max-w-40"
-                                    src={`/media/perks/${memberData.WeaponDetails?.perks.P4.name}.webp`}
+                                    src={`/media/wildcards/${memberData.WeaponDetails?.perks.P4.name}.webp`}
                                     alt={memberData.WeaponDetails?.perks.P4.name || ''}
                                 />
                             </div>
