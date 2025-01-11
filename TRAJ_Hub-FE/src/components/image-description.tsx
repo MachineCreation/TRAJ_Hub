@@ -40,13 +40,15 @@ const ImageDescription = ({name, type, dataAddress, imageAddress}: imageProps) =
 
             }
             catch (error) {
-                console.log("error", error)
+                console.error("error", error)
             };
         };
         
             fetchDescription();
         }
     },[name, type]);
+
+    console.log(type)
 
     return (
         <>

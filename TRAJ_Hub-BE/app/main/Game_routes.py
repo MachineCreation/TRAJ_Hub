@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from models import supabase_service
 import uuid
 
-game_bp = Blueprint('game', __name__, template_folder='../../pages/html')
+game_bp = Blueprint('game', __name__)
 
 @game_bp.route('/save-score', methods=['POST'])
 def save_score():

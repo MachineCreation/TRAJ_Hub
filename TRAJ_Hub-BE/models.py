@@ -28,4 +28,3 @@ class User(UserMixin):
             user = User(username)
             return user, user_data
         return None, None
-

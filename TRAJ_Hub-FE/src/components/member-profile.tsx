@@ -21,6 +21,7 @@ import { members, MemberName, Member, WeaponDetails, PerkId, equipId } from "../
 
 // variables
 import { backend_url } from "../config/variables";
+import EditMemberClips from "./edit_member_clips";
 // css
 
 
@@ -49,7 +50,8 @@ const Profile = (props: MemberProps) => {
     const heroImage = new Image();
     const [heroImageSrc, setHeroImageSrc] = useState<string | null>(null);
     const [equipEditorVis, setEquipEditorVis] = useState<boolean>(false);
-    const[editType, setEditType] =useState<string | null>(null)
+    const[editType, setEditType] =useState<string | null>(null);
+    const [videoEditorVis, setVideoEditorVis] = useState<boolean>(false);
 
     if (memberData.WeaponDetails) {
         heroImage.src = memberData.WeaponDetails?.hero
@@ -261,6 +263,14 @@ const Profile = (props: MemberProps) => {
                     />
 
             </div>
+            <div id="videomodal"
+                className={`absolute transition-opacity duration-200 ${videoEditorVis ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <EditMemberClips
+                    data = {memberData}
+                    isVis= {setVideoEditorVis}
+                    uname= {username}
+                />
+            </div>
             <article className="relative flex flex-col md:flex-row justify-items-center w-screen max-w-7xl min-h-custom-main h-fit m-auto p-5">
                 <figure className="relative flex w-fit max-w-96 min-h-custom-main ml-auto mt-2 mr-auto mb-auto">
                     {heroImageLoaded? (
@@ -455,9 +465,21 @@ const Profile = (props: MemberProps) => {
                     <p>{descriptionBox.description}</p>
                 </div>
             )}
-            <ClipGallery 
-                data = {memberData}
-            />
+            <article className="relative flex max-w-7xl self-center">
+                <ClipGallery 
+                    data = {memberData} />
+                {authForPage? (
+                        <button 
+                            className="absolute top-0 w-full bg-cyan-300 rounded bg-opacity-30 justify-center"
+                            onClick={() => {
+                                setVideoEditorVis(true);
+                            }}
+                            >
+                            Edit Video Clips
+                        </button>
+                )
+                :null}
+            </article>
         </>
     );
 };

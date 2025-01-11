@@ -10,14 +10,17 @@ import Footer from "../components/footer";
 function Home() {
 
   return (
-    <section className="flex flex-col xl:h-screen w-full max-w-[1850px] m-auto justify-items-center relative">
-    <Header
-      name={'Home'} />
-    <NavCube />
-    <QuadSquad />
-    <TeamStats />
-    <Footer />
-    </section>
+    <div className="w-full">
+      <Header
+        name={'Home'} />
+      <section className="flex flex-col xl:h-screen w-full max-w-[1850px] m-auto justify-items-center relative">
+      
+      <NavCube />
+      <QuadSquad />
+      <TeamStats />
+      <Footer />
+      </section>
+    </div>
   )
 }
 

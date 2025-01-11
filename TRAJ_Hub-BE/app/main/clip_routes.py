@@ -1,32 +1,53 @@
-from flask import Blueprint, render_template, jsonify, request
-from flask_login import login_required, current_user
-from models import supabase_service, User
+from flask import Blueprint, jsonify, request, current_app
+from ..auth.auth_required import token_required
+from werkzeug.datastructures import FileStorage
+import os
+import uuid
 
-clip_bp = Blueprint('clip', __name__, template_folder="../../pages/html")
+
+clip_bp = Blueprint('clip', __name__)
+
 
 @clip_bp.route('/clip-upload', methods=['POST'])
-@login_required
+@token_required
 def uploadClips():
-    username = current_user.id
-    user_data = User.get(username)[0]
-    data = request.form
-    print(data)
+   
+    str_data = request.form.to_dict()
+    file_data = request.files
+
+    username = str_data.get('uname')
+    print(username)
+    print(str_data)
+    print (file_data)
+    if not username:
+        return jsonify({"error": "Missing username in form data."}), 400
+
+    temp_dir = os.path.join(os.getcwd(), 'tmp')
+    os.makedirs(temp_dir, exist_ok=True)
+
+    file_paths = {}
+    for key, file_storage_obj in file_data.items():
+        if isinstance(file_storage_obj, FileStorage):
+            unique_filename = f"{uuid.uuid4()}_{file_storage_obj.filename}"
+            local_file_path = os.path.join(temp_dir, unique_filename)
+            file_storage_obj.save(local_file_path)
+            file_storage_obj.close()
+            file_paths[key] = local_file_path
+        else:
+            return jsonify({"error": f"Incorrect data type for {key}. Expected FileStorage, got {type(file_storage_obj)}"}), 422
+
+
+    task = current_app.celery.send_task(
+        'tasks.upload_clips_task',
+        args=[username, str_data, file_paths]
+    )
+
+    return jsonify({
+        "message": "Upload started",
+        "task_id": task.id
+    }), 202
     
-    try:
-        c1 = data.get('C1')
-        c2 = data.get('C2')
-        c3 = data.get('C3')
-        c4 = data.get('C4')
-        c5 = data.get('C5')
-        c6 = data.get('C6')
-        
-        datalist = [c1, c2, c3, c4, c5, c6]
-        
-        for index, clip in enumerate(datalist, start=1):
-            if clip != '':
-                supabase_service.table("Loadouts").update({f"C{index}": clip}).eq("name", username).execute()
-        
-        return render_template("main.html", user_data=user_data)
-    
-    except Exception as e:
-        return jsonify({"Error": f"{str(e)}"})
+@clip_bp.route('/test_task', methods = ["POST"])
+def test_task():
+    task = current_app.celery.send_task('tasks.print_test_task', args=["testuser", {}, {}])
+    return jsonify({"hello":"world"}), 200

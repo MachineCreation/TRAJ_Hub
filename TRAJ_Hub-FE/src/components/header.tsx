@@ -35,9 +35,19 @@ const Header = (props: HeaderProps) => {
       }, []);
 
     return (
-        <header className="flex justify-between items-center relative w-screen h-fit p-8 text-cyan-50 z-20">
-            <p className="text-5xl cursor-pointer" onClick={() => {handleNav('/')}}><span className="text-yellow-600">&#91;</span>TRAJ<span className="text-yellow-600">&#93;</span> Hub</p>
-            <section ref={dropdownRef} className="relative text-lg cursor-pointer" onClick={() => {setDropNav(!dropNav)}} onBlur={() => {setDropNav(false)}}>
+        <header className="flex flex-wrap justify-between items-center relative w-full h-fit p-8 text-cyan-50 z-20">
+            <p className="text-5xl cursor-pointer" 
+              onClick={() => {handleNav('/')}}>
+                <span className="text-yellow-600">&#91;</span>
+                TRAJ
+                <span className="text-yellow-600">&#93;</span>
+                 Hub
+            </p>
+            <section 
+              ref={dropdownRef} 
+              className="relative text-lg cursor-pointer" 
+              onClick={() => {setDropNav(!dropNav)}} 
+              onBlur={() => {setDropNav(false)}}>
                 {props.name}
                 <ul
                   className={`absolute w-fit h-fit p-5 right-0 top-10 rounded-xl ${dropNav? 'block': 'hidden'} bg-black shadow-orange-inner`}

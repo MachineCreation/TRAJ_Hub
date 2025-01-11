@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, current_app
 from werkzeug.utils import secure_filename
-from .proxy import api_proxy, api_post
+from .proxy import api_proxy
 from models import weapon_api_key as api_key
 from config import API_BASE_URL
 from models import supabase_service
@@ -11,7 +11,7 @@ import os
 from PIL import Image
 from ..auth.auth_required import token_required
 
-weapon_bp = Blueprint('weapon', __name__, template_folder='../../pages/html')
+weapon_bp = Blueprint('weapon', __name__)
 
 #------------------------------------------------------------ update weaopn data requires username, slot, weapon Type, weapon name and {attachment type: attachment, ...} in json body
 @weapon_bp.route('/update-weapon-data', methods=["POST"])

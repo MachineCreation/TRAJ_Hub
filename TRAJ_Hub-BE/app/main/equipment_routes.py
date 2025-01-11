@@ -3,7 +3,7 @@ from models import supabase_service
 from .proxy import api_post
 from ..auth.auth_required import token_required
 
-equipment_bp = Blueprint('equipment', __name__, template_folder='../../pages/html')
+equipment_bp = Blueprint('equipment', __name__)
 
 @equipment_bp.route('/equipment-form', methods=['POST'])
 @token_required

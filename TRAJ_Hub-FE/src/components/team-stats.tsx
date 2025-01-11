@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // components
-import YouTubeVideo from "./ytvid";
+import Video from "./ytvid";
 import ImageWithSkeleton from "./image_skeleton";
 import { useNavigate } from "react-router-dom";
 import ImageDescription from "./image-description";
@@ -10,20 +10,25 @@ import ImageDescription from "./image-description";
 // variables
 import { backend_url } from "../config/variables";
 
+//helpers
+import { fetchHome } from "../config/main_fetch";
+
 // css
 
 
 const TeamStats = () => {
 
-    const [sq_p_name, setSq_p_name] = useState<string>('')
-    const [sq_s_name, setSq_s_name] = useState<string>('')
-    const [clip1, setclip1] = useState<string>('')
-    const [clip2, setclip2] = useState<string>('')
-    const [clip3, setclip3] = useState<string>('')
+    const [sq_p_name, setSq_p_name] = useState<string>('');
+    const [sq_p_type, setSq_p_type] = useState<string> ('');
+    const [sq_s_name, setSq_s_name] = useState<string>('');
+    const [ sq_s_type, setSq_s_type] = useState<string>('');
+    const [clip1, setclip1] = useState<string>('');
+    const [clip2, setclip2] = useState<string>('');
+    const [clip3, setclip3] = useState<string>('');
     const [favWeaponName, setfavWeaponName] = useState<string>('');
     const [favWeaponType, setfavWeaponType] = useState<string>('');
     const [imageAddress, setimageAddress] = useState<string>('');
-    const [isModalVisible, setisModalVisable] = useState<boolean>(false)
+    const [isModalVisible, setisModalVisable] = useState<boolean>(false);
 
     const navigate = useNavigate();
 
@@ -31,41 +36,20 @@ const TeamStats = () => {
         navigate(nav);
     }
 
-
-    const fetchHome = async () => {
-        try {
-            const response = await fetch(`${backend_url}/populate-home`, {
-                method: 'POST',
-                headers: {
-                    "content-type": "application/json"
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch member profile');
-            }
-
-            const data = await response.json()
-
-            if (data.length === 0)
-                return null
-
-            const home = data[0]
+    useEffect(() => {
+        const populateHome = async () => {
+            const home = await fetchHome();
 
             setSq_p_name(home['sq-p-name'])
             setSq_s_name(home['sq-s-name'])
+            setSq_p_type(home['sq_p_type'])
+            setSq_s_type(home['sq_s_type'])
             setclip1(home.clip1)
             setclip2(home.clip2)
             setclip3(home.clip3)
         }
-        catch (error) {
-            console.error('An error occurred:', error);
-            return null;
-        }
-    }
 
-    useEffect(() => {
-        fetchHome()
+        populateHome();
     },[]);
 
     const closeModal = () => {
@@ -75,11 +59,11 @@ const TeamStats = () => {
     const favWeaponClick = (prime: boolean) => {
         if (prime) {
             setfavWeaponName(sq_p_name);
-            setfavWeaponType("Assaultrifle");
+            setfavWeaponType(sq_p_type);
             setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_primary.png")
         } else {
             setfavWeaponName(sq_s_name);
-            setfavWeaponType("Smg");
+            setfavWeaponType(sq_s_type);
             setimageAddress("https://obnwntqubaadmcbmdjjp.supabase.co/storage/v1/object/public/user_weapon_photos/Squad_secondary.png")
         }
         setisModalVisable(true)
@@ -107,14 +91,14 @@ const TeamStats = () => {
                     </div>
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
-                    <YouTubeVideo 
+                    <Video 
                         videoId={clip1}
                     />
                 </figure>
             </aside>
             <article className="flex mx-auto order-1 xl:order-2 xl:self-end w-11/12 h-fit xl:w-1/4 xl:h-1/4">
                 <figure className="flex grow mx-auto justify-items-center text-center">
-                    <YouTubeVideo 
+                    <Video 
                         videoId={clip3} 
                     />
                 </figure>
@@ -128,7 +112,7 @@ const TeamStats = () => {
                                 onClick={navClick("/WeaponCreator")}>Weapon Creator</div>
                     </figure>
                 <figure className=" flex xl:grow m-1 h-fit p-3 bg-slate-500 bg-opacity-10 text-cyan-50">
-                    <YouTubeVideo
+                    <Video
                         videoId={clip2}
                     />
                 </figure>

@@ -1,16 +1,13 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_login import LoginManager
 from models import supabase_service
 import os
 from config import ORIGINS
 from apscheduler.schedulers.background import BackgroundScheduler
-
-
-login_manager = LoginManager()
+from app.celery import create_celery_app
 
 def create_app():
-    app = Flask(__name__, template_folder='../pages/html', static_folder='../static')
+    app = Flask(__name__)
     app.secret_key = os.getenv('SECRET_KEY')
     
     
@@ -20,9 +17,6 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-    login_manager.init_app(app)
-    login_manager.login_view = 'auth.login'
 
     from .auth.routes import auth_bp
     from .main.main_routes import main_bp
@@ -44,12 +38,14 @@ def create_app():
     app.register_blueprint(game_bp)
     app.register_blueprint(profileEmail_bp)
     
+    app.celery = create_celery_app(app)
+    
     def query_supabase():
         response = supabase_service.table("User").select("username").execute()
         print("Supabase query response:", response.data)
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(query_supabase, 'interval', days=3)
+    scheduler.add_job(query_supabase, 'interval', days=1)
     scheduler.start()
 
     return app
