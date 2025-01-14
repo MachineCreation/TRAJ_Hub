@@ -21,7 +21,9 @@ const ClipInput = ({ ikey, addToClips }: ClipInputProps) => {
 
     const validateYouTubeUrl = (inputUrl: string) => {
         const youtubeLiveUrlPattern = /^https:\/\/www\.youtube\.com\/live\/([a-zA-Z0-9_-]+)\?si=[a-zA-Z0-9_-]+$/;
-        const match = inputUrl.match(youtubeLiveUrlPattern);
+        const youtubeShortUrlPattern = /^https:\/\/youtu\.be\/([a-zA-Z0-9_-]+)\?si=[a-zA-Z0-9_-]+$/;
+    
+        let match = inputUrl.match(youtubeLiveUrlPattern) || inputUrl.match(youtubeShortUrlPattern);
         if (!match) {
             setUrlIsValid(false);
             addToClips({ [ikey]: null });

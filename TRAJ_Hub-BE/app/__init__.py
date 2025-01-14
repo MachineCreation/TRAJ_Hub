@@ -17,6 +17,11 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    
+    TMP = 'tmp/'
+    app.config['TMP'] = TMP
+    
+    os.makedirs(TMP, exist_ok=True)
 
     from .auth.routes import auth_bp
     from .main.main_routes import main_bp

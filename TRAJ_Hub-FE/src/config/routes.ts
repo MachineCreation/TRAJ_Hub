@@ -8,6 +8,7 @@ import Araspberryberet from "../pages/Araspberryberet.tsx";
 import JesusTts from "../pages/JesusTts.tsx";
 import WeaponCreator from "../pages/weaponCreator.tsx";
 import Login from "../pages/login.tsx";
+import UploadVideo from "../pages/upload-to-onedrive.tsx";
 
 const Arcade = lazy(() => import('../pages/Arcade.tsx'));
 
@@ -67,6 +68,12 @@ const routes: RouteType[] = [
       name: "Login",
       protected: false
     },
+    {
+      path:"/upload_from_xbox",
+      component: UploadVideo,
+      name: "Upload Video Tutorial",
+      protected: false
+    }
 ];
 
 export default routes

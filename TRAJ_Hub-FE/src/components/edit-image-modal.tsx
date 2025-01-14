@@ -1,5 +1,8 @@
 
 
+// small components
+import { UploadTutorialVideoLink } from "./small_components";
+
 // helpers
 import { updateImage } from "../config/helpers";
 
@@ -34,8 +37,11 @@ const EditImageModal = ({equip, isvisable}: EditImageModalProps) => {
         <article className="fixed flex flex-col justify-items-center items-center w-screen h-screen p-2 sm:p-4 bg-black bg-opacity-70 z-30">
             <section className="relative flex flex-col m-auto p-4 pt-10 sm:p-16 min-w-1/2 h-fit overflow-scroll rounded-2xl shadow-outer-green flex-wrap bg-grey ">
                 <p 
-                    className="absolute top-2 right-4 text-5xl text text-yellow-200 drop-shadow-arrows cursor-pointer"
+                    className="absolute top-2 right-4 text-5xl text-yellow-200 drop-shadow-arrows cursor-pointer"
                     onClick={() => {isvisable(false)}}>X</p>
+
+                <UploadTutorialVideoLink />
+
                 <form className="flex flex-col justify-center">
                     <label 
                         htmlFor="image-input"

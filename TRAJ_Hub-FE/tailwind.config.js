@@ -14,6 +14,7 @@ export default {
       },
       boxShadow: {
         'orange-inner': '0 0 .5rem .5rem rgba(114 38 0 / .5) inset',
+        'orange-inner-large': '0 0 5rem 5rem rgba(114 38 0 / .2) inset',
         'dark-upper-inner': '0 .5rem .5rem .5rem rgba(255 255 255 / .5) inset',
         'outer-green': '0 0 .5rem .5rem rgba(17, 254, 0, 0.6)',
         'outer-lower-light': '0 .5rem .75rem rgba(255,255,255,.3)'
