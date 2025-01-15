@@ -1,5 +1,4 @@
 from flask import Blueprint, request, jsonify, render_template, current_app, make_response
-# from flask_login import current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User, supabase_service
 import jwt

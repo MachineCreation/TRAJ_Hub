@@ -51,3 +51,17 @@ export type Perk = {
 export type PerksType = {
   [key: string]: Perk[],
 }
+
+
+// type for signed url upload
+type url_res = {
+  path: string;
+  signed_url: string;
+  token: string;
+}
+
+export type Signed_url = {
+  urls: {
+    [key:string]: url_res
+  };
+}

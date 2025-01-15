@@ -40,11 +40,11 @@ const EditMemberClips = ({data, isVis, uname}: editMemberClipsProps) => {
                 const response = await updateClips(uname, clip_object)
                 if (!response.ok) {
                     setLoading(false);
-                    alert('An error has occured. Please check the file types you have submitted');
+                    console.log('An error has occured. Please check the file types you have submitted');
                 }
                 else {
                     setLoading(false);
-                    alert('Your changes have been added to the que. Note that depending on file size and trafic your updates my take as long as a day to show up.');
+                    setTimeout(() => {alert('Your changes have been uploaded to the interwebs');},700)
                     document.location.reload();
                 };
             }
@@ -65,8 +65,8 @@ const EditMemberClips = ({data, isVis, uname}: editMemberClipsProps) => {
         <article className={`fixed flex w-screen h-screen justify-center items-center p-4 bg-black bg-opacity-55 z-30`}>
             {loading? (
                 <div className="fixed flex flex-col w-full py-2 text-center text-2xl bg-black bg-opacity-75 z-50">
-                    Loading<br/>
-                    Please do not navigate away or refresh
+                    uploading. This may take a few minutes.<br/>
+                    Please do not navigate away or refresh.
                     <LoadingSpinner />
                 </div>
             ):null}
